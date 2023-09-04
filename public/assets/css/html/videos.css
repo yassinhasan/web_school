@@ -1,0 +1,316 @@
+ @import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body{
+  font-family: 'Raleway', sans-serif;
+}
+
+/* navbar */
+/* pure CSS animated navbar */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+header {
+  display: flex;
+  justify-content: center;
+  padding-block: 1rem;
+  background: royalblue;
+}
+
+nav {
+  min-width: 28rem;
+  background: white;
+  color: #0e0e0e;
+  border-radius: 100vw;
+}
+
+nav ul {
+  padding: 1.5rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+}
+
+nav ul li a {
+  color: #0e0e0e;
+  text-decoration: none;
+  padding: 1.5rem;
+  font-weight: 700;
+}
+
+.selectedLink {
+  position: absolute;
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+  background: royalblue;
+  border-radius: 50%;
+  z-index: -1;
+  top: 0;
+  left: 12px;
+  transition: transform 0.5s ease;
+}
+
+.selectedLink .side {
+  background: royalblue;
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 0;
+  border-radius: 0 0 0 100%;
+}
+
+.side.left {
+  left: -50%;
+}
+
+.side.right {
+  right: -50%;
+  transform: rotateY(180deg);
+}
+
+.selectedLink .outside {
+  background: royalblue;
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  clip-path: polygon(79% 25%, 30% 0, 100% 0, 100% 100%);
+}
+
+.outside.left {
+  left: -140%;
+}
+
+.outside.right {
+  right: -140%;
+  transform: rotateY(180deg);
+}
+
+.selectedLink .outside::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -9999;
+  background: white;
+  border-radius: 0 100% 0 0 / 0 50% 0 0;
+}
+
+.selectedLink .dot {
+  position: absolute;
+  width: 0.5rem;
+  aspect-ratio: 1/1;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* navbar */
+
+  /* video content */
+
+  .video_container  {
+    justify-content: space-around;
+    margin-top: 60px;
+    margin: auto;
+  }
+  .video_container .card {
+    margin-bottom: 20px;
+  }
+
+
+
+  @import url('https://fonts.googleapis.com/css?family=El+Messiri');
+
+html {
+  box-sizing: border-box;
+
+  *,
+  *:after,
+  *:before {
+    box-sizing: inherit;
+  }
+}
+
+body {
+
+  font-family: 'El Messiri', sans-serif;
+
+}
+
+
+.card {
+  position: relative;
+  max-width: 26.5em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  margin: 2rem auto;
+  padding: 2em;
+  background: #fff;
+}
+
+
+.card__title {
+  margin: 0 auto 1em;
+  color: #333;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.card__img {
+  display: block;
+  width: 20em;
+  max-width: 100%;
+  margin: 1em auto;
+  border-radius: 2px;
+}
+
+.card__text {
+  margin: 2em 5%;
+  color: #646464;
+}
+
+.card__btn {
+  display: table;
+  padding: .7em 4em;
+  background: #ddba76;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 1em auto 0;
+}
+
+
+
+/**
+ * Card #7
+ */
+
+
+
+
+  .wrapper {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, #04fafd, 5%, #607D8B, 50%, #030423);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  .wrapper div {
+    height: 60px;
+    width: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    animation: 4s linear infinite;
+  }
+  div .dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 20%;
+    right: 20%;
+  }
+  .wrapper div:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation: animate 8s linear infinite;
+  }
+  .wrapper div:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    animation: animate 10s linear infinite;
+  }
+  .wrapper div:nth-child(3) {
+    top: 40%;
+    left: 40%;
+    animation: animate 3s linear infinite;
+  }
+  .wrapper div:nth-child(4) {
+    top: 66%;
+    left: 30%;
+    animation: animate 7s linear infinite;
+  }
+  .wrapper div:nth-child(5) {
+    top: 90%;
+    left: 10%;
+    animation: animate 9s linear infinite;
+  }
+  .wrapper div:nth-child(6) {
+    top: 30%;
+    left: 60%;
+    animation: animate 5s linear infinite;
+  }
+  .wrapper div:nth-child(7) {
+    top: 70%;
+    left: 20%;
+    animation: animate 8s linear infinite;
+  }
+  .wrapper div:nth-child(8) {
+    top: 75%;
+    left: 60%;
+    animation: animate 10s linear infinite;
+  }
+  .wrapper div:nth-child(9) {
+    top: 50%;
+    left: 50%;
+    animation: animate 6s linear infinite;
+  }
+  .wrapper div:nth-child(10) {
+    top: 45%;
+    left: 20%;
+    animation: animate 10s linear infinite;
+  }
+  .wrapper div:nth-child(11) {
+    top: 10%;
+    left: 90%;
+    animation: animate 9s linear infinite;
+  }
+  .wrapper div:nth-child(12) {
+    top: 20%;
+    left: 70%;
+    animation: animate 7s linear infinite;
+  }
+  .wrapper div:nth-child(13) {
+    top: 20%;
+    left: 20%;
+    animation: animate 8s linear infinite;
+  }
+  .wrapper div:nth-child(14) {
+    top: 60%;
+    left: 5%;
+    animation: animate 6s linear infinite;
+  }
+  .wrapper div:nth-child(15) {
+    top: 90%;
+    left: 80%;
+    animation: animate 9s linear infinite;
+  }
+  @keyframes animate {
+    0% {
+      transform: scale(0) translateY(0) rotate(70deg);
+    }
+    100% {
+      transform: scale(1.3) translateY(-100px) rotate(360deg);
+    }
+  }
+  

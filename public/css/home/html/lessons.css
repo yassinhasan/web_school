@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #EEEDEB;
+  --color-title: #0E1C4E;
+  
+  --color-summary-1: #FFF6EE;
+  --color-summary-1-highlight: #FFC48B;
+  --color-summary-2: #FAFAFF;
+  --color-summary-2-highlight: #B4B3FF;
+  --color-summary-3: #FFF0F3;
+  --color-summary-3-highlight: #FFB3C0;
+  
+  --font-ibm-plex-sans: 'IBM Plex Sans', sans-serif;
+}
+
+body{
+  font-family: 'Raleway', sans-serif;
+}
+
+
+/* article */
+.accordion .card {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 10px;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #9E9E9E !important;
+}
+.accordion h2 {
+  border: none !important;
+}
+.accordion .btn-link{
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  border: none !important;
+}
+.accordion .btn-link.focus{
+
+  border: none !important;
+}
+.accordion .btn.focus{
+
+  border: none !important;
+}
+.accordion .card-body{
+  background-color: #fff;
+}
+    
+ 
+.marked{
+    color: #f0cc00;
+    font-weight: 700;
+
+}
+
+.question{
+    color: #00262b;
+    font-weight: 700;
+}
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0;
+}
+
+.image {
+    max-width: 100%;
+}
+pre{
+    display: block; 
+	padding: 3px 3px 2px; 
+	font-size: 14px; 
+	line-height: 20px;
+	width: 100%;
+	background-color: #333;
+	font-family: arial;
+	color: #f7f7f7;
+	font-weight: bold;
+}
+
+
+
+
+/* editor modal */
+.html_code,.html_code.focus{
+  background-color: #00262b !important;
+  color: #fff !important;
+}
+.html_preview_div{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  /* padding-left: 15px !important; */
+  padding: 1;
+}
+
+.modal-content {
+      margin: 30px auto;
+}
+.run {
+  margin-bottom: 15px;
+}
+
+ 
