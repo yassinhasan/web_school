@@ -22084,7 +22084,9 @@ select.form-control-sm:not([size]):not([multiple]) {
   color: #343a40; }
 
 .dropdown-item:active {
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
+  background-color: #afc7cb;
+  
   color: #343a40; }
 
 /*signupForm*/
@@ -22128,7 +22130,9 @@ select.form-control-sm:not([size]):not([multiple]) {
 .form-control.input-lg {
   resize: none;
   font-size: .9em; }
-
+.modal .form-control{
+  background-color: #afc7cb;
+}
 .form-control.rounded {
   border-radius: 0px; }
 

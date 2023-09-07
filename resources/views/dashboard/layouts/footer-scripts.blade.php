@@ -4,7 +4,7 @@
 <script src="{{ URL::asset('assets/js/plugins-jquery.js') }}"></script>
 <!-- plugin_path -->
 <script>
-    var plugin_path = 'assets/js/';
+    var plugin_path = "{{asset('assets/js') }}/";
 
 </script>
 
@@ -21,7 +21,6 @@
 <!-- sweetalert2 -->
 <script src="{{ URL::asset('assets/js/sweetalert2.js') }}"></script>
 <!-- toastr -->
-@yield('/public/assets/js')
 <script src="{{ URL::asset('assets/js/toastr.js') }}"></script>
 <!-- validation -->
 <script src="{{ URL::asset('assets/js/validation.js') }}"></script>
@@ -29,3 +28,4 @@
 <script src="{{ URL::asset('assets/js/lobilist.js') }}"></script>
 <!-- custom -->
 <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
+@yield('js')
