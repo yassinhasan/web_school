@@ -18,14 +18,14 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label id="add_first_name" for="first_name">First Name</label>
-                                    <input type="text" name="add_first_name" id="first_name" placeholder="Enter your First Name" class="form-control" required>
+                                    <label id="add_first_name" for="add_first_name">First Name</label>
+                                    <input type="text" name="first_name" value="{{ old('first_name') }}" id="add_first_name" placeholder="Enter your First Name" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label id="add_last_name" for="last_name">Last Name</label>
-                                    <input type="text" name="last_name" id="add_last_name" placeholder="Enter your First Name" class="form-control" required>
+                                    <label id="add_last_name" for="add_last_name">Last Name</label>
+                                    <input type="text" name="last_name" id="add_last_name" value="{{ old('last_name') }}"  placeholder="Enter your Last Name" class="form-control" required>
                                 </div>
                             </div>
 
@@ -35,7 +35,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label  for="add_age">Age</label>
-                                    <input type="number" name="age" id="add_age" min="5" max="99" class="form-control" placeholder="Age">
+                                    <input type="number" name="age" id="add_age" value="{{ old('age') }}" min="5" max="99" class="form-control" placeholder="Age">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -55,13 +55,13 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label  for="add_website1">Website 1</label>
-                                    <input type="url" name="website1" id="add_website1" placeholder="Enter your Website" class="form-control" >
+                                    <input type="url" name="website1" value="{{ old('website1') }}" id="add_website1" placeholder="Enter your Website" class="form-control" >
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label  for="add_website2">Website 2</label>
-                                    <input type="url" name="website2" id="add_website2" placeholder="Add another website" class="form-control">
+                                    <input type="url" name="website2" value="{{ old('website2') }}" id="add_website2" placeholder="Add another website" class="form-control">
                                 </div>
                             </div>
 
@@ -76,11 +76,11 @@
                                 <div class="form-group">
                                     <label>Gender</label>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="add_male" value="male" name="gender" class="custom-control-input" checked="">
-                                        <label class="custom-control-label" for="add_male">Male</label>
+                                        <input type="radio" id="add_male" value="male" name="gender" class="custom-control-input" value="{{ old('gender') == 'male' ?'checked' : '' }}">
+                                        <label class="custom-control-label" for="add_male" >Male</label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="add_female" value="female" name="gender" class="custom-control-input">
+                                        <input type="radio" id="add_female" value="female" name="gender" class="custom-control-input" value="{{ old('gender') == 'female' ?'checked' : '' }}">
                                         <label class="custom-control-label" for="add_female">Female</label>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Leave Message About Student</label>
-                                    <textarea id="add_about" class="form-control" name="about" placeholder="Enter your comment here..."></textarea>
+                                    <textarea id="add_about" class="form-control" name="about" placeholder="Enter your comment here...">{{old('about')}}</textarea>
                                 </div>
                             </div>
                         </div>

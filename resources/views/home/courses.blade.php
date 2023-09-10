@@ -17,9 +17,9 @@ My Heroes Courses
           <label for="acc-close" class="box-title">Front End Developer</label>
         </div>
         <!-- html -->
-        <input type="radio" name="accordion" id="cb1" />
+        <input type="radio" name="accordion" id="html" />
         <section class="box">
-          <label class="box-title" for="cb1">HTML</label>
+          <label class="box-title" for="html">HTML</label>
           <label class="box-close" for="acc-close"></label>
           <div class="box-content">
               <ol class="alternating-colors">
@@ -37,18 +37,18 @@ My Heroes Courses
           </div>
         </section>
         <!-- css -->
-        <input type="radio" name="accordion" id="cb2" />
+        <input type="radio" name="accordion" id="css" />
         <section class="box">
-          <label class="box-title" for="cb2">CSS</label>
+          <label class="box-title" for="css">CSS</label>
           <label class="box-close" for="acc-close"></label>
           <div class="box-content">
             <!-- add links here -->
           </div>
         </section>
         <!-- js -->
-        <input type="radio" name="accordion" id="cb3" />
+        <input type="radio" name="accordion" id="js" />
         <section class="box">
-          <label class="box-title" for="cb3">JAVA SCRIPT</label>
+          <label class="box-title" for="js">JAVA SCRIPT</label>
           <label class="box-close" for="acc-close"></label>
           <div class="box-content">
             <!-- here links of js -->

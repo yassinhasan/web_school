@@ -13,42 +13,25 @@ My Heroes Profile
 @endsection
 @section('content')
 <ul>
+  @foreach($students as $student)
   <li>
     <div class="details">
-      <h2>Yassin</h2>
-      <p><a href="https://yassin14.w3spaces.com">My Website</a></p>
+      <h2>{{ ucfirst($student->first_name) }}
+      </h2>
+      <?php $website = json_decode($student->website, true) ?>
+      <p class="age">{{$student->age}} Years</p>
+      <p class="country">{{$student->country}} </p>
+      <p class="website"><a href="{{$website[0]}}">{{$website[0]}}</a></p>
+      <p class="points"> <i class="fa fa-heart heart_rating"></i>
+        <span class="love-points">{{$student->points}}</span>
+      </p>
       <div class="product">
-        <img src="{{url('images/profile/hasan.jpg')}}">
+        <img src="{{url('images/profile/'.$student->image)}}">
       </div>
     </div>
   </li>
-  <li>
-    <div class="details">
-      <h2>Karma</h2>
-      <p><a href="https://karma781.w3spaces.com">My Website</a></p>
-      <div class="product">
-        <img src="{{url('images/profile/karma.jpg')}}">
-      </div>
-    </div>
-  </li>
-  <li>
-    <div class="details">
-      <h2>Rahaf</h2>
-      <p><a href="https://rahaf781.w3spaces.com">My Website</a></p>
-      <div class="product">
-        <img src="{{url('images/profile/rahaf.jpg')}}">
-      </div>
-    </div>
-  </li>
-  <li>
-    <div class="details">
-      <h2>Yamen</h2>
-      <p><a href="https://yamen10.w3spaces.com">My Website</a></p>
-      <div class="product">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/threadless12.jpg">
-      </div>
-    </div>
-  </li>
+  @endforeach
+
 </ul>
 @endsection
 

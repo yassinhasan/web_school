@@ -15,6 +15,7 @@
                     {{method_field('patch')}}
                     @csrf  
                     <div class="row">
+                        <input type="number" name="id" hidden value="{{ $student->id}}">
                         <div class="col-12 form-group">
                             <label  for="first_name">First Name</label>
                             <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" class="form-control"  value="{{ $student->first_name }}" required>
@@ -76,7 +77,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
-                        <button type="submit" class="btn btn-success">{{ __('Submit') }}</button>
+                        <button type="submit" class="btn btn-success">{{ __('Update') }}</button>
                     </div>
                 </form>
                 </form>

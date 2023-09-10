@@ -15,11 +15,13 @@
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        @vite(['resources/css/app.css', 'resources/js/app.js'])        
+        <link href="{{ asset('css/layouts/color.css') }}" rel="stylesheet">
         <link href="{{ asset('css/layouts/footer.css') }}" rel="stylesheet">
         <link href="{{ asset('css/layouts/nav.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/layouts/main.css') }}" rel="stylesheet">
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
     <body class="font-sans antialiased">

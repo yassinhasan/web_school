@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ProfilecardsController;
+use App\Http\Controllers\RatingController;
 use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 
@@ -25,28 +27,28 @@ Route::get('welcome', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    // update user profile
     Route::get('/user/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/user/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/user/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // dashboard
-    Route::get('/dashboard',function (){
-
-           return view('dashboard.dashboard') ;
-    })->name('dashboard');
+    Route::get('/dashboard',function (){return view('dashboard.dashboard') ;})->name('dashboard');
     Route::get('/students', [StudentController::class, 'index'])->name('student.index');
     Route::patch('/students', [StudentController::class, 'update'])->name('student.update');
     Route::delete('/students', [StudentController::class, 'destroy'])->name('student.destroy');
     Route::post('/students', [StudentController::class, 'store'])->name('student.store');
+    // profile page
+    Route::get('profile', [ProfilecardsController::class, 'index'])->name('profile');
+    Route::get('rating', [RatingController::class, 'index'])->name('rating');
+    Route::post('rating/like', [RatingController::class, 'like'])->name('rating.like');
 
     });
 Route::get('/', function()
 {
     return View('home.index');
 })->name("home");
-Route::get('profile', function()
-{
-    return View('home.profile');
-})->name("profile");;
+
 Route::get('courses', function()
 {
     return View('home.courses');

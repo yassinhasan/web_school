@@ -1,9 +1,9 @@
 @extends('home.master')
 @section('css')
-    <!-- Styles -->
-    <link href="{{ asset('css/home/styles.css') }}" rel="stylesheet">
+<!-- Styles -->
+<link href="{{ asset('css/home/index.css?ad') }}" rel="stylesheet">
 @section('title')
-    My Heroes
+My Heroes
 @stop
 @endsection
 @section('page-header')
@@ -12,140 +12,72 @@
 <!-- breadcrumb -->
 @endsection
 @section('content')
-<!-- row -->
+<!-- section -->
+<div class="section-container">
+    <section class="section" id="about">
+        <i class="fa-solid fa-code"></i>
+        <h1 class="section__title">Want to learn to code?
+</h1>
+        <p class="section__paragraph">
+        Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson.
+        I want to create a world where anyone can build something meaningful with technology, and everyone has the learning tools, resources, and opportunities to do so. Code contains a world of possibilities — all that’s required is the curiosity and drive to learn.
+        </p>
 
-<main>
-      <div id="header">
-        <h1>My Heroes Progress</h1>
-        <button class="share">
-          <a href="whatsapp://send?text=to Keep Track of Your Child's Progress https://honor.w3spaces.com"
-            title="Share on whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
-        </button>
-      </div>
-      <!-- start wraper -->
-      <div class="wraper row">
-      </div>
-      <div class="buttons row">
-        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#voting_modal">Preview
-          Websites</button>
-        <a type="button" class="btn btn-info Home" href="{{route('profile')}}">Profile Cards</a>
-        <a type="button" class="btn btn-danger Home" href="{{ route('courses') }}">Courses</a>
-        <!-- try button -->
-        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#editor">Try Edit</button>
-        <!-- try button -->
-      </div>
-      <!-- modal -->
-      <!-- Button trigger modal -->
+        <!-- section-form -->
+        <section class="section__form">
+            <h2 class="section__form-title">Don’t just watch or read about someone else coding — write your own code live in our online</h2>
+            <form id="form">
+                @guest
+                <a href="{{route('login') }}" class="login_btn">join us</a>
+                @endguest
+                @auth
+                <a href="{{route('rating') }}" class="login_btn name_btn">wellcome {{ auth()->user()->name}}</a>
+                @endauth
+            </form>
+        </section>
+    </section>
+</div>
 
 
-      <!-- Modal -->
-      <div class="modal fade" id="voting_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Click on image to show website</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="row links_wraper">
-                <div class="row col-12">
-                  <div class=" col-6 link_body">
-                    <!-- <span class="hover_span image">Yassin</span> -->
-                    <figure class="image">
-                      <img src="{{url('images/profile/rahaf.jpg')}}"
-                        class="img-fluid clicked_profile">
-                      <figcaption>Rahaf</figcaption>
-                    </figure>
-
-                  </div>
-                  <div class=" col-6 link_body">
-                    <!-- <span class="hover_span image">Yassin</span> -->
-                    <figure class="image">
-                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/threadless14.jpg"
-                        class="img-fluid clicked_profile">
-                      <figcaption>Yamen</figcaption>
-
-                    </figure>
-
-                  </div>
-                  <div class=" col-6 link_body">
-                    <!-- <span class="hover_span image">Yassin</span> -->
-                    <figure class="image">
-                      <img src="{{url('images/profile/karma.jpg')}}"
-                        class="img-fluid clicked_profile">
-                      <figcaption>Karma</figcaption>
-
-                    </figure>
-
-                  </div>
-                  <div class=" col-6 link_body">
-                    <!-- <span class="hover_span image">Yassin</span> -->
-                    <figure class="image">
-                      <img src="{{url('images/profile/hasan.jpg')}}" class="img-fluid clicked_profile">
-                      <figcaption>Yassin</figcaption>
-
-                    </figure>
-
-                  </div>
-                </div>
-                <div class="xbox card" data-target="1">
-                  <iframe src="https://rahaf781.w3spaces.com" width="90%" height="300px" allowfullscreen seamless>
-                  </iframe>
-                </div>
-                <div class="xbox card" data-target="2">
-                  <iframe src="https://yamen10.w3spaces.com" width="90%" height="300px" allowfullscreen seamless>
-                  </iframe>
-                </div>
-                <div class="xbox card" data-target="3">
-                  <iframe src="https://karma781.w3spaces.com" width="90%" height="300px"></iframe>
-                </div>
-                <div class="xbox card" data-target="4">
-                  <iframe src="https://yassin14.w3spaces.com" width="90%" height="300px">
-                  </iframe>
-                </div>
-
-              </div>
-            </div>
-          </div>
+<!-- cards -->
+<div class="cards-container" id="pricing">
+    <div class="card card-1">
+        <div class="card__logo">
+            <i class="fas fa-code"></i>
+            <p class="card__title">HTML</p>
         </div>
-      </div>
-
-      <!-- end modal -->
-    </main>
-<!-- row closed -->
-@endsection
-@section('editor')
-    <!-- editor modal -->
-    <div class="modal fade" id="editor" tabindex="-1" role="dialog" aria-labelledby="editorModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="row" style="width: 100%; justify-content: space-between;padding: 0 1rem;margin-bottom: 10px;">
-              <h5 class="modal-title" style="font-weight: 800;" id="editorModalLabel">HTML</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size: 1.5rem;">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control html_code" style="font-family: monospace;" id="exampleFormControlTextarea1"
-                rows="10" placeholder="enter your code here"></textarea>
-            </div>
-            <button type="button" class="btn btn-danger run" style="margin-bottom: 15px;">Run</button>
-            
-            <div class="embed-responsive embed-responsive-16by9 html_preview_div">
-              <iframe class="embed-responsive-item html_preview"></iframe>
-            </div>
-          </div>  
-        </div>
-      </div>
+        <i class="fab fa-html5"></i>
+        <p class="card__info">
+        Fun fact: all websites use HTML — even this one. It’s a fundamental part of every web developer’s toolkit. HTML provides the content that gives web pages structure, by using elements and tags, you can add text, images, videos, forms, and more. Learning HTML basics is an important first step in your web development journey and an essential skill for front- and back-end developers.
+        </p>
+        <a href="{{route('courses')}}" class="card__btn">Open Course</a>
     </div>
-    <!-- editor modal -->
-@endsection('editor')
+    <div class="card card-2">
+        <div class="card__logo">
+            <i class="fab fa-css3"></i>
+            <p class="card__title">CSS</p>
+
+        </div>
+        <p class="card__info">
+        You’ll find learning CSS essential in styling websites. Web developers use it to build on basic HTML and add personality to plain text pages. This course helps you expand your coding foundation and gives you CSS interactive practice to start adding colors and background images or editing layouts so you can create your very own, unique stylized web pages.
+        </p>
+        <a href="{{route('courses')}}" class="card__btn">Open Course</a>
+    </div>
+    <div class="card card-3">
+        <div class="card__logo">
+            <i class="fab fa-js"></i>
+            <p class="card__title">Java Script</p>
+        </div>
+        <p class="card__info">
+        You interact with JavaScript code all the time — you just might not realize it. It powers dynamic behavior on websites (like this one) and plays an important role in many fields, like front- and back-end engineering, game and mobile development, virtual reality, and more. In this course, you’ll learn JavaScript fundamentals that will be helpful as you dive deeper into more advanced topics.
+        </p>
+        <a href="{{route('courses')}}" class="card__btn">Open Course</a>
+    </div>
+</div>
+@endsection
+
 @section('js')
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/home/scripts.js') }}" defer></script>
+<!-- Scripts -->
+<script src="{{ asset('js/home/index.js') }}" defer></script>
 @endsection

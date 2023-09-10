@@ -3,8 +3,8 @@
         <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <!-- logo -->
             <div class="text-left navbar-brand-wrapper">
-                <a class="navbar-brand brand-logo" href="{{ route('home') }}"><img src="{{url('assets/images/logo-dark.png')}}" alt=""></a>
-                <a class="navbar-brand brand-logo-mini" href="{{ route('home') }}"><img src="{{ url('assets/images/logo-icon-dark.png')}}"
+                <a class="navbar-brand brand-logo" href="{{ route('home') }}"><img src="{{url('images/logo.png')}}" alt="">By Hasan</a>
+                <a class="navbar-brand brand-logo-mini" href="{{ route('home') }}"><img src="{{ url('images/logo.png')}}"
                         alt=""></a>
             </div>
             <!-- Top bar left -->
@@ -113,6 +113,7 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                         @csrf
+                        
                         <a href="route('logout')" class="dropdown-item"
                                 onclick="event.preventDefault();
                                             this.closest('form').submit();">

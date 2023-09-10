@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;700&family=Roboto:wght@300;400;500&display=swap");
+
+
+::selection {
+    background-color: var(--second-color-alt);
+    color: var(--main-color);
+}
+
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+    background-color: var(--body--color);
+}
+
+
+
+/* ---flex--- */
+
+.section,
+.section__form,
+.section-video,
+.cards-container,
+.card {
+    display: flex;
+}
+
+
+
+
+/* ---main--- */
+/* ---section--- */
+.section-container {
+    /* padding-top: 100px; */
+    margin-bottom: 20px;
+}
+
+.section {
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--main-color);
+    color: var(--second-color);
+}
+
+.section i {
+    font-size: 4.5rem;
+    color: var(--first-color);
+}
+
+.section__title {
+    margin: 10px;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -1px;
+    text-transform: capitalize;
+    color: var(--second-color-alt);
+}
+
+.section__paragraph {
+    margin: 0px 50px;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* ---section-form--- */
+.section__form {
+    margin: 30px;
+   
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.section__form-title {
+    font-size: 1.2rem;
+    margin: 15px 0 ;
+    text-transform: capitalize;
+
+}
+
+
+
+.login_btn {
+    width: 50%;
+    padding: 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: var(--first-color);
+    color: var(--main-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.login_btn:hover {
+    background-color: var(--body--color);
+    color: var(--first-color);
+    box-shadow: 0px 0px 2px var(--first-color);
+}
+.login_btn {
+    padding: 8px;
+    font-size: 1rem;
+}
+
+.name_btn{
+font-size: 1.4rem;
+}
+
+.cards-container{
+    margin-bottom: 130px;
+
+}
+
+/* ---cards--- */
+.cards-container .card {
+    margin: 0 10px;
+    padding: 25px 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--main-color);
+    color: var(--second-color);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.16);
+    transition: all 0.25s ease;
+}
+
+.cards-container .card:hover {
+    padding: 25px;
+    background-color: var(--first-color);
+    color: var(--main-color);
+}
+.card__logo {
+text-align: center;
+}
+.card__logo i {
+    margin-top: 10px;
+    padding: 13px;
+    font-size: 2.1875rem;
+    background-color: var(--first-color);
+    color: var(--main-color);
+    border-radius: 50%;
+}
+
+.card__title {
+    margin-top: 3px;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+
+
+.card__info {
+    margin: 10px 30px 35px;
+    text-align: center;
+}
+
+.card__btn {
+    margin-bottom: 10px;
+    padding: 9px 18px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-decoration: none;
+    background-color: var(--first-color);
+    color: var(--main-color);
+    border-radius: 32px;
+    transition: all 0.15s ease;
+}
+
+.card__btn:hover {
+    letter-spacing: 2px;
+    color: var(--second-color);
+}
+
+
+
+/* ---media-queries--- */
+@media only screen and (max-width: 768px) {
+    /* ---main--- */
+    /* ---section--- */
+    .section i {
+        font-size: 4rem;
+    }
+
+    .section__title {
+        margin: 5px;
+        font-size: 3rem;
+    }
+
+    .section__paragraph {
+        margin: 0px 10px;
+        font-size: 1.1rem;
+    }
+
+    /* ---section-form--- */
+    .section__form {
+        margin: 20px;
+    }
+
+    .section__form-title {
+        font-size: 1rem;
+    }
+    .name_btn{
+        font-size: 1.4;
+    }
+
+
+
+    /* ---cards--- */
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cards-container .card {
+        width: 60%;
+        margin: 10px 20px;
+        border: 1px solid #ddd;
+    }
+
+    .cards-container .card:hover {
+        padding: 25px 10px;
+        background-color: var(--first-color);
+        color: var(--main-color);
+    }
+
+    .card__logo i {
+        font-size: 1.5625rem;
+    }
+
+    .card__title {
+        font-size: 1.3rem;
+    }
+
+    .card__info {
+        margin: 10px 40px 35px;
+    }
+
+    .card__btn {
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 468px) {
+
+    /* ---main--- */
+    /* ---section--- */
+    .section i {
+        font-size: 3.5rem;
+    }
+
+    .section__title {
+        font-size: 2.5rem;
+    }
+
+    .section__paragraph {
+        margin: 0px 5px;
+        font-size: 1rem;
+    }
+
+
+    /* ---cards--- */
+    .cards-container  .card {
+        width: 80%;
+    }
+}
