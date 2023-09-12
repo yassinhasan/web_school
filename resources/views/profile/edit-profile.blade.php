@@ -18,7 +18,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])        
         <link href="{{ asset('css/layouts/color.css') }}" rel="stylesheet">
         <link href="{{ asset('css/layouts/footer.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/layouts/nav.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/layouts/nav2.css') }}" rel="stylesheet">
         <link href="{{ asset('css/layouts/main.css') }}" rel="stylesheet">
 
         <!-- Scripts -->
@@ -26,7 +26,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-        @include('home.layouts.navbar')
+        @include('home.layouts.navbar2')
 
             <!-- Page Heading -->
             @if (isset($header))
@@ -50,6 +50,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
-        <script src="{{ asset('js/layouts/nav.js') }}" ></script>
+        <script src="{{ asset('js/layouts/nav2.js') }}" ></script>
     </body>
 </html>

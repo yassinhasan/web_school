@@ -1,16 +1,23 @@
 @extends('home.master')
 @section('css')
 <!-- Styles -->
+<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
 <link href="{{ asset('css/home/profile.css') }}" rel="stylesheet">
+<!-- style -->
 @section('title')
 My Heroes Profile
 @stop
 @endsection
-@section('page-header')
-<!-- breadcrumb -->
 
-<!-- breadcrumb -->
+@section('page-header')
 @endsection
+
+<!-- navbar -->
+
+@section("navbar")
+    @include('home.layouts.navbar2')
+@endsection()
+<!-- navbar -->
 @section('content')
 <ul>
   @foreach($students as $student)
@@ -35,8 +42,16 @@ My Heroes Profile
 </ul>
 @endsection
 
-@section('js')
+
+<!-- footer -->
+@section("footer")
+<!-- @include('home.layouts.footer') -->
+@endsection()
+
+<!-- footer -->
 
 <!-- Scripts -->
+@section('js')
+<script src="{{ asset('js/layouts/nav2.js') }}" ></script>
 <script src="{{ asset('js/home/profile.js') }}" defer></script>
 @endsection

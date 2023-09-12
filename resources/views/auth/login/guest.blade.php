@@ -18,17 +18,19 @@ use Illuminate\Support\Facades\Route;
 
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link href="{{ asset('css/layouts/footer.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/layouts/nav.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/layouts/color.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/layouts/nav2.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/layouts/main.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/auth/auth.css') }}" rel="stylesheet">
         <!-- <link href="{{ asset('css/layouts/nav.css') }}" rel="stylesheet"> -->
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
-    @include('home.layouts.navbar')
+    @include('home.layouts.navbar2')
 
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100" style="padding: 120px 0;">
+        <div class="auth-wraper">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100" >
                 <h1 style="font-size: 2rem; font-weight:bold">
                     {{ ucfirst(str_replace('.',' ' ,Route::currentRouteName()) )}}
                 </h1>
@@ -42,8 +44,9 @@ use Illuminate\Support\Facades\Route;
             </div>
         </div>
         </div>
-        @include("home.layouts.footer")
-        <script src="{{ asset('js/layouts/nav.js') }}" ></script>
+
+        <!-- @include("home.layouts.footer") -->
+        <script src="{{ asset('js/layouts/nav2.js') }}" ></script>
 
     </body>
 </html>

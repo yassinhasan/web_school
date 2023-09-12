@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfilecardsController;
@@ -42,11 +43,10 @@ Route::middleware('auth')->group(function () {
     Route::get('profile', [ProfilecardsController::class, 'index'])->name('profile');
     Route::get('rating', [RatingController::class, 'index'])->name('rating');
     Route::post('rating/like', [RatingController::class, 'like'])->name('rating.like');
-
     });
 Route::get('/', function()
 {
-    return View('home.index');
+    return View('home.home');
 })->name("home");
 
 Route::get('courses', function()
@@ -65,6 +65,9 @@ Route::get('html/lessons', function()
 {
     return View('home.html.lessons');
 })->name("html.lessons");;
+
+// contact
+Route::post('contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact');
 
 
 

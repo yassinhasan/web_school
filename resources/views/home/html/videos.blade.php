@@ -1,11 +1,21 @@
 @extends('home.master')
 @section('css')
 <!-- Styles -->
+<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
 <link href="{{ asset('css/home/html/videos.css') }}" rel="stylesheet">
+@endsection()
+<!-- style -->
 @section('title')
 My Heroes Courses
-@stop
-@endsection
+@endsection()
+
+<!-- navbar -->
+
+@section("navbar")
+    @include('home.layouts.navbar2')
+@endsection()
+<!-- navbar -->
+
 @section('page-header')
                   <!-- breadcrumb -->
                   <div aria-label="breadcrumb">
@@ -70,8 +80,16 @@ The most important attribute of the <a> element is the href attribute, which ind
       </div>
 @endsection('background-dot')
 
-@section('js')
+
+<!-- footer -->
+@section("footer")
+@include('home.layouts.footer')
+@endsection()
+
+<!-- footer -->
 
 <!-- Scripts -->
+@section('js')
+<script src="{{ asset('js/layouts/nav2.js') }}" ></script>
 <script src="{{ asset('js/home/html/videos.js') }}" defer></script>
 @endsection

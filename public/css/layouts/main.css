@@ -1,4 +1,40 @@
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+:root {
+    --body--color: #fbfcfc;
+    --main-color: #ffffff;
+    /* --first-color: #16a085; */
+    --first-color: #427caa;
+    --second-color: #414141;
+    --second-color-alt: #313131;
+
+    --heart-icon-color : #c0506a;
+    --whatsup-icon-color : #075E54;
+    --chatbot-main-color : #F44336;
+
+    /* toaster */
+    --dark-toast: #34495e;
+    --light-toast: #fff;
+    --success-toast: #0abf30;
+    --error-toast: #f24d4c;
+    --warning-toast: #e9bd0c;
+    --info-toast: #3498db;
+
+    --sm-fontsize :  16px;
+    --md-fontsize : 20px;
+    --lg-fontsize : 25px;
+
+    --profile-image-rating-size : 80px;
+    /* background header website */
+    --background-header-color: #ccc;
+
+    /* font family */
+    --fontfamily-righteous : 'Righteous';
+
+  }
 .container{
-    margin-top: 160px;
+    margin-top: 10px;
     margin-bottom: 160px;
 }

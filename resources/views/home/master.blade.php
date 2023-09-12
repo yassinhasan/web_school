@@ -21,7 +21,7 @@
 
 <body>
 
-    @include('home.layouts.navbar')
+        @yield("navbar")
         <!-- main-content -->
         <div class="container">
 
@@ -32,15 +32,14 @@
             @yield('editor')
         </div>
 
-        <!--=======  footer -->
-        
-            @include('home.layouts.footer')
-
+        <!-- footer -->
+        @yield("footer")
+        <!-- end footer -->
 
         <!--   === footer scripts -->
-
          @include('home.layouts.footer-scripts')
-    
+            <!--   === footer scripts -->
+
 
 </body>
 

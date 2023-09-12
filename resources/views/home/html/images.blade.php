@@ -1,11 +1,23 @@
 @extends('home.master')
 @section('css')
 <!-- Styles -->
+<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
 <link href="{{ asset('css/home/html/images.css') }}" rel="stylesheet">
+@endsection()
+<!-- style -->
+
 @section('title')
 My Heroes Courses
-@stop
-@endsection
+
+@endsection()
+
+<!-- navbar -->
+
+@section("navbar")
+    @include('home.layouts.navbar2')
+@endsection()
+<!-- navbar -->
+
 @section('page-header')
 <!-- breadcrumb -->
             <!-- breadcrumb -->
@@ -86,8 +98,16 @@ My Heroes Courses
       </div>
 @endsection('background-dot')
 
-@section('js')
+
+<!-- footer -->
+@section("footer")
+@include('home.layouts.footer')
+@endsection()
+
+<!-- footer -->
 
 <!-- Scripts -->
+@section('js')
+<script src="{{ asset('js/layouts/nav2.js') }}" ></script>
 <script src="{{ asset('js/home/html/images.js') }}" defer></script>
 @endsection

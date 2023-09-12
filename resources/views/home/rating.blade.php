@@ -1,18 +1,28 @@
 <?php use Illuminate\Support\Facades\Auth;
 ?>
 @extends('home.master')
+
 @section('css')
 <!-- Styles -->
+
+<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
 <link href="{{ asset('css/home/rating.css') }}" rel="stylesheet">
+@endsection()
+<!-- style -->
+
 @section('title')
 My Heroes
-@stop
 @endsection
-@section('page-header')
-<!-- breadcrumb -->
 
-<!-- breadcrumb -->
+@section('page-header')
 @endsection
+
+<!-- navbar -->
+
+@section("navbar")
+    @include('home.layouts.navbar2')
+@endsection()
+<!-- navbar -->
 @section('content')
 <!-- row -->
 
@@ -33,7 +43,7 @@ My Heroes
                            {{ $loop->index + 1 }}
                         </div>
                         <div class="name">
-                           {{ ucwords($student->first_name." ".$student->last_name)}}
+                           {{ ucwords($student->first_name)}}
                         </div>
                         <div class="image">
                             <img src="{{ url('images/profile/'.$student->image)}}" class="img-fluid profile">
@@ -56,11 +66,9 @@ My Heroes
   <div class="buttons row">
     <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#voting_modal">Preview
       Websites</button>
-    <a type="button" class="btn btn-info Home" href="{{route('profile')}}">Profile Cards</a>
-    <a type="button" class="btn btn-danger Home" href="{{route('courses') }}">Courses</a>
-    <!-- try button -->
-    <button class="btn btn-success" type="button" data-toggle="modal" data-target="#editor">Try Edit</button>
-    <!-- try button -->
+    <button type="button" class="btn btn-warning" onclick="window.location.reload()">Refresh
+    </button>
+
   </div>
 
 
@@ -133,6 +141,7 @@ My Heroes
 
 
 @endsection
+
 @section('editor')
   <!-- editor modal -->
   @include("home.layouts.editor-modal")
@@ -140,8 +149,15 @@ My Heroes
  <!-- row closed -->
           </div> 
 @endsection('editor')
-@section('js')
+
+<!-- footer -->
+@section("footer")
+<!-- @include('home.layouts.footer') -->
+@endsection()
+<!-- footer -->
 
 <!-- Scripts -->
+@section('js')
+<script src="{{ asset('js/layouts/nav2.js') }}" ></script>
 <script src="{{ asset('js/home/rating.js') }}" defer></script>
 @endsection
