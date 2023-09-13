@@ -18,7 +18,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('image');
+            $table->string('image')->default('profile.png');
+            $table->string('email')->default(null);
+            $table->string('phone');
             $table->integer('age')->nullable();
             $table->timestamp('birthday')->nullable();
             $table->string('account_status')->default("enabled");
@@ -28,6 +30,8 @@ return new class extends Migration
             $table->integer("user_id")->nullable();
             $table->enum("gender",["male","female"]);
             $table->integer("points")->default(0);
+            $table->json("likedby")->default(json_encode([]));
+
 
 
 

@@ -3,8 +3,6 @@
 <!-- Styles -->
 <link href="{{ asset('css/layouts/nav2.css?ad') }}" rel="stylesheet">
 <link href="{{ asset('css/layouts/chatbot.css?ad') }}" rel="stylesheet">
-<link href="{{ asset('css/layouts/toaster.css?ad') }}" rel="stylesheet">
-<link href="{{ asset('css/layouts/spinner.css?ad') }}" rel="stylesheet">
 <link href="{{ asset('css/home/home.css?ad') }}" rel="stylesheet">
 @section('title')
 My Heroes
@@ -35,15 +33,11 @@ My Heroes
   </div>
 
   @include("home.layouts.chatbot")
-  @include("home.layouts.toaster")
-  @include("home.layouts.spinner")
 @endsection
 <!-- end content -->
 @section('js')
 <!-- Scripts -->
 <script src="{{ asset('js/layouts/nav2.js') }}" defer></script>
 <script src="{{ asset('js/layouts/chatbot.js') }}" defer></script>
-<script src="{{ asset('js/layouts/toaster.js') }}" defer></script>
-<script src="{{ asset('js/layouts/spinner.js') }}" defer></script>
 <script src="{{ asset('js/home/home.js') }}" defer></script>
 @endsection

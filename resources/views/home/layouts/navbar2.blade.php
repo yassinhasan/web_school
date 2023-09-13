@@ -22,15 +22,19 @@
         @auth
         <li><a href="{{route('rating') }}">Rating</a></li>
         <li><a href="{{route('profile') }}">Cards</a></li>
-        <li><a href="{{route('dashboard') }}">{{ auth()->user()->name }}</a></li>
-       <form method="POST" action="{{ route('logout') }}">
+        <li><a href="{{route('profile.edit') }}">{{ auth()->user()->name }}</a></li>
+        <li><a href="{{route('dashboard') }}">Dashboard</a></li>
+        <li><a href="{{route('addstudent') }}">Add Student</a></li>
+        <form method="POST" action="{{ route('logout') }}">
          @csrf
          <li><a href="{{route('logout') }}"
          onclick="event.preventDefault();
            this.closest('form').submit();">
            Logout
          </a></li>
-       </form>        @endauth
+       </form>  
+        @endauth
+
       </ul>    
     </nav>
   </div>

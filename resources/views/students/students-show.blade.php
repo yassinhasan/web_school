@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.master')
+@extends('dashboard.master')
 @section('css')
 <link href="{{ asset('css/dashboard/students/style.css') }}" rel="stylesheet">
 <link href="{{ asset('css/dashboard/students/modal.css') }}" rel="stylesheet">
@@ -31,7 +31,7 @@
         <div class="card card-statistics h-100">
             <div class="card-body">
 <!-- table -->
-@include('students.students-table')
+@include('students.layouts.table')
 <!-- end table -->
         </div>
         </div>

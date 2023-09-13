@@ -46,7 +46,7 @@ My Heroes
                            {{ ucwords($student->first_name)}}
                         </div>
                         <div class="image">
-                            <img src="{{ url('images/profile/'.$student->image)}}" class="img-fluid profile">
+                            <img src="{{ url('images/profile/students/'.$student->image)}}" class="img-fluid profile">
     
                         </div>
     
@@ -89,7 +89,7 @@ My Heroes
               <div class=" col-6 link_body" type="button" data-toggle="modal" data-target="#websiteModal{{$loop->index}}">
                 <!-- <span class="hover_span image">Yassin</span> -->
                 <figure class="image">
-                  <img src="{{ asset( 'images/profile/'.$student->image )}}" class="img-fluid clicked_profile">
+                  <img src="{{ asset( 'images/profile/students/'.$student->image )}}" class="img-fluid clicked_profile">
                   <figcaption>{{ucfirst($student->first_name)}}</figcaption>
                 </figure>  
               </div>
@@ -128,8 +128,10 @@ My Heroes
       <div class="modal-body">
         <div class="xbox card" data-target="1">
         <?php $website =json_decode($student->website, true) ?>
+        @if($website)
           <iframe src="{{ $website[0] }}" width="100%" height="600px" allowfullscreen seamless>
           </iframe>
+          @endif
         </div>
       </div>
     </div>

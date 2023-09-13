@@ -33,8 +33,35 @@
     /* font family */
     --fontfamily-righteous : 'Righteous';
 
+    /* login page */
+    --login-text-dark: hsl(240, 54%, 15%);
+    --login-text-light: hsl(242, 18%, 64%);
+    --login-primary: hsl(222, 98%, 60%);
+    --login-primary-lighter: hsl(240, 33%, 86%);
+    --login-primary-gradient: linear-gradient(to right, #3671fd, #6f31ff);
+
   }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a,
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+  
 .container{
-    margin-top: 10px;
+    margin-top: 150px;
     margin-bottom: 160px;
 }
+
+
+
+
+

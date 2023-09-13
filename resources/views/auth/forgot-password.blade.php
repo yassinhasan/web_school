@@ -1,25 +1,70 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-    </div>
+@extends('auth.master')
+@section('css')
+<!-- Styles -->
+<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
+@endsection()
+<!-- style -->
+@section('title')
+Login
+@endsection
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
 
+<!-- navbar -->
+
+@section("navbar")
+@include('home.layouts.navbar2')
+@endsection()
+<!-- navbar -->
+
+<!-- content -->
+@section('content')
+
+<div class="image-section">
+  <div class="image-wrapper">
+    <img src="https://imgur.com/wDmDIhi.png" alt="">
+  </div>
+
+  <div class="content-container">
+    <h1 class="section-heading">Success begins with <span>Education.</span></h1>
+  </div>
+</div>
+
+<div class="form-section">
+  <div class="form-wrapper">
+
+    <h2 style="margin-bottom: 15px;">Fotget Your Password!👋🏻</h2>
     <form method="POST" action="{{ route('password.email') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+      @csrf
+      <div class="input-container">
+      <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" value="{{old('email')}}" required autofocus autocomplete="username">
+          @if($errors->has('email'))
+          <div class="text-danger">{{ $errors->first('email') }}</div>
+          @endif
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
+            <button class="btn btn-secondary clicked-btn">Email Password Reset Link</button>
         </div>
+
     </form>
-</x-guest-layout>
+  </div>
+</div>
+
+@endsection
+
+<!-- footer -->
+@section("footer")
+<!-- @include('home.layouts.footer') -->
+@endsection()
+<!-- footer -->
+
+<!-- Scripts -->
+@section('js')
+<script src="{{ asset('js/layouts/nav2.js') }}"></script>
+@endsection
+<!-- Scripts -->
+
+
+

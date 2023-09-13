@@ -33,7 +33,7 @@ class StoreStudentRequest extends FormRequest
             'website' => 'nullable|url',
             'about' => 'nullable|string',
             'country' => 'required|string|min:3',
-            'image' => 'required|file|mimes:jpg,jpeg,png,gif'
+            'image' => 'file|mimes:jpg,jpeg,png,gif'
         ];
     }
 }

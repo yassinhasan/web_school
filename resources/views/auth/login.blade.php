@@ -1,52 +1,86 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('auth.master')
+@section('css')
+<!-- Styles -->
+<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
+@endsection()
+<!-- style -->
+@section('title')
+Login
+@endsection
 
+
+<!-- navbar -->
+
+@section("navbar")
+@include('home.layouts.navbar2')
+@endsection()
+<!-- navbar -->
+
+<!-- content -->
+@section('content')
+
+<div class="image-section">
+  <div class="image-wrapper">
+    <img src="https://imgur.com/wDmDIhi.png" alt="">
+  </div>
+
+  <div class="content-container">
+    <h1 class="section-heading">Success begins with <span>Education.</span></h1>
+    <p class="section-paragraph">Education is the key that unlocks the limitless doors of knowledge, empowering us to shape our destinies and create a brighter future.</p>
+  </div>
+</div>
+
+<div class="form-section">
+  <div class="form-wrapper">
+
+    <h2>Welcome Back! 👋🏻</h2>
+    <p>Enter your credentials to access your account.</p>
     <form method="POST" action="{{ route('login') }}">
-        @csrf
+      @csrf
+      <div class="input-container">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" value="{{old('email')}}" required autofocus autocomplete="username">
+          @if($errors->has('email'))
+          <div class="text-danger">{{ $errors->first('email') }}</div>
+          @endif
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password">
+          @if($errors->has('email'))
+          <div class="text-danger">{{ $errors->first('password') }}</div>
+          @endif
+        </div>
+      </div>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+      <div class="remember-forgot">
+        <div class="remember-me">
+          <input type="checkbox" value="remember-me" id="remember-me" name="remember">
+          <label for="remember-me">Remember me</label>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <a href="{{ route('password.request') }}"  class="text-secondary">Forgot password?</a>
+        <p>
+          <a href="{{ route('register') }}" class="text-info">Register</a>
+        </p>
+      </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+      <button class="login-btn clicked-btn">Log In</button>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-                <span class="or" style="margin: 0 10px;"> | </span>
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
-                {{ __('Register') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
     </form>
-</x-guest-layout>
+  </div>
+</div>
+@endsection
+
+<!-- footer -->
+@section("footer")
+<!-- @include('home.layouts.footer') -->
+@endsection()
+<!-- footer -->
+
+<!-- Scripts -->
+@section('js')
+<script src="{{ asset('js/layouts/nav2.js') }}"></script>
+@endsection
+<!-- Scripts -->

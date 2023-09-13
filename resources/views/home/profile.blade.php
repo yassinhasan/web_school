@@ -28,12 +28,16 @@ My Heroes Profile
       <?php $website = json_decode($student->website, true) ?>
       <p class="age">{{$student->age}} Years</p>
       <p class="country">{{$student->country}} </p>
+      @if($website)
       <p class="website"><a href="{{$website[0]}}">{{$website[0]}}</a></p>
+      @else
+      <p class="website"><a href="#">No Web Site Now</a></p>
+      @endif
       <p class="points"> <i class="fa fa-heart heart_rating"></i>
         <span class="love-points">{{$student->points}}</span>
       </p>
       <div class="product">
-        <img src="{{url('images/profile/'.$student->image)}}">
+        <img src="{{url('images/profile/students/'.$student->image)}}">
       </div>
     </div>
   </li>

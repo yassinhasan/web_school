@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Righteous);
 
 .menu-cont {
-  position:fixed;
+  position:sticky;
   left: 2%;
   top:4%;
   display: block;
@@ -38,7 +38,7 @@
   -webkit-transition: opacity .35s, visibility .35s, height .35s;
   transition: opacity .35s, visibility .35s, height .35s;
   overflow: hidden;
-  z-index:100;
+  z-index:101;
 }
 .menu-overylay.open {
   opacity: 1.9;
@@ -69,7 +69,7 @@
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  font-size: 7vh;
+  font-size: 5vh;
   font-family: 'Righteous', serif;
   font-weight: 400;
   text-align: center;

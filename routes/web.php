@@ -70,5 +70,9 @@ Route::get('html/lessons', function()
 Route::post('contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact');
 
 
+// add student
+Route::get('/addStudent', [StudentController::class, 'show'])->name('addstudent');
+Route::post('/addStudent/add', [StudentController::class, 'add'])->name('addstudent.add');
+
 
 require __DIR__.'/auth.php';

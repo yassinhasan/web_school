@@ -50,6 +50,7 @@
 
 .tooltip,
 .tooltip2 {
+    z-index: 99;
     position: fixed;
     bottom: 56px;
     right: 137px;

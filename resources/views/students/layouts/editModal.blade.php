@@ -30,6 +30,7 @@
                         </div>
 
                         <?php $websites =json_decode($student->website, true) ?>
+                        @if($website)
                         @foreach($websites as $website)
                         <div class="col-12">
                                 <div class="form-group">
@@ -38,6 +39,18 @@
                                 </div>
                             </div>
                         @endforeach
+                        @else
+                        <div class="col-12">
+                                <div class="form-group">
+                                    <label  for="website1">Website1</label>
+                                    <input type="url"  name="website1" id="website1" placeholder="Enter your Website1" class="form-control" >
+                                </div>
+                                <div class="form-group">
+                                    <label  for="website2">Website2</label>
+                                    <input type="url"  name="website2" id="website2" placeholder="Enter your Website2" class="form-control" >
+                                </div>
+                            </div>                        
+                        @endif
                         <!-- select country -->
                         <div class="col-12">
                                 <div class="form-group">
@@ -67,7 +80,7 @@
                                     <hr>
                                     <hr>
                                     @if($student->image != null)
-                                    <img class="edit_student_image" src="{{ url('images/profile/'.$student->image) }}" style="max-width:100%">
+                                    <img class="edit_student_image" src="{{ url('images/profile/students/'.$student->image) }}" style="max-width:100%">
                                     @endif
                                 </div>
                             </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Http\Requests\StoreStudentRequest;
+use Illuminate\Support\Facades\Validator;
+
 use App\Http\Requests\UpdateStudentRequest;
 use Illuminate\Http\Request;
 
@@ -51,9 +53,13 @@ class StudentController extends Controller
         $student->about = $request->about;
         $websites = [$request->website1 , $request->website2];
         $student->website = json_encode($websites);
-        $originalName = $request->image->getClientOriginalName();
-        $student->image= $originalName;
-        $request->image->move(public_path('images/profile/'), $originalName);
+        if($request->image !=null)
+        {
+            $originalName = $request->image->getClientOriginalName();
+            $savedImage= time() . '.'.$originalName;
+            $student->image= $savedImage;
+           
+            $request->image->move(public_path('images/profile/students/'), $savedImage);        }
         $student->save();
         toastr()->success('Data has been saved successfully!');
 
@@ -68,7 +74,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view("home.addStudent");
     }
 
     /**
@@ -108,7 +114,7 @@ class StudentController extends Controller
                 $originalName = $request->image->getClientOriginalName(),
                 $student->image= $originalName,
             ]);
-            $request->image->move(public_path('images/profile/'), $originalName);
+            $request->image->move(public_path('images/profile/$student->first_nam_name/'), $originalName);
 
         }else{
             $student->update([
@@ -150,6 +156,66 @@ class StudentController extends Controller
 
         } catch(\Exception $e) {
             report($e);
+        }
+    }
+
+
+
+    // add student in home by post method
+    public function add(Request $request)
+    {
+
+        try {
+            // Form validation
+            $validated=  Validator::make($request->all(),[
+                'first_name' => 'required|string|min:3',
+                'last_name' => 'required|string|min:3',
+                'email' => 'required|email',
+                'phone' => 'required|max:10',
+                'age' => 'required|numeric',
+                'gender' => 'required',
+                'about' => 'nullable|string',
+                'country' => 'required|string|min:3',
+                'image' => 'file|mimes:jpg,jpeg,png,gif'
+             ]);
+             if ($validated->stopOnFirstFailure()->fails()) {
+                return response()->json([
+                    'error' => $validated->errors()->first()
+                ]);   
+            }
+             $student = new Student();
+             $student->first_name = $request->first_name;
+             $student->last_name = $request->last_name;
+             $student->age = $request->age;
+             $student->email = $request->email;
+             $student->phone = $request->phone;
+             $student->country = $request->country;
+             $student->about = $request->about;
+             if($request->image)
+             {
+                 $originalName = $request->image->getClientOriginalName();
+                 $savedImage= time() . '.'.$originalName;
+                 $student->image= $savedImage;
+                
+                 $request->image->move(public_path('images/profile/students/'), $savedImage);
+
+             }
+
+            //  Store data in database
+            $student->save();
+            //  Send mail to admin
+            // Mail::to("figo781@gmail.com")->send(new MailContact($request->all()));
+            
+            return response()->json([
+                'success' => 'Student Added Successfully'
+            ]);    
+        }
+        catch(Exception $e)
+        {
+            return  response()->json([
+                'error' => $e->getMessage()
+    
+            ]);
         }
     }
 }

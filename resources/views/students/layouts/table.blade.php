@@ -36,14 +36,16 @@
 
                     <tr>
                       <td>{{ ucfirst($student->first_name." ".$student->last_name )}}</td>
-                      <td><img src="{{ asset('images/profile').'/'.$student->image}}" class="iamge_table"></td>
+                      <td><img src="{{ asset('images/profile/students/').'/'.$student->image}}" class="iamge_table"></td>
                       <td>{{ $student->age}}</td>
                       <?php $website =json_decode($student->website, true) ?>
                       <td>
+                        @if($website)
                         <a class="website_link" href="{{ $website[0] }}">{{ $website[0]}}</a>
                         <br>
                         <a class="website_link" href="{{ $website[1] }}">{{ $website[1]}}</a>
-                     </td>
+                        @endif
+                      </td>
                       <td>{{ $student->country}}</td>
                       <td>
                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
@@ -57,10 +59,10 @@
                         </td>
                   </tr>
                                 <!-- edit_modal_student -->
-                                @include("students.editModal")
+                                @include("students.layouts.editModal")
 
                                 <!-- delete_modal_Student -->
-                                @include("students.deleteModal")
+                                @include("students.layouts.deleteModal")
                   @endforeach
 
               </tbody>
@@ -81,6 +83,6 @@
         </div>   
       </div>
     <!-- include add form modal -->
-    @include("students.addModal")
+    @include("students.layouts.addModal")
     <!-- include add form modal -->
   </div> 
