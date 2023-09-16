@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('image')->default('profile.png');
-            $table->string('email')->default(null);
+            $table->string('email')->default("null");
             $table->string('phone');
             $table->integer('age')->nullable();
             $table->timestamp('birthday')->nullable();

@@ -15,18 +15,10 @@
 
     <div class="wrapper">
 
-        <!--=================================
- preloader -->
-
-        <div id="pre-loader">
-            <img src="{{asset('assets/images/pre-loader/loader-01.svg')}}" alt="">
-        </div>
-
-        <!--=================================
- preloader -->
+        @include("home.layouts.spinner")
+        @include("home.layouts.toast")
 
         @include('dashboard.layouts.main-header')
-
         @include('dashboard.layouts.main-sidebar')
 
         <!--=================================
@@ -44,7 +36,7 @@
             <!--=================================
  footer -->
 
-         @include('home.layouts.footer')
+         <!-- @include('home.layouts.footer') -->
         </div><!-- main content wrapper end-->
     </div>
     </div>

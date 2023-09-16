@@ -34,6 +34,8 @@
             @yield('editor')
             @include("home.layouts.spinner")
             @include("home.layouts.toast")
+            @include("home.layouts.settings")
+
         </div>
 
         <!-- footer -->

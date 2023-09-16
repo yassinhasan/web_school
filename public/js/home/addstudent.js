@@ -53,7 +53,8 @@ const sendMessage = async () => {
        const result = await response.json();
        if (result.success) {
           hideSpinner();
-          createToast("success" , "thank you i will replay soon..")
+          createToast("success" , "student added successfully..");
+          window.location.href = "profile"
        }else if(result.error)
        {
           hideSpinner();

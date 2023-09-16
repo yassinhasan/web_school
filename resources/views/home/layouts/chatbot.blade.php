@@ -39,7 +39,7 @@
     </div>
     <div class="form-group row">
       <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary send_msg">send <i class="fa-solid fa-paper-plane"></i>
+        <button type="submit"  class="btn btn-primary send_msg">send <i class="fa-solid fa-paper-plane"></i>
         </button>
       </div>
     </div>

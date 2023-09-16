@@ -72,11 +72,11 @@ var $window = $(window),
 /*************************
         Preloader
 *************************/  
-  POTENZA.preloader = function () {
-       $("#load").fadeOut();
-       $('#pre-loader').delay(0).fadeOut('slow');
-   };   
-
+//   POTENZA.preloader = function () {
+//        $("#load").fadeOut();
+//        $('#pre-loader').delay(0).fadeOut('slow');
+//    };   
+// console.log(POTENZA)
   
  /*************************
        counter
@@ -892,10 +892,10 @@ var _arr  = {};
      POTENZA Window load and functions
 ****************************************************/
   //Window load functions
-    $window.on("load",function(){
-          POTENZA.preloader(),
-          POTENZA.pieChart();
-    });
+    // $window.on("load",function(){
+    //       POTENZA.preloader(),
+    //       POTENZA.pieChart();
+    // });
  //Document ready functions
     $document.ready(function () {
         POTENZA.counters(),

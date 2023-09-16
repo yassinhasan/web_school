@@ -28,4 +28,6 @@
 <script src="{{ URL::asset('assets/js/lobilist.js') }}"></script>
 <!-- custom -->
 <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
+<script src="{{ asset('js/layouts/spinner.js') }}"></script>
+
 @yield('js')

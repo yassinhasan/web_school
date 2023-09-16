@@ -107,7 +107,7 @@ My Heroes Courses
                                 </pre>
                         </div>
                         <!-- try button -->
-                        <button class="btn btn-success run" type="button" data-toggle="modal" data-target="#editor">Try Edit</button>
+                        <button class="btn btn-success try-editor" type="button" data-toggle="modal" data-target="#editor">Try Edit</button>
 
                         <!-- try button -->
                     </div>
@@ -146,7 +146,7 @@ My Heroes Courses
 <b>&lt;/html&gt;</b>
                                 </pre>
                         <!-- try button -->
-                        <button class="btn btn-success run" type="button" data-toggle="modal" data-target="#editor">Try Edit</button>
+                        <button class="btn btn-success try-editor" type="button" data-toggle="modal" data-target="#editor">Try Edit</button>
                         <!-- try button -->
                                 <figure class="wp-block-image">
                                     <img alt="Heading Structure" decoding="async" class="image"
@@ -171,7 +171,7 @@ My Heroes Courses
 <b>&lt;/html&gt;</b>
                                 </pre>
                         <!-- try button -->
-                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#editor">Try Edit</button>
+                        <button class="btn btn-success try-editor" type="button" data-toggle="modal" data-target="#editor">Try Edit</button>
                         <!-- try button -->
                                 <figure class="wp-block-image">
                                     <img alt="Heading Structure" decoding="async" class="image"
@@ -209,7 +209,7 @@ My Heroes Courses
 <b>&lt;/html&gt;</b>
                                 </pre>
                         <!-- try button -->
-                        <button class="btn btn-success run" type="button" data-toggle="modal" data-target="#editor">Try Edit</button>
+                        <button class="btn btn-success try-editor" type="button" data-toggle="modal" data-target="#editor">Try Edit</button>
                         <!-- try button -->
                         <table class="table table-striped table-dark">
                         <tbody><tr>
@@ -300,7 +300,7 @@ My Heroes Courses
 
 <!-- footer -->
 @section("footer")
-@include('home.layouts.footer')
+<!-- @include('home.layouts.footer') -->
 @endsection()
 
 <!-- footer -->
@@ -308,5 +308,5 @@ My Heroes Courses
 <!-- Scripts -->
 @section('js')
 <script src="{{ asset('js/layouts/nav2.js') }}" ></script>
-<script src="{{ asset('js/home/html/videos.js') }}" defer></script>
+<script src="{{ asset('js/home/html/lessons.js') }}" defer></script>
 @endsection

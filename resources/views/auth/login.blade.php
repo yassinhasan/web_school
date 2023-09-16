@@ -21,7 +21,7 @@ Login
 
 <div class="image-section">
   <div class="image-wrapper">
-    <img src="https://imgur.com/wDmDIhi.png" alt="">
+  <img src="{{ url('images/bg.png') }}" alt="bg image">
   </div>
 
   <div class="content-container">
@@ -57,7 +57,7 @@ Login
       <div class="remember-forgot">
         <div class="remember-me">
           <input type="checkbox" value="remember-me" id="remember-me" name="remember">
-          <label for="remember-me">Remember me</label>
+          <label for="remember-me" class="label-remember">Remember me</label>
         </div>
 
         <a href="{{ route('password.request') }}"  class="text-secondary">Forgot password?</a>

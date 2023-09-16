@@ -1,24 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
-
-:root {
-  --color-bg: #EEEDEB;
-  --color-title: #0E1C4E;
-  
-  --color-summary-1: #FFF6EE;
-  --color-summary-1-highlight: #FFC48B;
-  --color-summary-2: #FAFAFF;
-  --color-summary-2-highlight: #B4B3FF;
-  --color-summary-3: #FFF0F3;
-  --color-summary-3-highlight: #FFB3C0;
-  
-  --font-ibm-plex-sans: 'IBM Plex Sans', sans-serif;
+.breadcrumb{
+  background-color: var(--theme-background);
+  color: var(--theme-color);
+  border: var(--theme-border-style-style);
+  margin-left: 25px;
+  margin-top: 52px
 }
+body.light .breadcrumb{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 
-body{
-  font-family: 'Raleway', sans-serif;
 }
-
 
 /* article */
 .accordion .card {
@@ -26,6 +16,11 @@ body{
   border-radius: 10px;
   margin-bottom: 35px;
   border-bottom: 1px solid #9E9E9E !important;
+}
+.accordion .card-body , .list-group-flush .list-group-item ,.question{
+  background-color: var(--theme-background) !important;
+  color: var(--theme-color) !important;
+  border: var(--theme-border-style-style) !important;
 }
 .accordion h2 {
   border: none !important;
@@ -85,20 +80,35 @@ pre{
 
 /* editor modal */
 .html_code,.html_code.focus{
+  background-color: var(--theme-background) !important;
+  color: var(--theme-color) !important;
+  border: var(--theme-border-style-style) !important;
+}
+body.light .html_code,.html_code.focus{
   background-color: #00262b !important;
-  color: #fff !important;
+  color: #f7f7f7 !important;
 }
 .html_preview_div{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   /* padding-left: 15px !important; */
   padding: 1;
+  background-color: #eee !important;
+  color: var(--theme-color) !important;
+  border: var(--theme-border-style-style) !important;
+  
 }
 
 .modal-content {
       margin: 30px auto;
 }
-.run {
+.try-editor {
   margin-bottom: 15px;
+}
+.modal-body{
+  background-color: var(--theme-background);
+  color: var(--theme-color);
+  border: var(--theme-border-style-style);
+
 }
 
  

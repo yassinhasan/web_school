@@ -22,7 +22,7 @@ Login
 
 <div class="image-section">
   <div class="image-wrapper">
-    <img src="https://imgur.com/wDmDIhi.png" alt="">
+    <img src="{{ url('images/bg.png') }}" alt="bg image">
   </div>
 
   <div class="content-container">

@@ -83,7 +83,7 @@ The most important attribute of the <a> element is the href attribute, which ind
 
 <!-- footer -->
 @section("footer")
-@include('home.layouts.footer')
+<!-- @include('home.layouts.footer') -->
 @endsection()
 
 <!-- footer -->

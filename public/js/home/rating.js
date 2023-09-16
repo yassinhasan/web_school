@@ -1,20 +1,6 @@
 
 
 
-
-
-let html_code_div = document.querySelector(".html_code");
-let html_preview = document.querySelector(".html_preview");
-let run = document.querySelector(".run");
-
-run.addEventListener("click", runCode)
-function runCode() {
-  html_preview.contentDocument.body.innerHTML = html_code_div.value;
-  console.log(html_preview);
-  console.log(html_code_div.value)
-}
-
-
 // form
 let website_like = document.querySelectorAll(".website_like");
 website_like.forEach(element => {
@@ -62,33 +48,14 @@ const like = async (like,id) => {
       const result = await response.json();
       if(result.like)
       {
-
-        Swal.fire({
-          title: '<strong>Thank You <u><i class="fa-regular fa-face-smile-beam" style="color:#4caf50"></i></u></strong>',
-          icon: 'success',
-          showCloseButton: true,
-          confirmButtonText: "close"
-
-        });
+        createToast("success", 'Thank you for your heart  <i class="fa-regular fa-face-smile-beam" style="color:#009688;margin-left:5px;text-align:center"></i>')
       }else if (result.dislike){
 
-        Swal.fire({
-          title: '<strong>Opps !... <u><i class="fa-regular fa-face-sad-tear" style="color:#f44336"></i></u></strong>',
-          icon: 'warning',
-          showCloseButton: true,
-          confirmButtonText: "close"
-
-
-        });
-
+        createToast("warning", 'i hope you give me heart next time <i class="fa-regular fa-face-sad-tear" style="color:#f44336;margin-left:5px;text-align:center"></i>')
       }
   } catch (error) {
-    Swal.fire({
-      title: '<strong>Opps !... something wrong <u><i class="fa-regular fa-face-sad-tear" style="color:#f44336"></i></u></strong>',
-      icon: 'info',
-      showCloseButton: true,
-      confirmButtonText: "close"
 
-
-    })  }
+    createToast("danger", 
+    '<strong>Opps something wrong <u><i class="fa-regular fa-face-sad-tear" style="color:#f44336"></i></u></strong>')   
+    }
 };

@@ -19,7 +19,7 @@ My Heroes Profile
 @endsection()
 <!-- navbar -->
 @section('content')
-<ul>
+<ul class="card-wraper">
   @foreach($students as $student)
   <li>
     <div class="details">

@@ -1,16 +1,20 @@
   @import url('https://fonts.googleapis.com/css?family=Raleway');
 
 body{
-  background: #5c746a;
-  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAU0lEQVQoU2P8eUjvPwMDA8MLw10gCidgJFrhw88vwCYig5DbS8HcNarRcGFGihRicyhj8ObTYKv7HGTxe4ZohdjcuEUsC2y6z6tp+D1DtEJsjgUAy/UzWeLdm1gAAAAASUVORK5CYII=) repeat;
-  color: #001a23;
   font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
+  background-color: var(--theme-background);
+
+}
+body.ligh{
+  background:url("../../images/dot.png") repeat !important;
+  font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
+
 }
 
 
-
-
-.container ul {
+.container .card-wraper {
   /* font-size: 5vw; */
   display: grid;
   grid-template-columns: repeat(1,1fr);
@@ -18,7 +22,7 @@ body{
   transform: skewY(4.398705355deg);
   margin: 190px 25% 100px 2%;
 }
-.container ul li{
+.container .card-wraper li{
   transform-origin: top left;
   transform: skewY(-4.398705355deg) rotatez(-14.03624deg);
   padding-top: 150%;
@@ -43,10 +47,10 @@ body{
 
 
 
-.container ul li:nth-child(3n+1) .details{
+.container .card-wraper li:nth-child(3n+1) .details{
   background-color: #f9c22e;
 }
-.container ul li:nth-child(3n+2) .details{
+.container .card-wraper li:nth-child(3n+2) .details{
   background-color: #35ce8d;
 }
 .product{
@@ -60,22 +64,22 @@ body{
   background:#001a23;
   overflow: hidden;
 }
-.container ul h2, .container p,.container img {
+.container .card-wraper h2, .container p,.container img {
    position: absolute;
   z-index: 4;
 }
-.container ul h2,.container p {
+.container .card-wraper h2,.container p {
   background-color: #53b3cb;
   padding: 3px;
 }
-.container ul li:nth-child(3n+1) h2,li:nth-child(3n+1) p{
+.container .card-wraper li:nth-child(3n+1) h2,li:nth-child(3n+1) p{
   background-color: #f9c22e;
 }
-.container ul li:nth-child(3n+2) h2,li:nth-child(3n+2) p{
+.container .card-wraper li:nth-child(3n+2) h2,li:nth-child(3n+2) p{
   background-color: #35ce8d;
 }
 
-.container ul h2{
+.container .card-wraper h2{
   top: 3.5%;
   left: 4%;
 }
@@ -86,27 +90,27 @@ color: var(--heart-icon-color);
 .love-points{
   
 }
-.container ul p.points {
+.container .card-wraper p.points {
   bottom: 27.5%;
   right: 5%;
   /* font-size: 1.2em; */
 }
-.container ul p.age {
+.container .card-wraper p.age {
   bottom: 19.5%;
   right: 5%;
   /* font-size: 1.2em; */
 }
-.container ul p.website {
+.container .card-wraper p.website {
   bottom: 2.5%;
   right: 5%;
   /* font-size: 1.2em; */
 }
-.container ul p.country {
+.container .card-wraper p.country {
   bottom: 11.5%;
   right: 5%;
   /* font-size: 1.2em; */
 }
-.container ul img{
+.container .card-wraper img{
   height: 110%;
   left: 50%;
   transform: translateX(-50%) translateY(-2%);
@@ -114,23 +118,23 @@ color: var(--heart-icon-color);
   transition-duration: .3s;
 }
 
-.container ul li:hover{ 
+.container .card-wraper li:hover{ 
   z-index: 4;
 }
-.container ul li:hover .details{ 
+.container .card-wraper li:hover .details{ 
   transform: rotate(14.03624deg) translate(0%, 10%) scale(1.3);
 }
-.container ul li:hover img{ 
+.container .card-wraper li:hover img{ 
   height: 210%;
   transform: translateX(-50%) translateY(-14%);
 }
 
 @media (min-width:300px) { 
-  .container  ul 
+  .container  .card-wraper 
     {
     /* font-size: 2.75vw; */
   }
-  .container ul {
+  .container .card-wraper {
     grid-template-columns: repeat(1,1fr);
     grid-column-gap: 3vw;
     margin: 140px 14vw 60px 2vw;
@@ -138,10 +142,10 @@ color: var(--heart-icon-color);
 }
 
 @media (min-width:600px) { 
-  .container ul {
+  .container .card-wraper {
     /* font-size: 1.95vw; */
   }
- .container ul {
+ .container .card-wraper {
     grid-template-columns: repeat(1,1fr);
     grid-column-gap: 3vw;
     margin: 8vw 140px 60px 1vw;
@@ -149,11 +153,11 @@ color: var(--heart-icon-color);
 }
 
 @media (min-width:900px) { 
-  .container  ul 
+  .container  .card-wraper 
     {
     /* font-size: 1.5vw; */
   }
-  .container  ul 
+  .container  .card-wraper 
     {
     grid-template-columns: repeat(3,1fr);
     grid-column-gap: 1.5vw;
@@ -161,11 +165,11 @@ color: var(--heart-icon-color);
   }
 }
 @media (min-width:1200px) { 
-  .container  ul 
+  .container  .card-wraper 
     {
     /* font-size: 1.5vw; */
   }
-  .container  ul 
+  .container  .card-wraper 
     {
     grid-template-columns: repeat(2,1fr);
     grid-column-gap: 5vw;
@@ -177,7 +181,7 @@ color: var(--heart-icon-color);
   body{
     font-size: 1.25vw;
   }
-  ul {
+  .card-wraper {
     grid-template-columns: repeat(5,1fr);
     grid-column-gap: 1vw;
     margin: 4.5vw 6vw 0 0.5vw;
@@ -188,7 +192,7 @@ color: var(--heart-icon-color);
   body{
     font-size: 1vw;
   }
-  ul {
+  .card-wraper {
     grid-template-columns: repeat(6,1fr);
     grid-column-gap: 1vw;
     margin: 4vw 6vw 0 0.5vw;

@@ -3,9 +3,8 @@
         <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <!-- logo -->
             <div class="text-left navbar-brand-wrapper">
-                <a class="navbar-brand brand-logo" href="{{ route('home') }}"><img src="{{url('images/logo.png')}}" alt="">By Hasan</a>
-                <a class="navbar-brand brand-logo-mini" href="{{ route('home') }}"><img src="{{ url('images/logo.png')}}"
-                        alt=""></a>
+                <a class="navbar-brand brand-logo custom-logo" href="{{ route('home') }}"><i class="fa-solid fa-house" style="margin-right: 4px;"></i>By Hasan</a>
+                <a class="navbar-brand brand-logo-mini" href="{{ route('home') }}"><i class="fa-solid fa-house"></i></a>
             </div>
             <!-- Top bar left -->
             <ul class="nav navbar-nav mr-auto">
@@ -26,15 +25,6 @@
             </ul>
             <!-- top bar right -->
             <ul class="nav navbar-nav ml-auto">
-            <ul>
-    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-        <li>
-            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                {{ $properties['native'] }}
-            </a>
-        </li>
-    @endforeach
-</ul>
                 <li class="nav-item fullscreen">
                     <a id="btnFullscreen" href="#" class="nav-link"><i class="ti-fullscreen"></i></a>
                 </li>

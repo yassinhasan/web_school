@@ -1,0 +1,130 @@
+
+.settings {
+    background-color: var(--theme-background);
+    color: var(--theme-color);
+    border: var(--theme-border-style-style);
+    width: 278px;
+    position: fixed;
+    top: 45px;
+    left: -278px;
+    z-index: 2000;
+    transition: all 0.4s ease;
+    text-align: center !important;
+
+}
+.settings.with-shadow{
+    box-shadow: var(--theme-box-shadow-style);
+}
+body.light .settings{
+    border: 1px solid #ccc ;
+}
+.settings.show{
+    left: 4px;
+}
+.settings .fa-cog,
+.settings .fa-times {
+    cursor: pointer;
+    height: 45px;
+    line-height: 45px;
+    background-color: var(--theme-background);
+    color: var(--main-main-color);
+    /* border: var(--theme-border-style-style); */
+    width: 45px;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    right: -46px
+}
+/* .settings.with-shadow .fa-cog ,.settings.with-shadow .fa-timex {
+    box-shadow: var(--theme-box-shadow-style);
+    border: var(--theme-border-style-style);
+} */
+
+
+.settings .close-settings {
+    display: none
+}
+
+.settings .color-option h4 {
+    margin: 30px 0 15px 0;
+    color: var( --theme-color);
+    text-align: center;
+}
+
+.settings .color-option ul li:nth-child(1) {
+    background-color: #f08080
+}
+
+.settings .color-option ul li:nth-child(2) {
+    background-color: #dc3545
+}
+
+.settings .color-option ul li:nth-child(3) {
+    background-color: #18a7b5
+}
+
+.settings .color-option ul li:nth-child(4) {
+    background-color: #97c92c
+}
+
+.settings .color-option ul li:nth-child(5) {
+    background-color: tan
+}
+
+.settings .color-option ul li {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer ;
+    color : var(--theme-color)
+}
+
+.settings .color-option .res {
+    position: relative;
+    padding: 10px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    background-color: transparent;
+    border: 2px solid #eee;
+    color: var(--theme-color);
+}
+
+.settings .color-option .res:hover {
+    background-color: var(--main-main-color);
+    border: 2px solid var(--main-main-color)
+}
+
+.settings .color-option .res:hover+hr {
+    width: 200px;
+    color: #eee
+}
+
+.settings .navbar-option {
+    padding-bottom: 12px
+}
+
+.settings .navbar-option h4 {
+    margin-top: 2px
+}
+
+.settings .navbar-option button {
+    padding: 20px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    background-color: transparent;
+    border: 2px solid #eee;
+    /* background-color: var(--theme-background); */
+    color: var(--theme-color);
+}
+.settings .navbar-option button:hover {
+    background-color: var(--main-main-color);
+    border: 2px solid var(--main-main-color)
+}
+
+.settings .navbar-option small {
+    color: var(--theme-color);
+}
+

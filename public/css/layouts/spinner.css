@@ -5,7 +5,7 @@
 
 .preloader {
     overflow: hidden;
-    background: #fff;
+    background-color: var(--theme-background);
     left: 0;
     right: 0;
     top: 0;

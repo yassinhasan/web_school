@@ -3,12 +3,13 @@
   position: fixed;
   top: 30px;
   right: 20px;
-  z-index: 205;
+  z-index: var(--z-index-toast);
 }
 
 .notifications-toaster :where(.toast-li, .column) {
   display: flex;
   align-items: center;
+  justify-content: center;;
 }
 
 .notifications-toaster .toast-li {
@@ -20,6 +21,7 @@
   padding: 16px 17px;
   margin-bottom: 10px;
   background: var(--light-toast);
+  color: black;
   justify-content: space-between;
   animation: show_toast 0.3s ease forwards;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -150,4 +152,28 @@ notifications-toaster .toast-li.info::before,
   }
 
 
+}
+
+
+/* hide toast automatic in flash messages */
+.notifications-toaster .toast-li.hide-session {
+  animation: hide_toast_session 0.3s ease 1.5s forwards;
+}
+
+@keyframes hide_toast_session {
+  0% {
+    transform: translateX(-10%);
+  }
+
+  40% {
+    transform: translateX(0%);
+  }
+
+  80% {
+    transform: translateX(-5%);
+  }
+
+  100% {
+    transform: translateX(calc(100% + 20px));
+  }
 }

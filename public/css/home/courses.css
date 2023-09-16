@@ -9,8 +9,6 @@ body {
     margin: 0;
     /* padding: 10px; */
     /* display: flex; */
-    background: #f2f2f2;
-    color: rgba(0,0,0,.87);
     font-family: 'Roboto', sans-serif;
   }
   .accordion {
@@ -21,10 +19,16 @@ body {
   .accordion input {
     display: none;
   }
+  .accordion .box.header{
+    background-color: var(--main-main-color);
+
+  }
   .accordion .box {
     position: relative;
-    background: white;
-      height: 64px;
+    background-color: var(--theme-background);
+    color: var(--theme-color);
+    border: var(--theme-border-style-style);
+    height: 64px;
       transition: all .15s ease-in-out;
   }
   .accordion .box::before {
@@ -48,7 +52,7 @@ body {
     margin: 0;
     font-weight: normal;
     font-size: 16pt;
-    color: white;
+    color: var(--theme-color);
     cursor: initial;
   }
   .box-title {
@@ -65,7 +69,7 @@ body {
     /* padding: 30px 20px; */
     padding: 0 20px;
     font-size: 11pt;
-    color: rgba(0,0,0,.54);
+    color: var(--theme-color);
     display: none;
   }
    .box-close {
@@ -101,7 +105,7 @@ body {
     left: 20px;
     top: -2px;
     transition: transform .15s ease-in-out;
-    color: rgba(0,0,0,.54);
+    color: var(--theme-color);
   }
    input:checked + section.box .box-title:before {
     transform: rotate(90deg);
@@ -126,7 +130,7 @@ body {
 .box-content ol { padding-left: 71px;
   margin-bottom: 40px;}
 .box-content li { 
-  color: #4F4F4F; 
+  color: var(--theme-color) !important;
   padding-left: 16px;
   margin-top: 24px;
   position: relative;
@@ -140,10 +144,15 @@ body {
     width: 42px;
     border-radius: 50%;
     border: 2px solid #ddd;
-    position: absolute; // yeah, you have to manually position it based on the text size, line height, etc. (in the parent li style). it's not the smarest solution 
+    position: absolute; 
+    /* // yeah, you have to manually position it based on the text size, line height, etc. (in the parent li style). it's not the smarest solution  */
     top: -12px;
     left: -46px;
   }
+}
+.box-content li a{
+  color: var(--theme-color) !important;
+
 }
 
 .box-content .strong { color: #292929; }

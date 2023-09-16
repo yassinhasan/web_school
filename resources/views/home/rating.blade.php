@@ -1,5 +1,3 @@
-<?php use Illuminate\Support\Facades\Auth;
-?>
 @extends('home.master')
 
 @section('css')
@@ -12,9 +10,6 @@
 
 @section('title')
 My Heroes
-@endsection
-
-@section('page-header')
 @endsection
 
 <!-- navbar -->
@@ -64,7 +59,7 @@ My Heroes
     @endforeach
   </div>
   <div class="buttons row">
-    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#voting_modal">Preview
+    <button type="button" class="btn btn-outline-dark preview" data-toggle="modal" data-target="#voting_modal">Preview
       Websites</button>
     <button type="button" class="btn btn-warning" onclick="window.location.reload()">Refresh
     </button>
@@ -112,10 +107,10 @@ My Heroes
   <div class="modal-dialog modal-lg	" role="document">
     <div class="modal-content">
       <div class="modal-header website_header">
-        <div class="col">
-          <h5 class="modal-title">{{ ucfirst($student->first_name) }} Website </h5>
+        <div class="col-7">
+          <h5 class="modal-title" style="margin-left: 10px;">{{ ucfirst($student->first_name) }} Website </h5>
         </div>
-        <div class="col">
+        <div class="col-3">
         <?php $likedby =json_decode($student->likedby, true) ?>
 
           <h5 class="modal-title"><i class="fa fa-heart website_like {{ in_array(Auth::id() ,$likedby)  == true ? 'like' : '' }}" data-id="{{$student->id}}"></i> <span class="love-numbers-{{$student->id}}">{{ $student->points }} </span></h5>
@@ -129,7 +124,7 @@ My Heroes
         <div class="xbox card" data-target="1">
         <?php $website =json_decode($student->website, true) ?>
         @if($website)
-          <iframe src="{{ $website[0] }}" width="100%" height="600px" allowfullscreen seamless>
+          <iframe src="{{ $website[0] }}" width="100%" height="600px" allowfullscreen seamless class="website-iframe">
           </iframe>
           @endif
         </div>
@@ -140,23 +135,7 @@ My Heroes
 @endforeach
 <!-- website modal -->
 
-
-
 @endsection
-
-@section('editor')
-  <!-- editor modal -->
-  @include("home.layouts.editor-modal")
-  <!-- editor modal -->
- <!-- row closed -->
-          </div> 
-@endsection('editor')
-
-<!-- footer -->
-@section("footer")
-<!-- @include('home.layouts.footer') -->
-@endsection()
-<!-- footer -->
 
 <!-- Scripts -->
 @section('js')

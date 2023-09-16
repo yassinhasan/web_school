@@ -1,7 +1,7 @@
 
 
 <!-- spinner -->
-<div class='preloader hide'>
+<div class='preloader'>
 <div class='spinner'>
   <span class='ball-1'></span>
   <span class='ball-2'></span>

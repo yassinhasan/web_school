@@ -6,6 +6,7 @@
     crossorigin="anonymous"></script>
     <script src="{{ asset('js/layouts/spinner.js') }}"></script>
     <script src="{{ asset('js/layouts/toast.js') }}"></script>
+    <script src="{{ asset('js/layouts/settings.js') }}"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   @yield('js')

@@ -101,7 +101,7 @@ My Heroes Courses
 
 <!-- footer -->
 @section("footer")
-@include('home.layouts.footer')
+<!-- @include('home.layouts.footer') -->
 @endsection()
 
 <!-- footer -->

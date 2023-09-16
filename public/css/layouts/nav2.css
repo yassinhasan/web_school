@@ -1,5 +1,4 @@
 
-@import url(https://fonts.googleapis.com/css?family=Righteous);
 
 .menu-cont {
   position:sticky;
@@ -8,19 +7,19 @@
   display: block;
   padding:4px;
   cursor:pointer;
-  z-index:200;
+  z-index: var( --z-index-menu-cont);
 }
 
 .menu-txt {
   display: inline-block;
   position: relative;
   text-transform: uppercase;
-  font-size: 3vh;
+  font-size: var(--font-size-menu-text );
   letter-spacing: 6px;
   font-weight: 700;
   font-family:'Righteous';
   text-overflow:ellipsis;
-  background-image:-webkit-linear-gradient(#FA2300,#E1037C);
+  background-image: var(--nav-background-linear);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   cursor:pointer;
@@ -38,7 +37,7 @@
   -webkit-transition: opacity .35s, visibility .35s, height .35s;
   transition: opacity .35s, visibility .35s, height .35s;
   overflow: hidden;
-  z-index:101;
+  z-index: var( --z-index-menu-overlay);
 }
 .menu-overylay.open {
   opacity: 1.9;
@@ -69,7 +68,7 @@
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  font-size: 5vh;
+  font-size: var(--font-size-menu-nav );
   font-family: 'Righteous', serif;
   font-weight: 400;
   text-align: center;
@@ -96,8 +95,7 @@
   position: relative;
   text-overflow:ellipsis;
   font-family:'Righteous';
-
-  background-image: -webkit-linear-gradient(#FA2300,#E1037C);
+  background-image: var(--nav-background-linear);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
