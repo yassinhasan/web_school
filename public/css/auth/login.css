@@ -298,3 +298,10 @@ input[type="checkbox"]:checked::before {
     width: 100%;
   }
 }
+
+input , textarea , select{
+  background-color: var(--theme-background) !important;
+  color: var(--theme-color);
+
+
+}

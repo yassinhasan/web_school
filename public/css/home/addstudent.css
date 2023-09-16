@@ -316,4 +316,10 @@
 #addinputImage{
     height: 48px;
 }
-  
+
+input , textarea , select{
+  background-color: var(--theme-background) !important;
+  color: var(--theme-color);
+
+
+}

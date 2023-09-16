@@ -1,0 +1,12 @@
+.profile-wraper , .profile-head , .info-wraper{
+    background-color: var(--theme-background) !important;
+    color: var(--theme-color) !important;
+    border: var(--theme-border-style-style) !important;
+}
+.profile-title ,.action-title{
+    color: var(--theme-color) !important;
+}
+.profile-wraper input {
+    background-color: var(--theme-background) !important;
+
+}

@@ -22,17 +22,20 @@
     <link href="{{ asset('css/layouts/spinner.css?GYJH') }}" rel="stylesheet">
     <link href="{{ asset('css/layouts/toast.css?GYJH') }}" rel="stylesheet">
     <link href="{{ asset('css/layouts/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/layouts/settings.css?sad') }}" rel="stylesheet">
+    <link href="{{ asset('css/auth/profile.css?sad') }}" rel="stylesheet">
+
 
     <!-- Scripts -->
 
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-        @include('home.layouts.navbar2')
+@include('home.layouts.navbar2')
+    <div class="min-h-screen bg-gray-100  profile-wraper">
         <!-- Page Heading -->
         @if (isset($header))
-        <header class="bg-white shadow">
+        <header class="bg-white shadow profile-head">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 {{ $header }}
             </div>
@@ -43,20 +46,23 @@
             {{ $slot }}
         </main>
     </div>
-    @include("home.layouts.spinner")
     
     @if (Session::has('status'))
-        @section('message')
-        {{ Session::get('status') }}
-        @endsection()
-        @include("home.layouts.toast-session")
+    @section('message')
+    {{ Session::get('status') }}
+    @endsection()
+    @include("home.layouts.toast-session")
     @endif
+    @include("home.layouts.spinner")
+    @include("home.layouts.settings")
     <!-- bootstrap and css -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="{{ asset('js/layouts/nav2.js') }}"></script>
     <script src="{{ asset('js/layouts/spinner.js') }}"></script>
     <script src="{{ asset('js/layouts/toast.js') }}"></script>
+    <script src="{{ asset('js/layouts/settings.js') }}"></script>
+
 </body>
 
 </html>

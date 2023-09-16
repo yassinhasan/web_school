@@ -249,3 +249,9 @@ input::placeholder , textarea::placeholder {
     font-weight: 300;
 
 }
+input , textarea , select{
+    background-color: var(--theme-background) !important;
+    color: var(--theme-color);
+  
+  
+  }

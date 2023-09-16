@@ -126,7 +126,10 @@ My Heroes
         @if($website)
           <iframe src="{{ $website[0] }}" width="100%" height="600px" allowfullscreen seamless class="website-iframe">
           </iframe>
+          @else
+          <h3 class="no-website" style="text-align: center;">There is no website Now </h3>
           @endif
+
         </div>
       </div>
     </div>

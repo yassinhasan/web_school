@@ -371,3 +371,8 @@ body.light .website_header {
 .website-iframe{
   overflow: scroll;
 }
+.no-website{
+  background-color: var(--theme-background);
+  border: var(--theme-border-style-style);
+  color: var(--theme-color) !important;
+}
