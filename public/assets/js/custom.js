@@ -114,39 +114,39 @@ var $window = $(window),
 /*************************
         NiceScroll
 *************************/ 
-    POTENZA.pniceScroll = function () { 
-        loadScript(plugin_path + 'nicescroll/jquery.nicescroll.js', function() {
-        $(".scrollbar").niceScroll({
-          scrollspeed: 150,
-          mousescrollstep: 38,
-          cursorwidth: 5,
-          cursorborder: 0,
-          cursorcolor: 'rgba(0,0,0,0.1)',
-          autohidemode: true,
-          zindex: 9,
-          horizrailenabled: false,
-          cursorborderradius: 0,
-        });
+    // POTENZA.pniceScroll = function () { 
+    //     loadScript(plugin_path + 'nicescroll/jquery.nicescroll.js', function() {
+    //     $(".scrollbar").niceScroll({
+    //       scrollspeed: 150,
+    //       mousescrollstep: 38,
+    //       cursorwidth: 5,
+    //       cursorborder: 0,
+    //       cursorcolor: 'rgba(0,0,0,0.1)',
+    //       autohidemode: true,
+    //       zindex: 9,
+    //       horizrailenabled: false,
+    //       cursorborderradius: 0,
+    //     });
 
-        // menu scrollbar
-        $('.side-menu .collapse').on('shown.bs.collapse', function () {
-           $(".side-menu-fixed .scrollbar").getNiceScroll().resize();
-         });
+    //     // menu scrollbar
+    //     $('.side-menu .collapse').on('shown.bs.collapse', function () {
+    //        $(".side-menu-fixed .scrollbar").getNiceScroll().resize();
+    //      });
 
 
-         $(".scrollbar-x").niceScroll({
-          scrollspeed: 150,
-          mousescrollstep: 38,
-          cursorwidth: 5,
-          cursorborder: 0,
-          cursorcolor: 'rgba(0,0,0,0.1)',
-          autohidemode: true,
-          zindex: 9,
-          verticalenabled: false,
-          cursorborderradius: 0,
-        });
-       });  
-    }
+    //      $(".scrollbar-x").niceScroll({
+    //       scrollspeed: 150,
+    //       mousescrollstep: 38,
+    //       cursorwidth: 5,
+    //       cursorborder: 0,
+    //       cursorcolor: 'rgba(0,0,0,0.1)',
+    //       autohidemode: true,
+    //       zindex: 9,
+    //       verticalenabled: false,
+    //       cursorborderradius: 0,
+    //     });
+    //    });  
+    // }
 
 /*************************
      mailchimp
@@ -900,7 +900,7 @@ var _arr  = {};
     $document.ready(function () {
         POTENZA.counters(),
         POTENZA.goToTop(),
-        POTENZA.pniceScroll(),
+        // POTENZA.pniceScroll(),
         POTENZA.mailchimp(),
         POTENZA.accordion(),
         POTENZA.datatables(),

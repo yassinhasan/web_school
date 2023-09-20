@@ -29,5 +29,6 @@
 <!-- custom -->
 <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
 <script src="{{ asset('js/layouts/spinner.js') }}"></script>
+<script src="{{ asset('js/layouts/toast.js') }}"></script>
 
 @yield('js')

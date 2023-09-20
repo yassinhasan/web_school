@@ -8,9 +8,9 @@ let theme_background =  localStorage.getItem('--theme-background');
 let theme_color =  localStorage.getItem('--theme-color');
 let theme_border =  localStorage.getItem('--theme-border-style-style');
 let theme_boxshhadow =  localStorage.getItem('--theme-box-shadow-style');
-let lightClass =  localStorage.getItem('light-class');
+let lightClass =  localStorage.getItem('theme-class');
 
-if(lightClass)
+if(lightClass == "light" || lightClass == null)
 {
     document.body.classList.add("light")
 }
@@ -102,8 +102,9 @@ color_options_lists.forEach(color_options_list => {
      localStorage.setItem('--theme-color', "white");
      localStorage.setItem('--theme-border-style-style', "1px solid #555");
      localStorage.setItem('--theme-box-shadow-style', "none");
-     localStorage.setItem('light-class', "");
+     localStorage.setItem('theme-class', "dark");
      document.body.classList.remove("light");
+     document.body.classList.add("dark-theme");
   })
   whiteBtn.addEventListener("click",()=>{
 
@@ -115,7 +116,9 @@ color_options_lists.forEach(color_options_list => {
      localStorage.setItem('--theme-background', "white");
      localStorage.setItem('--theme-color', "dark");
      localStorage.setItem('--theme-border-style-style', "none");
-     localStorage.setItem('light-class', "light");
+     localStorage.setItem('theme-class', "light");
     //  localStorage.setItem('--theme-box-shadow-style', "0px 5px 35px 9px #ccc");
     document.body.classList.add("light");
+    document.body.classList.remove("dark-theme");
+
   })

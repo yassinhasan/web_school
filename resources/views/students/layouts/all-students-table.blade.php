@@ -17,12 +17,18 @@
             <button type="button" class="button x-small" data-toggle="modal" data-target="#addStudentModal">
                         {{ __('Add Student') }}
             </button>
+            <!-- delete selected student  -->
+            <button type="button" class="button x-small btn btn-danger delete-all"  data-toggle="modal" data-target="#deleteAllModal">
+                        {{ __('Delete Selected Students') }}
+            </button>
             <br><br>
             <!-- end student  -->
             <div class="table-responsive">
             <table id="datatable" class="table table-striped table-hover table-bordered p-0">
               <thead>
                   <tr>
+                      <th style="text-align: center;">
+                      <input class="box1" type="checkbox" value="" name=""  onclick="selectAll('box1',this)"></th>
                       <th>Name</th>
                       <th>Image</th>
                       <th>Age</th>
@@ -35,6 +41,8 @@
                 @foreach($students as $student)
 
                     <tr>
+                    <td style="text-align: center;">
+                     <input class="box1 checkbox-selected" type="checkbox" value="{{$student->id}}" name="student_id[]"></td>
                       <td>{{ ucfirst($student->first_name." ".$student->last_name )}}</td>
                       <td><img src="{{ asset('images/profile/students/').'/'.$student->image}}" class="iamge_table"></td>
                       <td>{{ $student->age}}</td>
@@ -68,6 +76,7 @@
               </tbody>
               <tfoot>
                   <tr>
+                    <th>select</th>
                   <th>Name</th>
                       <th>Image</th>
                       <th>Age</th>
@@ -84,5 +93,7 @@
       </div>
     <!-- include add form modal -->
     @include("students.layouts.addModal")
+
     <!-- include add form modal -->
   </div> 
+  @include("students.layouts.deleteAllModal")

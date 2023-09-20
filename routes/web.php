@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactUsFormController;
+use App\Http\Controllers\ParentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfilecardsController;
@@ -34,16 +35,29 @@ Route::middleware('auth')->group(function () {
     Route::patch('/user/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/user/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // dashboard
+
     Route::get('/dashboard',function (){return view('dashboard.dashboard') ;})->name('dashboard');
-    Route::get('/students', [StudentController::class, 'index'])->name('student.index');
-    Route::patch('/students', [StudentController::class, 'update'])->name('student.update');
-    Route::delete('/students', [StudentController::class, 'destroy'])->name('student.destroy');
-    Route::post('/students', [StudentController::class, 'store'])->name('student.store');
+
+    Route::get('students', [StudentController::class, 'index'])->name('student.index');
+    Route::get('students/all', [StudentController::class, 'all'])->name('students.all');
+    Route::patch('students', [StudentController::class, 'update'])->name('student.update');
+    Route::delete('students', [StudentController::class, 'destroy'])->name('student.destroy');
+    Route::post('students', [StudentController::class, 'store'])->name('student.store');
+    // add student
+    Route::get('/addStudent', [StudentController::class, 'show'])->name('addstudent');
+    Route::post('/addStudent/add', [StudentController::class, 'add'])->name('addstudent.add');    
+    
     // profile page
     Route::get('profile', [ProfilecardsController::class, 'index'])->name('profile');
     Route::get('rating', [RatingController::class, 'index'])->name('rating');
     Route::post('rating/like', [RatingController::class, 'like'])->name('rating.like');
-    });
+
+    // parents
+    Route::get('parents',[ParentController::class,'index'])->name("parents.index");
+    Route::get('parents/all',[ParentController::class,'show'])->name("parents.show");
+    Route::post('parents',[ParentController::class,'store'])->name("parents.store");
+    Route::delete('parents',[ParentController::class,'destroy'])->name("parents.destroy");
+});
 Route::get('/', function()
 {
     return View('home.home');
@@ -70,9 +84,7 @@ Route::get('html/lessons', function()
 Route::post('contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact');
 
 
-// add student
-Route::get('/addStudent', [StudentController::class, 'show'])->name('addstudent');
-Route::post('/addStudent/add', [StudentController::class, 'add'])->name('addstudent.add');
+
 
 
 require __DIR__.'/auth.php';

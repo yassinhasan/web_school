@@ -31,14 +31,21 @@
         <div class="card card-statistics h-100">
             <div class="card-body">
 <!-- table -->
-@include('students.layouts.table')
+@include('students.layouts.all-students-table')
 <!-- end table -->
         </div>
         </div>
     </div>
 </div>
 <!-- row closed -->
+@if (Session::has('status'))
+    @section('message')
+    {{ Session::get('status') }}
+    @endsection()
+    @include("home.layouts.toast-session")
+    @endif
+<!-- toast -->
 @endsection
 @section('js')
-<script src="{{ asset('js/dashboard/students/script.js') }}"></script>
+<script src="{{ asset('js/dashboard/students/script.js?laks') }}"></script>
 @endsection

@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\ParentModel;
 use App\Http\Requests\StoreParentRequest;
 use App\Http\Requests\UpdateParentRequest;
+use App\Models\Student;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class ParentController extends Controller
 {
@@ -15,7 +20,14 @@ class ParentController extends Controller
      */
     public function index()
     {
-        //
+         $parents =  User::with('students')->get()->find(auth()->user()->id);
+
+        // $parents =  Student::with('users')->where('id',auth()->user()->id)->get();
+        // $parents = ParentModel::with()
+      //  return $users;
+    //   return $parents;
+        return view("parents.parent")->with('parents',$parents);
+        
     }
 
     /**
@@ -34,31 +46,59 @@ class ParentController extends Controller
      * @param  \App\Http\Requests\StoreParentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreParentRequest $request)
+    public function store(Request $request)
     {
-        //
+        
+            // Form validation
+            $validated=  Validator::make($request->all(),[
+                'user_id' => 'required',
+                'student_id' => 'required',
+
+             ]);
+             if (!$validated->stopOnFirstFailure()->fails()) {
+
+                 $parent = new ParentModel();
+                 $parent->user_id = $request->user_id;
+                 $parent->student_id = $request->student_id;
+                //  Store data in database
+                $parent->save();
+                toastr()->success('Data has been saved successfully!');
+             }else{
+                toastr()->error('something error!');
+
+
+             }
+
+
+            return redirect()->route('parents.show');
+        
+  
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Parent  $parent
+     * @param  \App\Models\ParentModal  $parent
      * @return \Illuminate\Http\Response
      */
-    public function show(Parent $parent)
+    public function show(ParentModel $parent)
     {
-        //
+        $parents =  User::with('students')->get();
+        $students = Student::all();
+      //  return json_encode($parents,JSON_PRETTY_PRINT);
+          return view("parents.all-parents")->with(['parents'=>$parents,"students"=>$students]);
+    }
+    public function all(ParentModel $parent)
+    {
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Parent  $parent
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Parent $parent)
+
+    public function edit()
     {
-        //
+        
+        return " i will show here table of all parents then update and edit them and add 
+        students to them or delete or update info here";
     }
 
     /**
@@ -76,11 +116,21 @@ class ParentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Parent  $parent
+     * @param  \App\Models\ParentModal  $parent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Parent $parent)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            
+            
+        User::findOrFail($request->id)->delete();
+
+            toastr()->success('Parent has been deleted successfully!');
+            return redirect()->route('parents.show');
+
+        } catch(\Exception $e) {
+            report($e);
+        }
     }
 }

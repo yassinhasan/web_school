@@ -1,9 +1,10 @@
 
 .notifications-toaster {
   position: fixed;
-  top: 30px;
+  top: 80px;
   right: 20px;
   z-index: var(--z-index-toast);
+  background-color: white;
 }
 
 .notifications-toaster :where(.toast-li, .column) {

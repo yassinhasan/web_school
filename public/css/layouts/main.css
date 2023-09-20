@@ -50,7 +50,7 @@
     --z-index-menu-overlay : 101;
     --z-index-tooltip : 99;
     --z-index-chatbox : 100;
-    --z-index-toast : 200005;
+    --z-index-toast : 200000000000000005 !important;
 
     --font-size-menu-text : 3vh ;
     --font-size-menu-nav : 5vh;

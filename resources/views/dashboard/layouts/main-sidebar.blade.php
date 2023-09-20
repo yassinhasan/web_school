@@ -10,27 +10,32 @@
                     <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Components </li>
                     <!-- menu item Elements-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements">
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#students">
                             <div class="pull-left"><i class="ti-palette"></i><span
                                     class="right-nav-text">Students</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="elements" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{ route('student.index') }}">Show Student</a></li>
+                        <ul id="students" class="collapse" data-parent="#sidebarnav">
+                            <!-- here only if parents -->
+                            <!-- here only if admin -->
+                            <li><a href="{{ route('students.all') }}">All Students</a></li>
+                           <li><a href="{{ route('student.index') }}">My Students</a></li>
+
                         </ul>
                     </li>
                     <!-- menu item calendar-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#calendar-menu">
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#parents">
                             <div class="pull-left"><i class="ti-calendar"></i><span
-                                    class="right-nav-text">calendar</span></div>
+                                    class="right-nav-text">Family</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="calendar-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="calendar.html">Events Calendar </a> </li>
-                            <li> <a href="calendar-list.html">List Calendar</a> </li>
+                        <ul id="parents" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('parents.index')}}">My Family Tree</a> </li>
+                            <li> <a href="{{route('parents.show')}}">Show All  Parents</a> </li>
+                            <!-- <li> <a href="calendar-list.html">List Calendar</a> </li> -->
                         </ul>
                     </li>
                     <!-- menu item todo-->

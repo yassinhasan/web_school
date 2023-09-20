@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+
+body {
+    /* height: calc(100% - 20px); */
+    /* width: calc(100% - 20px); */
+    margin: 0;
+    /* padding: 10px; */
+    /* display: flex; */
+    font-family: 'Roboto', sans-serif;
+  }
+  .accordion {
+    margin: auto;
+    width: 100%;
+    margin-top: 70px;
+  }
+  .accordion input {
+    display: none;
+  }
+  .accordion .box.header{
+    font-weight: bold;
+    font-size: 4vh;
+    background: #009688;
+    color: #fff;
+  }
+  .accordion .box {
+    position: relative;
+
+    height: 64px;
+      transition: all .15s ease-in-out;
+  }
+  .accordion .box::before {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+  }
+   .header.box {
+    z-index: 90;
+    cursor: initial;
+    box-shadow: 0 -1px 0 #e5e5e5,0 0 2px -2px rgba(0,0,0,.12),0 2px 4px -4px rgba(0,0,0,.24);
+
+  }
+  .header.box-title {
+    margin: 0;
+    font-weight: normal;
+    font-size: 16pt;
+    color: var(--theme-color);
+    cursor: initial;
+  }
+  .box-title {
+    width: calc(100% - 40px);
+    height: 64px;
+    line-height: 64px;
+    padding: 0 20px;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+  
+}
+  .box-content {
+    width: calc(100% - 40px);
+    /* padding: 30px 20px; */
+    padding: 0 20px;
+    font-size: 11pt;
+    color: var(--theme-color);
+    display: none;
+  }
+   .box-close {
+    position: absolute;
+    height: 64px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+  }
+    input:checked + .box {
+    height: auto;
+    margin: 16px 0;
+      box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
+  }
+   input:checked + .box .box-title {
+    border-bottom: 1px solid rgba(0,0,0,.18);
+  }
+   input:checked + .box .box-content,
+   input:checked + .box .box-close {
+    display: inline-block;
+  }
+  section.box {
+    width: 99%;
+    margin-left: 1%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+   .arrows section .box-title {
+    padding-left: 44px;
+    width: calc(100% - 64px);
+  }
+   .arrows section .box-title:before {
+    position: absolute;
+    display: block;
+    content: '\203a';
+    font-size: 18pt;
+    left: 20px;
+    top: -2px;
+    transition: transform .15s ease-in-out;
+    color: var(--theme-color);
+  }
+   input:checked + section.box .box-title:before {
+    transform: rotate(90deg);
+  }
+  
+
+
+  /* INSIDE LISTS */
+
+  .box-content > ol , .box-content > li { 
+    font-family: 'Space Mono', monospace; 
+
+}
+
+.box-content > ol , .box-content > li { 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  letter-spacing: -0.25px;
+}
+
+.box-content ol { padding-left: 71px;
+  margin-bottom: 40px;}
+.box-content li { 
+  color: var(--theme-color) !important;
+  padding-left: 16px;
+  margin-top: 24px;
+  position: relative;
+  font-size: 16px;
+  line-height: 20px;
+  
+  &:before {
+    content: '';
+    display: block;
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    position: absolute; 
+    /* // yeah, you have to manually position it based on the text size, line height, etc. (in the parent li style). it's not the smarest solution  */
+    top: -12px;
+    left: -46px;
+  }
+}
+.box-content li a{
+  color: var(--theme-color) !important;
+
+}
+
+.box-content .strong { color: #292929; }
+
+.box-content ol.alternating-colors { 
+  li:nth-child(odd):before { border-color: #0BAD02; }
+  li:nth-child(even):before { border-color: #2378D5; }
+}

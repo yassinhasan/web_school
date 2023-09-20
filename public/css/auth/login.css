@@ -299,9 +299,9 @@ input[type="checkbox"]:checked::before {
   }
 }
 
-input , textarea , select{
+input , textarea , select , label{
   background-color: var(--theme-background) !important;
-  color: var(--theme-color);
+  color: var(--theme-color) !important;
 
 
 }

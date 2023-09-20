@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('image')->default('profile.png');
             $table->string('email')->default("null");
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->integer('age')->nullable();
             $table->timestamp('birthday')->nullable();
             $table->string('account_status')->default("enabled");

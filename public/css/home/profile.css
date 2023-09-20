@@ -21,6 +21,7 @@ body.ligh{
   transform-origin: top left;
   transform: skewY(4.398705355deg);
   margin: 190px 25% 100px 2%;
+  list-style: none;
 }
 .container .card-wraper li{
   transform-origin: top left;

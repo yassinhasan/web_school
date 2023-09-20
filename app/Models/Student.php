@@ -20,4 +20,9 @@ class Student extends Model
     public $timestamps = true;
     protected $table = "students";
 
+    public function users(){
+        return $this->belongsToMany(User::class,"parents");
+
+    }
+
 }

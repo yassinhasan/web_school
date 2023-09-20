@@ -73,7 +73,7 @@ Add Your Student
           </div>
         </div>
       <!-- website -->
-      <div class="col-12">
+      <!-- <div class="col-12">
       <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
@@ -83,14 +83,15 @@ Add Your Student
       <div class="form-group">
             <label for="phone">Phone</label>
             <input type="text" pattern="[0-9]*" inputmode="numeric" name="phone" id="phone" value="{{ old('phone') }}" class="form-control" placeholder="Your Phone">
-       </div>
-      </div>
-      </div>
-      <!-- website -->
-      <!-- rating and progress -->
+          </div>
+        </div> -->
+        <!-- website -->
 
       <!-- rating and progress -->
-
+      
+      <!-- rating and progress -->
+    </div>
+      
       <div class="row">
         <div class="col">
           <div class="form-group">

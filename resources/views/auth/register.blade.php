@@ -5,7 +5,7 @@
 @endsection()
 <!-- style -->
 @section('title')
-Login
+Register
 @endsection
 
 
