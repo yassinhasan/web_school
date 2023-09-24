@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('clear_password');
             $table->string('role')->default('parent');
             $table->string('phone_number')->nullable();
+            $table->string('image')->default('profile.png');
             $table->string('account_status')->default("enabled");
             $table->integer('pin_code')->nullable();
             $table->rememberToken();

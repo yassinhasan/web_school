@@ -35,7 +35,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label  for="add_age">Age</label>
-                                    <input type="number" name="age" id="add_age" value="{{ old('age') }}" min="5" max="99" class="form-control" placeholder="Age">
+                                    <input type="number" name="age" id="add_age" value="{{ old('age') =='' ? 9 :  old('age')}}" min="5" max="99" class="form-control" placeholder="Age">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -76,11 +76,11 @@
                                 <div class="form-group">
                                     <label>Gender</label>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="add_male" value="male" name="gender" class="custom-control-input" value="{{ old('gender') == 'male' ?'checked' : '' }}">
+                                        <input type="radio" id="add_male" value="male" name="gender" class="custom-control-input" value="male" checked>
                                         <label class="custom-control-label" for="add_male" >Male</label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="add_female" value="female" name="gender" class="custom-control-input" value="{{ old('gender') == 'female' ?'checked' : '' }}">
+                                        <input type="radio" id="add_female" value="female" name="gender" class="custom-control-input" value="female" >
                                         <label class="custom-control-label" for="add_female">Female</label>
                                     </div>
                                 </div>

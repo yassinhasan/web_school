@@ -10,3 +10,17 @@
     background-color: var(--theme-background) !important;
 
 }
+.image_wraper{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.image_wraper img {
+    width: 150px;
+    cursor: pointer;
+}
+
+/* .update-image-btn{
+    color: var(--theme-color) !important;
+} */

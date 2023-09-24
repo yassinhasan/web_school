@@ -35,12 +35,12 @@ let student_form = document.querySelector(".student-form");
 add_Student_btn.addEventListener("click", (e) => {
    e.preventDefault();
    showSpinner();
-   sendMessage();
+   addStudent();
 
 })
 
 
-const sendMessage = async () => {
+const addStudent = async () => {
     try {
        let formData = new FormData(student_form);
        let response = await fetch("addStudent/add", {
@@ -54,7 +54,7 @@ const sendMessage = async () => {
        if (result.success) {
           hideSpinner();
           createToast("success" , "student added successfully..");
-          window.location.href = "profile"
+          window.location.reload();
        }else if(result.error)
        {
           hideSpinner();

@@ -20,14 +20,10 @@ class ParentController extends Controller
      */
     public function index()
     {
-         $parents =  User::with('students')->get()->find(auth()->user()->id);
-
-        // $parents =  Student::with('users')->where('id',auth()->user()->id)->get();
-        // $parents = ParentModel::with()
-      //  return $users;
-    //   return $parents;
-        return view("parents.parent")->with('parents',$parents);
-        
+        $parents =  User::with('students')->get()->toQuery()->paginate(10);
+        $students = Student::all();
+        //  return json_encode($parents,JSON_PRETTY_PRINT);
+        return view("parents.parents")->with(['parents' => $parents, "students" => $students]);
     }
 
     /**
@@ -48,31 +44,38 @@ class ParentController extends Controller
      */
     public function store(Request $request)
     {
+
+        // if (! $User->items->contains($newItem->id)) {
+        //     $cart->items()->save($newItem);
+        // }
         
-            // Form validation
-            $validated=  Validator::make($request->all(),[
-                'user_id' => 'required',
-                'student_id' => 'required',
+        // Form validation
+        
+        $validated =  Validator::make($request->all(), [
+            'user_id' => 'required',
+            'student_id' => 'required',
 
-             ]);
-             if (!$validated->stopOnFirstFailure()->fails()) {
+        ]);
+        if (!$validated->stopOnFirstFailure()->fails()) {
+            $hasnStudent = User::find($request->user_id)->students->contains($request->student_id);
+            if($hasnStudent) {
+                toastr()->error('this parent has this user before!');
 
-                 $parent = new ParentModel();
-                 $parent->user_id = $request->user_id;
-                 $parent->student_id = $request->student_id;
+            }else{
+
+                $parent = new ParentModel();
+                $parent->user_id = $request->user_id;
+                $parent->student_id = $request->student_id;
                 //  Store data in database
                 $parent->save();
                 toastr()->success('Data has been saved successfully!');
-             }else{
-                toastr()->error('something error!');
+            }
+        } else {
+            toastr()->error('something error!');
+        }
 
 
-             }
-
-
-            return redirect()->route('parents.show');
-        
-  
+        return redirect()->route('parents.index');
     }
 
     /**
@@ -83,20 +86,15 @@ class ParentController extends Controller
      */
     public function show(ParentModel $parent)
     {
-        $parents =  User::with('students')->get();
-        $students = Student::all();
-      //  return json_encode($parents,JSON_PRETTY_PRINT);
-          return view("parents.all-parents")->with(['parents'=>$parents,"students"=>$students]);
     }
     public function all(ParentModel $parent)
     {
-
     }
 
 
     public function edit()
     {
-        
+
         return " i will show here table of all parents then update and edit them and add 
         students to them or delete or update info here";
     }
@@ -122,14 +120,58 @@ class ParentController extends Controller
     public function destroy(Request $request)
     {
         try {
-            
-            
-        User::findOrFail($request->id)->delete();
+           // check if parent has students first 
+           $hasnStudents = User::find($request->id)->students;
+           
+            if(count($hasnStudents)){
+                toastr()->error('sorry you can not delete this parent you shoud delete students first!');
 
-            toastr()->success('Parent has been deleted successfully!');
-            return redirect()->route('parents.show');
+            }else{
+                
+                User::findOrFail($request->id)->delete();
+                toastr()->success('Parent has been deleted successfully!');
+            }
+            return redirect()->route('parents.index');
+        } catch (\Exception $e) {
+            report($e);
+        }
+    }
+    public function search(Request $request)
+    {
+        try {
+            $validated =  Validator::make($request->all(), [
+                'name' => 'required',    
+            ]);
+            if ($validated->stopOnFirstFailure()->fails()) {
+                toastr()->error('you shoud enter search data');
+                return redirect()->back();
 
-        } catch(\Exception $e) {
+ 
+            }else{
+                
+                // check if parent has students first 
+                $keyword = $request->name;
+     
+                $selected_parents = User::whereHas(
+                 'students',function($query) use($keyword){
+                          $query->where('first_name', 'LIKE', "%$keyword%")
+                        ->orWhere('last_name', 'LIKE', "%$keyword%");
+                    }
+                )
+                ->orWhere('name', 'LIKE', "%$keyword%")
+                                  ->get(); 
+               
+                // dd($selected_parents);  
+                 if(count($selected_parents) == 0){
+                     toastr()->error('no parent or student matched');
+                 }
+                 $parents =  User::with('students')->get()->toQuery()->paginate(10);
+                 $students = Student::all();
+                 return view("parents.parents")->with(['parents' => $parents, 'selected_parents' => $selected_parents, "students" => $students]);
+            }
+
+        } catch (\Exception $e) {
+            dd($e);
             report($e);
         }
     }

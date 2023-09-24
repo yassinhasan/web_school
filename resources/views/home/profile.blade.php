@@ -42,6 +42,7 @@ My Heroes Profile
     </div>
   </li>
   @endforeach
+  {{ $students->links('pagination::bootstrap-5') }}
 
 </ul>
 @endsection

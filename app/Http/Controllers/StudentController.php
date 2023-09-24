@@ -12,15 +12,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 use Exception;
+use Illuminate\Support\Facades\DB;
 use PHPUnit\Framework\MockObject\Builder\Stub;
 
 class StudentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
+    // show my student of logged user
     public function index()
     {
         $students =  User::with('students')->get()->find(auth()->user()->id);
@@ -28,7 +27,9 @@ class StudentController extends Controller
     }
     public function all()
     {
-        $students = Student::all();
+        // $students = Student::all();
+        $students = DB::table('students')->orderBy('points','DESC')->paginate(100);
+
       return view("students.all-students")->with('students',$students);
     }
 
@@ -69,7 +70,7 @@ class StudentController extends Controller
         $student->save();
         // toastr()->success('Data has been saved successfully!');
 
-        return redirect()->route('students.all')->with('status', 'student added ');
+        return redirect()->back()->with('status', 'student added ');
 
     }
 
@@ -110,6 +111,8 @@ class StudentController extends Controller
         $student = Student::findOrFail($request->id);
         if($request->image != null)
             {
+                $originalName = $request->image->getClientOriginalName();
+                $savedImage= time() . '_'.$originalName;
             $student->update([
                 $student->first_name = $request->first_name,
                 $student->last_name = $request->last_name,
@@ -119,9 +122,9 @@ class StudentController extends Controller
                 $websites = [$request->website1 , $request->website2],
                 $student->website = json_encode($websites),
                 $originalName = $request->image->getClientOriginalName(),
-                $student->image= $originalName,
-            ]);
-            $request->image->move(public_path('images/profile/$student->first_nam_name/'), $originalName);
+                $student->image= $savedImage            ]);
+               $request->image->move(public_path('images/profile/students/'), $savedImage);
+
 
         }else{
             $student->update([
@@ -137,7 +140,7 @@ class StudentController extends Controller
 
 
         // toastr()->success('Student has been updated successfully!');
-        return redirect()->route('students.all')->with('status', 'Student has been updated successfully! ');
+        return redirect()->back()->with('status', 'Student has been updated successfully! ');
 
         }
         catch(Exception $e)
@@ -169,7 +172,7 @@ class StudentController extends Controller
             }
 
             // toastr()->success('Student has been deleted successfully!');
-            return redirect()->route('students.all')->with('status', 'Student has been deleted successfully! ');
+            return redirect()->back()->with('status', 'Student has been deleted successfully! ');
 
         } catch(\Exception $e) {
             report($e);
@@ -211,7 +214,7 @@ class StudentController extends Controller
              if($request->image)
              {
                  $originalName = $request->image->getClientOriginalName();
-                 $savedImage= time() . '.'.$originalName;
+                 $savedImage= time() . '_'.$originalName;
                  $student->image= $savedImage;
                 
                  $request->image->move(public_path('images/profile/students/'), $savedImage);

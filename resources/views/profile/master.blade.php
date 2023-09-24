@@ -13,8 +13,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <!-- bootstrap and fontawsome -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="{{ asset('css/layouts/color.css') }}" rel="stylesheet">
     <link href="{{ asset('css/layouts/footer.css') }}" rel="stylesheet">
@@ -53,15 +52,17 @@
     @endsection()
     @include("home.layouts.toast-session")
     @endif
+    @include("home.layouts.toast")
     @include("home.layouts.spinner")
     @include("home.layouts.settings")
     <!-- bootstrap and css -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{{ asset('js/layouts/nav2.js') }}"></script>
     <script src="{{ asset('js/layouts/spinner.js') }}"></script>
     <script src="{{ asset('js/layouts/toast.js') }}"></script>
     <script src="{{ asset('js/layouts/settings.js') }}"></script>
+    <script src="{{ asset('js/auth/profile.js') }}"></script>
 
 </body>
 

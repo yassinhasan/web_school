@@ -83,6 +83,6 @@
         </div>   
       </div>
     <!-- include add form modal -->
-    @include("students.layouts.addModal")
+    @include("students.layouts.add-student-modal")
     <!-- include add form modal -->
   </div> 

@@ -33,8 +33,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="parents" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('parents.index')}}">My Family Tree</a> </li>
-                            <li> <a href="{{route('parents.show')}}">Show All  Parents</a> </li>
+                            <li> <a href="{{route('parents.index')}}">Parents</a> </li>
                             <!-- <li> <a href="calendar-list.html">List Calendar</a> </li> -->
                         </ul>
                     </li>

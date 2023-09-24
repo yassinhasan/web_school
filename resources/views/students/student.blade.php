@@ -17,7 +17,7 @@
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="{{ route('student.index') }}" class="default-color">Students</a></li>
-                <li class="breadcrumb-item active"> Show Students</li>
+                <li class="breadcrumb-item active"> My Students</li>
             </ol>
         </div>
     </div>
@@ -40,5 +40,5 @@
 <!-- row closed -->
 @endsection
 @section('js')
-<script src="{{ asset('js/dashboard/students/script.js') }}"></script>
+<script src="{{ asset('js/dashboard/students/student.js') }}"></script>
 @endsection

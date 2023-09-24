@@ -6,13 +6,17 @@ use App\Models\Student;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use PHPUnit\Framework\MockObject\Builder\Stub;
 
 class RatingController extends Controller
 {
     public function index()
     {
-        $students = Student::all()->sortByDesc('points');;
+        // $students = Student::paginate(10)->sortByDesc('points');;
+        $students = DB::table('students')->orderBy('points','DESC')->paginate(8);
+
+
         
         return view('home.rating')->with('students',$students);
     }

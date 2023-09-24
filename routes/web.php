@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfilecardsController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\WebsiteController;
 use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
     // update user profile
     Route::get('/user/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/user/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/user/profile', [ProfileController::class, 'updateImage'])->name('profile.updateImage');
     Route::delete('/user/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // dashboard
 
@@ -50,12 +52,13 @@ Route::middleware('auth')->group(function () {
     // profile page
     Route::get('profile', [ProfilecardsController::class, 'index'])->name('profile');
     Route::get('rating', [RatingController::class, 'index'])->name('rating');
+    Route::get('websites', [WebsiteController::class, 'index'])->name('websites');
     Route::post('rating/like', [RatingController::class, 'like'])->name('rating.like');
 
     // parents
     Route::get('parents',[ParentController::class,'index'])->name("parents.index");
-    Route::get('parents/all',[ParentController::class,'show'])->name("parents.show");
     Route::post('parents',[ParentController::class,'store'])->name("parents.store");
+    Route::post('parents/search',[ParentController::class,'search'])->name("parents.search");
     Route::delete('parents',[ParentController::class,'destroy'])->name("parents.destroy");
 });
 Route::get('/', function()
