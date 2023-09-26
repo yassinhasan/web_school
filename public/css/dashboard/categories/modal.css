@@ -1,0 +1,50 @@
+.clone-inside {
+	align-items: center;
+}
+
+.clone-inside.fadein {
+	opacity: 0;
+	animation: fadeInAnimation ease 1s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.add-select {
+	height: 30px;
+	font-size: 16px;
+	line-height: 15px;
+	background-color: #009688;
+	color: #fff;
+	width: 100% !important;
+}
+select {
+	width: 100%;
+}
+
+input ,select{
+	/* background-color: aliceblue !important; */
+	border: 1px solid #333 !important;
+	height: 40px !important;
+
+}
+
+.btn-save {
+	height: 30px;
+	font-size: 16px;
+	line-height: 15px;
+	background-color: #607D8B;
+	width: 100%
+}
+.edit_image{
+    cursor: pointer;
+}

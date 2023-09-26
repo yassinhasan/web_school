@@ -30,7 +30,7 @@ class StudentController extends Controller
         // $students = Student::all();
         $students = DB::table('students')->orderBy('points','DESC')->paginate(100);
 
-      return view("students.all-students")->with('students',$students);
+      return view("students.students")->with('students',$students);
     }
 
     /**
@@ -63,7 +63,7 @@ class StudentController extends Controller
         if($request->image !=null)
         {
             $originalName = $request->image->getClientOriginalName();
-            $savedImage= time() . '.'.$originalName;
+            $savedImage= time() . '_'.$originalName;
             $student->image= $savedImage;
            
             $request->image->move(public_path('images/profile/students/'), $savedImage);        }

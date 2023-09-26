@@ -51,9 +51,9 @@ Parents
     {{ __('Show All Parents') }}
 </a>
   <!-- end student  -->
-  <?php  $parents = (isset($selected_parents) && count($selected_parents) > 0) ? $selected_parents : $parents;  ?>
+  <?php  $selected_parents = (isset($selected_parents) && count($selected_parents) > 0) ? $selected_parents : $parents;  ?>
 
-  @foreach($parents as $parent)
+  @foreach($selected_parents as $parent)
   <div class="accordion" style="margin: 10px 0;" id="{{'parent-'.$parent->id}}">
     <div class="card">
       <div class="card-header row" style="justify-content: space-between;" id="headingOne" >

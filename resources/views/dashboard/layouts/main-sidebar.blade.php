@@ -39,8 +39,8 @@
                     </li>
                     <!-- menu item todo-->
                     <li>
-                        <a href="todo-list.html"><i class="ti-menu-alt"></i><span class="right-nav-text">Todo
-                                list</span> </a>
+                        <a href="{{route('categories.index')}}"><i class="ti-menu-alt"></i><span class="right-nav-text">
+                                Categories</span> </a>
                     </li>
                     <!-- menu item chat-->
                     <li>

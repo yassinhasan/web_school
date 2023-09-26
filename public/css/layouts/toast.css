@@ -1,7 +1,7 @@
 
 .notifications-toaster {
   position: fixed;
-  top: 80px;
+  top: 10px;
   right: 20px;
   z-index: var(--z-index-toast);
   /* background-color: white; */

@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsFormController;
+use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfilecardsController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\SectionController;
 use App\Http\Controllers\WebsiteController;
 use App\Models\Student;
 use Illuminate\Support\Facades\Route;
@@ -45,7 +48,22 @@ Route::middleware('auth')->group(function () {
     Route::patch('students', [StudentController::class, 'update'])->name('student.update');
     Route::delete('students', [StudentController::class, 'destroy'])->name('student.destroy');
     Route::post('students', [StudentController::class, 'store'])->name('student.store');
-    // add student
+  
+    // categories
+    Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::patch('categories', [CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('categories', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::post('categories/addSub', [CategoryController::class, 'addSub'])->name('categories.addSub');
+    
+    // sections
+    Route::get('sections', [SectionController::class, 'index'])->name('sections.index');
+    Route::patch('sections', [SectionController::class, 'update'])->name('sections.update');
+    Route::delete('sections', [SectionController::class, 'destroy'])->name('sections.destroy');
+    Route::post('sections', [SectionController::class, 'store'])->name('sections.store');
+    Route::post('sections/addSub', [SectionController::class, 'addSub'])->name('sections.addSub');
+    
+    // add student in home not admin dashboard
     Route::get('/addStudent', [StudentController::class, 'show'])->name('addstudent');
     Route::post('/addStudent/add', [StudentController::class, 'add'])->name('addstudent.add');    
     
@@ -66,10 +84,8 @@ Route::get('/', function()
     return View('home.home');
 })->name("home");
 
-Route::get('courses', function()
-{
-    return View('home.courses');
-})->name("courses");
+Route::get('courses',[CoursesController::class,'index'])->name("courses");
+
 Route::get('html/images', function()
 {
     return View('home.html.images');

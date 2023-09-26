@@ -24,44 +24,23 @@
     <label for="acc-close" class="box-title">Front End Developer</label>
   </div>
   <!-- html -->
-  <input type="radio" name="accordion" id="html" />
+  @foreach($categories as $category)
+  <input type="radio" name="accordion" id="{{$category->name}}" />
   <section class="box">
-    <label class="box-title" for="html">HTML</label>
+    <label class="box-title" for="{{$category->name}}">{{$category->name}}</label>
     <label class="box-close" for="acc-close"></label>
     <div class="box-content">
       <ol class="alternating-colors">
+        @foreach($category->sections as $section)
         <li>
-          <a href="{{route('html.videos')}}" class="strong">HTML Videos</a>
+          <a href="{{route('html.videos')}}" class="strong">{{$category->name}} {{$section->name}}</a>
         </li>
-        <li>
-          <a href="{{route('html.images')}}" class="strong">HTML Images</a>
-        </li>
-        <li>
-          <a href="{{route('html.lessons')}}" class="strong">HTML Lessons</a>
-        </li>
-
+        @endforeach
       </ol>
     </div>
   </section>
+  @endforeach
   <!-- css -->
-  <input type="radio" name="accordion" id="css" />
-  <section class="box">
-    <label class="box-title" for="css">CSS</label>
-    <label class="box-close" for="acc-close"></label>
-    <div class="box-content">
-      <!-- add links here -->
-    </div>
-  </section>
-  <!-- js -->
-  <input type="radio" name="accordion" id="js" />
-  <section class="box">
-    <label class="box-title" for="js">JAVA SCRIPT</label>
-    <label class="box-close" for="acc-close"></label>
-    <div class="box-content">
-      <!-- here links of js -->
-    </div>
-  </section>
-
   <input type="radio" name="accordion" id="acc-close" />
 </div>
 @endsection
