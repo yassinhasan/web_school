@@ -31,9 +31,10 @@
     <label class="box-close" for="acc-close"></label>
     <div class="box-content">
       <ol class="alternating-colors">
+        <!-- i want to show  all posts of lessons  courses/html/lessons -->
         @foreach($category->sections as $section)
         <li>
-          <a href="{{route('html.videos')}}" class="strong">{{$category->name}} {{$section->name}}</a>
+          <a href="{{url('/trainning', ['slug' => $section->slug] ) }}" class="strong">{{$category->name}} {{$section->name}}</a>
         </li>
         @endforeach
       </ol>

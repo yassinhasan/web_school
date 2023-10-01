@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -165,8 +165,13 @@ class CategoryController extends Controller
     public function addSub(Request $request)
     {
 
-
+        
         $inputs = $request->all();
+        if(!array_key_exists("id",$inputs)){
+            toastr()->error('you shoud enter category first!');
+            return redirect()->back();
+
+        }
         $validator = Validator::make($inputs, [
             'id.*' => 'required',
             'name.*' => 'required',
@@ -180,9 +185,15 @@ class CategoryController extends Controller
             $id_array = $inputs['id'];
             $name_array = $inputs['name'];
             for ($i = 0; $i < count($id_array); $i++) {
+                $category = Category::find($id_array[$i]);
+                $categoryName = $category->name;
                 $section = new Section();
                 $section->category_id = $id_array[$i];
                 $section->name = $name_array[$i];
+                $categoryName =  str()->slug($categoryName);
+                $sectionName =  str()->slug($section->name);
+                $url = "/".$categoryName."/".  $sectionName ;
+                $section->slug = strtolower($url);
                 $section->save();
             }
             toastr()->success('Data has been saved successfully!');

@@ -8,7 +8,7 @@
 
                     <!-- menu title -->
                     <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Components </li>
-                    <!-- menu item Elements-->
+                    <!-- menu item students-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#students">
                             <div class="pull-left"><i class="ti-palette"></i><span
@@ -24,7 +24,7 @@
 
                         </ul>
                     </li>
-                    <!-- menu item calendar-->
+                    <!-- menu item parents-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#parents">
                             <div class="pull-left"><i class="ti-calendar"></i><span
@@ -37,11 +37,24 @@
                             <!-- <li> <a href="calendar-list.html">List Calendar</a> </li> -->
                         </ul>
                     </li>
-                    <!-- menu item todo-->
+                    <!-- menu item categories-->
                     <li>
                         <a href="{{route('categories.index')}}"><i class="ti-menu-alt"></i><span class="right-nav-text">
                                 Categories</span> </a>
                     </li>
+                    <!-- posts -->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#posts">
+                            <div class="pull-left"><i class="ti-calendar"></i><span
+                                    class="right-nav-text">Posts</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="posts" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('posts.index')}}">Add New Post</a> </li>
+                            <!-- <li> <a href="calendar-list.html">List Calendar</a> </li> -->
+                        </ul>
+                    </li>                    
                     <!-- menu item chat-->
                     <li>
                         <a href="chat-page.html"><i class="ti-comments"></i><span class="right-nav-text">Chat

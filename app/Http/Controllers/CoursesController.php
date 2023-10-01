@@ -9,7 +9,7 @@ class CoursesController extends Controller
 {
     public function index(){
         $categories = Category::with('sections')->get();
-
+        
         return view("home.courses")->with(['categories' => $categories]);
     }
 }

@@ -12,8 +12,21 @@ class Section extends Model
 
     public $fillable = ['name'];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo("categories",'category_id');
+        return $this->belongsTo(Category::class,'category_id');
     }
+
+    public function posts(){
+        return $this->hasMany(Post::class, 'section_id');
+    }
+    /**
+ * Get the route key for the model.
+ *
+ * @return string
+ */
+public function getRouteKeyName()
+{
+    return 'slug';
+}
 }
