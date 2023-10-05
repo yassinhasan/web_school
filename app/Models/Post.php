@@ -12,5 +12,7 @@ class Post extends Model
     public function sections(){
         return $this->belongsTo(Section::class,"section_id");
     }
+    protected $fillable = ['id','title','post','content'];
+
 
 }

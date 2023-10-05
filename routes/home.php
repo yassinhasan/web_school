@@ -23,7 +23,6 @@ Route::middleware('auth')->group(function () {
     // show posts
     Route::get('/', [ProfilecardsController::class, 'index'])->name('profile');
 
-    Route::get('/trainning/{slug}', [SectionController::class,'index']);
 
 });
 
@@ -33,6 +32,7 @@ Route::get('/', function () {
 
 Route::get('courses', [CoursesController::class, 'index'])->name("courses");
 
+Route::get('/trainning/{slug}', [SectionController::class,'index']);
 
 // Route::get('html/lessons', [CoursesController::class, 'index'])->name("courses");
 

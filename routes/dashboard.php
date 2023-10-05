@@ -43,8 +43,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('parents',[ParentController::class,'destroy'])->name("parents.destroy");
    
     // posts in dashboard
+    Route::get('posts/create',[PostController::class,'create'])->name("posts.create");
+    Route::get('posts/edit/{id}',[PostController::class,'edit'])->name("posts.edit");
     Route::get('posts',[PostController::class,'index'])->name("posts.index");
     Route::post('posts',[PostController::class,'store'])->name("posts.store");
+    Route::patch('posts',[PostController::class,'update'])->name("posts.update");
+    Route::post('posts/getSection',[PostController::class,'getSection']);
     Route::post('posts/upload',[PostController::class,'upload'])->name("posts.upload");
     Route::post('posts/search',[PostController::class,'search'])->name("posts.search");
     Route::delete('posts',[PostController::class,'destroy'])->name("posts.destroy");

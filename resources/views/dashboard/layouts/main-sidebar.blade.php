@@ -51,7 +51,8 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="posts" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('posts.index')}}">Add New Post</a> </li>
+                            <li> <a href="{{route('posts.create')}}">Add New Post</a> </li>
+                            <li> <a href="{{route('posts.index')}}">Posts</a> </li>
                             <!-- <li> <a href="calendar-list.html">List Calendar</a> </li> -->
                         </ul>
                     </li>                    

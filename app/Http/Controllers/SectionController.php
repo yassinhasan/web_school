@@ -23,7 +23,7 @@ class SectionController extends Controller
         $posts = $section->posts->toQuery()->paginate(10);
         switch($section->name){
             case "images":
-            return view("home.sections.lessons")->with(['posts' => $posts]);
+            return view("home.sections.images")->with(['posts' => $posts]);
             break;
             case "lessons":
                 return view("home.sections.lessons")->with(['posts' => $posts]);;
