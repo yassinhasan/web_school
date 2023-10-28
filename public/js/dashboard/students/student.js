@@ -70,7 +70,7 @@ const addStudent = async () => {
        if (result.success) {
           hideSpinner();
           createToast("success" , "student added successfully..");
-          window.location.reload();
+         //  window.location.reload();
        }else if(result.error)
        {
           hideSpinner();

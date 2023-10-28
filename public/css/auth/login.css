@@ -1,14 +1,9 @@
-
-
-
 .container {
   max-width: 1070px;
   width: 100%;
   background-color: var(--theme-background);
   color: var(--theme-color);  display: flex;
-  /* margin-top: 100px !important; */
-  font-family: Poppins, sans-serif;
-  /* margin-inline: 1rem; */
+  margin-top: 15px !important;
 }
 img {
     width: 100%;
@@ -29,13 +24,11 @@ img {
 
 .content-container {
   background-color: hsla(0, 0%, 100%, 0.3);
-  backdrop-filter: blur(30px);
   padding: 2rem;
   width: 80%;
   color: var(--login-text-dark);
   border-radius: 4px;
   border: 1px solid hsl(0 100% 100% / 0.3);
-
   position: absolute;
   top: 50%;
   left: 50%;
@@ -129,7 +122,8 @@ img {
   grid-template-columns: 1rem auto;
   gap: 0.6rem;
 }
-.label-remember{
+
+.label-remember,.forget-btn,.register-btn{
   color: var(--theme-color) !important;
 
 }
@@ -236,7 +230,7 @@ input[type="checkbox"]:checked::before {
 
 @media screen and (max-width: 50rem) {
   .container {
-    max-width: 80%;
+    /* max-width: 80%; */
     flex-direction: column;
     margin-inline: 0;
   }

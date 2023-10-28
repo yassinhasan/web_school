@@ -13,10 +13,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-                ->name('register');
+    Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
+    
+
+   // Route::get('register',[RegisteredUserController::class,'register'])->name('register');
 
     Route::post('register', [RegisteredUserController::class, 'store']);
+
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
@@ -59,9 +62,9 @@ Route::middleware('auth')->group(function () {
                 ->name('logout');
 
     // update user profile
-    Route::get('/user/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/user/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::post('/user/profile', [ProfileController::class, 'updateImage'])->name('profile.updateImage');
-    Route::delete('/user/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
+    Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('profile', [ProfileController::class, 'updateImage'])->name('profile.updateImage');
+    Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 

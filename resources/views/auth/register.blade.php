@@ -1,7 +1,8 @@
-@extends('auth.master')
+@extends('master')
 @section('css')
 <!-- Styles -->
-<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
+<link href="{{ asset('css/auth/login.css') }}" rel="stylesheet">
+
 @endsection()
 <!-- style -->
 @section('title')
@@ -12,7 +13,7 @@ Register
 <!-- navbar -->
 
 @section("navbar")
-@include('home.layouts.navbar2')
+@include('layouts.navbar2')
 @endsection()
 <!-- navbar -->
 
@@ -71,7 +72,7 @@ Register
 
         <a href="{{ route('login') }}">Already registered?</a>
         <p>
-          <button class="btn btn-secondary clicked-btn">Register</button>
+          <button class="btn btn-success clicked-btn">Register</button>
         </p>
       </div>
 
@@ -82,14 +83,11 @@ Register
 @endsection
 
 <!-- footer -->
-@section("footer")
-<!-- @include('home.layouts.footer') -->
-@endsection()
+
 <!-- footer -->
 
 <!-- Scripts -->
 @section('js')
-<script src="{{ asset('js/layouts/nav2.js') }}"></script>
 @endsection
 <!-- Scripts -->
 

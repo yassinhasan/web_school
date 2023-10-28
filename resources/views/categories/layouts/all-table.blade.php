@@ -14,29 +14,22 @@
     <div class="card card-statistics h-100">
       <div class="card-body">
         <!-- add student  -->
-        <button type="button" class="button btn btn-secondary" data-toggle="modal" data-target="#addModal">
+        <button type="button" class="button x-small" data-toggle="modal" data-target="#addModal">
           {{ __('Add Category') }}
         </button>
-
-
+        <br>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn btn-info" data-toggle="modal" data-target="#repeatFormModal">
+        <button type="button" style="margin-top: 10px;" class="btn  btn-secondary" data-toggle="modal" data-target="#repeatFormModal">
           Add Section
         </button>
         <!-- delete selected student  -->
         <!-- add section -->
-        <button type="button" style="margin: 10px 0;" class="btn btn-danger delete-all" data-toggle="modal" data-target="#deleteAllModal">
-          {{ __('Delete Selected Category') }}
-        </button>
         <br><br>
         <!-- end student  -->
         <div class="table-responsive">
           <table id="datatable" class="table table-striped table-hover table-bordered p-0">
             <thead>
               <tr>
-                <th style="text-align: center;">
-                  <input class="box1" type="checkbox" value="" name="" onclick="selectAll('box1',this)">
-                </th>
                 <th>Name</th>
                 <th>Image</th>
                 <th>sections</th>
@@ -47,9 +40,6 @@
               @foreach($categories as $category)
 
               <tr>
-                <td style="text-align: center;">
-                  <input class="box1 checkbox-selected" type="checkbox" value="{{$category->id}}" name="category_id[]">
-                </td>
                 <td>{{ ucfirst($category->name )}}</td>
                 <td><img src="{{ asset('images/categories/images/').'/'.$category->image}}" class="iamge_table"></td>
                 <td style="min-width: 200px;">
@@ -88,7 +78,6 @@
             </tbody>
             <tfoot>
               <tr>
-                <th>select</th>
                 <th>Name</th>
                 <th>Image</th>
                 <th>sections</th>

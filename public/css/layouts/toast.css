@@ -4,8 +4,9 @@
   top: 10px;
   right: 20px;
   z-index: var(--z-index-toast);
-  /* background-color: white; */
+
 }
+
 
 .notifications-toaster :where(.toast-li, .column) {
   display: flex;
@@ -21,12 +22,8 @@
   border-radius: 4px;
   padding: 16px 17px;
   margin-bottom: 10px;
-  background: var(--light-toast);
-  color: black;
   justify-content: space-between;
   animation: show_toast 0.3s ease forwards;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  font-family: 'Poppins', sans-serif;
 }
 
 @keyframes show_toast {
@@ -46,6 +43,7 @@
     transform: translateX(-10%);
   }
 }
+
 
 .notifications-toaster .toast-li.hide {
   animation: hide_toast 0.3s ease forwards;
@@ -68,6 +66,47 @@
     transform: translateX(calc(100% + 20px));
   }
 }
+/* hide toast automatic in flash messages */
+.notifications-toaster .toast-li.hide-session {
+  animation: hide_toast_session 0.3s ease 1.5s forwards;
+}
+/* common */
+@keyframes hide_toast_session {
+  0% {
+    transform: translateX(-10%);
+  }
+
+  40% {
+    transform: translateX(0%);
+  }
+
+  80% {
+    transform: translateX(-5%);
+  }
+
+  100% {
+    transform: translateX(calc(100% + 20px));
+  }
+}
+
+
+.notifications-toaster :where(.toast-li, .column) {
+  display: flex;
+  align-items: center;
+  justify-content: center;;
+}
+
+.notifications-toaster .toast-li {
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  border-radius: 4px;
+  padding: 16px 17px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  color: #fff;
+}
+
 
 .notifications-toaster .toast-li::before {
   position: absolute;
@@ -76,7 +115,7 @@
   width: 100%;
   bottom: 0;
   left: 0;
-  animation: progress 5s linear forwards;
+  animation: progress 5s linear  forwards !important;
 }
 
 @keyframes progress {
@@ -85,28 +124,41 @@
   }
 }
 
+.notifications-toaster .toast-li.success
+ {
+  background: var(--success-background-toast)
+
+}
 .notifications-toaster .toast-li.success::before,
 .btn#success {
   background: var(--success-toast);
+
 }
 
 .notifications-toaster .toast-li.error::before,
 .btn#error {
   background: var(--error-toast);
 }
+.notifications-toaster .toast-li.error {
+  background:  var(--error-background-toast);
+}
 
 .notifications-toaster .toast-li.warning::before,
 .btn#warning {
   background: var(--warning-toast);
 }
-
-notifications-toaster .toast-li.info::before,
+.notifications-toaster .toast-li.warning {
+  background: var(--warning-background-toast);
+}
+.notifications-toaster .toast-li.info::before,
 .btn#info {
   background: var(--info-toast);
 }
-
+.notifications-toaster .toast-li.info {
+  background: var(--info-background-toast);
+}
 .notifications-toaster .toast-li .column i {
-  font-size: 1.75rem;
+  font-size: var(--fontsize-icon-toast);
 }
 
 .notifications-toaster .toast-li.success .column i {
@@ -126,7 +178,7 @@ notifications-toaster .toast-li.info::before,
 }
 
 .notifications-toaster .toast-li .column span {
-  font-size: 1.07rem;
+  font-size: var(--fontsize-span-toast);
   margin-left: 12px;
 }
 
@@ -139,8 +191,6 @@ notifications-toaster .toast-li.info::before,
   color: var(--dark-toast);
 }
 
-
-
 @media screen and (max-width: 530px) {
   .notifications-toaster {
     width: 80%;
@@ -148,33 +198,9 @@ notifications-toaster .toast-li.info::before,
 
   .notifications-toaster .toast-li {
     width: 100%;
-    font-size: 1rem;
+    font-size: var(--fontsize-md-toast);
     margin-left: 20px;
   }
 
 
-}
-
-
-/* hide toast automatic in flash messages */
-.notifications-toaster .toast-li.hide-session {
-  animation: hide_toast_session 0.3s ease 1.5s forwards;
-}
-
-@keyframes hide_toast_session {
-  0% {
-    transform: translateX(-10%);
-  }
-
-  40% {
-    transform: translateX(0%);
-  }
-
-  80% {
-    transform: translateX(-5%);
-  }
-
-  100% {
-    transform: translateX(calc(100% + 20px));
-  }
 }

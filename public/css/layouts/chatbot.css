@@ -5,7 +5,6 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    box-shadow: 0px 0px 9px #9E9E9E;
     color: white;
     padding: 0 !important;
     cursor: pointer;
@@ -55,15 +54,12 @@
     overflow: visible;
     margin: auto;
     width: 200px;
-    /* box-shadow: 1px 1px 10px -1px #333; */
     border-radius: 5px;
     padding: 10px 15px;
     height: 60px;
-    /* color: #333; */
     line-height: 20px;
     background-color: var(--theme-background);
     color: var(--theme-color);
-    box-shadow: var(--theme-box-shadow-style);
     border: var(--theme-border-style-style);
     display: flex;
     display: -ms-flexbox;
@@ -90,8 +86,11 @@
     animation-delay: 8s;
     animation-fill-mode: forwards;
 }
-body.light .tooltip , body.light .tooltip2 {
-    box-shadow: 1px 1px 10px -1px #333;
+
+
+/* light theme */
+body.light .tooltip , body.light .tooltip2 , body.light .btn-raised{
+    box-shadow: var(--box-shadow);
 }
 
 @keyframes fadeInUp {
@@ -198,7 +197,7 @@ body.light .chat-box {
 
 .chat-box-header {
     background: var(--nav-background-linear);
-    font-family: var(--fontfamily-righteous);
+    font-family: var(--fontfamily);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     color: white;
@@ -244,14 +243,14 @@ textarea.form-control {
 
 input::placeholder , textarea::placeholder {
     font-family: var(--fontfamily-righteous);
-    font-size: 11px;
-    color: #ccc;
+    font-size: var(--font-size-placeholder);
+    color: var(--theme-color) !important;
     font-weight: 300;
 
 }
 input , textarea , select{
     background-color: var(--theme-background) !important;
-    color: var(--theme-color);
+    color: var(--theme-color) !important;
   
   
   }

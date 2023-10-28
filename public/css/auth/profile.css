@@ -1,13 +1,20 @@
-.profile-wraper , .profile-head , .info-wraper{
+ .profile-head{
+    margin-top: 20px;
+}
+body.light .profile-head {
+    box-shadow: var(--box-shadow);
+}
+ .profile-head , .info-wraper,.delete-form{
     background-color: var(--theme-background) !important;
     color: var(--theme-color) !important;
     border: var(--theme-border-style-style) !important;
 }
-.profile-title ,.action-title{
+.profile-title ,.action-title , .cancel-btn{
     color: var(--theme-color) !important;
 }
-.profile-wraper input {
+input {
     background-color: var(--theme-background) !important;
+    color: var(--theme-color) !important;
 
 }
 .image_wraper{

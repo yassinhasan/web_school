@@ -38,13 +38,11 @@
     </div>
 </div>
 <!-- row closed -->
-@if (Session::has('status'))
-    @section('message')
-    {{ Session::get('status') }}
-    @endsection()
-    @include("home.layouts.toast-session")
-    @endif
-<!-- toast -->
+        <!-- session -->
+        @if (Session::has('status'))
+        @include("layouts.toast-session")
+        @endif
+        <!-- session -->
 @include("categories.layouts.repeatedModal")
 
 @endsection

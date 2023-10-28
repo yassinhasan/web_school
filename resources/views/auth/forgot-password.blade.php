@@ -1,7 +1,7 @@
-@extends('auth.master')
+@extends('master')
 @section('css')
 <!-- Styles -->
-<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
+<link href="{{ asset('css/auth/login.css') }}" rel="stylesheet">
 @endsection()
 <!-- style -->
 @section('title')
@@ -12,7 +12,7 @@ Login
 <!-- navbar -->
 
 @section("navbar")
-@include('home.layouts.navbar2')
+@include('layouts.navbar2')
 @endsection()
 <!-- navbar -->
 
@@ -33,7 +33,7 @@ Login
   <div class="form-wrapper">
 
     <h2 style="margin-bottom: 15px;">Fotget Your Password!👋🏻</h2>
-    <form method="POST" action="{{ route('password.email') }}">
+    <form method="POST" action="{{ route('password.email') }}" class="form">
       @csrf
       <div class="input-container">
       <div class="form-group">
@@ -45,7 +45,7 @@ Login
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <button class="btn btn-secondary clicked-btn">Email Password Reset Link</button>
+            <button class="btn btn-secondary clicked-btn email-btn">Email Password Reset Link</button>
         </div>
 
     </form>
@@ -56,13 +56,13 @@ Login
 
 <!-- footer -->
 @section("footer")
-<!-- @include('home.layouts.footer') -->
 @endsection()
 <!-- footer -->
 
 <!-- Scripts -->
 @section('js')
-<script src="{{ asset('js/layouts/nav2.js') }}"></script>
+<script src="{{ asset('js/auth/auth.js') }}" ></script>
+
 @endsection
 <!-- Scripts -->
 

@@ -26,7 +26,7 @@ const toastDetails = {
 const removeToast = (toast) => {
    toast.classList.add("hide")
    if (toast.timeoutId) clearTimeout(toast.timeoutId); // Clearing the timeout for the toast
-   setTimeout(() => toast.remove(), 500) // Removing the toast after 500ms
+   setTimeout(() => toast.remove(), 1000) // Removing the toast after 500ms
 }
 
 const createToast = (status,msg) => {

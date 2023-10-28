@@ -35,7 +35,9 @@ class AuthenticatedSessionController extends Controller
         return redirect()->intended(RouteServiceProvider::HOME);
         }
         catch(Exception $e){
-         toastr()->error('somthing wrong or this user not registered ');
+            session()->flash('status', 'error');
+            session()->flash('msg', 'Email or Password are wrong !');
+            session()->flash('icon', 'fa-xmark');
          return redirect('/login');
 
     }

@@ -59,8 +59,9 @@ class ParentController extends Controller
         if (!$validated->stopOnFirstFailure()->fails()) {
             $hasnStudent = User::find($request->user_id)->students->contains($request->student_id);
             if($hasnStudent) {
-                toastr()->error('this parent has this user before!');
-
+                session()->flash('status', 'error');
+                session()->flash('msg', 'this parent has this user before!');
+                session()->flash('icon', 'fa-xmark');
             }else{
 
                 $parent = new ParentModel();
@@ -68,10 +69,14 @@ class ParentController extends Controller
                 $parent->student_id = $request->student_id;
                 //  Store data in database
                 $parent->save();
-                toastr()->success('Data has been saved successfully!');
+                session()->flash('status', 'success');
+                session()->flash('msg', 'Data has been saved successfully!');
+                session()->flash('icon', 'fa-check');
             }
         } else {
-            toastr()->error('something error!');
+            session()->flash('status', 'error');
+            session()->flash('msg', 'something error!');
+            session()->flash('icon', 'fa-xmark');
         }
 
 
@@ -124,12 +129,15 @@ class ParentController extends Controller
            $hasnStudents = User::find($request->id)->students;
            
             if(count($hasnStudents)){
-                toastr()->error('sorry you can not delete this parent you shoud delete students first!');
-
+                session()->flash('status', 'error');
+                session()->flash('msg', 'sorry you can not delete this parent you shoud delete students first!');
+                session()->flash('icon', 'fa-xmark');
             }else{
                 
                 User::findOrFail($request->id)->delete();
-                toastr()->success('Parent has been deleted successfully!');
+                session()->flash('status', 'success');
+                session()->flash('msg', 'Parent has been deleted successfully!');
+                session()->flash('icon', 'fa-check');
             }
             return redirect()->route('parents.index');
         } catch (\Exception $e) {
@@ -143,7 +151,9 @@ class ParentController extends Controller
                 'name' => 'required',    
             ]);
             if ($validated->stopOnFirstFailure()->fails()) {
-                toastr()->error('you shoud enter search data');
+                session()->flash('status', 'error');
+                session()->flash('msg', 'you shoud enter search data');
+                session()->flash('icon', 'fa-xmark');
                 return redirect()->back();
 
  
@@ -163,7 +173,9 @@ class ParentController extends Controller
                
                 // dd($selected_parents);  
                  if(count($selected_parents) == 0){
-                     toastr()->error('no parent or student matched');
+                     session()->flash('status', 'error');
+                     session()->flash('msg', 'no parent or student matched');
+                     session()->flash('icon', 'fa-xmark');
                  }
                  $parents =  User::with('students')->get()->toQuery()->paginate(10);
                  $students = Student::all();

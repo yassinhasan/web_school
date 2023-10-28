@@ -14,7 +14,6 @@ function loadText() {
   let inner_p = document.querySelectorAll(".inner p");
 
   var count = inner_p.length;
-  console.log(count)
   var i = 1;
   setInterval(function () {
     if (i < count) {

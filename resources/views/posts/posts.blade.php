@@ -34,9 +34,10 @@ categories
                 <!-- table -->
                 <form class="post-form" method="post" action="{{route('posts.store')}}" enctype="multipart/form-data">
                     @csrf
+                    @method("POST")
                     <div class="form-group">
                         <label for="select_parent"> select Category</label>
-                        <select class="form-control seect-category" name="user_id">
+                        <select class="form-control seect-category" name="category_id">
                         <option value="">Select Category</option>
                             @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
@@ -52,7 +53,7 @@ categories
                         <input type="text" name="title" value="{{ old('title') }}" id="title" placeholder="Enter Post Title" class="form-control" required>
                     </div>
                     <div class="ckeditor" style="margin: 15px 0;">
-                        <textarea id="post" name="post"></textarea>
+                        <textarea id="content" name="content"></textarea>
                     </div>
                     <!-- add student  -->
                     <button type="submit" class="button btn btn-secondary">
@@ -65,13 +66,7 @@ categories
     </div>
 </div>
 <!-- row closed -->
-@if (Session::has('status'))
-@section('message')
-{{ Session::get('status') }}
-@endsection()
-@include("home.layouts.toast-session")
-@endif
-<!-- toast -->
+
 
 @endsection
 @section('js')
@@ -80,7 +75,7 @@ categories
 <script type="text/javascript">
     $(document).ready(function() {
         // $("#ck_texteditor").ckeditor();
-        CKEDITOR.replace('post', {
+        CKEDITOR.replace('content', {
 
             filebrowserUploadUrl: "{{route('posts.upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form'

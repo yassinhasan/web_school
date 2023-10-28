@@ -12,7 +12,7 @@
     <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('put')
-
+        <input type="text" autocomplete="username" hidden>
         <div>
             <x-input-label for="current_password" :value="__('Current Password')" class="action-title" />
             <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
@@ -20,8 +20,8 @@
         </div>
 
         <div>
-            <x-input-label for="password" :value="__('New Password')" class="action-title" />
-            <x-text-input id="password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-input-label for="password1" :value="__('New Password')" class="action-title" />
+            <x-text-input id="password1" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
             <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
         </div>
 

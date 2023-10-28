@@ -7,6 +7,6 @@
     <li class="page-item "><a class="page-link " href="{{route('rating').'?page=2'}}">2</a></li>
     <li class="page-item"><a class="page-link" href="{{route('rating').'?page=3'}}">3</a></li>
     <li class="page-item active"><a class="page-link" href="{{route('rating').'?page=1'}}">1</a></li>
-    <li class="page-item"><a class="page-link" href="{{route('rating').'?page=2'}}">Next</a></li>
+    <li class="page-item" style="margin-bottom: 30px !important;"><a class="page-link" href="{{route('rating').'?page=2'}}">Next</a></li>
   </ul>
 </nav>

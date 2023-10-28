@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfilecardsController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\ContactUsFormController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,7 +16,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/addStudent/add', [StudentController::class, 'add'])->name('addstudent.add');
 
     // profile page
-    Route::get('profile', [ProfilecardsController::class, 'index'])->name('profile');
+    Route::get('cards', [ProfilecardsController::class, 'index'])->name('cards');
     Route::get('rating', [RatingController::class, 'index'])->name('rating');
     Route::get('websites', [WebsiteController::class, 'index'])->name('websites');
     Route::post('rating/like', [RatingController::class, 'like'])->name('rating.like');

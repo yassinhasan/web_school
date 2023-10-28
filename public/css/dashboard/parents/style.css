@@ -1,16 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-
-
-body {
-    /* height: calc(100% - 20px); */
-    /* width: calc(100% - 20px); */
-    margin: 0;
-    /* padding: 10px; */
-    /* display: flex; */
-    font-family: 'Roboto', sans-serif;
-  }
   .accordion {
     margin: auto;
     width: 100%;
@@ -24,9 +12,11 @@ body {
 }
 .website_link 
 {
-    color: #3F51B5;
+    background-color: #6c757d;
     text-decoration: underline;
 }
-
+.website_link a{
+  color: #fff !important;
+}
   
 

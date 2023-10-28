@@ -1,9 +1,7 @@
-@extends('home.master')
+@extends('master')
 
 @section('css')
 <!-- Styles -->
-
-<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
 <link href="{{ asset('css/home/websites.css') }}" rel="stylesheet">
 @endsection()
 <!-- style -->
@@ -15,7 +13,7 @@ My Heroes
 <!-- navbar -->
 
 @section("navbar")
-    @include('home.layouts.navbar2')
+    @include('layouts.navbar2')
 @endsection()
 <!-- navbar -->
 
@@ -24,10 +22,9 @@ My Heroes
 @section('content')
 
   <!-- Modal -->
-      <div class="modal-content 	">
+      <div class="modal-content modal-wraper">
         <div class="modal-header">
           <h5 class="modal-title">Click on image to show website</h5>
-
         </div>
         <div class="modal-body">
           <div class="row links_wraper">
@@ -52,9 +49,9 @@ My Heroes
 
   <!-- website modal -->
 @foreach($students as $student)
-<div  class="modal fade" id="websiteModal{{ $loop->index }}" tabindex="-1" aria-labelledby="websiteModal{{ $loop->index }}" aria-hidden="true">
+<div  class="modal fade " id="websiteModal{{ $loop->index }}" tabindex="-1" aria-labelledby="websiteModal{{ $loop->index }}" aria-hidden="true">
   <div class="modal-dialog modal-lg	" role="document">
-    <div class="modal-content">
+    <div class="modal-content rating-modal">
       <div class="modal-header website_header">
         <div class="col-7">
           <h5 class="modal-title" style="margin-left: 10px;">{{ ucfirst($student->first_name) }} Website </h5>
@@ -91,7 +88,6 @@ My Heroes
 
 <!-- Scripts -->
 @section('js')
-<script src="{{ asset('js/layouts/nav2.js') }}" ></script>
 <script src="{{ asset('js/home/websites.js') }}" defer></script>
 @endsection
 

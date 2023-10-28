@@ -19,10 +19,10 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        return view('profile.profile', [
             'user' => $request->user(),
-        ]);
-    }
+        ]);   
+     }
 
     /**
      * Update the user's profile information.
@@ -36,19 +36,19 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        session()->flash('status', 'success');
+        session()->flash('msg', 'profile updated');
+        session()->flash('icon', 'fa-check');
+        return Redirect::route('profile');
     }
     /**
      * Update the user's profile image.
      */
     public function updateImage(Request $request): RedirectResponse
     {
-        // dd($request->request);
         try {
             $validated =  Validator::make($request->all(), [
                 'image' => 'file|mimes:jpg,jpeg,png,gif'
-
-
             ]);
             if (!$validated->stopOnFirstFailure()->fails()) {
                 $user = User::findOrFail(auth()->user()->id);
@@ -64,16 +64,14 @@ class ProfileController extends Controller
                     $request->user()->save();
                 }
             }
-
-
-            // toastr()->success('Student has been updated successfully!');
-            return Redirect::route('profile.edit')->with('status', 'profile image updated');
+            session()->flash('status', 'success');
+            session()->flash('msg', 'profile updated');
+            session()->flash('icon', 'fa-check');
+            
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile');
     }
 
     /**

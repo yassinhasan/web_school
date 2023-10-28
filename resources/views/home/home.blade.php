@@ -1,7 +1,6 @@
-@extends('home.master')
+@extends('master')
 @section('css')
 <!-- Styles -->
-<link href="{{ asset('css/layouts/nav2.css?ad') }}" rel="stylesheet">
 <link href="{{ asset('css/layouts/chatbot.css?ad') }}" rel="stylesheet">
 <link href="{{ asset('css/home/home.css?ad') }}" rel="stylesheet">
 @section('title')
@@ -12,7 +11,7 @@ My Heroes
 @endsection
 
 @section('navbar')
-@include("home.layouts.navbar2")
+@include("layouts.navbar2")
 @endsection()
 <!-- content -->
 @section('content')
@@ -32,12 +31,11 @@ My Heroes
     </div>
   </div>
 
-  @include("home.layouts.chatbot")
+  @include("layouts.chatbot")
 @endsection
 <!-- end content -->
 @section('js')
 <!-- Scripts -->
-<script src="{{ asset('js/layouts/nav2.js') }}" defer></script>
 <script src="{{ asset('js/layouts/chatbot.js') }}" defer></script>
 <script src="{{ asset('js/home/home.js') }}" defer></script>
 @endsection

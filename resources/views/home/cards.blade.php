@@ -1,21 +1,19 @@
-@extends('home.master')
+@extends('master')
 @section('css')
 <!-- Styles -->
-<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
-<link href="{{ asset('css/home/profile.css') }}" rel="stylesheet">
+<link href="{{ asset('css/home/cards.css') }}" rel="stylesheet">
 <!-- style -->
 @section('title')
 My Heroes Profile
 @stop
 @endsection
-
 @section('page-header')
 @endsection
 
 <!-- navbar -->
 
 @section("navbar")
-    @include('home.layouts.navbar2')
+    @include('layouts.navbar2')
 @endsection()
 <!-- navbar -->
 @section('content')
@@ -23,7 +21,7 @@ My Heroes Profile
   @foreach($students as $student)
   <li>
     <div class="details">
-      <h2>{{ ucfirst($student->first_name) }}
+      <h2>{{ ucfirst(substr($student->first_name,0,14)) }}
       </h2>
       <?php $website = json_decode($student->website, true) ?>
       <p class="age">{{$student->age}} Years</p>
@@ -42,21 +40,20 @@ My Heroes Profile
     </div>
   </li>
   @endforeach
-  {{ $students->links('pagination::bootstrap-5') }}
-
+  
 </ul>
+
+{{ $students->links('pagination::bootstrap-5') }}
 @endsection
 
 
 <!-- footer -->
 @section("footer")
-<!-- @include('home.layouts.footer') -->
 @endsection()
 
 <!-- footer -->
 
 <!-- Scripts -->
 @section('js')
-<script src="{{ asset('js/layouts/nav2.js') }}" ></script>
 <script src="{{ asset('js/home/profile.js') }}" defer></script>
 @endsection

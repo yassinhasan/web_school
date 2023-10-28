@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
-    <nav class="d-flex justify-items-center justify-content-between" style="width: 100%; margin:30px 0 4px 0">
-        <div class="d-flex justify-content-between flex-fill d-sm-none">
+    <nav class="d-flex justify-items-center justify-content-between" style="width: 100%;margin:20px 0; padding:10px ">
+        <div class="d-flex justify-content-between flex-fill d-sm-none" >
             <ul class="pagination">
                 {{-- Previous Page Link --}}
                 @if ($paginator->onFirstPage())
@@ -26,19 +26,7 @@
             </ul>
         </div>
 
-        <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-center">
-            <div>
-                <p class="small text-muted">
-                    {!! __('Showing') !!}
-                    <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
-                    {!! __('to') !!}
-                    <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
-                    {!! __('of') !!}
-                    <span class="fw-semibold">{{ $paginator->total() }}</span>
-                    {!! __('results') !!}
-                </p>
-            </div>
-
+        <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-center" style="flex-direction:column;" >
             <div>
                 <ul class="pagination">
                     {{-- Previous Page Link --}}
@@ -73,7 +61,7 @@
 
                     {{-- Next Page Link --}}
                     @if ($paginator->hasMorePages())
-                        <li class="page-item">
+                        <li class="page-item" >
                             <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
                         </li>
                     @else
@@ -82,6 +70,17 @@
                         </li>
                     @endif
                 </ul>
+            </div>
+            <div >
+                <p class="small text-muted" style="margin: 10px 0 !important;">
+                    {!! __('Showing') !!}
+                    <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
+                    {!! __('to') !!}
+                    <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
+                    {!! __('of') !!}
+                    <span class="fw-semibold">{{ $paginator->total() }}</span>
+                    {!! __('results') !!}
+                </p>
             </div>
         </div>
     </nav>

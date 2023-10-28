@@ -6,11 +6,9 @@
     border-radius: 50%;
     object-fit: cover;
 }
-.website_link 
-{
-    color: #3F51B5;
-    text-decoration: underline;
+
+.btn-del-select.disabled{
+    pointer-events: none !important;
 }
-.delete-all{
-    visibility: hidden;
-}
+
+

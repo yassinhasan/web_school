@@ -69,8 +69,10 @@ class StudentController extends Controller
             $request->image->move(public_path('images/profile/students/'), $savedImage);        }
         $student->save();
         // toastr()->success('Data has been saved successfully!');
-
-        return redirect()->back()->with('status', 'student added ');
+        session()->flash('status', 'success');
+        session()->flash('msg', 'Student has been added successfully!');
+        session()->flash('icon', 'fa-check');
+        return redirect()->back();
 
     }
 
@@ -140,7 +142,10 @@ class StudentController extends Controller
 
 
         // toastr()->success('Student has been updated successfully!');
-        return redirect()->back()->with('status', 'Student has been updated successfully! ');
+        session()->flash('status', 'success');
+        session()->flash('msg', 'Student has been updated successfully!');
+        session()->flash('icon', 'fa-check');
+        return redirect()->back();
 
         }
         catch(Exception $e)
@@ -172,7 +177,10 @@ class StudentController extends Controller
             }
 
             // toastr()->success('Student has been deleted successfully!');
-            return redirect()->back()->with('status', 'Student has been deleted successfully! ');
+            session()->flash('status', 'success');
+            session()->flash('msg', 'Student has been deleted successfully!');
+            session()->flash('icon', 'fa-check');
+            return redirect()->back();
 
         } catch(\Exception $e) {
             report($e);

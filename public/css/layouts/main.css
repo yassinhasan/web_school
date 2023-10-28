@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Righteous);
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 
@@ -18,20 +19,37 @@
     --dark-toast: #34495e;
     --light-toast: #fff;
     --success-toast: #0abf30;
+    --success-background-toast:  #16a085;;
     --error-toast: #f24d4c;
+    --error-background-toast: rgb(138, 40, 40);
     --warning-toast: #e9bd0c;
+    --warning-background-toast: #957927;
     --info-toast: #3498db;
+    --info-background-toast: #264faf;
 
+    --progress-toast-second: 5sn
+
+
+    /* fontsize */
     --sm-fontsize :  16px;
     --md-fontsize : 20px;
     --lg-fontsize : 25px;
-
+    --font-size-menu-text : 3vh ;
+    --font-size-menu-nav : 5vh;
+    --font-size-placeholder:15px;
     --profile-image-rating-size : 80px;
+    --fontsize-span-toast: 16px;
+    --fontsize-icon-toast: 16px;
+    --fontsize-md-toast: 14px;
+
+
     /* background header website */
     --background-header-color: #ccc;
 
     /* font family */
-    --fontfamily-righteous : 'Righteous';
+    /* --fontfamily : 'Righteous'; */
+    --fontfamily : Poppins, sans-serif;
+  
 
     /* login page */
     --login-text-dark: hsl(240, 54%, 15%);
@@ -50,10 +68,9 @@
     --z-index-menu-overlay : 101;
     --z-index-tooltip : 99;
     --z-index-chatbox : 100;
-    --z-index-toast : 200000000000000005 !important;
+    --z-index-toast : 200000005 !important;
 
-    --font-size-menu-text : 3vh ;
-    --font-size-menu-nav : 5vh;
+
 
     /* dark mode
     --dark-background : black;
@@ -66,6 +83,8 @@
     --theme-color : black;
     --theme-border-style-style : none;
     --theme-box-shadow-style : none;
+    /* box-shadow */
+    --box-shadow: 0px 8px 16px #ccc;
 
   }
 
@@ -79,7 +98,6 @@
   
   a,
   button {
-    all: unset;
     cursor: pointer;
   }
   body{

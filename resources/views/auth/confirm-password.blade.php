@@ -1,7 +1,6 @@
-@extends('auth.master')
+@extends('master')
 @section('css')
 <!-- Styles -->
-<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
 <link href="{{ asset('css/auth/login.css') }}" rel="stylesheet">
 @endsection()
 <!-- style -->
@@ -13,7 +12,7 @@ Login
 <!-- navbar -->
 
 @section("navbar")
-@include('home.layouts.navbar2')
+@include('layouts.navbar2')
 @endsection()
 <!-- navbar -->
 
@@ -57,13 +56,11 @@ Login
 
 <!-- footer -->
 @section("footer")
-<!-- @include('home.layouts.footer') -->
 @endsection()
 <!-- footer -->
 
 <!-- Scripts -->
 @section('js')
-<script src="{{ asset('js/layouts/nav2.js') }}"></script>
 @endsection
 <!-- Scripts -->
 

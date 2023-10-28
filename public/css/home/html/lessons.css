@@ -2,7 +2,6 @@
   background-color: var(--theme-background);
   color: var(--theme-color);
   border: var(--theme-border-style-style);
-  margin-left: 25px;
   margin-top: 52px
 }
 body.light .breadcrumb{

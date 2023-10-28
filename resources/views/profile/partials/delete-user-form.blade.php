@@ -10,9 +10,9 @@
     </header>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-danger text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Delete Account
-    </button>
+
+    <x-danger-button  data-bs-toggle="modal" data-bs-target="#exampleModal"> Delete Account</x-primary-button>
+
 
 </section>
 
@@ -20,7 +20,7 @@
 <!-- modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" >
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content delete-form">
             <div name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
                 <form method="post" action="{{ route('profile.destroy') }}" class="p-6 form-delete">
                     @csrf
@@ -35,18 +35,18 @@
                     </p>
 
                     <div class="mt-6">
-                        <x-input-label for="password" value="{{ __('Password') }}" class="sr-only action-title" />
+                        <x-input-label for="password2" value="{{ __('Password') }}" class="sr-only action-title" />
 
-                        <x-text-input id="password" name="password" type="password" class="mt-1 block w-3/4 action-title" placeholder="{{ __('Password') }}" />
+                        <x-text-input id="password2" name="password" type="password" class="mt-1 block w-3/4 action-title" placeholder="{{ __('Password') }}"  autocomplete />
 
                         <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
                     </div>
 
                     <div class="mt-6 flex justify-end action-title">
-                       <button type="button" class="btn btn-secondary text-dark" data-bs-dismiss="modal">Cancel</button>
+                       <button type="button" class="btn btn-secondary  cancel-btn" data-bs-dismiss="modal">Cancel</button>
 
 
-                        <x-danger-button class="ml-3 action-title delete-btn">
+                        <x-danger-button class="ml-3 delete-btn">
                             {{ __('Delete Account') }}
                         </x-danger-button>
                     </div>

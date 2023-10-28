@@ -42,7 +42,7 @@ function changePreview(image_element , file)
 const deleteUser = async () => {
    try {
       let formData = new FormData(form_delete);
-      let response = await fetch("/user/profile", {
+      let response = await fetch("/profile", {
          headers: {
             "X-CSRF-Token": document.querySelector('input[name="_token"]').value
          },

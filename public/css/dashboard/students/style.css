@@ -18,5 +18,5 @@
 }
 
 .delete-all{
-    visibility: hidden;
+    display: none;
 }

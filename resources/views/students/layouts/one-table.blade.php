@@ -41,9 +41,9 @@
                       <?php $website =json_decode($student->website, true) ?>
                       <td>
                         @if($website)
-                        <a class="website_link" href="{{ $website[0] }}">{{ $website[0]}}</a>
+                        <a class="website_link" href="{{ $website[0] }}" target="_blank" >{{ $website[0]}}</a>
                         <br>
-                        <a class="website_link" href="{{ $website[1] }}">{{ $website[1]}}</a>
+                        <a class="website_link" href="{{ $website[1] }}" target="_blank">{{ $website[1]}}</a>
                         @endif
                       </td>
                       <td>{{ $student->country}}</td>

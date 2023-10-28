@@ -1,5 +1,3 @@
-
-
 .menu-cont {
   position:sticky;
   left: 2%;
@@ -17,7 +15,6 @@
   font-size: var(--font-size-menu-text );
   letter-spacing: 6px;
   font-weight: 700;
-  font-family:'Righteous';
   text-overflow:ellipsis;
   background-image: var(--nav-background-linear);
   -webkit-background-clip: text;
@@ -69,7 +66,6 @@
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   font-size: var(--font-size-menu-nav );
-  font-family: 'Righteous', serif;
   font-weight: 400;
   text-align: center;
 }
@@ -94,14 +90,13 @@
   display: block;
   position: relative;
   text-overflow:ellipsis;
-  font-family:'Righteous';
   background-image: var(--nav-background-linear);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
   overflow: hidden;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 .menu-overylay ul li a:hover:after, .menu-overylay ul li a:focus:after, .menu-overylay ul li a:active:after {
   width: 100%;
@@ -116,8 +111,8 @@
           transform: translateX(-50%);
   height: 3px;
   
-  -webkit-transition: .35s;
-  transition: .35s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .menu-overylay ul li a:hover{
@@ -138,13 +133,13 @@
             transform: translateX(-50%);
     height: 3px;
     
-    -webkit-transition: .35s;
-    transition: .35s;
+    -webkit-transition: .2s;
+    transition: .2s;
   }
   .menu-overylay ul li a:before{
   -webkit-transform: scaleX(0);
             transform: scaleX(0);
-    -webkit-transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.2s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
   }
   .transparent{

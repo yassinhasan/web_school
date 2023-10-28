@@ -43,28 +43,28 @@ Parents
     {{ __('Asign Student To Parent') }}
   </button>
   
-  <button type="button" style="margin: 10px ;" class="button btn-info x-small" data-toggle="modal" data-target="#searchModal">
+  <button type="button" style="margin: 10px ;" class="btn  x-small btn-info" data-toggle="modal" data-target="#searchModal">
     {{ __('Search By Parent Or Student') }}
   </button>
 
-  <a type="button" style="margin: 10px ;" class="button btn-secondary x-small"  href="{{route('parents.index')}}">
+  <button type="button" style="margin: 10px ; color:#fff;background:#075E54" class="btn x-small"  href="{{route('parents.index')}}">
     {{ __('Show All Parents') }}
-</a>
+  </button>
   <!-- end student  -->
   <?php  $selected_parents = (isset($selected_parents) && count($selected_parents) > 0) ? $selected_parents : $parents;  ?>
 
   @foreach($selected_parents as $parent)
   <div class="accordion" style="margin: 10px 0;" id="{{'parent-'.$parent->id}}">
     <div class="card">
-      <div class="card-header row" style="justify-content: space-between;" id="headingOne" >
+      <div class="card-header row" style="justify-content: space-between;background:#6c757d;padding-right:30px" id="headingOne" >
         <h2 class="mb-0">
-          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#{{'target-parent-'.$parent->id}}" aria-expanded="true" aria-controls="collapseOne">
+          <button class="btn btn-link btn-block text-left text-light" type="button" data-toggle="collapse" data-target="#{{'target-parent-'.$parent->id}}" aria-expanded="true" aria-controls="collapseOne">
           {{$parent->name}}
             </button>   
           </h2>
-          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $parent->id }}" title="{{ __('Delete Parent ') }}"><i class="fa fa-trash"></i></button>
+          <button type="button" class="btn btn-sm" style="background-color: #f24d4c;color:#fff" data-toggle="modal" data-target="#delete{{ $parent->id }}" title="{{ __('Delete Parent ') }}"><i class="fa fa-trash"></i></button>
       </div>
-      <div id="{{'target-parent-'.$parent->id}}" class="collapse" aria-labelledby="headingOne" data-parent="#{{'parent-'.$parent->id}}">
+      <div id="{{'target-parent-'.$parent->id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#{{'parent-'.$parent->id}}">
         <div class="card-body">
           <!-- table -->
           <div class="table-responsive">

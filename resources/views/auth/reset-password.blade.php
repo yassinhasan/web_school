@@ -1,7 +1,7 @@
-@extends('auth.master')
+@extends('master')
 @section('css')
 <!-- Styles -->
-<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
+<link href="{{ asset('css/auth/login.css') }}" rel="stylesheet">
 @endsection()
 <!-- style -->
 @section('title')
@@ -12,7 +12,7 @@ Login
 <!-- navbar -->
 
 @section("navbar")
-@include('home.layouts.navbar2')
+@include('layouts.navbar2')
 @endsection()
 <!-- navbar -->
 
@@ -33,7 +33,7 @@ Login
   <div class="form-wrapper">
 
     <h2 style="margin-bottom: 15px;">Reset Your Password!👋🏻</h2>
-    <form method="POST" action="{{ route('password.store') }}">
+    <form method="POST" action="{{ route('password.store') }}" class="">
       @csrf
       <input type="hidden" name="token" value="{{ $request->route('token') }}">
       <div class="input-container">
@@ -71,13 +71,13 @@ Login
 
 <!-- footer -->
 @section("footer")
-<!-- @include('home.layouts.footer') -->
 @endsection()
 <!-- footer -->
 
 <!-- Scripts -->
 @section('js')
-<script src="{{ asset('js/layouts/nav2.js') }}"></script>
+<script src="{{ asset('js/auth/auth.js') }}"></script>
+
 @endsection
 <!-- Scripts -->
 

@@ -1,7 +1,7 @@
-@extends('auth.master')
+@extends('master')
 @section('css')
 <!-- Styles -->
-<link href="{{ asset('css/layouts/nav2.css?sad') }}" rel="stylesheet">
+<link href="{{ asset('css/auth/login.css') }}" rel="stylesheet">
 @endsection()
 <!-- style -->
 @section('title')
@@ -12,7 +12,7 @@ Login
 <!-- navbar -->
 
 @section("navbar")
-@include('home.layouts.navbar2')
+@include('layouts.navbar2')
 @endsection()
 <!-- navbar -->
 
@@ -60,9 +60,9 @@ Login
           <label for="remember-me" class="label-remember">Remember me</label>
         </div>
 
-        <a href="{{ route('password.request') }}"  class="text-secondary">Forgot password?</a>
+        <a href="{{ route('password.request') }}"  class="forget-btn">Forgot password?</a>
         <p>
-          <a href="{{ route('register') }}" class="text-info">Register</a>
+          <a href="{{ route('register') }}" class="register-btn">Register</a>
         </p>
       </div>
 
@@ -71,16 +71,11 @@ Login
     </form>
   </div>
 </div>
-@endsection
+<!-- session -->
 
-<!-- footer -->
-@section("footer")
-<!-- @include('home.layouts.footer') -->
-@endsection()
-<!-- footer -->
+@endsection
 
 <!-- Scripts -->
 @section('js')
-<script src="{{ asset('js/layouts/nav2.js') }}"></script>
 @endsection
 <!-- Scripts -->

@@ -38,23 +38,32 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        $validator = Validator::make($request->all(), [
+
+        $validator =  Validator::make($request->all(), [
             'title' => 'required',
-            'section_id' => 'required',
-            'post' => 'required|string',
-            ]);
-        if ($validator->stopOnFirstFailure()->fails()) {
-            toastr()->error($validator->errors()->first());
+            'section_id' =>'required',
+            'content' => 'required' 
+
+        ],[
+            'section_id.required' => "you shoud select section "
+        ]);
+            if ($validator->stopOnFirstFailure()->fails()) {
+            session()->flash('status', 'error');
+            session()->flash('msg', $validator->errors()->first());
+            session()->flash('icon', 'fa-xmark');
+            return redirect()->back();
+
         }
         $sectionId = $request->section_id;
         $post = new Post();
         $post->title = $request->title;
         $post->slug = str()->slug($request->title);
         $post->section_id = $sectionId;
-        $post->content = $request->post;
+        $post->content = $request->content;
         $post->save();
-        toastr()->success('Post has been saved successfully!');
-
+        session()->flash('status', 'success');
+        session()->flash('msg', 'Post has been saved successfully!');
+        session()->flash('icon', 'fa-check');
         return redirect()->back();
     }
 
@@ -111,14 +120,20 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        $validator = Validator::make($request->all(), [
-            'id' => 'required',
+
+        $validator =  Validator::make($request->all(), [
             'title' => 'required',
-            'section_id' => 'required',
-            'post' => 'required|string',
-            ]);
-        if ($validator->stopOnFirstFailure()->fails()) {
-            toastr()->error($validator->errors()->first());
+            'section_id' =>'required',
+            'content' => 'required' 
+
+        ],[
+            'section_id.required' => "you shoud select section "
+        ]);
+            if ($validator->stopOnFirstFailure()->fails()) {
+            session()->flash('status', 'error');
+            session()->flash('msg', $validator->errors()->first());
+            session()->flash('icon', 'fa-xmark');
+            return redirect()->back();
         }
         $sectionId = $request->section_id;
         $post =  Post::find($request->id);
@@ -127,9 +142,11 @@ class PostController extends Controller
             'title' => $request->title,
             'slug' => str()->slug($request->title),
             'section_id' => $sectionId,
-            'content' => $request->post,
+            'content' => $request->content,
         ]);
-        toastr()->success('Post has been saved successfully!');
+        session()->flash('status', 'success');
+        session()->flash('msg', 'Post has been saved successfully!');
+        session()->flash('icon', 'fa-check');
         return redirect()->back();
     }
 
@@ -172,6 +189,7 @@ class PostController extends Controller
              if ($validated->stopOnFirstFailure()->fails()) {
                 return response()->json([
                     'error' => $validated->errors()->first()
+                    
                 ]);   
             }
             //  get all sections 
@@ -189,4 +207,6 @@ class PostController extends Controller
             ]);
         }
         }    
+
+   
 }

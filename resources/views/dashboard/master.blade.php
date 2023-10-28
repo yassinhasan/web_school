@@ -15,8 +15,8 @@
 
     <div class="wrapper">
 
-        @include("home.layouts.spinner")
-        @include("home.layouts.toast")
+        @include("layouts.spinner")
+        @include("layouts.toast")
 
         @include('dashboard.layouts.main-header')
         @include('dashboard.layouts.main-sidebar')
@@ -36,12 +36,15 @@
             <!--=================================
  footer -->
 
-         <!-- @include('home.layouts.footer') -->
         </div><!-- main content wrapper end-->
     </div>
     </div>
     </div>
-
+        <!-- session -->
+        @if (Session::has('status'))
+        @include("layouts.toast-session")
+        @endif
+        <!-- session -->
     <!--=================================
  footer -->
 

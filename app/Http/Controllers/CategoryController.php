@@ -56,9 +56,11 @@ class CategoryController extends Controller
             $request->image->move(public_path('images/categories/images/'), $savedImage);
         }
         $Category->save();
-        toastr()->success('Data has been saved successfully!');
 
-        return redirect()->back()->with('status', 'Category added ');
+        session()->flash('status', 'success');
+        session()->flash('msg', 'Student has been saved successfully!');
+        session()->flash('icon', 'fa-check');
+        return redirect()->back();
     }
 
     /**
@@ -110,8 +112,10 @@ class CategoryController extends Controller
                 ]);
             }
 
-
-            return redirect()->back()->with('status', 'category has been updated successfully! ');
+            session()->flash('status', 'success');
+            session()->flash('msg', 'category has been updated successfully! ');
+            session()->flash('icon', 'fa-check');
+            return redirect()->back();
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -134,11 +138,16 @@ class CategoryController extends Controller
                 foreach ($deletedIds as $deletedId) {
                     $hasnSections = Category::find($deletedId)->sections;
                     if (count($hasnSections)) {
-                        toastr()->error('sorry you can not delete this Category you shoud delete sections first!');
+                        
+                        session()->flash('status', 'error');
+                        session()->flash('msg', 'sorry you can not delete this Category you shoud delete sections first!');
+                        session()->flash('icon', 'fa-xmark');
                     } else {
 
-                        Category::findOrFail($deletedId)->delete();
-                        toastr()->success('category has been deleted successfully!');
+                        Category::findOrFail($deletedId)->delete();                        
+                        session()->flash('status', 'success');
+                        session()->flash('msg', 'category has been deleted successfully!');
+                        session()->flash('icon', 'fa-check');
                     }
                 }
                 // delete only on category
@@ -147,11 +156,15 @@ class CategoryController extends Controller
                 $hasnSections = Category::find($request->id)->sections;
 
                 if (count($hasnSections)) {
-                    toastr()->error('sorry you can not delete this Category you shoud delete sections first!');
+                    session()->flash('status', 'error');
+                    session()->flash('msg', 'sorry you can not delete this Category you shoud delete sections first!');
+                    session()->flash('icon', 'fa-xmark');
                 } else {
 
                     Category::findOrFail($request->id)->delete();
-                    toastr()->success('category has been deleted successfully!');
+                    session()->flash('status', 'success');
+                    session()->flash('msg', 'category has been deleted successfully!');
+                    session()->flash('icon', 'fa-check');
                 }
             }
 
@@ -180,7 +193,9 @@ class CategoryController extends Controller
             'name.*.required' => 'section  field is required.',
         ]);
         if ($validator->stopOnFirstFailure()->fails()) {
-            toastr()->error($validator->errors()->first());
+            session()->flash('status', 'error');
+            session()->flash('msg', $validator->errors()->first());
+            session()->flash('icon', 'fa-xmark');
         } else {
             $id_array = $inputs['id'];
             $name_array = $inputs['name'];
@@ -196,7 +211,9 @@ class CategoryController extends Controller
                 $section->slug = strtolower($url);
                 $section->save();
             }
-            toastr()->success('Data has been saved successfully!');
+            session()->flash('status', 'success');
+            session()->flash('msg', 'Data has been saved successfully!');
+            session()->flash('icon', 'fa-check');
         }
         return redirect()->back();
     }

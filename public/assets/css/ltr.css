@@ -2415,7 +2415,7 @@ tbody.collapse.show {
 .custom-control-label::before {
   position: absolute;
   top: .25rem;
-  left: 0;
+  left: -20px;
   display: block;
   width: 1rem;
   height: 1rem;
@@ -19986,7 +19986,19 @@ ul.list-unstyled li {
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
+  overflow-y: auto;
+
   transition: all 0.5s ease; }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .side-menu-fixed::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.side-menu-fixed {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
   .side-menu-fixed .right-nav-text {
     opacity: 1;
     -webkit-transition: opacity 0.2s ease 0s;
@@ -20007,7 +20019,8 @@ ul.list-unstyled li {
     backface-visibility: hidden;
     padding-top: 20px; }
     .side-menu-fixed .side-menu li {
-      width: 228px; }
+      /* width: 228px;  */
+    }
     .side-menu-fixed .side-menu li.navigation-header span {
       padding: 11px 15px; }
     .side-menu-fixed .side-menu li.navigation-header i {
@@ -20780,7 +20793,7 @@ footer a {
   height: calc(3.1rem + 2px); }
 
 select.form-control:not([size]):not([multiple]) {
-  height: calc(2.8rem + 2px); }
+  height: calc(3.8rem + 2px); }
 
 /* Sparkline chart */
 .jqstooltip {

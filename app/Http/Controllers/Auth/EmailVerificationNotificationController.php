@@ -19,7 +19,9 @@ class EmailVerificationNotificationController extends Controller
         }
 
         $request->user()->sendEmailVerificationNotification();
-
-        return back()->with('status', 'verification-link-sent');
+        session()->flash('status', 'success');
+        session()->flash('msg', 'verification-link-sent');
+        session()->flash('icon', 'fa-check');
+        return back();
     }
 }

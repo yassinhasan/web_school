@@ -18,7 +18,7 @@
                         {{ __('Add Student') }}
             </button>
             <!-- delete selected student  -->
-            <button type="button" style="margin: 10px 0;" class="button x-small btn btn-danger delete-all"  data-toggle="modal" data-target="#deleteAllModal">
+            <button type="button" style="margin: 10px 0;" class="x-small btn btn-danger delete-all"  data-toggle="modal" data-target="#deleteAllModal">
                         {{ __('Delete Selected Students') }}
             </button>
             <br><br>
@@ -27,8 +27,6 @@
             <table id="datatable" class="table table-striped table-hover table-bordered p-0">
               <thead>
                   <tr>
-                      <th style="text-align: center;">
-                      <input class="box1" type="checkbox" value="" name=""  onclick="selectAll('box1',this)"></th>
                       <th>Name</th>
                       <th>Image</th>
                       <th>Age</th>
@@ -41,17 +39,15 @@
                 @foreach($students as $student)
 
                     <tr>
-                    <td style="text-align: center;">
-                     <input class="box1 checkbox-selected" type="checkbox" value="{{$student->id}}" name="student_id[]"></td>
                       <td>{{ ucfirst($student->first_name." ".$student->last_name )}}</td>
                       <td><img src="{{ asset('images/profile/students/').'/'.$student->image}}" class="iamge_table"></td>
                       <td>{{ $student->age}}</td>
                       <?php $website =json_decode($student->website, true) ?>
                       <td>
                         @if($website)
-                        <a class="website_link" href="{{ $website[0] }}">{{ $website[0]}}</a>
+                        <a class="website_link" href="{{ $website[0] }}" target="_blank">{{ $website[0]}} </a>
                         <br>
-                        <a class="website_link" href="{{ $website[1] }}">{{ $website[1]}}</a>
+                        <a class="website_link" href="{{ $website[1] }}" target="_blank">{{ $website[1]}}</a>
                         @endif
                       </td>
                       <td>{{ $student->country}}</td>
@@ -76,7 +72,6 @@
               </tbody>
               <tfoot>
                   <tr>
-                    <th>select</th>
                   <th>Name</th>
                       <th>Image</th>
                       <th>Age</th>
