@@ -30,7 +30,7 @@ return new class extends Migration
             $table->integer("user_id")->nullable();
             $table->enum("gender",["male","female"]);
             $table->integer("points")->default(0);
-            $table->json("likedby")->default(json_encode([]));
+            $table->json("likedby")->nullable();
 
 
 

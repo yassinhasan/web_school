@@ -57,7 +57,7 @@ class RegisteredUserController extends Controller
             return redirect(RouteServiceProvider::HOME);
         }
         catch(Exception $e){
-            return view('auth.register')->with(['connection_error' => 'No Connection']);
+            return view('auth.register')->with(['connection_error' =>  $e->getMessage()] );
 
         }
     }
