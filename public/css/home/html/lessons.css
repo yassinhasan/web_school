@@ -30,6 +30,9 @@ body.light .breadcrumb{
   font-weight: bold;
   border: none !important;
 }
+.header .box-title{
+  color: #ffff;
+}
 .accordion .btn-link.focus{
 
   border: none !important;

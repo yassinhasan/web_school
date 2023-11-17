@@ -38,7 +38,7 @@
 
 .card__title {
   margin: 0 auto 1em;
-  color: #333;
+  color: var(--theme-color);
   text-align: center;
   text-transform: capitalize;
 }
@@ -50,12 +50,20 @@
   margin: 1em auto;
   border-radius: 2px;
 }
-
+.card img {
+  max-width: 100%;
+  height: auto !important;
+}
 .card__text {
   margin: 2em 5%;
   color: #646464;
 }
-
+.card video {
+  object-fit: contain;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  max-width: 100%;
+}
 .card__btn {
   display: table;
   padding: .7em 4em;

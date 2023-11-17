@@ -181,7 +181,9 @@ class CategoryController extends Controller
         
         $inputs = $request->all();
         if(!array_key_exists("id",$inputs)){
-            toastr()->error('you shoud enter category first!');
+            session()->flash('status', 'error');
+            session()->flash('msg', 'you shoud enter category first!');
+            session()->flash('icon', 'fa-xmark');
             return redirect()->back();
 
         }
@@ -207,7 +209,7 @@ class CategoryController extends Controller
                 $section->name = $name_array[$i];
                 $categoryName =  str()->slug($categoryName);
                 $sectionName =  str()->slug($section->name);
-                $url = "/".$categoryName."/".  $sectionName ;
+                $url = $categoryName."-".  $sectionName ;
                 $section->slug = strtolower($url);
                 $section->save();
             }

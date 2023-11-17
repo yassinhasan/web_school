@@ -1,8 +1,6 @@
 .container {
-  max-width: 1070px;
-  width: 100%;
   background-color: var(--theme-background);
-  color: var(--theme-color);  display: flex;
+  color: var(--theme-color);  
   margin-top: 15px !important;
 }
 img {

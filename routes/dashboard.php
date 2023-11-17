@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
     // parents
     Route::get('parents',[ParentController::class,'index'])->name("parents.index");
     Route::post('parents',[ParentController::class,'store'])->name("parents.store");
-    Route::post('parents/search',[ParentController::class,'search'])->name("parents.search");
+    Route::get('parents/search',[ParentController::class,'search'])->name("parents.search");
     Route::delete('parents',[ParentController::class,'destroy'])->name("parents.destroy");
    
     // posts in dashboard

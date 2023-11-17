@@ -5,10 +5,10 @@
 <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico') }}" type="image/x-icon" />
 
 <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<!-- fontawsome -->
+<link href="{{ asset('css/assets/all.min.css?GYJH') }}" rel="stylesheet">
+<!-- bootstrap -->
+<link href="{{ asset('css/assets/bootstrap.min.css?GYJH') }}" rel="stylesheet">
 <!--- Style css -->
 <link href="{{ asset('css/layouts/main.css?GYJH') }}" rel="stylesheet">
 <link href="{{ asset('css/layouts/footer.css') }}" rel="stylesheet">
@@ -17,6 +17,12 @@
 <link href="{{ asset('css/layouts/toast.css?GYJH') }}" rel="stylesheet">
 <link href="{{ asset('css/layouts/color.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('assets/css/ltr.css?asd') }}" rel="stylesheet">
+<style>
+  @font-face{
+  font-family: 'Rubik', 'sans-serif';
+  src: url("{{ asset('fonts/Rubik-Regular.ttf') }} ") format("truetype");
+}
+</style>
 @yield('css')
 
 

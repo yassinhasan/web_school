@@ -24,11 +24,15 @@ body.light .breadcrumb{
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 
 }
+.card img {
+  max-width: 100%;
+  height: auto !important;
+}
 
 
 .card__title {
   margin: 0 auto 1em;
-  color: #333;
+  color: var(--theme-color);
   text-align: center;
   text-transform: capitalize;
 }

@@ -14,21 +14,18 @@
         <div class="card card-statistics h-100"> 
           <div class="card-body">
             <!-- add posts  -->
+            <button class="mb-10 btn btn-info"><a href="{{route('courses') }}">Show Courses</a></button>
+            <br>
             <a href="{{route('posts.create')}}" class="button x-small">
                         {{ __('Add New Post') }}
             </a>
             <!-- delete selected posts  -->
-            <button type="button" style="margin: 10px 0;" class="button x-small btn btn-danger delete-all"  data-toggle="modal" data-target="#deleteAllModal">
-                        {{ __('Delete Selected Posts') }}
-            </button>
             <br><br>
             <!-- end student  -->
             <div class="table-responsive">
             <table id="datatable" class="table table-striped table-hover table-bordered p-0">
               <thead>
                   <tr>
-                      <th style="text-align: center;">
-                      <input class="box1" type="checkbox" value="" name=""  onclick="selectAll('box1',this)"></th>
                       <th>Category </th>
                       <th>Section</th>
                       <th>Title</th>
@@ -40,8 +37,6 @@
                 @foreach($posts as $post)
 
                     <tr>
-                    <td style="text-align: center;">
-                     <input class="box1 checkbox-selected" type="checkbox" value="{{$post->id}}" name="post_id[]"></td>
                      <?php $slug = explode("-",$post->slug);
                         $categoryName = $slug[0];
                      ?>
@@ -68,7 +63,6 @@
               </tbody>
               <tfoot>
                   <tr>
-                    <th>select</th>
                     <th>Category </th>
                   <th>section</th>
                       <th>title</th>

@@ -19,6 +19,10 @@ Login
 <!-- content -->
 @section('content')
 
+@if(isset($connection_error))
+    <div class="alert alert-danger">{{$connection_error}}</div>
+  @endif
+<div class="row container">
 <div class="image-section">
   <div class="image-wrapper">
   <img src="{{ url('images/bg.png') }}" alt="bg image">
@@ -51,7 +55,7 @@ Login
     </form>
   </div>
 </div>
-
+</div>
 @endsection
 
 <!-- footer -->

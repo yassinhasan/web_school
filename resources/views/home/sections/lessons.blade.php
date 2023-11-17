@@ -49,8 +49,9 @@ My Heroes Courses
         </div>
     </div>
     @endforeach
+    @if(count($posts) != 0 )
     {{ $posts->links('pagination::bootstrap-5') }}
-
+    @endif
     <!-- why html end -->
     <!-- head and body -->
     <!-- end tag elemnts -->

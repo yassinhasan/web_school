@@ -19,6 +19,7 @@ Login
 <!-- content -->
 @section('content')
 
+<div class="row container">
 <div class="image-section">
   <div class="image-wrapper">
   <img src="{{ url('images/bg.png') }}" alt="bg image">
@@ -66,7 +67,7 @@ Login
     </form>
   </div>
 </div>
-
+</div>
 @endsection
 
 <!-- footer -->

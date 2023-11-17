@@ -13,7 +13,7 @@
             <div class="modal-body">
                 <!-- add_form -->
                 <div class="form-wrap">
-                    <form id="survey-form" action="{{ route('parents.search') }}" method="POST">
+                    <form id="survey-form" action="{{ route('parents.search') }}" method="GET">
                         @csrf
                         <div class="row">
                         <div class="col-md-12">

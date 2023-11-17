@@ -20,9 +20,11 @@
 @section('content')
 <div class="accordion arrows">
   <div class="box header">
-    <label for="acc-close" class="box-title">Front End Developer</label>
+    <label for="acc-close" class="box-title" style="color: #fff;">Front End Developer</label>
   </div>
+  
   <!-- html -->
+  @if(isset($categories))
   @foreach($categories as $category)
   <input type="radio" name="accordion" id="{{$category->name}}" />
   <section class="box">
@@ -40,6 +42,11 @@
     </div>
   </section>
   @endforeach
+  @endif
+  
+  @if(isset($connection_error))
+    <div class="alert alert-danger">{{$connection_error}}</div>
+  @endif
   <!-- css -->
   <input type="radio" name="accordion" id="acc-close" />
 </div>

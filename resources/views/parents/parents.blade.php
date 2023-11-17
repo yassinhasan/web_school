@@ -47,9 +47,9 @@ Parents
     {{ __('Search By Parent Or Student') }}
   </button>
 
-  <button type="button" style="margin: 10px ; color:#fff;background:#075E54" class="btn x-small"  href="{{route('parents.index')}}">
+  <a type="button" style="margin: 10px ; color:#fff;background:#075E54" class="btn x-small"  href="{{route('parents.index')}}">
     {{ __('Show All Parents') }}
-  </button>
+</a>
   <!-- end student  -->
   <?php  $selected_parents = (isset($selected_parents) && count($selected_parents) > 0) ? $selected_parents : $parents;  ?>
 
@@ -64,7 +64,7 @@ Parents
           </h2>
           <button type="button" class="btn btn-sm" style="background-color: #f24d4c;color:#fff" data-toggle="modal" data-target="#delete{{ $parent->id }}" title="{{ __('Delete Parent ') }}"><i class="fa fa-trash"></i></button>
       </div>
-      <div id="{{'target-parent-'.$parent->id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#{{'parent-'.$parent->id}}">
+      <div id="{{'target-parent-'.$parent->id}}" class="collapse" aria-labelledby="headingOne" data-parent="#{{'parent-'.$parent->id}}">
         <div class="card-body">
           <!-- table -->
           <div class="table-responsive">

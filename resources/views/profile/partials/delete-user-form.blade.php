@@ -11,14 +11,14 @@
 
     <!-- Button trigger modal -->
 
-    <x-danger-button  data-bs-toggle="modal" data-bs-target="#exampleModal"> Delete Account</x-primary-button>
+    <x-danger-button  data-toggle="modal" data-target="#deleteModal"> Delete Account</x-primary-button>
 
 
 </section>
 
 
 <!-- modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" >
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true" data-backdrop="static" data-keyboard="false" >
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content delete-form">
             <div name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="mt-6 flex justify-end action-title">
-                       <button type="button" class="btn btn-secondary  cancel-btn" data-bs-dismiss="modal">Cancel</button>
+                       <button type="button" class="btn btn-secondary  cancel-btn" data-dismiss="modal">Cancel</button>
 
 
                         <x-danger-button class="ml-3 delete-btn">

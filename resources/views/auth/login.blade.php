@@ -18,6 +18,7 @@ Login
 
 <!-- content -->
 @section('content')
+<div class="row container">
 
 <div class="image-section">
   <div class="image-wrapper">
@@ -72,7 +73,7 @@ Login
   </div>
 </div>
 <!-- session -->
-
+</div>
 @endsection
 
 <!-- Scripts -->

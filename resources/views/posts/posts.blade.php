@@ -12,7 +12,8 @@ categories
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0"> Posts</h4>
+        <button class="mb-10 btn btn-secondary"><a href="{{route('courses') }}">Show Courses</a></button>
+            <h4 class="mb-3"> Posts</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
@@ -76,10 +77,10 @@ categories
     $(document).ready(function() {
         // $("#ck_texteditor").ckeditor();
         CKEDITOR.replace('content', {
-
             filebrowserUploadUrl: "{{route('posts.upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form'
-        });
+            });
+
     });
 </script>
 @endsection

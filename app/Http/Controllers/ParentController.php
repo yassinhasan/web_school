@@ -48,9 +48,9 @@ class ParentController extends Controller
         // if (! $User->items->contains($newItem->id)) {
         //     $cart->items()->save($newItem);
         // }
-        
+
         // Form validation
-        
+
         $validated =  Validator::make($request->all(), [
             'user_id' => 'required',
             'student_id' => 'required',
@@ -58,11 +58,11 @@ class ParentController extends Controller
         ]);
         if (!$validated->stopOnFirstFailure()->fails()) {
             $hasnStudent = User::find($request->user_id)->students->contains($request->student_id);
-            if($hasnStudent) {
+            if ($hasnStudent) {
                 session()->flash('status', 'error');
                 session()->flash('msg', 'this parent has this user before!');
                 session()->flash('icon', 'fa-xmark');
-            }else{
+            } else {
 
                 $parent = new ParentModel();
                 $parent->user_id = $request->user_id;
@@ -125,15 +125,15 @@ class ParentController extends Controller
     public function destroy(Request $request)
     {
         try {
-           // check if parent has students first 
-           $hasnStudents = User::find($request->id)->students;
-           
-            if(count($hasnStudents)){
+            // check if parent has students first 
+            $hasnStudents = User::find($request->id)->students;
+
+            if (count($hasnStudents)) {
                 session()->flash('status', 'error');
                 session()->flash('msg', 'sorry you can not delete this parent you shoud delete students first!');
                 session()->flash('icon', 'fa-xmark');
-            }else{
-                
+            } else {
+
                 User::findOrFail($request->id)->delete();
                 session()->flash('status', 'success');
                 session()->flash('msg', 'Parent has been deleted successfully!');
@@ -147,44 +147,44 @@ class ParentController extends Controller
     public function search(Request $request)
     {
         try {
+            $parents =  User::with('students')->get()->toQuery()->paginate(10);
+            $students = Student::all();
             $validated =  Validator::make($request->all(), [
-                'name' => 'required',    
+                'name' => 'required',
             ]);
             if ($validated->stopOnFirstFailure()->fails()) {
                 session()->flash('status', 'error');
                 session()->flash('msg', 'you shoud enter search data');
                 session()->flash('icon', 'fa-xmark');
-                return redirect()->back();
+                return  back();
+            } else {
 
- 
-            }else{
-                
                 // check if parent has students first 
                 $keyword = $request->name;
-     
+
                 $selected_parents = User::whereHas(
-                 'students',function($query) use($keyword){
-                          $query->where('first_name', 'LIKE', "%$keyword%")
-                        ->orWhere('last_name', 'LIKE', "%$keyword%");
+                    'students',
+                    function ($query) use ($keyword) {
+                        $query->where('first_name', 'LIKE', "%$keyword%")
+                            ->orWhere('last_name', 'LIKE', "%$keyword%");
                     }
                 )
-                ->orWhere('name', 'LIKE', "%$keyword%")
-                                  ->get(); 
-               
-                // dd($selected_parents);  
-                 if(count($selected_parents) == 0){
-                     session()->flash('status', 'error');
-                     session()->flash('msg', 'no parent or student matched');
-                     session()->flash('icon', 'fa-xmark');
-                 }
-                 $parents =  User::with('students')->get()->toQuery()->paginate(10);
-                 $students = Student::all();
-                 return view("parents.parents")->with(['parents' => $parents, 'selected_parents' => $selected_parents, "students" => $students]);
-            }
+                    ->orWhere('name', 'LIKE', "%$keyword%")
+                    ->get();
 
+                // dd($selected_parents);  
+                if (count($selected_parents) == 0) {
+                    session()->flash('status', 'error');
+                    session()->flash('msg', 'no parent or student matched');
+                    session()->flash('icon', 'fa-xmark');
+                }
+                return  view("parents.parents")->with(['parents' => $parents, 'selected_parents' => $selected_parents, "students" => $students]);
+            }
         } catch (\Exception $e) {
-            dd($e);
-            report($e);
+            session()->flash('status', 'error');
+            session()->flash('msg',  $e->getMessage());
+            session()->flash('icon', 'fa-xmark');
+            return view("parents.parents")->with(['parents' => $parents, "students" => $students]);
         }
     }
 }

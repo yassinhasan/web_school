@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+use function PHPUnit\Framework\isEmpty;
 
 class SectionController extends Controller
 {
@@ -18,9 +19,21 @@ class SectionController extends Controller
         $section = Section::where('slug', '=' , $slug)->first();
 
         if($section == null) {
-             toastr()->error("sorry not posts found");
+             session()->flash('status', 'error');
+             session()->flash('msg', "sorry no posts found");
+             session()->flash('icon', 'fa-xmark');
+             return back();
+ 
         }
-        $posts = $section->posts->toQuery()->paginate(10);
+        
+        $posts = [];
+        $collection = $section->posts;
+        if((!count($collection) == 0))
+        {
+
+            $posts = $collection->toQuery()->paginate(10);
+        }
+      //  dd($collection);
         switch($section->name){
             case "images":
             return view("home.sections.images")->with(['posts' => $posts]);
@@ -32,7 +45,9 @@ class SectionController extends Controller
                 return view("home.sections.videos")->with(['posts' => $posts]);;
                 break;
             default :
-            toastr()->error("sorry no section found");
+            session()->flash('status', 'error');
+            session()->flash('msg', "sorry no section found");
+            session()->flash('icon', 'fa-xmark');
             break;
         }
         
@@ -41,7 +56,9 @@ class SectionController extends Controller
     {
         try {
             Section::findOrFail($request->id)->delete();
-            toastr()->success('section has been deleted successfully!');
+            session()->flash('status', 'success');
+            session()->flash('msg', 'section has been deleted successfully!');
+            session()->flash('icon', 'fa-check');
             return redirect()->route('categories.index');
         } catch (\Exception $e) {
             dd($e);
@@ -55,20 +72,23 @@ class SectionController extends Controller
                 'name'=> 'required'
             ]);
             if ($validator->stopOnFirstFailure()->fails()) {
-                toastr()->error($validator->errors()->first());
+                session()->flash('status', 'error');
+                session()->flash('msg', $validator->errors()->first());
+                session()->flash('icon', 'fa-xmark');
             }
             $section = Section::findOrFail($request->id);
             $category = Category::find($section->category_id);
             $categoryName = $category->name;
-            $categoryName =  str()->slug($categoryName);
             $sectionName =  str()->slug($section->name);
-            $url = "/".$categoryName."/".  $sectionName ;
-            
+            $url = $categoryName."-".  $sectionName ;
+        
             $section->update([
                 $section->name = $request->name,
                 $section->slug = strtolower($url)
             ]);
-            toastr()->success('section has been updated successfully!');
+            session()->flash('status', 'success');
+            session()->flash('msg', 'section has been updated successfully!');
+            session()->flash('icon', 'fa-check');
             return redirect()->route('categories.index');
         } catch (Exception $e) {
             echo $e->getMessage();

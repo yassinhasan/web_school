@@ -34,8 +34,12 @@ CKEDITOR.editorConfig = function( config ) {
 	config.format_tags = 'p;h1;h2;h3;pre';
 	config.extraPlugins = 'colorbutton';
 
-	
+	config.extraPlugins = 'html5video';
+
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	config.clipboard_handleImages = false;
 };
+
+
+
