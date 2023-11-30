@@ -1,5 +1,5 @@
 <div class="modal fade" id="editSection{{ $section->id }}" tabindex="-1" role="dialog" aria-labelledby="editSectionModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
             <header class="header">

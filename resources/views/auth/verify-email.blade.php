@@ -19,17 +19,7 @@ Login
 <!-- content -->
 @section('content')
 
-<div class="row container">
-<div class="image-section">
-  <div class="image-wrapper">
-  <img src="{{ url('images/bg.png') }}" alt="bg image">
-  </div>
-
-  <div class="content-container">
-    <h1 class="section-heading">Success begins with <span>Education.</span></h1>
-  </div>
-</div>
-
+<div class="row">
 <div class="form-section">
   <div class="form-wrapper">
 

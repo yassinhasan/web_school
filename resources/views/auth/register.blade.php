@@ -23,18 +23,6 @@ Register
   @if(isset($connection_error))
     <div class="alert alert-danger">{{$connection_error}}</div>
   @endif
-<div class="row container">
-<div class="image-section">
-  <div class="image-wrapper">
-  <img src="{{ url('images/bg.png') }}" alt="bg image">
-  </div>
-
-  <div class="content-container">
-    <h1 class="section-heading">Success begins with <span>Education.</span></h1>
-    <p class="section-paragraph">Education is the key that unlocks the limitless doors of knowledge, empowering us to shape our destinies and create a brighter future.</p>
-  </div>
-</div>
-
 <div class="form-section">
   <div class="form-wrapper">
 
@@ -82,7 +70,6 @@ Register
 
     </form>
   </div>
-</div>
 </div>
 @endsection
 

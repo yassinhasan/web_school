@@ -1,70 +1,23 @@
+
+body{
+  height: 90vh;
+}
 .container {
-  background-color: var(--theme-background);
-  color: var(--theme-color);  
-  margin-top: 15px !important;
-}
-img {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-.image-section {
-  width: 50%;
-  position: relative;
-}
-.image-wrapper {
-  width: 100%;
-  height: 100%;
-}
-.image-wrapper img {
-  object-fit: cover;
+  margin-top: 50px;
 }
 
-.content-container {
-  background-color: hsla(0, 0%, 100%, 0.3);
-  padding: 2rem;
-  width: 80%;
-  color: var(--login-text-dark);
-  border-radius: 4px;
-  border: 1px solid hsl(0 100% 100% / 0.3);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.content-container h1 {
-  font-weight: 600;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-.content-container span {
-  background: var(--login-primary-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-@media screen and (max-width: 60rem) {
-  .container {
-    width: 100%;
-    margin: 0;
-  }
-  .content-container {
-    width: 100%;
-  }
-}
 
 .form-section {
-  width: 50%;
   background-color: var(--theme-background);
   color: var(--theme-color);
-  border: var(--theme-border-style-style);  padding: 2.5rem 1rem;
+  border: var(--theme-border-style-style);
+  padding: 2.5rem 1rem;
   display: flex;
   align-items: center;
 }
 
 .form-wrapper {
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -93,8 +46,9 @@ img {
 .form-group label {
   font-size: 0.9375rem;
   font-weight: 600;
+  /* background-color: var(--theme-background); */
   color: var(--theme-color);
-}
+  }
 .form-group input {
   font-size: 0.875rem;
   font-weight: 500;
@@ -119,10 +73,10 @@ img {
   display: grid;
   grid-template-columns: 1rem auto;
   gap: 0.6rem;
+  
 }
-
-.label-remember,.forget-btn,.register-btn{
-  color: var(--theme-color) !important;
+.rem label {
+color: var(--theme-color);
 
 }
 
@@ -164,7 +118,9 @@ input[type="checkbox"]:checked::before {
   color: var(--login-text-dark);
   user-select: none;
 }
-
+.remember-forgot a {
+  color: var(--login-primary);
+}
 .remember-forgot a:hover {
   text-decoration: underline;
   text-decoration-color: var(--login-primary);
@@ -226,74 +182,27 @@ input[type="checkbox"]:checked::before {
   height: 1.5rem;
 }
 
-@media screen and (max-width: 50rem) {
-  .container {
-    /* max-width: 80%; */
-    flex-direction: column;
-    margin-inline: 0;
-  }
 
-  .image-section,
-  .form-section {
-    width: 100%;
-  }
-
-  .image-section {
-    height: 25vh;
-  }
-  .content-container {
-    inset: 0;
-    transform: translate(0, 0);
-    padding: 1rem 1.6rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .content-container h1 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .content-container p {
-    font-size: 0.75rem;
-  }
-
-  .form-section {
-    flex: 1;
-    padding: 1rem 1rem;
-  }
-  .logo-container {
-    margin-bottom: 1rem;
-  }
-  .form-wrapper > h2 {
-    font-size: 1.25rem;
-  }
-  .form-wrapper > p {
-    margin-bottom: 1rem;
-  }
-  .form-wrapper button {
-    font-size: 0.875rem;
-  }
-  .or-divider {
-    font-weight: 500;
-    margin-block: 0.6rem;
-  }
+.student_image.hide
+{
+  display: none;
 }
-
-@media screen and (max-width: 36.25rem) {
-  .container {
-    max-width: 100%;
-  }
-  .form-wrapper {
-    width: 100%;
-  }
+.container {
+  /* margin-bottom: 20px; */
+}
+#addinputImage{
+  height: 48px;
 }
 
 input , textarea , select , label{
-  background-color: var(--theme-background) !important;
-  color: var(--theme-color) !important;
+background-color: var(--theme-background) !important;
+color: var(--theme-color) !important;
 
 
+}
+
+@media screen and (min-width: 992px) {
+  .form-wrapper {
+    width: 70%;
+  }
 }

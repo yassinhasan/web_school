@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->string('image')->default('profile.png');
             $table->string('account_status')->default("enabled");
-            $table->integer('pin_code')->nullable();
+            $table->string('code')->nullable();
+            $table->dateTime('expire_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

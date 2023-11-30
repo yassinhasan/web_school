@@ -51,7 +51,7 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        $validated = $request->validated();
+     
         $student = new Student();
         $student->first_name = $request->first_name;
         $student->last_name = $request->last_name;
@@ -109,7 +109,7 @@ class StudentController extends Controller
     {
         // dd($request->request);
         try{
-        $validated = $request->validated();
+  
         $student = Student::findOrFail($request->id);
         if($request->image != null)
             {

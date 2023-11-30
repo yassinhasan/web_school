@@ -42,7 +42,7 @@ body {
   
 }
 
-p {
+.inner p {
   margin:0;
   padding:0;
 
@@ -55,24 +55,24 @@ p {
 }
 
 @media (min-width:300px) { 
-  p {
+  .inner p {
     height: 206px;
   }
 }
 
 @media (min-width:600px) { 
-  p {
+  .inner p {
     height: 206px;
   }
 }
 
 @media (min-width:900px) { 
-  p {
+  .inner p {
     height: 200px;
   }
 }
 @media (min-width:1200px) { 
-  p {
-    height: 200px;
+  .inner p {
+    font-size: 6vw;
   }
 }

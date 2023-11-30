@@ -12,7 +12,7 @@ use App\Http\Controllers\WebsiteController;
 use App\Http\Livewire\Tester;
 use Illuminate\Support\Facades\Route;
 
-
+//Route::middleware('auth','two_factor')->group(function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard',function (){return view('dashboard.dashboard') ;})->name('dashboard');

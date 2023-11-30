@@ -1,12 +1,15 @@
- .profile-head{
-    margin-top: 20px;
-}
-body.light .profile-head {
-    box-shadow: var(--box-shadow);
-}
+
  .profile-head , .info-wraper,.delete-form{
     background-color: var(--theme-background) !important;
     color: var(--theme-color) !important;
+
+}
+.profile-title{
+    font-size: 3vh !important;
+    display: inline-block;
+}
+ .info-wraper,.delete-form{
+
     border: var(--theme-border-style-style) !important;
 }
 .profile-title ,.action-title , .cancel-btn{

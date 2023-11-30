@@ -27,10 +27,17 @@ Route::middleware('auth')->group(function () {
 
 });
 
+
+// Route::middleware('two_factor')->group(function () {
+//     Route::get('/', function () {
+//         return View('home.home');
+//     })->name("home");
+
+// });
+
 Route::get('/', function () {
     return View('home.home');
 })->name("home");
-
 Route::get('courses', [CoursesController::class, 'index'])->name("courses");
 
 Route::get('/trainning/{slug}', [SectionController::class,'index']);

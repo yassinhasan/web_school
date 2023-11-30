@@ -20,16 +20,6 @@ Add Your Student
 <!-- content -->
 @section('content')
 <!-- add_modal_student -->
-<div class="image-section">
-  <div class="image-wrapper">
-  <img src="{{ url('images/bg.png') }}" alt="bg image">
-  </div>
-
-  <div class="content-container">
-    <h1 class="section-heading">Success begins with <span>Education.</span></h1>
-    <p class="section-paragraph">Education is the key that unlocks the limitless doors of knowledge, empowering us to shape our destinies and create a brighter future.</p>
-  </div>
-</div>
 <div class="form-section">
   <div class="form-wrapper">
 
@@ -123,7 +113,7 @@ Add Your Student
             <span class="text-danger">{{ $message }}</span>
             @enderror
             <hr>
-            <img class="student_image  hide" src="" style="max-width:100%">
+            <img class="student_image  hide" src="" style="max-width:300px">
           </div>
         </div>
       </div>

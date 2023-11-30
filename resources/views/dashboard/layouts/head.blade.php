@@ -4,6 +4,7 @@
 <!-- Favicon -->
 <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico') }}" type="image/x-icon" />
 
+<link href="{{ URL::asset('assets/css/ltr.css?asd') }}" rel="stylesheet">
 <!-- Font -->
 <!-- fontawsome -->
 <link href="{{ asset('css/assets/all.min.css?GYJH') }}" rel="stylesheet">
@@ -16,7 +17,6 @@
 <link href="{{ asset('css/layouts/toast-session.css?awass') }}" rel="stylesheet">
 <link href="{{ asset('css/layouts/toast.css?GYJH') }}" rel="stylesheet">
 <link href="{{ asset('css/layouts/color.css') }}" rel="stylesheet">
-<link href="{{ URL::asset('assets/css/ltr.css?asd') }}" rel="stylesheet">
 <style>
   @font-face{
   font-family: 'Rubik', 'sans-serif';
