@@ -56,6 +56,19 @@
                             <!-- <li> <a href="calendar-list.html">List Calendar</a> </li> -->
                         </ul>
                     </li>                    
+                    <!-- zoom -->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#zoom">
+                            <div class="pull-left"><i class="ti-calendar"></i><span
+                                    class="right-nav-text">Zoom</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="zoom" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('zoom.index')}}">Zoom Mettings</a> </li>
+                            <!-- <li> <a href="calendar-list.html">List Calendar</a> </li> -->
+                        </ul>
+                    </li>                    
                     <!-- menu item chat-->
                     <li>
                         <a href="chat-page.html"><i class="ti-comments"></i><span class="right-nav-text">Chat

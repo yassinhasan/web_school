@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\OnlineCourseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TwoFactorController;
 use Illuminate\Support\Facades\Route;
@@ -73,6 +74,13 @@ Route::middleware('auth')->group(function () {
     // otp
     Route::get('otp-verify', [TwoFactorController::class, 'index'])->name('otp-verify');
     Route::post('otp-verify', [TwoFactorController::class, 'confirm'])->name('otp-confirm');
+
+    // test zoom
+        // update user profile
+        Route::get('zoom', [OnlineCourseController::class, 'index'])->name('zoom.index');
+        Route::patch('zoom', [OnlineCourseController::class, 'update'])->name('zoom.update');
+        Route::post('zoom', [OnlineCourseController::class, 'store'])->name('zoom.store');
+        Route::delete('zoom', [OnlineCourseController::class, 'destroy'])->name('zoom.destroy');
 });
 
 

@@ -52,7 +52,7 @@ class LoginRequest extends FormRequest
         }
         $user = User::where('email',$this->input('email'))->first();
         $user->generate_code();
-        // $user->notify(new TwoFactor());
+        // $user->notify(new TwoFactor());.
 
         RateLimiter::clear($this->throttleKey());
     }
