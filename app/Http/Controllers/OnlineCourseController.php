@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Interfaces\ZoomRepositoryInterface;
 use App\Http\Traits\FlashMessageTrait;
 use App\Http\Traits\MeetingZoomTrait;
 use App\Models\OnlineCourse;
@@ -12,44 +13,27 @@ class OnlineCourseController extends Controller
 {
     use MeetingZoomTrait;
     use FlashMessageTrait;
-    
+    private ZoomRepositoryInterface $zoom;
+
+    public function __construct(ZoomRepositoryInterface $ZoomRepositoryInterfacel) {
+        $this->zoom = $ZoomRepositoryInterfacel;
+    }
 
     public function index()
     {
-        $meetings =  OnlineCourse::all();
-     
-        return view("zoom.index")->with(['meetings' => $meetings]);
+        return $this->zoom->getAllMeetings();
     }
     public function store(Request $request)
     {
-        try {
-
-            $meeting = $this->createMeeting($request);
-           
-            OnlineCourse::create([
-                'user_id' => auth()->user()->id,
-                'meeting_id' => $meeting->id,
-                'topic' => $request->topic,
-                'start_at' => $request->start_at,
-                'duration' => $meeting->duration,
-                'password' => $meeting->password,
-                'start_url' => $meeting->start_url,
-                'join_url' => $meeting->join_url,
-            ]);
-            $this->SuccessMsg("zoom creared ");
-            return redirect()->route('zoom.index');
-        } catch (\Exception $e) {
-           
-            return redirect()->back()->with(['error' => $e->getMessage()]);
-        }
+        return $this->zoom->createZoom($request);
     }
 
     public function update(Request $request)
     {
-        
+        return $this->zoom->update($request);
     }
-    public function delete(Request $request)
+    public function destroy(Request $request)
     {
-
+      return  $this->zoom->deleteById($request);
     }
 }

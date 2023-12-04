@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
             <header class="header">
-                    <h1 id="title" class="text-center">Edit Student</h1>
+                    <h1 id="title" class="text-center">Edit Zoom Meeting</h1>
                 </header>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -17,12 +17,12 @@
                     <div class="row">
                         <input type="number" name="id" hidden value="{{ $meeting->id}}">
                         <div class="col-12 form-group">
-                            <label  for="topic">First Name</label>
+                            <label  for="topic">Zoom Topic</label>
                             <input type="text" name="topic" id="topic" placeholder="Enter your topic" class="form-control"  value="{{ $meeting->topic }}" required>
                         </div>
                         <div class="col-12 form-group">
-                            <label  for="start_at">start_at</label>
-                            <input type="text" name="start_at" id="start_at" placeholder="Enter start_at" class="form-control"  value="{{ $meeting->start_at }}" required>
+                            <label  for="start_at">Start At</label>
+                            <input type="datetime-local" name="start_at" id="start_at" class="form-control"  value="{{ $meeting->start_at }}" required>
                         </div>
    
                     </div>

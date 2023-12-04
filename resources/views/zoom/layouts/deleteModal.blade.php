@@ -13,7 +13,7 @@
                 <form action="{{route('zoom.destroy',$meeting->id)}}" method="post">
                     {{method_field('Delete')}}
                     @csrf
-                    {{ __('take care you\'re going to delete the meeting') }}
+                    take care you\'re going to delete the meeting  {{$meeting->topic }}
                     <input  type="hidden" name="id" class="form-control" value="{{ $meeting->id }}">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>

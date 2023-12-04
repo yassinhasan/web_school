@@ -79,7 +79,7 @@ trait MeetingZoomTrait
       
         $accessToken = $this->generateZoomAccessToken();
         
-        $user = User::findOrfail(auth()->user()->id);
+        // $user = User::findOrfail(auth()->user()->id);
         
         $email  = "hasanmeady781@gmail.com";
         $url = 'https://api.zoom.us/v2/users/'.$email.'/meetings';
@@ -101,44 +101,21 @@ trait MeetingZoomTrait
         $url = 'https://api.zoom.us/v2/meetings/' . $id;
 
         $response = Http::withToken($accessToken)->patch($url, [
-            'topic' => $data['topic'],
-          //  'type' => self::MEETING_TYPE_SCHEDULE,
-            'start_time' => $this->toZoomTimeFormat($data['start_time']),
-            'duration' => $data['duration'],
-            'agenda' => (!empty($data['agenda'])) ? $data['agenda'] : null,
-            'timezone' =>  config('timezone'),
+            'topic'      => $data['topic'],
+             'start_time' =>  $this->toZoomTimeFormat($data['start_at']),
+             'duration'   => 60,
+             'timezone' =>  config('timezone'),
         ]);
-
-        if ($response->successful()) {
-            // Meeting updated successfully
-            return [
-                'success' => true,
-                'data' => $response->json(),
-            ];
-        } else {
-            // Handle the error
-            return response()->json(['error' => 'Failed to update the Zoom meeting'], 500);
-        }
+        return  json_decode($response->getBody());
     }
 
 
-    public function delete($id)
+    public function deleteZoomMeeting($id)
     {
         $accessToken = $this->generateZoomAccessToken();
         $url = 'https://api.zoom.us/v2/meetings/' . $id;
-
         $response = Http::withToken($accessToken)->delete($url);
-
-        if ($response->successful()) {
-            // Meeting deleted successfully
-            return [
-                'success' => true,
-                'data' => $response->json(),
-            ];
-        } else {
-            // Handle the error
-            return response()->json(['error' => 'Failed to delete the Zoom meeting'], 500);
-        }
+        return  $response->json();
     }
 
 /////////////////////////////////////////////////////

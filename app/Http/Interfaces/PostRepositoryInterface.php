@@ -1,5 +1,5 @@
 <?php
-namespace App\Interfaces;
+namespace App\Http\Interfaces;
 
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
