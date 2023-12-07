@@ -16,18 +16,8 @@ My Heroes
 <!-- content -->
 @section('content')
   <div class="rotate center-vertical">
-    <div id="inner" class="inner">
-      <p>Hello.</p>
-      <p>I'm</p>
-      <p>Hassan</p>
-      <p>And</p>
-      <p>I'm</p>
-      <p>A Full</p>
-      <p>Stack</p>
-      <p>Developer</p>
-      <p>This Site </p>
-      <p>Made By <i class="fa fa-heart" aria-hidden="true"></i></p>
-      <p>Hassan Meady</p>
+      <div id="inner" class="inner">
+    {!! prepareIntroText($settings['intro_text']) !!}
     </div>
   </div>
 

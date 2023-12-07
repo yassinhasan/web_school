@@ -2,6 +2,7 @@
 
 namespace App\Http\Traits;
 
+use App\Models\Setting;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Http;
 use App\Models\User;
@@ -27,6 +28,7 @@ trait MeetingZoomTrait
             'Accept'        => 'application/json',
         ];
     }
+    
 
     function generateZoomAccessToken()
     {
@@ -81,7 +83,9 @@ trait MeetingZoomTrait
         
         // $user = User::findOrfail(auth()->user()->id);
         
-        $email  = "hasanmeady781@gmail.com";
+        $email = Setting::where('key','zoom_email')->pluck('value');
+        $email = $email[0];
+
         $url = 'https://api.zoom.us/v2/users/'.$email.'/meetings';
 
         $response = Http::withToken($accessToken)->post($url, [

@@ -32,7 +32,6 @@ class ContactUsFormController extends Controller {
         //  Send mail to admin
         Mail::to("figo781@gmail.com")->send(new MailContact($request->all()));
 
-        
         return response()->json([
             'success' => 'email sent succssfully'
         ]);    

@@ -71,7 +71,7 @@
                     </li>                    
                     <!-- menu item chat-->
                     <li>
-                        <a href="chat-page.html"><i class="ti-comments"></i><span class="right-nav-text">Chat
+                        <a href="{{route('settings.index')}}"><i class="ti-comments"></i><span class="right-nav-text">Settings
                             </span></a>
                     </li>
                     <!-- menu item mailbox-->

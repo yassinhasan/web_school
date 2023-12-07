@@ -8,6 +8,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfilecardsController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Livewire\Tester;
 use Illuminate\Support\Facades\Route;
@@ -53,4 +54,10 @@ Route::middleware('auth')->group(function () {
     Route::post('posts/upload',[PostController::class,'upload'])->name("posts.upload");
     Route::post('posts/search',[PostController::class,'search'])->name("posts.search");
     Route::delete('posts/delete',[PostController::class,'destroy'])->name("posts.destroy");
-});
+
+
+    // settings
+        // parents
+        Route::get('settings',[SettingsController::class,'index'])->name("settings.index");
+        Route::patch('settings',[SettingsController::class,'update'])->name("settings.update");
+    });

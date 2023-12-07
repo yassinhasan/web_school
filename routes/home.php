@@ -7,6 +7,7 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\ContactUsFormController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,8 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('websites', [WebsiteController::class, 'index'])->name('websites');
     Route::post('rating/like', [RatingController::class, 'like'])->name('rating.like');
 
-    // show posts
-    Route::get('/', [ProfilecardsController::class, 'index'])->name('profile');
+
 
 
 });
@@ -35,9 +35,7 @@ Route::middleware('auth')->group(function () {
 
 // });
 
-Route::get('/', function () {
-    return View('home.home');
-})->name("home");
+Route::get('/', [HomeController::class, 'index'])->name("home");
 Route::get('courses', [CoursesController::class, 'index'])->name("courses");
 
 Route::get('/trainning/{slug}', [SectionController::class,'index']);
