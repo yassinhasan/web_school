@@ -15,7 +15,7 @@ class User extends Authenticatable implements JWTSubject
 
     // public $timestamps = true;
     // const CREATED_AT = 'creation_at';
- 
+    protected $guard = 'user';
     /**
      * The attributes that are mass assignable.
      *

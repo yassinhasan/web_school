@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OnlineCourseController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -14,7 +15,7 @@ use App\Http\Livewire\Tester;
 use Illuminate\Support\Facades\Route;
 
 //Route::middleware('auth','two_factor')->group(function () {
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth:admin'])->group(function () {
 
     Route::get('/dashboard',function (){return view('dashboard.dashboard') ;})->name('dashboard');
 
@@ -60,4 +61,10 @@ Route::middleware('auth')->group(function () {
         // parents
         Route::get('settings',[SettingsController::class,'index'])->name("settings.index");
         Route::patch('settings',[SettingsController::class,'update'])->name("settings.update");
-    });
+            // test zoom
+        // update user profile
+        Route::get('zoom', [OnlineCourseController::class, 'index'])->name('zoom.index');
+        Route::patch('zoom', [OnlineCourseController::class, 'update'])->name('zoom.update');
+        Route::post('zoom', [OnlineCourseController::class, 'store'])->name('zoom.store');
+        Route::delete('zoom', [OnlineCourseController::class, 'destroy'])->name('zoom.destroy');
+});

@@ -11,7 +11,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth:user,admin')->group(function () {
     // add student in home not admin dashboard
     Route::get('/addStudent', [StudentController::class, 'show'])->name('addstudent');
     Route::post('/addStudent/add', [StudentController::class, 'add'])->name('addstudent.add');
@@ -21,9 +21,6 @@ Route::middleware('auth')->group(function () {
     Route::get('rating', [RatingController::class, 'index'])->name('rating');
     Route::get('websites', [WebsiteController::class, 'index'])->name('websites');
     Route::post('rating/like', [RatingController::class, 'like'])->name('rating.like');
-
-
-
 
 });
 
@@ -39,18 +36,5 @@ Route::get('/', [HomeController::class, 'index'])->name("home");
 Route::get('courses', [CoursesController::class, 'index'])->name("courses");
 
 Route::get('/trainning/{slug}', [SectionController::class,'index']);
-
-// Route::get('html/lessons', [CoursesController::class, 'index'])->name("courses");
-
-// Route::get('html/images', function () {
-//     return View('home.html.images');
-// })->name("html.images");;
-// Route::get('html/videos', function () {
-//     return View('home.html.videos');
-// })->name("html.videos");;
-// Route::get('html/lessons', function () {
-//     return View('home.html.lessons');
-// })->name("html.lessons");;
-
 // contact
 Route::post('contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact');
