@@ -84,7 +84,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return view("home.addStudent");
+        return view("home.addstudent");
     }
 
     /**

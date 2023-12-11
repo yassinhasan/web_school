@@ -15,7 +15,7 @@
 <body>
 
 
-    @yield("navbar")
+    @include("layouts.navbar2")
     <!-- main-content -->
     <div class="container">
 

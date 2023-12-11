@@ -10,12 +10,7 @@ My Heroes Profile
 @section('page-header')
 @endsection
 
-<!-- navbar -->
 
-@section("navbar")
-    @include('layouts.navbar2')
-@endsection()
-<!-- navbar -->
 @section('content')
 <ul class="card-wraper">
   @foreach($students as $student)

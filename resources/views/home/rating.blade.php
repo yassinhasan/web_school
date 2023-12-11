@@ -10,12 +10,7 @@
 My Heroes
 @endsection
 
-<!-- navbar -->
 
-@section("navbar")
-@include('layouts.navbar2')
-@endsection()
-<!-- navbar -->
 @section('content')
 <!-- row -->
 

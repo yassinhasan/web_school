@@ -10,9 +10,7 @@ My Heroes
 @section('page-header')
 @endsection
 
-@section('navbar')
-@include("layouts.navbar2")
-@endsection()
+
 <!-- content -->
 @section('content')
   <div class="rotate center-vertical">

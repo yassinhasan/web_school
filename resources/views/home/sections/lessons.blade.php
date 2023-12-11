@@ -9,12 +9,6 @@
 My Heroes Courses
 @endsection()
 
-<!-- navbar -->
-
-@section("navbar")
-@include('layouts.navbar2')
-@endsection()
-<!-- navbar -->
 
 @section('page-header')
 <!-- breadcrumb -->

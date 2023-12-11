@@ -10,12 +10,7 @@
 @section('page-header')
 @endsection
 
-<!-- navbar -->
 
-@section("navbar")
-    @include('layouts.navbar2')
-@endsection()
-<!-- navbar -->
 
 @section('content')
 <div class="accordion arrows">

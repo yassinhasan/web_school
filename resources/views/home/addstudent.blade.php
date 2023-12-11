@@ -10,12 +10,8 @@ Add Your Student
 @section('page-header')
 @endsection
 
-<!-- navbar -->
 
-@section("navbar")
-@include('layouts.navbar2')
-@endsection()
-<!-- navbar -->
+
 
 <!-- content -->
 @section('content')
