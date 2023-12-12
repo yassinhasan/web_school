@@ -1,17 +1,12 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\OnlineCourseController;
-use App\Http\Controllers\ParentController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\ProfilecardsController;
-use App\Http\Controllers\RatingController;
-use App\Http\Controllers\SectionController;
-use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\WebsiteController;
-use App\Http\Livewire\Tester;
+use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\OnlineCourseController;
+use App\Http\Controllers\Dashboard\ParentController;
+use App\Http\Controllers\Dashboard\PostController;
+use App\Http\Controllers\Dashboard\StudentController;
+use App\Http\Controllers\Dashboard\SectionController;
+use App\Http\Controllers\Dashboard\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 //Route::middleware('auth','two_factor')->group(function () {

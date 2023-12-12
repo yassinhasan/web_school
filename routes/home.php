@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\CoursesController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\ProfilecardsController;
-use App\Http\Controllers\RatingController;
-use App\Http\Controllers\SectionController;
-use App\Http\Controllers\WebsiteController;
-use App\Http\Controllers\ContactUsFormController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Home\CoursesController;
+use App\Http\Controllers\Dashboard\StudentController;
+use App\Http\Controllers\Home\RatingController;
+use App\Http\Controllers\Dashboard\SectionController;
+use App\Http\Controllers\Home\WebsiteController;
+use App\Http\Controllers\Home\ContactUsFormController;
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Home\ProfilecardsController ;
 use Illuminate\Support\Facades\Route;
 
 

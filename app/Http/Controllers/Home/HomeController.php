@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Home;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\Setting;
-use App\Models\Student;
-use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
