@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Home\ProfilecardsController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Home\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:user,admin')->group(function () {
 
-    Route::get('profile', [ProfilecardsController::class, 'edit'])->name('profile');
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile');
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('profile', [ProfileController::class, 'updateImage'])->name('profile.updateImage');
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
