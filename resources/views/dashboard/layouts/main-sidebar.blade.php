@@ -21,9 +21,26 @@
                             <!-- here only if admin -->
                             <li><a href="{{ route('students.all') }}">All Students</a></li>
                            <li><a href="{{ route('student.index') }}">My Students</a></li>
+                          
 
                         </ul>
                     </li>
+                      <!-- end menu item students-->
+                    <!-- menu item attendance-->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#attendance">
+                            <div class="pull-left"><i class="ti-palette"></i><span
+                                    class="right-nav-text">Attendance</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="attendance" class="collapse" data-parent="#sidebarnav">
+                            <!-- here only if parents -->
+                            <!-- here only if admin -->
+                            <li><a href="{{ route('attendance.index') }}">Attendance</a></li>                                  
+                        </ul>
+                    </li>
+                      <!-- end menu item attendance-->
                     <!-- menu item parents-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#parents">

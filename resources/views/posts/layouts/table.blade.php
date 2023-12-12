@@ -14,9 +14,10 @@
         <div class="card card-statistics h-100"> 
           <div class="card-body">
             <!-- add posts  -->
-            <button class="mb-10 btn btn-info"><a href="{{route('courses') }}">Show Courses</a></button>
+            <a class="text-primary" href="{{route('courses') }}">Show Courses</a>
             <br>
-            <a href="{{route('posts.create')}}" class="button x-small">
+            <br>
+            <a href="{{route('posts.create')}}" class="mb-10 btn btn-secondary">
                         {{ __('Add New Post') }}
             </a>
             <!-- delete selected posts  -->

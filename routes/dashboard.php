@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\Dashboard\StudentController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SettingsController;
+use App\Http\Controllers\Dashboard\AttendanceController;
 use Illuminate\Support\Facades\Route;
 
 //Route::middleware('auth','two_factor')->group(function () {
@@ -62,4 +63,10 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::patch('zoom', [OnlineCourseController::class, 'update'])->name('zoom.update');
         Route::post('zoom', [OnlineCourseController::class, 'store'])->name('zoom.store');
         Route::delete('zoom', [OnlineCourseController::class, 'destroy'])->name('zoom.destroy');
+
+        // update attendance
+        Route::get('attendance', [AttendanceController::class, 'index'])->name('attendance.index');
+        Route::patch('attendance', [AttendanceController::class, 'update'])->name('attendance.update');
+        Route::post('attendance', [AttendanceController::class, 'store'])->name('attendance.store');
+        Route::delete('attendance', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
 });

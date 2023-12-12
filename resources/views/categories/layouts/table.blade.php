@@ -14,7 +14,7 @@
     <div class="card card-statistics h-100">
       <div class="card-body">
         <!-- add student  -->
-        <button type="button" class="button x-small" data-toggle="modal" data-target="#addModal">
+        <button type="button" class="mb-10 btn btn-info" data-toggle="modal" data-target="#addModal">
           {{ __('Add Category') }}
         </button>
         <br>
@@ -95,4 +95,3 @@
 
   <!-- include add form modal -->
 </div>
-@include("categories.layouts.deleteAllModal")

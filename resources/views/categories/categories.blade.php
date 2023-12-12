@@ -31,7 +31,7 @@
         <div class="card card-statistics h-100">
             <div class="card-body">
 <!-- table -->
-@include('categories.layouts.all-table')
+@include('categories.layouts.table')
 <!-- end table -->
         </div>
         </div>

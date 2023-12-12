@@ -46,7 +46,7 @@ class PostRepository implements PostRepositoryInterface
     public function getAllPosts()
     {
         $categories = Category::with('sections')->get();
-        return view("posts.posts")->with(['categories' => $categories]);
+        return view("posts.index")->with(['categories' => $categories]);
     }
     public function uploadAttach(Request $request)
     {
@@ -166,7 +166,7 @@ class PostRepository implements PostRepositoryInterface
     public function showAllPosts()
     {
         $posts = Post::with('sections')->get();
-        return view("posts.allPosts")->with(['posts' => $posts]);
+        return view("posts.posts")->with(['posts' => $posts]);
     }
 }
 
