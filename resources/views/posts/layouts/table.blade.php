@@ -80,4 +80,4 @@
     <!-- include add form modal -->
     <!-- include add form modal -->
   </div> 
-  @include("posts.layouts.deleteAllModal")
+

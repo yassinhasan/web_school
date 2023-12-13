@@ -19,8 +19,8 @@
                         <ul id="students" class="collapse" data-parent="#sidebarnav">
                             <!-- here only if parents -->
                             <!-- here only if admin -->
-                            <li><a href="{{ route('students.all') }}">All Students</a></li>
-                           <li><a href="{{ route('student.index') }}">My Students</a></li>
+                            <li><a href="{{ route('students.all') }}">Show Students</a></li>
+                           <!-- <li><a href="{{ route('student.index') }}">My Students</a></li> -->
                           
 
                         </ul>
