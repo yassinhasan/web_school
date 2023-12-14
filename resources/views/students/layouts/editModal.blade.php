@@ -67,11 +67,9 @@
                                     <label>Leave Message About Student</label>
                                     <textarea id="about" class="form-control" name="about" placeholder="Edit your comment here...">{{$student->about}}</textarea>
                                 </div>
-                            </div>
+                        </div>
                         <!-- image upload -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
+                                <div class="form-group col-12">
                                     <label class="form-label" for="inputImage">Image:</label>
                                     <input hidden type="file" name="image" id="inputImage" class="edit_student_image_input form-control @error('image') is-invalid @enderror" accept="image/jpeg, image/png, image/jpg">
                                     @error('image')
@@ -80,11 +78,12 @@
                                     <hr>
                                     <hr>
                                     @if($student->image != null)
-                                    <img class="edit_student_image" src="{{ url('images/profile/students/'.$student->image) }}" style="max-width:100%">
+                                    <div class="image-wraper">
+                                         <img class="edit_student_image" src="{{ url('images/profile/students/'.$student->image) }}" style="max-width:100%">
+                                    </div>
                                     @endif
                                 </div>
-                            </div>
-                        </div>
+                            
                     </div>
                     <br><br>
 

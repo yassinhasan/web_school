@@ -95,7 +95,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+
                                 <div class="form-group">
                                     <label class="form-label" for="addinputImage">Image:</label>
                                     <input type="file" name="image" id="addinputImage" class="student_image_input form-control @error('image') is-invalid @enderror" accept="image/jpeg, image/png, image/jpg">
@@ -103,9 +103,11 @@
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                     <hr>
-                                    <img class="student_image  hide" src="" style="max-width:100%">
+                                    <div class="image-wraper">
+                                       <img class="student_image  hide" src="" style="max-width:100%">
+                                    </div>
                                 </div>
-                            </div>
+   
                         </div>
 
                         <div class="row">

@@ -29,7 +29,7 @@ class AttendanceRepository implements AttednacneRepositoryInterface
                 $attendance = "attendance$id";
 
                 $status = $request->$attendance == "true" ? true : false;
-
+                
                 Attendance::updateOrCreate(
                     ['attendance_date' => date('Y-m-d') , 'student_id' => $id ] ,
                     [

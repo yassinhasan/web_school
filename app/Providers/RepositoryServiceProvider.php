@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Http\Interfaces\AttednacneRepositoryInterface;
 use App\Http\Interfaces\PostRepositoryInterface;
+use App\Http\Interfaces\StudentRepositoryInterface;
+use App\Http\Reposirtory\StudentRepository;
 use App\Http\Interfaces\SettingsRepositoryInterface;
 use App\Http\Interfaces\ZoomRepositoryInterface;
 use App\Http\Reposirtory\AttendanceRepository;
@@ -25,6 +27,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(ZoomRepositoryInterface::class,ZoomRepository::class);
         $this->app->bind(SettingsRepositoryInterface::class,SettingsRepository::class);
         $this->app->bind(AttednacneRepositoryInterface::class,AttendanceRepository::class);
+        $this->app->bind(StudentRepositoryInterface::class,StudentRepository::class);
     }
 
     /**

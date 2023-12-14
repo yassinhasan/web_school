@@ -16,7 +16,6 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/dashboard',function (){return view('dashboard.dashboard') ;})->name('dashboard');
 
     Route::get('students', [StudentController::class, 'index'])->name('student.index');
-    Route::get('students/all', [StudentController::class, 'all'])->name('students.all');
     Route::patch('students', [StudentController::class, 'update'])->name('student.update');
     Route::delete('students', [StudentController::class, 'destroy'])->name('student.destroy');
     Route::post('students', [StudentController::class, 'store'])->name('student.store');
