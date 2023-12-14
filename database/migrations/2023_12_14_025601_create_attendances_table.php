@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->date('attendence_date');
-            $table->boolean('attendence_status');
+            $table->date('attendance_date')->default(date('Y-m-d'));
+            $table->boolean('attendance_status')->default(0);
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-<div class="row">   
+<div class="row">
     <!-- errors -->
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -10,14 +10,15 @@
     </div>
     @endif
     <!-- errors -->
-      <div class="col-xl-12 mb-30">     
-        <div class="card card-statistics h-100"> 
+      <div class="col-xl-12 mb-30">
+        <div class="card card-statistics h-100">
           <div class="card-body">
           <br><br>
               <!-- end student  -->
               <form method="POST" action="{{route('attendance.store') }}">
+                @csrf
               <div class="table-responsive">
-                  <table id="datatable" class="table table-striped table-hover table-bordered p-0">           
+                  <table id="datatable" class="table table-striped table-hover table-bordered p-0">
                   <thead>
                       <tr>
                           <th>Student Name</th>
@@ -29,20 +30,23 @@
                   </thead>
                   <tbody>
                     @foreach($students as $student)
-                      <tr>
+                    <tr>
+                        <input hidden type="text" value="{{ $student->id }}" name="id[]" >
                         <td>{{ $student->first_name." ".$student->last_name }}</td>
                         <td><img src="{{ asset('images/profile/students/').'/'.$student->image}}" class="iamge_table"></td>
                         <td>{{ $student->country}}</td>
                         <td>{{ $student->age }}</td>
-                        <td> 
+                        <td>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="attendance[]" id="attendance{{ $student->id }}-1" value="trur" checked>
+
+                            <input class="form-check-input" type="radio" name="attendance{{$student->id}}" id="attendance{{ $student->id }}-1"  value="true"  {{ (isset( $student->attendance[0]) &&  $student->attendance[0]->attendance_status == true )? "checked" : "" }} >
                             <label class="form-check-label" for="attendance{{ $student->id }}-1">
                               True
                             </label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="attendance[]" id="attendance{{ $student->id }}-2" value="false">
+                            <input class="form-check-input" type="radio" name="attendance{{$student->id}}" id="attendance{{ $student->id }}-2" value="false" {{  (isset( $student->attendance[0]) &&  $student->attendance[0]->attendance_status == false )? "checked" : ""  }}>
+
                             <label class="form-check-label" for="attendance{{ $student->id }}-2">
                               False
                             </label>
@@ -66,7 +70,7 @@
               </div>
               </form>
           </div>
-        </div>   
+        </div>
       </div>
-  </div> 
+  </div>
 

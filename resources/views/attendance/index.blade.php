@@ -12,12 +12,12 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0"> Student Attendance</h4>
+            <h4 class="mb-0"> Student Attendance <span style="color: red">{{ date("Y-m-d") }}</span></h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
                 <li class="breadcrumb-item"><a href="{{ route('zoom.index') }}" class="default-color"> Student Attendance</a></li>
-                <li class="breadcrumb-item active"> Student Attendance</li>
+                <li class="breadcrumb-item active"> Student Attendance </li>
             </ol>
         </div>
     </div>

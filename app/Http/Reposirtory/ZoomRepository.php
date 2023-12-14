@@ -72,7 +72,7 @@ class ZoomRepository implements ZoomRepositoryInterface
             return redirect()->route('zoom.index');
         } catch (\Exception $e) {
 
-            dd($e->getMessage());
+          
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }

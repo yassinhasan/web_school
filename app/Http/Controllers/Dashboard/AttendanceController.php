@@ -8,14 +8,17 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 class AttendanceController extends Controller
 {
-    public AttednacneRepositoryInterface $attendance;
+    public AttednacneRepositoryInterface $Attendance;
     public function __construct(AttednacneRepositoryInterface $attendance)
     {
-        $this->attendance = $attendance;
+        $this->Attendance = $attendance;
     }
     public function index()
     {
-        $students = Student::with("attendance")->get();
-        return view("attendance.index")->with(['students' => $students]);
+      return  $this->Attendance->index();
+    }
+
+    public function store(Request $request)  {
+        return  $this->Attendance->store($request);
     }
 }

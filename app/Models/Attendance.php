@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Attendance extends Model
 {
     use HasFactory;
- 
-    public $fillable= ['student_id','attendence_date','attendence_status'];
+
+    public $fillable= ['student_id','attendance_date','attendance_status'];
 
 }
