@@ -67,5 +67,6 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('attendance', [AttendanceController::class, 'index'])->name('attendance.index');
         Route::patch('attendance', [AttendanceController::class, 'update'])->name('attendance.update');
         Route::post('attendance', [AttendanceController::class, 'store'])->name('attendance.store');
-        Route::delete('attendance', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
+        Route::post('attendance/report', [AttendanceController::class, 'search'])->name('attendance.search');
+        Route::get('attendance/report', [AttendanceController::class, 'report'])->name('attendance.report');
 });

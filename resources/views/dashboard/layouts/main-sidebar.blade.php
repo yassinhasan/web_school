@@ -38,6 +38,7 @@
                             <!-- here only if parents -->
                             <!-- here only if admin -->
                             <li><a href="{{ route('attendance.index') }}">Attendance</a></li>                                  
+                            <li><a href="{{ route('attendance.report') }}">Attendance Report</a></li>                                  
                         </ul>
                     </li>
                       <!-- end menu item attendance-->

@@ -20633,8 +20633,7 @@ footer a {
     -o-transition: all 0.35s ease;
     transition: all 0.35s ease; }
 
-.form-control:last-child {
-  border-radius: 0; }
+
 
 .card-footer:last-child {
   border-radius: 0; }
@@ -20792,8 +20791,7 @@ footer a {
 .modal-dialog select.form-control:not([size]):not([multiple]) {
   height: calc(3.1rem + 2px); }
 
-select.form-control:not([size]):not([multiple]) {
-  height: calc(3.8rem + 2px); }
+
 
 /* Sparkline chart */
 .jqstooltip {
@@ -21715,58 +21713,7 @@ select.form-control-sm:not([size]):not([multiple]) {
 #signupForm1 .error {
   color: red; }
 
-/*form-control*/
-.form-control {
-  border-radius: 3px;
-  font-size: 13px;
-  height: auto;
-  line-height: 1.33333;
-  padding: 15px 15px 15px 20px;
-  background: #f6f7f8;
-  color: #323232;
-  border: 0px solid transparent;
-  box-shadow: none; }
-  .form-control label {
-    color: #323232;
-    margin-top: 8px;
-    margin-bottom: 4px;
-    text-transform: uppercase;
-    font-size: 13px;
-    display: block; }
-  .form-control:focus {
-    background: #ffffff;
-    border: 0px;
-    -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    border-color: transparent; }
 
-.form-control.input-lg {
-  resize: none;
-  font-size: .9em; }
-
-.form-control.rounded {
-  border-radius: 0px; }
-
-.input-group-prepend {
-  border: 1px solid #eeeeee; }
-
-.form-inline button {
-  margin: 0px; }
-
-.form-control::-moz-placeholder {
-  color: #323232; }
-
-.form-control::-ms-input-placeholder {
-  color: #323232; }
-
-.form-control::-webkit-input-placeholder {
-  color: #323232; }
 
 /* Data Table */
 #datatable_wrapper {

@@ -15,8 +15,6 @@
           <div class="card-body">
           <br><br>
               <!-- end student  -->
-              <form method="POST" action="{{route('attendance.store') }}">
-                @csrf
               <div class="table-responsive">
                   <table id="datatable" class="table table-striped table-hover table-bordered p-0">
                   <thead>
@@ -37,20 +35,21 @@
                         <td>{{ $student->country}}</td>
                         <td>{{ $student->age }}</td>
                         <td>
-                          <div class="form-check form-check-inline">
+                        @foreach($student->attendance as $attendance)
+                          @if($attendance->attendance_status  == 0)
+                            <div>
+                              <span class="text-danger font-weight-bold">{{ $attendance->attendance_date}}</span> 
+                               <span class="text-danger font-weight-bold">غائب</span>
+                            </div>
 
-                            <input class="form-check-input" type="radio" name="attendance{{$student->id}}" id="attendance{{ $student->id }}-1"  value="true"  {{ (isset( $student->attendance[0]) && ($student->attendance[0]->attendance_date == date('Y-m-d')) &&  $student->attendance[0]->attendance_status == true )? "checked" : "" }} >
-                            <label class="form-check-label text-success" for="attendance{{ $student->id }}-1">
-                              حضور
-                            </label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="attendance{{$student->id}}" id="attendance{{ $student->id }}-2" value="false" {{  (isset( $student->attendance[0]) && ($student->attendance[0]->attendance_date == date('Y-m-d')) &&  $student->attendance[0]->attendance_status == false )? "checked" : ""  }}>
-
-                            <label class="form-check-label text-danger" for="attendance{{ $student->id }}-2">
-                              غياب
-                            </label>
-                          </div>
+                          @else
+                          <div>
+                              <span class="text-success font-weight-bold">{{ $attendance->attendance_date}}</span> 
+                               <span class="text-success font-weight-bold">حاضر</span>
+                            </div>
+                          
+                          @endif
+                        @endforeach
                         </td>
                     </tr>
                     @endforeach
@@ -61,14 +60,12 @@
                           <th>Student Name</th>
                           <th>Student Email</th>
                           <th>Country</th>
-                          <th>Age</th>
+                          <th>Date</th>
                           <th>Attendance</th>
                       </tr>
                   </tfoot>
                 </table>
-                <button class="btn btn-success">Save</button>
               </div>
-              </form>
           </div>
         </div>
       </div>

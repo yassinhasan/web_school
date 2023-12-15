@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\ParentModel;
+use Exception;
 use Illuminate\Support\Facades\DB;
 class StudentRepository implements StudentRepositoryInterface
 {
