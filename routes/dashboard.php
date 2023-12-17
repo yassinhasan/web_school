@@ -8,12 +8,14 @@ use App\Http\Controllers\Dashboard\StudentController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\SettingsController;
 use App\Http\Controllers\Dashboard\AttendanceController;
+use App\Http\Livewire\Calendar;
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 
 //Route::middleware('auth','two_factor')->group(function () {
 Route::middleware(['auth:admin'])->group(function () {
 
-    Route::get('/dashboard',function (){return view('dashboard.dashboard') ;})->name('dashboard');
+    Route::get('/dashboard',function (){return view('dashboard.pages.dashboard') ;})->name('dashboard');
 
     Route::get('students', [StudentController::class, 'index'])->name('student.index');
     Route::patch('students', [StudentController::class, 'update'])->name('student.update');
@@ -69,4 +71,6 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::post('attendance', [AttendanceController::class, 'store'])->name('attendance.store');
         Route::post('attendance/report', [AttendanceController::class, 'search'])->name('attendance.search');
         Route::get('attendance/report', [AttendanceController::class, 'report'])->name('attendance.report');
+
+        Livewire::component('calendar', Calendar::class);
 });

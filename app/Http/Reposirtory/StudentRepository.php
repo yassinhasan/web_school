@@ -20,8 +20,8 @@ class StudentRepository implements StudentRepositoryInterface
 
     use FlashMessageTrait;
     public function index(){
-        $students = DB::table('students')->orderBy('points','DESC')->paginate(100);
-        return view("students.students")->with('students',$students);
+        $students = DB::table('students')->paginate(100);
+        return view("dashboard.pages.students")->with('students',$students);
     }
     public function destroy(Request $request){
         try {

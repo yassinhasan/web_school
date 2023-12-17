@@ -19,7 +19,7 @@ class SettingsRepository implements SettingsRepositoryInterface{
         $settings = $collection->flatMap(function($collection){
             return [$collection->key => $collection->value];
         });
-        return view("dashboard.settings")->with("settings",$settings);
+        return view("dashboard.pages.settings")->with("settings",$settings);
     }
 
     public function update(Request $request){

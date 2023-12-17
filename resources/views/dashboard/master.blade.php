@@ -2,53 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template" />
-    <meta name="author" content="potenzaglobalsolutions.com" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    @include('dashboard.layouts.head')
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- fontawsome -->
+  <link href="{{ asset('css/assets/all.min.css?GYJH') }}" rel="stylesheet">
+  <!-- bootstrap -->
+  <link href="{{ asset('css/assets/bootstrap.min.css?GYJH') }}" rel="stylesheet">
+  <!--- Style css -->
+  <link href="{{ asset('css/layouts/main.css?GYJH') }}" rel="stylesheet">
+  <link href="{{ asset('css/layouts/footer.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/layouts/spinner.css?GYJH') }}" rel="stylesheet">
+  <link href="{{ asset('css/layouts/toast-session.css?awass') }}" rel="stylesheet">
+  <link href="{{ asset('css/layouts/toast.css?GYJH') }}" rel="stylesheet">
+  <link href="{{ asset('css/layouts/color.css') }}" rel="stylesheet">
+  <!-- dashboard css -->
+  <link href="{{ asset('css/dashboard/pages.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/dashboard/main.css') }}" rel="stylesheet">
+  <title>@yield("title")</title>
+  <style>
+    @font-face {
+      font-family: 'Rubik', 'sans-serif';
+      src: url("{{ asset('fonts/Rubik-Regular.ttf') }} ") format("truetype");
+    }
+  </style>
+  @yield('css')
 </head>
 
 <body>
-
-    <div class="wrapper">
-
         @include("layouts.spinner")
         @include("layouts.toast")
+  <main>
+    @include('dashboard.layouts.nav')
+    @yield('content')
+  
+  </main>
+  <!-- session -->
+  @if (Session::has('status'))
+  @include("layouts.toast-session")
+  @endif
+  <!-- session -->
+  <!-- jquery -->
+  <script src="{{ asset('js/assets/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ asset('js/layouts/spinner.js') }}"></script>
+  <script src="{{ asset('js/layouts/toast.js') }}"></script>
+  <script src="{{ asset('js/assets/bootstrap.bundle.min.js') }}"></script>
+  @yield('js')
 
-        @include('dashboard.layouts.main-header')
-        @include('dashboard.layouts.main-sidebar')
-
-        <!--=================================
- Main content -->
-        <!-- main-content -->
-        <div class="content-wrapper">
-
-            @yield('page-header')
-
-            @yield('content')
-
-            <!--=================================
- wrapper -->
-
-            <!--=================================
- footer -->
-
-        </div><!-- main content wrapper end-->
-    </div>
-    </div>
-    </div>
-        <!-- session -->
-        @if (Session::has('status'))
-        @include("layouts.toast-session")
-        @endif
-        <!-- session -->
-    <!--=================================
- footer -->
-
-    @include('dashboard.layouts.footer-scripts')
 
 </body>
 

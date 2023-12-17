@@ -22,7 +22,7 @@ class ZoomRepository implements ZoomRepositoryInterface
     public function getAllMeetings()
     {
         $meetings =  OnlineCourse::all();
-        return view("zoom.index")->with(['meetings' => $meetings]);
+        return view("dashboard.pages.zoom")->with(['meetings' => $meetings]);
     }
 
     public function deleteById(Request $request)

@@ -22,7 +22,7 @@ class CategoryController extends Controller
     {
         $categories = Category::with('sections')->get();
 
-        return view("categories.categories")->with(['categories' => $categories]);
+        return view("dashboard.pages.categories")->with(['categories' => $categories]);
     }
 
     /**

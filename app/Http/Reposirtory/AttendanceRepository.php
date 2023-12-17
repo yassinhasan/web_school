@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\Student;
 use App\Models\Attendance;
 use Exception;
-use Illuminate\Support\Facades\DB;
+
 
 class AttendanceRepository implements AttednacneRepositoryInterface
 {
@@ -23,12 +23,12 @@ class AttendanceRepository implements AttednacneRepositoryInterface
             return $query->where('attendance_date', '=', date('Y-m-d') );
         }])
         ->get();
-        return view("attendance.index")->with(['students' => $students]);
+        return view("dashboard.pages.attendance")->with(['students' => $students]);
     }
     public function report(Request $request){
 
        $students_form =   Student::all();
-       return view("attendance.report")->with(['students_form' => $students_form]);
+       return view("dashboard.pages.report")->with(['students_form' => $students_form]);
     }
     public function store(Request $request){
 
@@ -82,7 +82,7 @@ class AttendanceRepository implements AttednacneRepositoryInterface
                 })
                 ->get();
             }
-            return view("attendance.report")->with(['students_form' => $students_form ,'students' => $students]);  
+            return view("dashboard.pages.report")->with(['students_form' => $students_form ,'students' => $students]);  
         }catch(Exception $e){
             
             return redirect()->route('attendance.report')->with(['error' => $e->getMessage()]);
