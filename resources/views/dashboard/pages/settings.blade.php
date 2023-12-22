@@ -15,7 +15,11 @@ Settings
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <!-- content -->
-              
+                <div class="title-wraper">
+                <h4 class="title-head">
+                        {{ __('Settings') }}
+                    </h4>
+                </div>
                 <form action="{{route('settings.update')}}" enctype="multipart/form-data" method="POST">
                 {{method_field('patch')}}
                     @csrf  

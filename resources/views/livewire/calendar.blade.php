@@ -1,17 +1,6 @@
-<style>
-    #calendar-container{
-        width: 100%;
-    }
-    #calendar{
-        padding: 10px;
-        margin: 10px;
-        width: 1340px;
-        height: 610px;
-        border:2px solid black;
-    }
-</style>
 
-<div>
+
+<div class="livewire-wraper">
   <div id='calendar-container' wire:ignore>
     <div id='calendar'></div>
   </div>

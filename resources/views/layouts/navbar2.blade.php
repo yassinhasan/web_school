@@ -14,26 +14,24 @@
        @if (Route::currentRouteName() != 'home' )
            <li> <a href="{{route('home') }}">Home</a></li> 
       @endif
+      @if(auth('user')->check() || auth('admin')->check() || auth('student')->check())
       <li><a href="{{route('courses') }}">Courses</a></li>
-
-      @if(auth('user')->check() || auth('admin')->check())
       <li><a href="{{route('cards') }}">Cards</a></li>
         <li><a href="{{route('rating') }}">Rating</a></li>
-        <li><a href="{{route('addstudent') }}">Add Student</a></li>
-        <li><a href="{{route('profile') }}">{{ auth()->user()->name ?? auth('admin')->user()->name}}</a></li>
+        <li><a href="{{route('profile') }}">{{auth()->user()->name}}</a></li>
         <li><a href="{{route('dashboard') }}">Dashboard</a></li>
-        <form method="POST" action="{{ route('logout') }}">
+        <form method="POST" action="{{ route('student.logout') }}">
          @csrf
-         <li><a href="{{route('logout') }}"
+         <li><a href="{{route('student.logout') }}"
          onclick="event.preventDefault();
            this.closest('form').submit();">
            Logout
          </a></li>
        </form>  
       @else
-        <li><a href="{{route('login') }}">Login</a></li>
-        <li><a href="{{route('register') }}">Register</a></li>
-        <li><a href="{{route('admin-login') }}">Admin</a></li>
+        <li><a href="{{route('student.login') }}"> Login</a></li>
+        <li><a href="{{route('student.register') }}"> Register</a></li>
+     
       @endif
 
 

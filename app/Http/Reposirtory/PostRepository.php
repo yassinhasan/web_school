@@ -5,6 +5,7 @@ namespace App\Http\Reposirtory;
 use App\Http\Interfaces\PostRepositoryInterface;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Http\Traits\FlashMessageTrait;
 use App\Models\Category;
 use App\Models\Post;
 use Exception;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Validator;
 
 class PostRepository implements PostRepositoryInterface
 {
-
+    use FlashMessageTrait;
     public function createPost(StorePostRequest $request)
     {
 
@@ -26,9 +27,8 @@ class PostRepository implements PostRepositoryInterface
             'section_id.required' => "you shoud select section "
         ]);
         if ($validator->stopOnFirstFailure()->fails()) {
-            session()->flash('status', 'error');
-            session()->flash('msg', $validator->errors()->first());
-            session()->flash('icon', 'fa-xmark');
+
+            $this->ErrorMsg($validator->errors()->first());
             return redirect()->back();
         }
         $sectionId = $request->section_id;
@@ -38,9 +38,8 @@ class PostRepository implements PostRepositoryInterface
         $post->section_id = $sectionId;
         $post->content = $request->content;
         $post->save();
-        session()->flash('status', 'success');
-        session()->flash('msg', 'Post has been saved successfully!');
-        session()->flash('icon', 'fa-check');
+ 
+        $this->SuccessMsg('Post has been saved successfully!');
         return redirect()->back();
     }
     public function getAllPosts()
@@ -82,7 +81,7 @@ class PostRepository implements PostRepositoryInterface
         $post =  Post::with('sections')->get()->find($postId);
         $categories = Category::with('sections')->get();
         $sections = Category::findOrFail($post->sections->category_id)->sections->pluck('name', 'id');
-        return view("posts.edit")->with(['categories' => $categories, 'post' => $post, 'sections' => $sections]);
+        return view("dashboard.pages.editpost")->with(['categories' => $categories, 'post' => $post, 'sections' => $sections]);
     }
     public function update(UpdatePostRequest $request, Post $post)
     {
@@ -94,11 +93,9 @@ class PostRepository implements PostRepositoryInterface
         ], [
             'section_id.required' => "you shoud select section "
         ]);
-        if ($validator->stopOnFirstFailure()->fails()) {
-            session()->flash('status', 'error');
-            session()->flash('msg', $validator->errors()->first());
-            session()->flash('icon', 'fa-xmark');
-            return redirect()->back();
+        if ($validator->stopOnFirstFailure()->fails()) {;
+            $this->ErrorMsg($validator->errors()->first());
+            return redirect()->route('posts.edit',$request->id);
         }
         $sectionId = $request->section_id;
         $post =  Post::find($request->id);
@@ -109,10 +106,8 @@ class PostRepository implements PostRepositoryInterface
             'section_id' => $sectionId,
             'content' => $request->content,
         ]);
-        session()->flash('status', 'success');
-        session()->flash('msg', 'Post has been saved successfully!');
-        session()->flash('icon', 'fa-check');
-        return redirect()->back();
+        $this->SuccessMsg('Post has been saved successfully!');
+        return redirect()->route('posts.edit',$request->id);
     }
     public function deletePost(Request $request)
     {
@@ -128,9 +123,7 @@ class PostRepository implements PostRepositoryInterface
             }
 
             // toastr()->success('Student has been deleted successfully!');
-            session()->flash('status', 'success');
-            session()->flash('msg', 'Post has been deleted successfully!');
-            session()->flash('icon', 'fa-check');
+            $this->SuccessMsg('Post has been deleted successfully!');
             return redirect()->back();
         } catch (\Exception $e) {
             report($e);

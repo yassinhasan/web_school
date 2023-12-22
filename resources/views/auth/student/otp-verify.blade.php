@@ -16,7 +16,7 @@ Login
   <div class="form-wrapper">
 
     <h2 style="margin-bottom: 15px;">This is a secure area of the application. Enter OTP code to verify.</h2>
-    <form method="POST" action="{{ route('otp-confirm') }}">
+    <form method="POST" action="{{ route('student.otp-confirm') }}">
       @csrf
       <div class="input-container">
         <div class="form-group">
@@ -29,10 +29,10 @@ Login
         <div class="mt-4" style="display: flex;">
           <button class="btn btn-secondary clicked-btn mr-2">Confirm</button>
     </form>
-    <form method="POST" action="{{ route('logout') }}">
+    <form method="POST" action="{{ route('student.logout') }}">
       @csrf
       <button class="btn btn-info clicked-btn">
-        <a href="{{route('logout') }}" style="color: #fff;" onclick="event.preventDefault();
+        <a href="{{route('student.logout') }}" style="color: #fff;" onclick="event.preventDefault();
            this.closest('form').submit();">
           Login Page
         </a>

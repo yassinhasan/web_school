@@ -1,5 +1,5 @@
 @extends('dashboard.master')
-
+<link href="{{ asset('css/dashboard/student.css?Asd') }}" rel="stylesheet">
 @section('title')
 students
 @endsection

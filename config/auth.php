@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'user',
+        'guard' => 'student',
         'passwords' => 'users',
     ],
 
@@ -39,6 +39,10 @@ return [
         'user' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
         ],
         'admin' => [
             'driver' => 'session',
@@ -77,6 +81,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -108,6 +116,12 @@ return [
         ],
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'students' => [
+            'provider' => 'students',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

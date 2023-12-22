@@ -8,8 +8,12 @@
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>
-
-    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
+    @if(auth('student'))
+    <form method="post" action="{{ route('student.password.update') }}" class="mt-6 space-y-6">
+    @endif    
+    @if(auth('user'))
+    <form method="post" action="{{ route('user.password.update') }}" class="mt-6 space-y-6">
+    @endif    
         @csrf
         @method('put')
         <input type="text" autocomplete="username" hidden>

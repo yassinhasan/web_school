@@ -17,22 +17,24 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('name')->default(null);
             $table->string('image')->default('profile.png');
-            $table->string('email')->default("null");
+            $table->string('email')->unique()->default("null");
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->string('clear_password');
             $table->string('phone')->nullable();
             $table->integer('age')->nullable();
-            $table->timestamp('birthday')->nullable();
             $table->string('account_status')->default("enabled");
+            $table->string('code')->nullable();
+            $table->dateTime('expire_at')->nullable();
+            $table->timestamp('birthday')->nullable();
             $table->string('about')->nullable();
             $table->json("website")->nullable();
-            $table->string("country");
-            $table->integer("user_id")->nullable();
+            $table->string("country")->nullable();
             $table->enum("gender",["male","female"]);
             $table->integer("points")->default(0);
             $table->json('likedby')->default(new Expression('(JSON_ARRAY())'));
-            // $table->timestamps('birthday')->nullable();
 
         });
     }

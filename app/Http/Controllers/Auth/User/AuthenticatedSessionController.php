@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Traits\FlashMessageTrait;
 use App\Providers\RouteServiceProvider;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -14,12 +15,13 @@ use Yoeunes\Toastr\Facades\Toastr;
 
 class AuthenticatedSessionController extends Controller
 {
+    use FlashMessageTrait;
     /**
      * Display the login view.
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('auth.user.login');
     }
 
     /**
@@ -27,20 +29,17 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        try{
-        $request->authenticate();
+        try {
+            $request->authenticate();
 
-        $request->session()->regenerate();
+            $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->intended(RouteServiceProvider::HOME);
+        } catch (Exception $e) {
+
+            $this->ErrorMsg($e->getMessage());
+            return redirect('/user/login');
         }
-        catch(Exception $e){
-            session()->flash('status', 'error');
-            session()->flash('msg', 'Email or Password are wrong !');
-            session()->flash('icon', 'fa-xmark');
-         return redirect('/login');
-
-    }
     }
 
     /**
@@ -48,16 +47,17 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-       
-        if(Auth::guard('user')->check())
-        {
+
+        if (Auth::guard('user')->check()) {
             $user =  auth()->user();
             $user->reset_code();
-             Auth::guard('user')->logout();
+            Auth::guard('user')->logout();
         }
-        if(Auth::guard('admin')->check())
-        {
-             Auth::guard('admin')->logout();
+        if (Auth::guard('admin')->check()) {
+            Auth::guard('admin')->logout();
+        }
+        if (Auth::guard('student')->check()) {
+            Auth::guard('student')->logout();
         }
 
         $request->session()->invalidate();

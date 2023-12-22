@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\User;
 
 use App\Http\Controllers\Controller;
 
@@ -10,7 +10,7 @@ class TwoFactorController extends Controller
 {
     public function index()
     {
-        return view("auth.otp-verify");
+        return view("auth.user.otp-verify");
     }
 
 

@@ -17,7 +17,6 @@
         <button type="button" class="mb-10 btn btn-info" data-toggle="modal" data-target="#addModal">
           {{ __('Add Category') }}
         </button>
-        <br>
         <!-- Button trigger modal -->
         <button type="button" style="margin-top: 10px;" class="btn  btn-secondary" data-toggle="modal" data-target="#repeatFormModal">
           Add Section
@@ -46,7 +45,7 @@
                   <ul>
 
                     @foreach($category->sections as $section)
-                    <li class="row">
+                    <li class="row" style="    margin-bottom: 3px; background: white;">
                       <div class="col-6">
                         {{$section->name}}
                       </div>

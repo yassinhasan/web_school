@@ -16,7 +16,7 @@ My Heroes Profile
   @foreach($students as $student)
   <li>
     <div class="details">
-      <h2>{{ ucfirst(substr($student->first_name,0,14)) }}
+      <h2>{{ ucfirst(substr($student->name,0,14)) }}
       </h2>
       <?php $website = json_decode($student->website, true) ?>
       <p class="age">{{$student->age}} Years</p>

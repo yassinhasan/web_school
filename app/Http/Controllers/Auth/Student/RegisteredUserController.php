@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
+use App\Models\Student;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Exception;
@@ -21,12 +23,12 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('auth.student.register');
     }
 
     public function register(): View
     {
-        return view('auth.register');
+        return view('auth.student.register');
     }
 
     /**
@@ -39,11 +41,11 @@ class RegisteredUserController extends Controller
             try{
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class, 'unique:'.Admin::class],
                 'password' => ['required', 'confirmed', Rules\Password::defaults()],
             ]);
 
-            $user = User::create([
+            $user = Student::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
@@ -57,7 +59,7 @@ class RegisteredUserController extends Controller
             return redirect(RouteServiceProvider::HOME);
         }
         catch(Exception $e){
-            return view('auth.register')->with(['connection_error' =>  $e->getMessage()] );
+            return view('auth.student.register')->with(['connection_error' =>  $e->getMessage()] );
 
         }
     }

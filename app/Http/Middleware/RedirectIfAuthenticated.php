@@ -23,18 +23,15 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
-            if(auth('user')->check())
+            if(auth('student')->check() )
             {
                 
-                return redirect(RouteServiceProvider::HOME);
+                return redirect(RouteServiceProvider::DASHBOARD);
             }
-             if(auth('admin')->check())
-            {
-            
-                
-             
-                return redirect(RouteServiceProvider::ADMIN);
-            }
+            //  if(auth('admin')->check())
+            // {
+            //     return redirect(RouteServiceProvider::ADMIN);
+            // }
 
         return $next($request);
     }

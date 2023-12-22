@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Home\CoursesController;
-use App\Http\Controllers\Dashboard\StudentController;
 use App\Http\Controllers\Home\RatingController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Home\WebsiteController;
@@ -11,10 +10,7 @@ use App\Http\Controllers\Home\ProfilecardsController ;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware('auth:user,admin')->group(function () {
-    // add student in home not admin dashboard
-    Route::get('/addStudent', [StudentController::class, 'show'])->name('addstudent');
-    Route::post('/addStudent/add', [StudentController::class, 'add'])->name('addstudent.add');
+Route::middleware('auth:user,admin,student')->group(function () {
 
     // profile page
     Route::get('cards', [ProfilecardsController::class, 'index'])->name('cards');

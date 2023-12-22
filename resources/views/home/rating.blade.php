@@ -31,7 +31,7 @@ My Heroes
           {{ $loop->index + 1 }}
         </div>
         <div class="name">
-          {{  ucwords(substr($student->first_name,0,10))}}
+          {{  ucwords(substr($student->name,0,10))}}
         </div>
         <div class="image">
           <img src="{{ url('images/profile/students/'.$student->image)}}" class="img-fluid profile">

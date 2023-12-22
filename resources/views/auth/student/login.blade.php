@@ -17,7 +17,7 @@ Login
 
     <h2>Welcome Back! 👋🏻</h2>
     <p>Enter your credentials to access your account.</p>
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('student.login') }}">
       @csrf
       <div class="input-container">
         <div class="form-group">
@@ -42,9 +42,9 @@ Login
           <label for="remember-me" class="label-remember">Remember me</label>
         </div>
 
-        <a href="{{ route('password.request') }}"  class="forget-btn">Forgot password?</a>
+        <a href="{{ route('student.password.request') }}"  class="forget-btn">Forgot password?</a>
         <p>
-          <a href="{{ route('register') }}" class="register-btn">Register</a>
+          <a href="{{ route('student.register') }}" class="register-btn">Register</a>
         </p>
       </div>
 

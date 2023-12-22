@@ -16,8 +16,7 @@
   <link href="{{ asset('css/layouts/toast.css?GYJH') }}" rel="stylesheet">
   <link href="{{ asset('css/layouts/color.css') }}" rel="stylesheet">
   <!-- dashboard css -->
-  <link href="{{ asset('css/dashboard/pages.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/dashboard/main.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/dashboard/main.css?Asbbd') }}" rel="stylesheet">
   <title>@yield("title")</title>
   <style>
     @font-face {

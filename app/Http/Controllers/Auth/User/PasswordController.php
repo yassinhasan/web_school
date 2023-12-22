@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\FlashMessageTrait;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -13,6 +14,7 @@ class PasswordController extends Controller
     /**
      * Update the user's password.
      */
+    use FlashMessageTrait;
     public function update(Request $request): RedirectResponse
     {
         $validated = $request->validateWithBag('updatePassword', [
@@ -23,9 +25,7 @@ class PasswordController extends Controller
         $request->user()->update([
             'password' => Hash::make($validated['password']),
         ]);
-        session()->flash('status', 'success');
-        session()->flash('msg', 'password updated');
-        session()->flash('icon', 'fa-check');
+        $this->SuccessMsg('success');
         return back();
     }
 }

@@ -2,7 +2,7 @@
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script> -->
 
-    <script src="{{ asset('js/assets/jquery-3.7.1.min.map') }}"></script>
+    <script src="{{ asset('js/assets/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/assets/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/layouts/nav2.js') }}"></script>
     <script src="{{ asset('js/layouts/spinner.js') }}"></script>

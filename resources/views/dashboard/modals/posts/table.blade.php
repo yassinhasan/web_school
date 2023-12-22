@@ -15,9 +15,9 @@
           <div class="card-body">
             <!-- add posts  -->
             <a class="text-primary" href="{{route('courses') }}">Show Courses</a>
+            <br> 
             <br>
-            <br>
-            <a href="{{route('posts.create')}}" class="mb-10 btn btn-secondary">
+            <a href="{{route('posts.create')}}" class="mb-10 btn btn-info" style="display:inline-block">
                         {{ __('Add New Post') }}
             </a>
             <!-- delete selected posts  -->
@@ -46,9 +46,11 @@
                       <td>{{ $post->title}}</td>
                       <td>{{ $post->createdAt}}</td>
                       <td>
-                            <a href="{{route('posts.edit',$post->id)}}" class="btn btn-info btn-sm" 
+                      <button type="button" class="btn btn-danger btn-sm">
+                                <a href="{{route('posts.edit',$post->id)}}" 
                                     title="{{ __('Post Edit') }}"><i
                                     class="fa fa-edit"></i></a>
+                           </button> 
                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                     data-target="#delete{{ $post->id }}"
                                     title="{{ __('Post Delete') }}"><i

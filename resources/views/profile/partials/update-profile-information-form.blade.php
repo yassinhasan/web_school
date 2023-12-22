@@ -9,10 +9,16 @@
         </p>
     </header>
 
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
+    @if(auth('student'))
+    <form id="send-verification" method="post" action="{{ route('student.verification.send') }}">
         @csrf
     </form>
-
+    @endif
+    @if(auth('user'))
+    <form id="send-verification" method="post" action="{{ route('user.verification.send') }}">
+        @csrf
+    </form>
+    @endif
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')

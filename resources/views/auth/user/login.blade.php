@@ -10,15 +10,14 @@ Login
 
 
 
-
 <!-- content -->
 @section('content')
 <div class="form-section">
   <div class="form-wrapper">
 
-    <h2>Welcome Admin! 👋🏻</h2>
+    <h2>Welcome Back! 👋🏻</h2>
     <p>Enter your credentials to access your account.</p>
-    <form method="POST" action="{{ route('admin.login') }}">
+    <form method="POST" action="{{ route('user.login') }}">
       @csrf
       <div class="input-container">
         <div class="form-group">
@@ -42,6 +41,11 @@ Login
           <input type="checkbox" value="remember-me" id="remember-me" name="remember">
           <label for="remember-me" class="label-remember">Remember me</label>
         </div>
+
+        <a href="{{ route('user.password.request') }}"  class="forget-btn">Forgot password?</a>
+        <p>
+          <a href="{{ route('user.register') }}" class="register-btn">Register</a>
+        </p>
       </div>
 
       <button class="login-btn clicked-btn">Log In</button>

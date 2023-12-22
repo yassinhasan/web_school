@@ -28,7 +28,7 @@ My Heroes
                 <!-- <span class="hover_span image">Yassin</span> -->
                 <figure class="image">
                   <img src="{{ asset( 'images/profile/students/'.$student->image )}}" class="img-fluid clicked_profile">
-                  <figcaption>{{ucfirst($student->first_name)}}</figcaption>
+                  <figcaption>{{ucfirst($student->name)}}</figcaption>
                 </figure>  
               </div>
               @endforeach
@@ -49,7 +49,7 @@ My Heroes
     <div class="modal-content rating-modal">
       <div class="modal-header website_header">
         <div class="col-7">
-          <h5 class="modal-title" style="margin-left: 10px;">{{ ucfirst($student->first_name) }} Website </h5>
+          <h5 class="modal-title" style="margin-left: 10px;">{{ ucfirst($student->name) }} Website </h5>
         </div>
         <div class="col-3">
         <?php $likedby =json_decode($student->likedby, true) ?>

@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\StudentController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,9 +30,5 @@ Route::group([
 });
 
 Route::middleware(['jwt.verify'])->group(function () {
-    Route::get("students",[StudentController::class,"index"]);
-    Route::post("students",[StudentController::class,"store"]);
-    Route::post("students/{id}",[StudentController::class,"update"]);
-    Route::post("student/{id}",[StudentController::class,"destroy"]);
-    Route::get("students/{id}",[StudentController::class,"show"]);
+
 });

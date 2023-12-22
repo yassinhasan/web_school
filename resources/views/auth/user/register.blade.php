@@ -2,10 +2,11 @@
 @section('css')
 <!-- Styles -->
 <link href="{{ asset('css/auth/login.css') }}" rel="stylesheet">
+
 @endsection()
 <!-- style -->
 @section('title')
-Login
+Register
 @endsection
 
 
@@ -14,27 +15,34 @@ Login
 <!-- content -->
 @section('content')
 
-<div class="row container">
+  @if(isset($connection_error))
+    <div class="alert alert-danger">{{$connection_error}}</div>
+  @endif
 <div class="form-section">
   <div class="form-wrapper">
 
-    <h2 style="margin-bottom: 15px;">Reset Your Password!👋🏻</h2>
-    <form method="POST" action="{{ route('password.store') }}" class="">
+    <h2>Welcome ! 👋🏻</h2>
+    <form method="POST" action="{{ route('user.register') }}">
       @csrf
-      <input type="hidden" name="token" value="{{ $request->route('token') }}">
       <div class="input-container">
-
-      <div class="form-group">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name" value="{{old('name')}}" required autofocus autocomplete="name">
+          @if($errors->has('name'))
+          <div class="text-danger">{{ $errors->first('name') }}</div>
+          @endif
+        </div>
+        <div class="form-group">
           <label for="email">Email</label>
-          <input id="email" type="email" name="email" value="{{old('email',$request->email)}}" required autofocus autocomplete="username">
+          <input id="email" type="email" name="email" value="{{old('email')}}" required autofocus autocomplete="username">
           @if($errors->has('email'))
           <div class="text-danger">{{ $errors->first('email') }}</div>
           @endif
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" value="password" required autocomplete="new-password">
-          @if($errors->has('email'))
+          <input type="password" id="password" name="password" required autocomplete="current-password">
+          @if($errors->has('password'))
           <div class="text-danger">{{ $errors->first('password') }}</div>
           @endif
         </div>
@@ -45,29 +53,27 @@ Login
           <div class="text-danger">{{ $errors->first('password_confirmation') }}</div>
           @endif
         </div>
-        <div class="flex items-center justify-end mt-4">
-            <button class="btn btn-secondary clicked-btn">Reset Password</button>
-        </div>
+      </div>
+
+      <div class="remember-forgot">
+
+        <a href="{{ route('user.login') }}">Already registered?</a>
+        <p>
+          <button class="btn btn-success clicked-btn">Register</button>
+        </p>
+      </div>
 
     </form>
   </div>
 </div>
-</div>
 @endsection
 
 <!-- footer -->
-@section("footer")
-@endsection()
+
 <!-- footer -->
 
 <!-- Scripts -->
 @section('js')
-<script src="{{ asset('js/auth/auth.js') }}"></script>
-
 @endsection
 <!-- Scripts -->
-
-
-
-
 

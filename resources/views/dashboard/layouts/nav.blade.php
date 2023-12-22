@@ -1,6 +1,6 @@
 <nav class="main-menu">
-        <h1>Hullo  Code</h1>
-        <img class="logo" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4cfdcb5a-0137-4457-8be1-6e7bd1f29ebb" alt="" />
+        <h1> <a href="{{ route('home') }}" class="text-light">Hullo  Code</a></h1>
+        <a href="{{ route('home') }}" class="logo" ><img src="{{url('images/settings/logo.png') }}" alt="" /></a>
         <ul>
           <li class="nav-item {{ Route::is('dashboard') ? 'active' : '' }}">
             <b></b>
@@ -20,7 +20,7 @@
             </a>
           </li>
 
-          <li class="nav-item {{ Route::is('posts.create') ? 'active' : '' }}">
+          <li class="nav-item {{ (Route::is('posts.create') || Route::is('posts.edit'))  ? 'active' : '' }}">
             <b></b>
             <b></b>
             <a href="{{ route('posts.create') }}">
@@ -44,7 +44,7 @@
               <span class="nav-text">Attendance</span>
             </a>
           </li>
-          <li class="nav-item {{ Route::is('attendance.report') ? 'active' : '' }}">
+          <li class="nav-item {{ (Route::is('attendance.report')  ||  Route::is('attendance.search'))? 'active' : '' }}">
             <b></b>
             <b></b>
            <a href="{{ route('attendance.report') }}">

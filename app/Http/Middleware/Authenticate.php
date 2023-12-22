@@ -17,8 +17,10 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            $this->ErrorMsg("soory you have not acces to admin dashboard");
-            return route('login');
+            
+          
+            $this->ErrorMsg("soory you have not acces to  dashboard");
+            return route('student.login');
         }
     }
 }

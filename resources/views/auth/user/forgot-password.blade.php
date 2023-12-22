@@ -9,26 +9,20 @@ Login
 @endsection
 
 
+
+
 <!-- content -->
 @section('content')
 
-<div class="row">
+@if(isset($connection_error))
+    <div class="alert alert-danger">{{$connection_error}}</div>
+  @endif
 <div class="form-section">
   <div class="form-wrapper">
 
-    <h2 style="margin-bottom: 15px;">Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.</h2>
-    @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
-        A new verification link has been sent to the email address you provided during registration.
-        </div>
-    @endif    
-    
-    <form method="POST" action="{{ route('verification.send') }}" class="form">
+    <h2 style="margin-bottom: 15px;">Fotget Your Password!👋🏻</h2>
+    <form method="POST" action="{{ route('user.password.email') }}" class="form">
       @csrf
-      <div class="flex items-center justify-end mt-4">
-            <button class="btn btn-secondary">Verification Email</button>
-        </div>
-    </form>
       <div class="input-container">
       <div class="form-group">
           <label for="email">Email</label>
@@ -43,15 +37,9 @@ Login
         </div>
 
     </form>
-    <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit " class="btn btn-secondary">
-                {{ __('Log Out') }}
-            </button>
-    </form>
   </div>
 </div>
-</div>
+
 @endsection
 
 <!-- footer -->

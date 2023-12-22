@@ -56,7 +56,7 @@ class PostController extends Controller
 
     public function update(UpdatePostRequest $request, Post $post)
     {
-        $this->postRepository->update($request,  $post);
+        return $this->postRepository->update($request,  $post);
     }
 
 

@@ -35,7 +35,7 @@ class AdminController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::ADMIN);
+        return redirect()->intended(RouteServiceProvider::DASHBOARD);
         }
         catch(Exception $e){
             $this->ErrorMsg("'Email or Password are wrong !");

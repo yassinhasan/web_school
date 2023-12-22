@@ -17,7 +17,7 @@ Login
   <div class="form-wrapper">
 
     <h2 style="margin-bottom: 15px;">This is a secure area of the application. Please confirm your password before continuing.</h2>
-    <form method="POST" action="{{ route('password.confirm') }}">
+    <form method="POST" action="{{ user.route('password.confirm') }}">
       @csrf
       <div class="input-container">
       <div class="form-group">
