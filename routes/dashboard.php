@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 
 //Route::middleware('auth','two_factor')->group(function () {
-Route::middleware('auth:student')->group(function () {
+Route::middleware('auth:student,admin')->group(function () {
 
    
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');

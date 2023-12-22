@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\Admin\AdminController;
 use App\Http\Controllers\Auth\Student\AuthenticatedSessionController as StudentAuthenticatedSessionController;
 use App\Http\Controllers\Auth\User\AuthenticatedSessionController;
 use App\Http\Controllers\Home\ProfileController;
@@ -24,6 +25,8 @@ Route::middleware('auth:user,student,admin')->group(function () {
     ->name('user.logout');
     Route::post('/student/logout', [StudentAuthenticatedSessionController::class, 'destroy'])
     ->name('student.logout');
+    Route::post('/admin/logout', [AdminController::class, 'destroy'])
+    ->name('admin.logout');
 
 });
 

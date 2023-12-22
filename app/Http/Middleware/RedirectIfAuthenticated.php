@@ -23,9 +23,9 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
-            if(auth('student')->check() )
+            if(auth('student')->check()  || auth('admin')->check())
             {
-                
+               
                 return redirect(RouteServiceProvider::DASHBOARD);
             }
             //  if(auth('admin')->check())

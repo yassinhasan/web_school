@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\AdminController;
+use App\Http\Controllers\Auth\Admin\AdminController;
 use App\Http\Controllers\Auth\Student\AuthenticatedSessionController as StudentAuthenticatedSessionController;
 use App\Http\Controllers\Auth\Student\NewPasswordController as StudentNewPasswordController;
 use App\Http\Controllers\Auth\Student\PasswordResetLinkController as StudentPasswordResetLinkController;

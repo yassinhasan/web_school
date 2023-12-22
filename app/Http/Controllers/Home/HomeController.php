@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        
+       
         $collection = Setting::all();
         $settings = $collection->flatMap(function($collection){
             return [$collection->key => $collection->value];
