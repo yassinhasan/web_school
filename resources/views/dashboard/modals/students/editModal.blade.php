@@ -17,12 +17,12 @@
                     <div class="row">
                         <input type="number" name="id" hidden value="{{ $student->id}}">
                         <div class="col-12 form-group">
-                            <label  for="first_name">First Name</label>
-                            <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" class="form-control"  value="{{ $student->first_name }}" required>
+                            <label  for="name">Name</label>
+                            <input type="text" name="name" id="name" placeholder="Enter your  Name" class="form-control"  value="{{ $student->name }}" required>
                         </div>
                         <div class="col-12 form-group">
-                            <label  for="last_name">Last Name</label>
-                            <input type="text" name="last_name" id="last_name" placeholder="Enter your First Name" class="form-control"  value="{{ $student->last_name }}" required>
+                            <label  for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Enter your  Email" class="form-control"  value="{{ $student->email }}" required>
                         </div>
                         <div class="col-12 form-group">
                             <label  for="age">Age</label>

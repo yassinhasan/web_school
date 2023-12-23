@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Validation\Rule; //import Rule class
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Models\Student;
 class UpdateStudentRequest extends FormRequest
 {
     /**
@@ -24,8 +24,8 @@ class UpdateStudentRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required|string|min:3',
-            'last_name' => 'required|string|min:3',
+            'name' => 'required|string|min:3',
+            'email' => ['email', 'max:255', Rule::unique(Student::class)->ignore($this->id)],
             'age' => 'required|numeric',
             'website' => 'nullable|url',
             'about' => 'nullable|string',

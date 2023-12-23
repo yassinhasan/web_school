@@ -39,9 +39,9 @@ students
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Image</th>
+                                                <th>Email</th>
                                                 <th>Age</th>
                                                 <th>Website</th>
-                                                <th>Country</th>
                                                 <th>Process</th>
                                             </tr>
                                         </thead>
@@ -49,7 +49,7 @@ students
                                             @foreach($students as $student)
 
                                             <tr>
-                                                <td>{{ ucfirst($student->first_name." ".$student->last_name )}}</td>
+                                                <td>{{ ucfirst($student->name)}}</td>
                                                 <td><img src="{{ asset('images/profile/students/').'/'.$student->image}}" class="iamge_table"></td>
                                                 <td>{{ $student->age}}</td>
                                                 <?php $website = json_decode($student->website, true) ?>
@@ -60,7 +60,7 @@ students
                                                     <a class="website_link" href="{{ $website[1] }}" target="_blank">{{ $website[1]}}</a>
                                                     @endif
                                                 </td>
-                                                <td>{{ $student->country}}</td>
+                                                <td>{{ $student->email}}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{ $student->id }}" title="{{ __('Student.Edit') }}"><i class="fa fa-edit"></i></button>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $student->id }}" title="{{ __('Student.Delete') }}"><i class="fa fa-trash"></i></button>
@@ -78,9 +78,9 @@ students
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Image</th>
+                                                <th>Email</th>
                                                 <th>Age</th>
                                                 <th>Website</th>
-                                                <th>Country</th>
                                                 <th>Process</th>
                                             </tr>
                                         </tfoot>

@@ -26,71 +26,30 @@ class StudentController extends Controller
     {
         $this->Studentrep = $Student;
     }
-    // show my student of logged user
+
+    // dashboard
+    // show my student of logged user in dashboard
     public function index()
     {
         return $this->Studentrep->index();
     }
-
-    public function store(StudentLoginRequest $request): RedirectResponse
-    {
-        try {
-
-            $request->authenticate();
-
-            $request->session()->regenerate();
-
-            return redirect()->intended(RouteServiceProvider::DASHBOARD);
-        } catch (\Exception $e) {
-            $this->ErrorMsg($e->getMessage());
-            return redirect('login');
-        }
-    }
-
-    /**
-     * Destroy an authenticated session.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-
-        Auth::guard('student')->logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/student/login');
-    }
-
-
-    // public function store(StoreStudentRequest $request)
-    // {
-    //     return $this->Studentrep->store($request );
-    // }
-
-    public function show(Student $student)
-    {
-        return view("home.addstudent");
-    }
-
-    public function edit(Student $student)
-    {
-    }
-
+       // add student in dashboard
+       public function store(StoreStudentRequest $request)
+       {
+           return $this->Studentrep->store($request );
+       }
+    // add update in dashboard
     public function update(UpdateStudentRequest $request, Student $student)
     {
         return $this->Studentrep->update($request, $student);
     }
 
-    // public function destroy(Request $request)
-    // {
-
-    //     return $this->Studentrep->destroy($request);
-    // }
-
-    // add student in home by post method by parents only not guest not admin
-    public function add(Request $request)
+    // add delete in dashboard
+    public function destroy(Request $request)
     {
-        return $this->Studentrep->add($request);
+
+        return $this->Studentrep->destroy($request);
     }
+
+ 
 }

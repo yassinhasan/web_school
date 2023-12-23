@@ -34,10 +34,10 @@ Route::middleware('guest')->group(function () {
     Route::post('user/reset-password', [UserNewPasswordController::class, 'store'])
         ->name('user.password.store');
 
-    // student
+    // student add by register
     Route::get('student/register', [StudentRegisteredUserController::class, 'create'])->name('student.register');
-  
     Route::post('student/register', [StudentRegisteredUserController::class, 'store']);
+    
 
 
     Route::get('student/login', [StudentAuthenticatedSessionController::class, 'create'])

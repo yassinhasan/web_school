@@ -18,17 +18,15 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label  for="add_first_name">First Name</label>
-                                    <input id="add_first_name" type="text" name="first_name" value="{{ old('first_name') }}" id="add_first_name" placeholder="Enter your First Name" class="form-control" required>
+                                    <label  for="name"> Name</label>
+                                    <input id="name" type="text" name="name" value="{{ old('name') }}"  placeholder="Enter your  Name" class="form-control" required>
                                 </div>
-                            </div>
-                            <div class="col-12">
+                           
                                 <div class="form-group">
-                                    <label  for="add_last_name">Last Name</label>
-                                    <input type="text" name="last_name" id="add_last_name" value="{{ old('last_name') }}"  placeholder="Enter your Last Name" class="form-control" required>
+                                    <label  for="email"> Email</label>
+                                    <input id="email" type="email" name="email" value="{{ old('email') }}"  placeholder="Enter your  Email" class="form-control" required>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="row">

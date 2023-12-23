@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Models\Student;
 class StoreStudentRequest extends FormRequest
 {
     /**
@@ -27,8 +27,8 @@ class StoreStudentRequest extends FormRequest
     // 'author.name' => 'required',
     // 'author.description' => 'required',
         return [
-            'first_name' => 'required|string|min:3',
-            'last_name' => 'required|string|min:3',
+            'name' => 'required|string|min:3',
+            'email' => 'required|email|unique:students',
             'age' => 'required|numeric',
             'website' => 'nullable|url',
             'about' => 'nullable|string',

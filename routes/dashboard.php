@@ -19,6 +19,7 @@ Route::middleware('auth:student,admin')->group(function () {
    
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    // students
     Route::get('students', [StudentController::class, 'index'])->name('student.index');
     Route::patch('students', [StudentController::class, 'update'])->name('student.update');
     Route::delete('students', [StudentController::class, 'destroy'])->name('student.destroy');

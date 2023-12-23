@@ -31,7 +31,7 @@ class StudentLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
+            'email' => 'required|email|unique:students',
             'password' => ['required', 'string'],
         ];
     }

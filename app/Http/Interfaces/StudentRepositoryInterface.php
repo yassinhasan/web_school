@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 interface StudentRepositoryInterface {
     public function index();
     public function destroy(Request $request);
-    public function add(Request $request);
+    // public function add(Request $request);
     public function store(StoreStudentRequest $request);
     public function update(UpdateStudentRequest $request, Student $student);
 

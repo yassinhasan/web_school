@@ -24,3 +24,10 @@ function getLogoImage()
     return $settings[0];
     
 }
+
+function rand_password(  ) {
+
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    return substr(str_shuffle($chars),0,8);
+
+}
