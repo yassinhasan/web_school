@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Http\Traits\FlashMessageTrait;
 use App\Models\Section;
 use Exception;
 use Illuminate\Http\Request;
@@ -18,9 +19,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use FlashMessageTrait;
     public function index()
     {
-        $categories = Category::with('sections')->get();
+        $categories = Category::with('posts')->get();
 
         return view("dashboard.pages.categories")->with(['categories' => $categories]);
     }
@@ -58,9 +60,8 @@ class CategoryController extends Controller
         }
         $Category->save();
 
-        session()->flash('status', 'success');
-        session()->flash('msg', 'Student has been saved successfully!');
-        session()->flash('icon', 'fa-check');
+
+        $this->SuccessMsg('Category has been saved successfully!');
         return redirect()->back();
     }
 
@@ -96,7 +97,7 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $Category)
     {
         try {
-            $validated = $request->validated();
+            
             $category = Category::findOrFail($request->id);
             if ($request->image != null) {
                 $originalName = $request->image->getClientOriginalName();
@@ -113,9 +114,8 @@ class CategoryController extends Controller
                 ]);
             }
 
-            session()->flash('status', 'success');
-            session()->flash('msg', 'category has been updated successfully! ');
-            session()->flash('icon', 'fa-check');
+            $this->SuccessMsg('Category has been saved successfully!');
+
             return redirect()->back();
         } catch (Exception $e) {
             echo $e->getMessage();
@@ -131,93 +131,14 @@ class CategoryController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // multiple delete first
-            $multiple_ids = trim($request->multiple_id, ",");
-            if ($multiple_ids != null) {
 
-                $deletedIds = explode(",", $multiple_ids);
-                foreach ($deletedIds as $deletedId) {
-                    $hasnSections = Category::find($deletedId)->sections;
-                    if (count($hasnSections)) {
-                        
-                        session()->flash('status', 'error');
-                        session()->flash('msg', 'sorry you can not delete this Category you shoud delete sections first!');
-                        session()->flash('icon', 'fa-xmark');
-                    } else {
-
-                        Category::findOrFail($deletedId)->delete();                        
-                        session()->flash('status', 'success');
-                        session()->flash('msg', 'category has been deleted successfully!');
-                        session()->flash('icon', 'fa-check');
-                    }
-                }
-                // delete only on category
-            } else {
-
-                $hasnSections = Category::find($request->id)->sections;
-
-                if (count($hasnSections)) {
-                    session()->flash('status', 'error');
-                    session()->flash('msg', 'sorry you can not delete this Category you shoud delete sections first!');
-                    session()->flash('icon', 'fa-xmark');
-                } else {
-
-                    Category::findOrFail($request->id)->delete();
-                    session()->flash('status', 'success');
-                    session()->flash('msg', 'category has been deleted successfully!');
-                    session()->flash('icon', 'fa-check');
-                }
-            }
-
-
+            Category::findOrFail($request->id)->delete();
+            $this->SuccessMsg('Category has been destroy successfully!');
             return redirect()->route('categories.index');
         } catch (\Exception $e) {
-            dd($e);
+           $this->ErrorMsg($e->getMessage());
         }
     }
 
-    public function addSub(Request $request)
-    {
 
-        
-        $inputs = $request->all();
-        if(!array_key_exists("id",$inputs)){
-            session()->flash('status', 'error');
-            session()->flash('msg', 'you shoud enter category first!');
-            session()->flash('icon', 'fa-xmark');
-            return redirect()->back();
-
-        }
-        $validator = Validator::make($inputs, [
-            'id.*' => 'required',
-            'name.*' => 'required',
-        ], [
-            'id.*' => 'you must select category',
-            'name.*.required' => 'section  field is required.',
-        ]);
-        if ($validator->stopOnFirstFailure()->fails()) {
-            session()->flash('status', 'error');
-            session()->flash('msg', $validator->errors()->first());
-            session()->flash('icon', 'fa-xmark');
-        } else {
-            $id_array = $inputs['id'];
-            $name_array = $inputs['name'];
-            for ($i = 0; $i < count($id_array); $i++) {
-                $category = Category::find($id_array[$i]);
-                $categoryName = $category->name;
-                $section = new Section();
-                $section->category_id = $id_array[$i];
-                $section->name = $name_array[$i];
-                $categoryName =  str()->slug($categoryName);
-                $sectionName =  str()->slug($section->name);
-                $url = $categoryName."-".  $sectionName ;
-                $section->slug = strtolower($url);
-                $section->save();
-            }
-            session()->flash('status', 'success');
-            session()->flash('msg', 'Data has been saved successfully!');
-            session()->flash('icon', 'fa-check');
-        }
-        return redirect()->back();
-    }
 }

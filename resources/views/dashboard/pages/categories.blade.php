@@ -29,7 +29,7 @@
         @include("layouts.toast-session")
         @endif
         <!-- session -->
-@include("dashboard.modals.categories.repeatedModal")
+
 
 @endsection
 @section('js')

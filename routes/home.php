@@ -31,6 +31,6 @@ Route::middleware('auth:user,admin,student')->group(function () {
 Route::get('/', [HomeController::class, 'index'])->name("home");
 Route::get('courses', [CoursesController::class, 'index'])->name("courses");
 
-Route::get('/trainning/{slug}', [SectionController::class,'index']);
+Route::get('/trainning/{slug}', [CoursesController::class,'posts']);
 // contact
 Route::post('contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact');

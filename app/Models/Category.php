@@ -11,8 +11,8 @@ class Category extends Model
     use HasFactory;
     public $fillable = ['name','image'];
 
-    public function sections(): HasMany
+    public function posts(): HasMany
     {
-        return $this->hasMany(Section::class,'category_id');
+        return $this->hasMany(Post::class,'category_id');
     }
 }

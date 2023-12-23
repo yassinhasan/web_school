@@ -35,9 +35,6 @@ Posts
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group select-section">
-
-                    </div>
 
                     <div class="form-group">
                         <label id="title" for="title">Post Title</label>

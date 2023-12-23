@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 interface PostRepositoryInterface {
 
-    public function getAllPosts();
+    public function showAddPostPage();
     public function editById($postId);
     public function deletePost(Request $request);
     public function createPost(StorePostRequest $request);

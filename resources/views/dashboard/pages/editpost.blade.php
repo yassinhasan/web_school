@@ -29,15 +29,7 @@ Edit Post
                         <select class="form-control seect-category" name="category_id">
                         <option value="">Select Category</option>
                             @foreach($categories as $category)
-                            <option value="{{$category->id}}" {{ $post->sections->category_id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group select-section">
-                    <select class="form-control" name="section_id">
-                        <option value="">Select Section</option>
-                            @foreach($sections as $key=>$value)
-                            <option value="{{$key}}" {{ $post->sections->id == $key ? 'selected' : ''}}>{{$value}}</option>
+                            <option value="{{$category->id}}" {{ $post->categories->id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                             @endforeach
                         </select>
                     </div>

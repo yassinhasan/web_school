@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string("title");
             $table->string("slug");
             $table->text("content");
-            $table->bigInteger('section_id')->unsigned();
-            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
+            $table->bigInteger('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

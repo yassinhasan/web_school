@@ -18,11 +18,6 @@
           {{ __('Add Category') }}
         </button>
         <!-- Button trigger modal -->
-        <button type="button" style="margin-top: 10px;" class="btn  btn-secondary" data-toggle="modal" data-target="#repeatFormModal">
-          Add Section
-        </button>
-        <!-- delete selected student  -->
-        <!-- add section -->
         <br><br>
         <!-- end student  -->
         <div class="table-responsive">
@@ -31,7 +26,6 @@
               <tr>
                 <th>Name</th>
                 <th>Image</th>
-                <th>sections</th>
                 <th>Process</th>
               </tr>
             </thead>
@@ -41,27 +35,6 @@
               <tr>
                 <td>{{ ucfirst($category->name )}}</td>
                 <td><img src="{{ asset('images/categories/images/').'/'.$category->image}}" class="iamge_table"></td>
-                <td style="min-width: 200px;">
-                  <ul>
-
-                    @foreach($category->sections as $section)
-                    <li class="row" style="    margin-bottom: 3px; background: white;">
-                      <div class="col-6">
-                        {{$section->name}}
-                      </div>
-                      <div class="col-6" style="text-align:end;">
-                        <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#editSection{{ $section->id }}" title="{{ __('section.Edit') }}"><i class="fa fa-edit"></i></button>
-                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteSection{{ $section->id }}" title="{{ __('section.Delete') }}"><i class="fa fa-trash"></i></button>
-                      </div>
-                    </li>
-                    <!-- edit_modal_student -->
-                    @include("dashboard.modals.categories.editSectionModal")
-
-                    <!-- delete_modal_Student -->
-                    @include("dashboard.modals.categories.deleteSectionModal")
-                    @endforeach
-                  </ul>
-                </td>
                 <td>
                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{ $category->id }}" title="{{ __('category.Edit') }}"><i class="fa fa-edit"></i></button>
                   <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $category->id }}" title="{{ __('category.Delete') }}"><i class="fa fa-trash"></i></button>
@@ -79,7 +52,6 @@
               <tr>
                 <th>Name</th>
                 <th>Image</th>
-                <th>sections</th>
                 <th>Process</th>
               </tr>
             </tfoot>

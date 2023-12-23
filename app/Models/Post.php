@@ -9,11 +9,11 @@ class Post extends Model
 {
     use HasFactory;
 
-    public function sections(){
-        return $this->belongsTo(Section::class,"section_id");
+    public function categories(){
+        return $this->belongsTo(Category::class,"category_id");
     }
     
-    protected $fillable = ['id','title','content','section_id'];
+    protected $fillable = ['id','title','content','category_id'];
 
 
 }

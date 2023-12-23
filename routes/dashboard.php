@@ -29,13 +29,13 @@ Route::middleware('auth:student,admin')->group(function () {
     Route::patch('categories', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('categories', [CategoryController::class, 'destroy'])->name('categories.destroy');
     Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
-    Route::post('categories/addSub', [CategoryController::class, 'addSub'])->name('categories.addSub');
+    // Route::post('categories/addSub', [CategoryController::class, 'addSub'])->name('categories.addSub');
     
     // sections
-    Route::patch('sections', [SectionController::class, 'update'])->name('sections.update');
-    Route::delete('sections', [SectionController::class, 'destroy'])->name('sections.destroy');
-    Route::post('sections', [SectionController::class, 'store'])->name('sections.store');
-    Route::post('sections/addSub', [SectionController::class, 'addSub'])->name('sections.addSub');
+    // Route::patch('sections', [SectionController::class, 'update'])->name('sections.update');
+    // Route::delete('sections', [SectionController::class, 'destroy'])->name('sections.destroy');
+    // Route::post('sections', [SectionController::class, 'store'])->name('sections.store');
+    // Route::post('sections/addSub', [SectionController::class, 'addSub'])->name('sections.addSub');
 
 
     // parents
@@ -50,7 +50,7 @@ Route::middleware('auth:student,admin')->group(function () {
     Route::get('posts',[PostController::class,'index'])->name("posts.index");
     Route::post('posts/store',[PostController::class,'store'])->name("posts.store");
     Route::patch('posts/update',[PostController::class,'update'])->name("posts.update");
-    Route::post('posts/getSection',[PostController::class,'getSection']);
+    // Route::post('posts/getSection',[PostController::class,'getSection']);
     Route::post('posts/upload',[PostController::class,'upload'])->name("posts.upload");
     Route::post('posts/search',[PostController::class,'search'])->name("posts.search");
     Route::delete('posts/delete',[PostController::class,'destroy'])->name("posts.destroy");

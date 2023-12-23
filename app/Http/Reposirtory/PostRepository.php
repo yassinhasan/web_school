@@ -20,31 +20,32 @@ class PostRepository implements PostRepositoryInterface
 
         $validator =  Validator::make($request->all(), [
             'title' => 'required',
-            'section_id' => 'required',
+            'category_id' => 'required',
             'content' => 'required'
 
         ], [
-            'section_id.required' => "you shoud select section "
+            'category_id.required' => "you shoud select category "
         ]);
         if ($validator->stopOnFirstFailure()->fails()) {
 
             $this->ErrorMsg($validator->errors()->first());
             return redirect()->back();
         }
-        $sectionId = $request->section_id;
+        $cstegoryId = $request->category_id;
         $post = new Post();
         $post->title = $request->title;
         $post->slug = str()->slug($request->title);
-        $post->section_id = $sectionId;
+        $post->category_id = $cstegoryId;
         $post->content = $request->content;
         $post->save();
  
         $this->SuccessMsg('Post has been saved successfully!');
         return redirect()->back();
     }
-    public function getAllPosts()
+    public function showAddPostPage()
     {
-        $categories = Category::with('sections')->get();
+        $categories = Category::with('posts')->get();
+     
         return view("dashboard.pages.addpost")->with(['categories' => $categories]);
     }
     public function uploadAttach(Request $request)
@@ -78,32 +79,31 @@ class PostRepository implements PostRepositoryInterface
     }
     public function editById($postId)
     {
-        $post =  Post::with('sections')->get()->find($postId);
-        $categories = Category::with('sections')->get();
-        $sections = Category::findOrFail($post->sections->category_id)->sections->pluck('name', 'id');
-        return view("dashboard.pages.editpost")->with(['categories' => $categories, 'post' => $post, 'sections' => $sections]);
+        $post =  Post::with('categories')->get()->find($postId);
+        $categories = Category::all();
+        return view("dashboard.pages.editpost")->with(['categories' => $categories, 'post' => $post]);
     }
     public function update(UpdatePostRequest $request, Post $post)
     {
         $validator =  Validator::make($request->all(), [
             'title' => 'required',
-            'section_id' => 'required',
+            'category_id' => 'required',
             'content' => 'required'
 
         ], [
-            'section_id.required' => "you shoud select section "
+            'category_id.required' => "you shoud select section "
         ]);
         if ($validator->stopOnFirstFailure()->fails()) {;
             $this->ErrorMsg($validator->errors()->first());
             return redirect()->route('posts.edit',$request->id);
         }
-        $sectionId = $request->section_id;
+        $cstegoryId = $request->category_id;
         $post =  Post::find($request->id);
         $post->update([
 
             'title' => $request->title,
             'slug' => str()->slug($request->title),
-            'section_id' => $sectionId,
+            'category_id' => $cstegoryId,
             'content' => $request->content,
         ]);
         $this->SuccessMsg('Post has been saved successfully!');
@@ -113,20 +113,13 @@ class PostRepository implements PostRepositoryInterface
     {
         try {
 
-            $multiple_id = $request->multiple_id;
-            if ($multiple_id != null) {
-                $deletedId = explode(",", $multiple_id);
-                Post::whereIn('id', $deletedId)->delete();
-            } else {
-
                 Post::findOrFail($request->id)->delete();
-            }
 
             // toastr()->success('Student has been deleted successfully!');
             $this->SuccessMsg('Post has been deleted successfully!');
             return redirect()->back();
         } catch (\Exception $e) {
-            report($e);
+           $this->ErrorMsg($e->getMessage());
         }
     }
     public function getSection(Request $request)
@@ -158,7 +151,8 @@ class PostRepository implements PostRepositoryInterface
     }
     public function showAllPosts()
     {
-        $posts = Post::with('sections')->get();
+        $posts = Post::with('categories')->get();
+      
         return view("dashboard.pages.posts")->with(['posts' => $posts]);
     }
 }

@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Traits\FlashMessageTrait;
+use App\Models\Student;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -14,14 +16,15 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
-class ProfileController extends Controller
+class StudentProfileController extends Controller
 {
+    use FlashMessageTrait;
     /**
      * Display the user's profile form.
      */
     public function edit(Request $request): View
     {
-        return view('profile.profile', [
+        return view('student.profile.profile', [
             'user' => $request->user(),
         ]);   
      }
@@ -38,10 +41,8 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
-        session()->flash('status', 'success');
-        session()->flash('msg', 'profile updated');
-        session()->flash('icon', 'fa-check');
-        return Redirect::route('profile');
+        $this->SuccessMsg('profile updated');
+        return Redirect::route('student.profile');
     }
     /**
      * Update the user's profile image.
@@ -53,7 +54,7 @@ class ProfileController extends Controller
                 'image' => 'file|mimes:jpg,jpeg,png,gif'
             ]);
             if (!$validated->stopOnFirstFailure()->fails()) {
-                $user = User::findOrFail(auth()->user()->id);
+                $user = Student::findOrFail(auth()->user()->id);
                 if ($request->image != null) {
                     $originalName = $request->image->getClientOriginalName();
                     $savedImage = time() . '_' . $originalName;
@@ -66,14 +67,12 @@ class ProfileController extends Controller
                     $request->user()->save();
                 }
             }
-            session()->flash('status', 'success');
-            session()->flash('msg', 'profile updated');
-            session()->flash('icon', 'fa-check');
+            $this->SuccessMsg('profile updated');
             
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-        return Redirect::route('profile');
+        return Redirect::route('student.profile');
     }
 
     /**

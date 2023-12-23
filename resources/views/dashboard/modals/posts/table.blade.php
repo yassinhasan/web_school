@@ -28,7 +28,6 @@
               <thead>
                   <tr>
                       <th>Category </th>
-                      <th>Section</th>
                       <th>Title</th>
                       <th>Date</th>
                       <th>Process</th>
@@ -38,13 +37,9 @@
                 @foreach($posts as $post)
 
                     <tr>
-                     <?php $slug = explode("-",$post->slug);
-                        $categoryName = $slug[0];
-                     ?>
-                    <td>{{ $categoryName}}</td>
-                     <td>{{ $post->sections->name}}</td>
+                    <td>{{ $post->categories->name}}</td>
                       <td>{{ $post->title}}</td>
-                      <td>{{ $post->createdAt}}</td>
+                      <td>{{ $post->created_at}}</td>
                       <td>
                       <button type="button" class="btn btn-danger btn-sm">
                                 <a href="{{route('posts.edit',$post->id)}}" 
@@ -67,7 +62,6 @@
               <tfoot>
                   <tr>
                     <th>Category </th>
-                  <th>section</th>
                       <th>title</th>
                       <th>date</th>
                       <th>Process</th>

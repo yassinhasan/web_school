@@ -28,7 +28,7 @@ class PostController extends Controller
 
     public function create()
     {
-        return $this->postRepository->getAllPosts();
+        return $this->postRepository->showAddPostPage();
     }
 
 
