@@ -14,6 +14,6 @@ class AppLayout extends Component
 
     public function render()
     {
-        return view('profile.master');
+        return view('dashboard.pages.profile');
     }
 }

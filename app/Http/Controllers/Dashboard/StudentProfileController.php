@@ -24,7 +24,7 @@ class StudentProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('student.profile.profile', [
+        return view('profile.profile', [
             'user' => $request->user(),
         ]);   
      }
@@ -63,7 +63,7 @@ class StudentProfileController extends Controller
                         'image' => $savedImage
                     ]);
 
-                    $request->image->move(public_path('images/profile/users/'), $savedImage);
+                    $request->image->move(public_path('images/profile/students/'), $savedImage);
                     $request->user()->save();
                 }
             }

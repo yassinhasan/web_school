@@ -22,7 +22,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content delete-form">
             <div name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-                <form method="post" action="{{ route('profile.destroy') }}" class="p-6 form-delete">
+                <form method="post" action="{{ route('student.profile.destroy') }}" class="p-6 form-delete">
                     @csrf
                     @method('delete')
 

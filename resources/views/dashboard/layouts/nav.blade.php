@@ -1,13 +1,23 @@
 <nav class="main-menu">
         <h1> <a href="{{ route('home') }}" class="text-light">Hullo  Code</a></h1>
-        <a href="{{ route('home') }}" class="logo" ><img src="{{url('images/settings/logo.png') }}" alt="" /></a>
+        <a href="{{ route('home') }}" class="logo" ><img src="{{url('images/settings/logo.png') }}" alt="" style="margin: auto;" /></a>
         <ul>
+
           <li class="nav-item {{ Route::is('dashboard') ? 'active' : '' }}">
             <b></b>
             <b></b>
             <a href="{{ route('dashboard') }}">
               <i class="fa fa-house nav-icon" title="Home"></i>
              <span class="nav-text">Home</span>
+            </a>
+          </li>
+
+          <li class="nav-item {{ Route::is('student.profile') ? 'active' : '' }}">
+            <b></b>
+            <b></b>
+            <a href="{{ route('student.profile') }}">
+              <i class="fa fa-user nav-icon" title="Porfile"></i>
+             <span class="nav-text">Profile</span>
             </a>
           </li>
 

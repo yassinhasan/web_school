@@ -6,7 +6,7 @@
         </x-slot>
 
 
-        <div class="py-12">
+        <div class="">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg info-wraper">
                     <div class="max-w-xl">
@@ -25,7 +25,7 @@
                                     {{ __("Click on your image to update your profile picture.") }}
                                 </p>
                             </header>
-                            <form action="{{route('profile.updateImage')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('student.profile.updateImage')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <input type="file" hidden name="image" id="addinputImage" class="user_image_input form-control @error('image') is-invalid @enderror" accept="image/jpeg, image/png, image/jpg">

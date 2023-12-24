@@ -15,11 +15,11 @@
     </form>
     @endif
     @if(auth('user'))
-    <form id="send-verification" method="post" action="{{ route('user.verification.send') }}">
+    <form id="send-verification" method="post" action="{{ route('student.verification.send') }}">
         @csrf
     </form>
     @endif
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('student.profile.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
