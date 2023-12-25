@@ -31,7 +31,12 @@
         @include("layouts.spinner")
         @include("layouts.toast")
   <main>
-    @include('dashboard.layouts.nav')
+    @if (auth('student')->check())
+       @include('dashboard.layouts.student-nav')
+    @elseif(auth('admin')->check())
+       @include('dashboard.layouts.nav')
+    @endif
+ 
     @yield('content')
   
   </main>

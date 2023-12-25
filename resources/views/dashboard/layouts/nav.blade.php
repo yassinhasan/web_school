@@ -81,6 +81,18 @@
             </a>
           </li>
 
+          <form method="POST" action="{{ route('admin.logout') }}">
+          @csrf
+          <li class="nav-item {{ Route::is('admin.logout') ? 'active' : '' }}">
+            <b></b>
+            <b></b>
+            <a href="{{ route('admin.logout')}}" onclick="event.preventDefault();
+           this.closest('form').submit();">
+              <i class="fa fa-sign-out nav-icon" title="Settings"></i> 
+              <span class="nav-text"> Logout</span>
+            </a>
+          </li>
+          </form>
 
         </ul>
       </nav>
