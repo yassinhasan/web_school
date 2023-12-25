@@ -1,0 +1,36 @@
+
+ .profile-head , .info-wraper,.delete-form{
+    background-color: var(--theme-background) !important;
+    color: var(--theme-color) !important;
+
+}
+.profile-title{
+    font-size: 3vh !important;
+    display: inline-block;
+}
+ .info-wraper,.delete-form{
+
+    border: var(--theme-border-style-style) !important;
+}
+.profile-title ,.action-title , .cancel-btn{
+    color: var(--theme-color) !important;
+}
+input {
+    background-color: var(--theme-background) !important;
+    color: var(--theme-color) !important;
+
+}
+.image_wraper{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.image_wraper img {
+    width: 150px;
+    cursor: pointer;
+}
+
+/* .update-image-btn{
+    color: var(--theme-color) !important;
+} */

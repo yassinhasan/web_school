@@ -1,0 +1,165 @@
+
+.notifications-toaster-session {
+  position: fixed;
+  top: 10px;
+  right: 0;
+  width: fit-content;
+  width: -moz-fit-content;
+  transform: translateX(100%);
+  z-index: var(--z-index-toast);
+  animation: show_toast-session 0.3s ease forwards,hide_toast_session_ .5s ease 5s forwards;
+}
+
+@keyframes show_toast-session {
+  0% {
+    transform: translateX(100%);
+  }
+
+  40% {
+    transform: translateX(-5%);
+  }
+
+  80% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+
+/* common */
+@keyframes hide_toast_session_ {
+  0% {
+    transform: translateX(-10%);
+  }
+
+  40% {
+    transform: translateX(0%);
+  }
+
+  80% {
+    transform: translateX(-5%);
+  }
+
+  100% {
+    transform: translateX(calc(100% + 20px));
+  }
+}
+
+
+.notifications-toaster-session :where(.toast-li, .column) {
+  display: flex;
+  align-items: center;
+  justify-content: center;;
+}
+
+.notifications-toaster-session .toast-li {
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  border-radius: 4px;
+  padding: 16px 17px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.notifications-toaster-session .toast-li::before {
+  position: absolute;
+  content: '';
+  height: 3px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  animation: toast-progress 5s linear  forwards !important;
+}
+
+@keyframes toast-progress {
+  100% {
+    width: 0%;
+  }
+}
+
+.notifications-toaster-session .toast-li.success
+ {
+  background: var(--success-background-toast)
+
+}
+.notifications-toaster-session .toast-li.success::before,
+.btn#success {
+  background: var(--success-toast);
+
+}
+
+.notifications-toaster-session .toast-li.error::before,
+.btn#error {
+  background: var(--error-toast);
+}
+.notifications-toaster-session .toast-li.error {
+  background:  var(--error-background-toast);
+}
+
+.notifications-toaster-session .toast-li.warning::before,
+.btn#warning {
+  background: var(--warning-toast);
+}
+.notifications-toaster-session .toast-li.warning {
+  background: var(--warning-background-toast);
+}
+.notifications-toaster-session .toast-li.info::before,
+.btn#info {
+  background: var(--info-toast);
+}
+.notifications-toaster-session .toast-li.info {
+  background: var(--info-background-toast);
+}
+.notifications-toaster-session .toast-li .column i {
+  font-size: var(--fontsize-icon-toast);
+}
+
+.notifications-toaster-session .toast-li.success .column i {
+  color: var(--success-toast);
+}
+
+.notifications-toaster-session .toast-li.error .column i {
+  color: var(--error-toast);
+}
+
+.notifications-toaster-session .toast-li.warning .column i {
+  color: var(--warning-toast);
+}
+
+.notifications-toaster-session .toast-li.info .column i {
+  color: var(--info-toast);
+}
+
+.notifications-toaster-session .toast-li .column span {
+  font-size: var(--fontsize-span-toast);
+  margin:0 12px;
+}
+
+.notifications-toaster-session .toast-li i:last-child {
+  color: #aeb0d7;
+  cursor: pointer;
+}
+
+.notifications-toaster-session .toast i:last-child:hover {
+  color: var(--dark-toast);
+}
+
+@media screen and (max-width: 530px) {
+  .notifications-toaster-session {
+    width: 80%;
+  }
+
+  .notifications-toaster-session .toast-li {
+    width: 100%;
+    font-size: var(--fontsize-md-toast);
+    margin-left: 20px;
+  }
+
+
+}
+

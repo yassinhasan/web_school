@@ -1,0 +1,31 @@
+
+/* student page */
+.student_image ,.edit_student_image{
+	max-width: 200px !important;
+}
+.image-wraper{
+    text-align: center;
+}
+.student_image.hide
+{
+    display: none;
+}
+.edit_student_image{
+    cursor: pointer;
+}
+.iamge_table{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.website_link 
+{
+    color: #3F51B5;
+    text-decoration: underline;
+}
+
+.delete-all{
+    display: none;
+}
+/* student page */

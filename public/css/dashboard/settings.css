@@ -1,0 +1,10 @@
+.image_view.hide
+{
+    display: none;
+}
+.image_view{
+    cursor: pointer;
+    max-width: 250px;
+    text-align: center;
+    margin: 17px auto;
+}

@@ -1,0 +1,256 @@
+.btn-raised {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: white;
+    padding: 0 !important;
+    cursor: pointer;
+    transition: visibility 0s, opacity 0.5s linear, height 0s, bottom 0s;
+    opacity: 0;
+    animation-name: fadeInUp, heartbeat;
+    animation-duration: 0.5s, 2s;
+    animation-delay: 5s, 6s;
+    animation-iteration-count: 1, 3;
+    animation-fill-mode: forwards;
+
+}
+
+.btn-raised.scale {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+}
+
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(.9);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(.9);
+    }
+}
+
+.chat_img {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+}
+
+.tooltip,
+.tooltip2 {
+    z-index: var(--z-index-tooltip);
+    position: fixed;
+    bottom: 56px;
+    right: 107px;
+    overflow: visible;
+    margin: auto;
+    width: 200px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    height: 60px;
+    line-height: 20px;
+    background-color: var(--theme-background);
+    color: var(--theme-color);
+    border: var(--theme-border-style-style);
+    display: flex;
+    display: -ms-flexbox;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 230px;
+    text-align: start;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.tooltip {
+
+    animation-name: fadeInUpTolltip;
+    animation-duration: 3s;
+    animation-delay: 6s;
+    animation-fill-mode: forwards;
+}
+
+.tooltip2 {
+
+    animation-name: fadeInUpTolltip2;
+    animation-duration: 3s;
+    animation-delay: 8s;
+    animation-fill-mode: forwards;
+}
+
+
+/* light theme */
+body.light .tooltip , body.light .tooltip2 , body.light .btn-raised{
+    box-shadow: var(--box-shadow);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+
+        /* transform: translate3d(0, 100%, 0); */
+    }
+
+    to {
+        opacity: 1;
+        /* transform: translate3d(0, 0, 0); */
+    }
+}
+
+@keyframes fadeInUpTolltip {
+    0% {
+        opacity: 0;
+
+
+    }
+
+    50% {
+        opacity: 1;
+
+    }
+
+    100% {
+        opacity: 0;
+
+
+    }
+}
+
+@keyframes fadeInUpTolltip2 {
+    0% {
+        opacity: 0;
+
+
+    }
+
+    100% {
+        opacity: 1;
+
+    }
+
+}
+
+.tooltip p,
+.tooltip2 p {
+    margin: 0;
+    padding: 0;
+}
+
+.tooltip .tooltiptext::after,
+.tooltip2 .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+}
+
+
+
+.chat-box {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility 0s, opacity 0.5s linear, height 0s;
+    /* background: #efefef; */
+    position: fixed;
+    border-radius: 23px;
+    right: 30px;
+    bottom: 50px;
+    width: 380px;
+    max-width: 85vw;
+    max-height: 100vh;
+    /* box-shadow: 0px 5px 35px 9px #ccc; */
+    background-color: var(--theme-background);
+    color: var(--theme-color);
+    border: var(--theme-border-style-style);
+    box-shadow: var(--theme-box-shadow-style);
+}
+body.light .chat-box {
+    box-shadow: 1px 1px 10px -1px #333;
+}
+
+.chat-box.scale {
+    visibility: visible;
+    opacity: 1;
+    z-index: var( --z-index-chatbox);
+    height: 560px;
+}
+
+.chat-box-toggle {
+    float: right;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.chat-box-header {
+    background: var(--nav-background-linear);
+    font-family: var(--fontfamily);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: white;
+    text-align: center;
+    border-radius: 10px 10px 44px 44px;
+    padding: 30px 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.chat-box-body {
+    position: relative;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+form {
+    padding: 10px;
+    margin-top: 7px;
+}
+
+textarea.form-control {
+
+    height: 175px !important;
+}
+
+
+
+.send_msg {
+    background: var(--nav-background-linear)  !important;
+    border: none !important;
+    font-family: var(--fontfamily-righteous);
+
+
+}
+.swal2-show {
+    font-family: var(--fontfamily-righteous) !important;
+
+
+}
+
+input::placeholder , textarea::placeholder {
+    font-family: var(--fontfamily-righteous);
+    font-size: var(--font-size-placeholder);
+    color: var(--theme-color) !important;
+    font-weight: 300;
+
+}
+input , textarea , select{
+    background-color: var(--theme-background) !important;
+    color: var(--theme-color) !important;
+  
+  
+  }

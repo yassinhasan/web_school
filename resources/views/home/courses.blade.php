@@ -1,69 +1,59 @@
-@extends('home.master')
+@extends('master')
 @section('css')
 <!-- Styles -->
 <link href="{{ asset('css/home/courses.css') }}" rel="stylesheet">
+@endsection()
+<!-- style -->
 @section('title')
-My Heroes Courses
-@stop
+  My Heroes Courses
 @endsection
 @section('page-header')
-<!-- breadcrumb -->
-
-<!-- breadcrumb -->
 @endsection
+
+
+
 @section('content')
 <div class="accordion arrows">
-        <div class="box header">
-          <label for="acc-close" class="box-title">Front End Developer</label>
-        </div>
-        <!-- html -->
-        <input type="radio" name="accordion" id="cb1" />
-        <section class="box">
-          <label class="box-title" for="cb1">HTML</label>
-          <label class="box-close" for="acc-close"></label>
-          <div class="box-content">
-              <ol class="alternating-colors">
-                <li>
-                  <a href="{{route('html.videos')}}" class="strong">HTML Videos</a>
-                </li>
-                <li>
-                  <a href="{{route('html.images')}}" class="strong">HTML Images</a>
-                </li>
-                <li>
-                  <a href="{{route('html.lessons')}}" class="strong">HTML Lessons</a>
-                </li>
-
-              </ol>
-          </div>
-        </section>
-        <!-- css -->
-        <input type="radio" name="accordion" id="cb2" />
-        <section class="box">
-          <label class="box-title" for="cb2">CSS</label>
-          <label class="box-close" for="acc-close"></label>
-          <div class="box-content">
-            <!-- add links here -->
-          </div>
-        </section>
-        <!-- js -->
-        <input type="radio" name="accordion" id="cb3" />
-        <section class="box">
-          <label class="box-title" for="cb3">JAVA SCRIPT</label>
-          <label class="box-close" for="acc-close"></label>
-          <div class="box-content">
-            <!-- here links of js -->
-          </div>
-        </section>
-    
-        <input type="radio" name="accordion" id="acc-close" />
+  <div class="box header">
+    <label for="acc-close" class="box-title" style="color: #fff;">Front End Developer</label>
+  </div>
+  
+  <!-- html -->
+  @if(isset($categories))
+  @foreach($categories as $category)
+  <input type="radio" name="accordion" id="{{$category->name}}" />
+  <section class="box">
+    <label class="box-title" for="{{$category->name}}">{{$category->name}}</label>
+    <label class="box-close" for="acc-close"></label>
+    <div class="box-content">
+      <ol class="alternating-colors">
+        <!-- i want to show  all posts of lessons  courses/html/lessons -->
+        @foreach($category->posts as $post)
+        <li>
+          <a href="{{url('/trainning', ['slug' => $post->slug] ) }}" class="strong">{{$post->title}}</a>
+        </li>
+        @endforeach
+      </ol>
     </div>
+  </section>
+  @endforeach
+  @endif
+  
+  @if(isset($connection_error))
+    <div class="alert alert-danger">{{$connection_error}}</div>
+  @endif
+  <!-- css -->
+  <input type="radio" name="accordion" id="acc-close" />
+</div>
 @endsection
 
-@section('js')
+<!-- footer -->
+@section("footer")
+@endsection()
+<!-- footer -->
 
 <!-- Scripts -->
+@section('js')
 <script src="{{ asset('js/home/courses.js') }}" defer></script>
 @endsection
-
-
-
+<!-- Scripts -->

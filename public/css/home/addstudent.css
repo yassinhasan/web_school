@@ -1,0 +1,81 @@
+
+  body{
+    height: 90vh;
+  }
+  .container {
+    margin-top: 30px;
+  }
+
+  .form-section {
+    background-color: var(--theme-background);
+    color: var(--theme-color);
+    border: var(--theme-border-style-style);
+    padding: 2.5rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+
+
+  .form-group label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--theme-color);
+    }
+  .form-group input {
+  
+    color: var(--login-text-dark);
+   
+  }
+
+
+
+  
+  .remember-me input:checked {
+    background: var(--login-primary-gradient);
+  }
+  
+  .remember-me label {
+    color: var(--login-text-dark);
+    user-select: none;
+  }
+  .remember-forgot a {
+    color: var(--login-primary);
+  }
+  .remember-forgot a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--login-primary);
+  }
+  
+
+  
+  .login-btn {
+    color: white;
+    background: var(--login-primary-gradient);
+  }
+  .login-btn:hover {
+    opacity: 0.9;
+  }
+  
+
+
+  .student_image.hide
+{
+    display: none;
+}
+
+#addinputImage{
+    height: 48px;
+}
+
+input , textarea , select , label{
+  background-color: var(--theme-background) !important;
+  color: var(--theme-color) !important;
+
+
+}

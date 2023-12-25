@@ -1,0 +1,116 @@
+/* @import url(https://fonts.googleapis.com/css?family=Righteous);
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap'); */
+
+
+:root {
+    --body--color: #fbfcfc;
+    --main-color: #ffffff;
+    /* --first-color: #16a085; */
+    --first-color: #427caa;
+    --second-color: #414141;
+    --second-color-alt: #313131;
+
+    --heart-icon-color : #c0506a;
+    --whatsup-icon-color : #075E54;
+    --chatbot-main-color : #F44336;
+
+    /* toaster */
+    --dark-toast: #34495e;
+    --light-toast: #fff;
+    --success-toast: #0abf30;
+    --success-background-toast:  #16a085;;
+    --error-toast: #f24d4c;
+    --error-background-toast: rgb(138, 40, 40);
+    --warning-toast: #e9bd0c;
+    --warning-background-toast: #957927;
+    --info-toast: #3498db;
+    --info-background-toast: #264faf;
+
+    --progress-toast-second: 5sn
+
+
+    /* fontsize */
+    --sm-fontsize :  16px;
+    --md-fontsize : 20px;
+    --lg-fontsize : 25px;
+    --font-size-menu-text : 3vh ;
+    --font-size-menu-nav : 5vh;
+    --font-size-placeholder:15px;
+    --profile-image-rating-size : 80px;
+    --fontsize-span-toast: 16px;
+    --fontsize-icon-toast: 16px;
+    --fontsize-md-toast: 14px;
+
+
+    /* background header website */
+    --background-header-color: #ccc;
+
+    /* font family */
+    /* --fontfamily : 'Righteous'; */
+    --fontfamily : Poppins, sans-serif;
+  
+
+    /* login page */
+    --login-text-dark: hsl(240, 54%, 15%);
+    --login-text-light: hsl(242, 18%, 64%);
+    --login-primary: hsl(222, 98%, 60%);
+    --login-primary-lighter: hsl(240, 33%, 86%);
+    --login-primary-gradient: linear-gradient(to right, #3671fd, #6f31ff);
+
+    /* navbar */
+    --nav-background-linear : -webkit-linear-gradient(#FA2300,#FA2300);
+
+    /* main color text */
+    --main-main-color : #FA2300;
+    /* z-index of navbar */
+    --z-index-menu-cont : 200;
+    --z-index-menu-overlay : 101;
+    --z-index-tooltip : 99;
+    --z-index-chatbox : 100;
+    --z-index-toast : 200000005 !important;
+
+
+
+    /* dark mode
+    --dark-background : black;
+    --dark-color : white;
+    --dark-border-style : "1px solid #ccc";
+    --dark-box-shadow-style : "none"; */
+
+    /* ligh mode */
+    --theme-background : white;
+    --theme-color : black;
+    --theme-border-style-style : none;
+    --theme-box-shadow-style : none;
+    /* box-shadow */
+    --box-shadow: 0px 8px 16px #ccc;
+
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a,
+  button {
+    cursor: pointer;
+  }
+  body{
+    scroll-behavior: smooth;
+    background-color: var(--theme-background) !important;
+    color: var(--theme-color);
+  }
+
+  
+    /* dark mode */
+
+  
+
+
+
+
