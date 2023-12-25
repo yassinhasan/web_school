@@ -1,10 +1,4 @@
 
-body{
-  font-family: 'Raleway', sans-serif;
-  overflow-x: hidden;
-  background-color: var(--theme-background);
-
-}
 body.light{
   background:url("../../images/dot.png") repeat !important;
   overflow-x: hidden;
@@ -54,8 +48,8 @@ body.light{
 .product{
   position: absolute;
   z-index: 3;
-  width: 88%;
-  height: 91%;
+  width: 80%;
+  height: 85%;
   top: 0;
   transform: translateX(6.5%) translateY(5%);
   border-radius: 1.2vw;
@@ -70,40 +64,42 @@ body.light{
   background-color: #53b3cb;
   padding: 3px;
 }
-.container .card-wraper li:nth-child(3n+1) h2,.details li:nth-child(3n+1) p{
+.container .card-wraper li:nth-child(3n+1) h2,.container .card-wraper li:nth-child(3n+1)  p{
   background-color: #f9c22e;
 }
-.container .card-wraper li:nth-child(3n+2) h2,.details li:nth-child(3n+2) p{
+.container .card-wraper li:nth-child(3n+2) h2,.container .card-wraper li:nth-child(3n+2)  p{
   background-color: #35ce8d;
 }
 
 .container .card-wraper h2{
   top: 3.5%;
   left: 4%;
+  font-size: 1rem;
 }
 .heart_rating ,.love-points{
 /* font-size: 1rem; */
 color: var(--heart-icon-color);
 }
 
-.container .card-wraper p.points {
-  bottom: 27.5%;
-  right: 5%;
+.container .card-wraper p.points ,.container .card-wraper p.age ,.container .card-wraper p.website ,.container .card-wraper p.country{
+  bottom: 0;
+  right:4%;
   /* font-size: 1.2em; */
 }
+.container .card-wraper p.points{
+  margin-bottom:  115px;
+}
 .container .card-wraper p.age {
-  bottom: 19.5%;
-  right: 5%;
+  margin-bottom: 35px;
   /* font-size: 1.2em; */
 }
 .container .card-wraper p.website {
-  bottom: 2.5%;
-  right: 5%;
+ display: none;
+  
   /* font-size: 1.2em; */
 }
 .container .card-wraper p.country {
-  bottom: 11.5%;
-  right: 5%;
+  margin-bottom: 75px;
   /* font-size: 1.2em; */
 }
 .container .card-wraper img{
@@ -124,20 +120,41 @@ color: var(--heart-icon-color);
   height: 210%;
   transform: translateX(-50%) translateY(-14%);
 }
+/* 
 
-@media (min-width:300px) { 
-  .container  .card-wraper 
-    {
-    /* font-size: 2.75vw; */
-  }
+    320px — 480px: Mobile devices
+    481px — 768px: iPads, Tablets
+    769px — 1024px: Small screens, laptops
+    1025px — 1200px: Desktops, large screens
+    1201px and more —  Extra large screens, TV
+*/
+
+@media (min-width: 300px) and (max-width: 480px) { 
+
   .container .card-wraper {
     grid-template-columns: repeat(1,1fr);
     grid-column-gap: 3vw;
     margin: 140px 14vw 60px 2vw;
   }
+  .container .card-wraper p.points{
+    margin-bottom:  125px;
+  }
+  .container .card-wraper p.age {
+    margin-bottom: 45px;
+    /* font-size: 1.2em; */
+  }
+  .container .card-wraper p.website {
+   display: none;
+    
+    /* font-size: 1.2em; */
+  }
+  .container .card-wraper p.country {
+    margin-bottom: 85px;
+    /* font-size: 1.2em; */
+  }
 }
 
-@media (min-width:820px) { 
+@media (min-width: 481px) and (max-width: 768px) { 
 
  .container .card-wraper {
     grid-template-columns: repeat(2,1fr);
@@ -147,7 +164,7 @@ color: var(--heart-icon-color);
 }
 
 
-@media (min-width:1200px) { 
+@media (min-width: 769px) and (max-width: 1024px) { 
 
   .container  .card-wraper 
     {
@@ -157,17 +174,15 @@ color: var(--heart-icon-color);
   }
 }
 
-/* @media (min-width:1200px) { 
-  body{
-    font-size: 1.25vw;
-  }
-  .card-wraper {
+ @media (min-width: 1025px) { 
+
+  .container  .card-wraper {
     grid-template-columns: repeat(5,1fr);
     grid-column-gap: 1vw;
     margin: 4.5vw 6vw 0 0.5vw;
   }
 }
-
+/*  
 @media (min-width:1500px) { 
   body{
     font-size: 1vw;

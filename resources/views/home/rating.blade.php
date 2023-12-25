@@ -53,14 +53,14 @@ My Heroes
     <br>
   </div>
   {{ $students->links('pagination::bootstrap-5') }}
-  <div class="buttons row">
+
+</main>
+<div class="buttons row">
     <a type="button" class="btn btn-outline-dark preview" href="{{route('websites')}}">Preview
       Websites</a>
     <button type="button" class="btn btn-warning" onclick="window.location.reload()">Refresh
     </button>
   </div>
-</main>
-
 @endsection
 
 <!-- Scripts -->

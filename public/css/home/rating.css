@@ -1,7 +1,7 @@
 
 
   main {
-    margin-bottom: 130px;
+    margin-bottom: 15px;
     background-color: var(--theme-background);
     color: var(--theme-color);
     border: var(--theme-border-style-style);
@@ -11,9 +11,11 @@
     border-radius: 0.5rem;
     position: relative;
     height:80vh;
+    overflow: hidden;
+    overflow-y: auto;
   }
   body.light main {
-      box-shadow: 0px 5px 15px 8px #e4e7fb !important;
+      box-shadow:0px 5px 15px 8px #d1d3db !important
  }
   main .header {
     width: 100%;
@@ -65,27 +67,24 @@
       justify-content: center;
       align-items: center;
       margin: 11px 5px;
-      padding: 5px;
+      padding: 0 15px;
       /* height: 80px; */
       font-size: 26px;
   }
   
   .inside_Wraper:hover {
-    background-color: var(--theme-background);
-    color: var(--theme-color);
+    background-color: var(--main-main-color);
+   
     border: var(--theme-border-style-style);
-      transform: scale(1.1);
+    transform: scale(1.06);
   }
   body.light .inside_Wraper:hover {
-    background-color: #fff;
-    transform: scale(1.1);
-    -webkit-box-shadow: 0px 5px 15px 8px #e4e7fb;
-    box-shadow: 0px 5px 15px 8px #e4e7fb;
+    transform: scale(1.0.6);
+    background-color: var(--main-main-color);
+    /* -webkit-box-shadow: 0px 5px 15px 8px #e4e7fb;
+    box-shadow: 0px 5px 15px 8px #e4e7fb; */
   }
-  
-  body.light .inside_Wraper:nth-child(odd) {
-    background-color: #f9f9f9;
-  }
+
   
   body.light .inside_Wraper:nth-child(1) {
     color: #fff;
@@ -194,13 +193,10 @@
   
   .buttons {
       width: 100%;
-      margin-top: 3rem;
       display: flex;
       justify-content: space-evenly;
       margin-bottom: 15px;
-      position: absolute;
-      left: 0;
-      bottom: 50px;
+
   }
   .buttons .btn{
     margin-bottom: 15px;
