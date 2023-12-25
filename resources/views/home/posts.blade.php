@@ -34,7 +34,7 @@ My Heroes Courses
             </h2>
         </div>
 
-        <div id="post-{{$post->id}}" class="collapse" aria-labelledby="headingOne" data-parent="#main_accordio">
+        <div id="post-{{$post->id}}"  aria-labelledby="headingOne" data-parent="#main_accordio">
             <div class="card-body">
                 {!!$post->content!!}
             </div>
