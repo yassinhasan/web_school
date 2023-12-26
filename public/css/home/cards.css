@@ -83,7 +83,7 @@ color: var(--heart-icon-color);
 
 .container .card-wraper p.points ,.container .card-wraper p.age ,.container .card-wraper p.website ,.container .card-wraper p.country{
   bottom: 0;
-  right:4%;
+  right:14%;
   /* font-size: 1.2em; */
 }
 .container .card-wraper p.points{
@@ -152,14 +152,28 @@ color: var(--heart-icon-color);
     margin-bottom: 85px;
     /* font-size: 1.2em; */
   }
+  .container .card-wraper p.points ,.container .card-wraper p.age ,.container .card-wraper p.website ,.container .card-wraper p.country{
+    right:14%;
+    /* font-size: 1.2em; */
+  }
 }
 
 @media (min-width: 481px) and (max-width: 768px) { 
 
  .container .card-wraper {
     grid-template-columns: repeat(2,1fr);
-    grid-column-gap: 3vw;
+    grid-column-gap: 7vw;
     margin: 8vw 140px 60px 1vw;
+    grid-row-gap: 15vw;
+  }
+  .container .card-wraper p.points ,.container .card-wraper p.age ,.container .card-wraper p.website ,.container .card-wraper p.country{
+    right:14%;
+    /* font-size: 1.2em; */
+  }
+  .details {
+ 
+    width: 115%;
+    height: 115%;
   }
 }
 
@@ -177,7 +191,7 @@ color: var(--heart-icon-color);
  @media (min-width: 1025px) { 
 
   .container  .card-wraper {
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(3,1fr);
     grid-column-gap: 1vw;
     margin: 4.5vw 6vw 0 0.5vw;
   }
