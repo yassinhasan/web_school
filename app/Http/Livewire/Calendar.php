@@ -51,6 +51,11 @@ class Calendar extends Component
 
         $this->events = json_encode($events);
 
-        return view('livewire.calendar');
+        if(auth('admin')->check())
+        {
+            return view('livewire.calendar');
+        }else{
+            return view('livewire.student-calendar');
+        }
     }
 }

@@ -21,13 +21,6 @@ Route::middleware('auth:user,admin,student')->group(function () {
 });
 
 
-// Route::middleware('two_factor')->group(function () {
-//     Route::get('/', function () {
-//         return View('home.home');
-//     })->name("home");
-
-// });
-
 Route::get('/', [HomeController::class, 'index'])->name("home");
 Route::get('courses', [CoursesController::class, 'index'])->name("courses");
 
