@@ -24,7 +24,9 @@ class StudentProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+      
         return view('profile.profile', [
+           
             'user' => $request->user(),
         ]);   
      }
@@ -107,5 +109,31 @@ class StudentProfileController extends Controller
 
             ]);
         }
+    }
+
+    public function updateStudent(Request $request){
+        try{
+  
+            $student = $request->user();
+            $student->update([
+                    $student->age = $request->age,
+                    $student->gender = $request->gender,
+                    $student->phone = $request->phone,
+                    $student->country = $request->country,
+                    $student->about = $request->about,
+                    $websites = [$request->website1 , $request->website2],
+                    $student->website = json_encode($websites),
+            ]);
+    
+    
+            // toastr()->success('Student has been updated successfully!');
+            $this->SuccessMsg("Student has been updated successfully!");
+            return redirect()->back();
+    
+            }
+            catch(Exception $e)
+            {
+                echo $e->getMessage();
+            }
     }
 }

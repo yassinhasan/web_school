@@ -83,6 +83,8 @@ Route::middleware('auth:admin')->group(function () {
         // student
         Route::get('student/profile', [StudentProfileController::class, 'edit'])->name('student.profile');
         Route::patch('student/profile', [StudentProfileController::class, 'update'])->name('student.profile.update');
+        // update extra info of student like age country mobile like this
+        Route::patch('student/profile-student', [StudentProfileController::class, 'updateStudent'])->name('student.profile.student-update');
         Route::post('student/profile', [StudentProfileController::class, 'updateImage'])->name('student.profile.updateImage');
         Route::delete('student/profile', [StudentProfileController::class, 'destroy'])->name('student.profile.destroy');
      
