@@ -226,7 +226,18 @@ main {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
   border-radius: 10px;
 }
+.image-container .name{
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  transform: translateX(-50%);
+  bottom: 0;
+  color: #221822;
+  font-size: 20px;
 
+  opacity: 0.5;
+}
 .image-container img {
   width: 100%;
   height: 100%;
@@ -503,9 +514,20 @@ main {
 
 .user-info {
   display: grid;
-  grid-template-columns: 30% 55% 15%;
+  grid-template-columns: 50% 50%;
   align-items: center;
   padding: 0 10px;
+}
+.custom.dropdown-menu.show{
+  left: -70px !important;
+}
+.custom.dropdown-menu.show .dropdown-item{
+  transition: all 0.4s ease;
+}
+
+.custom.dropdown-menu.show .dropdown-item:hover{
+  background: #6f42c1;
+  color: #fff;
 }
 
 .icon-container {
@@ -675,6 +697,11 @@ main {
   font-size: 0.9rem;
   padding: 0 5px 5px;
 }
+.best-name{
+  background: rebeccapurple;
+  color: white;
+}
+
 
 @media (max-width: 1500px) {
   main {
@@ -913,7 +940,7 @@ main {
 
   .content {
     grid-template-columns: 100%;
-    grid-template-rows: auto auto;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas:
       "rightContent"
       "leftContent";

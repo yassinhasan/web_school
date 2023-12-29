@@ -59,7 +59,7 @@ class ZoomRepository implements ZoomRepositoryInterface
             $data = $request->all();
             $data['join_url'] = $meeting->join_url;
             //  Send mail to admin
-            $students =  Student::all('email','first_name','last_name')->toArray();
+            $students =  Student::all('email','name')->toArray();
             foreach( $students  as $student)
             {
                 $email = $student['email'];

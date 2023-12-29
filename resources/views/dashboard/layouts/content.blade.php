@@ -8,7 +8,7 @@
         <div class="image-container img-{{$x+1}}">
           <img src="{{ url('/images/profile/students/'.$data['students'][$x]->image) }}" alt="tennis" />
           <div class="overlay">
-            <h3>{{$data['students'][$x]->first_name}}</h3>
+            <span class="name">{{$data['students'][$x]->name}}</span>
           </div>
       </div>
       @endfor
@@ -47,14 +47,28 @@
   </div>
 
 
-  <div class="right-content">
+  <div class="right-content"> 
+
     <div class="user-info">
-      <div class="icon-container">
+      <!-- <div class="icon-container">
         <i class="fa fa-bell nav-icon"></i>
         <i class="fa fa-message nav-icon"></i>
-      </div>
-      <h4>{{ auth()->user()->name}}</h4>
-      <img src="{{url('images/profile/users/'.auth()->user()->image)}}" alt="user" />
+      </div> -->
+      <p style="font-size:18px">Wellcome<br>
+       <span style="color:#6f42c1">{{ auth()->user()->name}}</span>
+      </p>
+  
+      
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="{{url('images/profile/students/'.auth()->user()->image)}}" alt="user" />
+        </a>
+        <div class="custom dropdown-menu"  aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+     
     </div>
 
     <div class="active-calories">
@@ -81,10 +95,13 @@
         <div class="card card-{{$x+1}}">
           <div class="card-user-info">
           
-            <h2>{{$data['height_students'][$x]->first_name." ".$data['height_students'][$x]->last_name }}</h2>
+            <h2>{{$data['height_students'][$x]->name }}</h2>
           </div>
           <img class="card-img" src="{{ url('images/profile/students/'.$data['height_students'][$x]->image) }}" alt="" />
-          <p>Number Of Points {{$data['height_students'][$x]->points}} </p>
+          <p class="best-name"> {{$data['height_students'][$x]->name}} <br>
+              {{$data['height_students'][$x]->points}} <i class="fa fa-heart heart_rating text-danger"></i>
+           </p>
+         
         </div>
       @endfor
       </div>
