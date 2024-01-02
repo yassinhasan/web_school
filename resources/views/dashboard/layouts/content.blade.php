@@ -37,6 +37,24 @@
       </div>
       @endfor
     </div> 
+    <h1>Event Schedule</h1>
+      <div class="schedule">
+        <!-- latest courses -->
+        @for($x = 0 ; $x < count($data['events']) ; $x++)
+         <div class="day-and-activity activity-{{$x+1}}">
+          <div class="day">
+            <h1>{{ date_format(date_create($data['events'][$x]->start_at),"d"); }}</h1>
+            <p>{{ date_format(date_create($data['events'][$x]->start_at),"M"); }}</p>
+          </div>
+          <div class="activity">
+            <h2>{{ $data['events'][$x]->title }}</h2>
+            <div class="participants">
+            </div>
+          </div>
+         
+      </div>
+      @endfor
+    </div> 
     </div>
   <!-- livewire -->
   <livewire:calendar />

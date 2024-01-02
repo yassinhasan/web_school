@@ -48,6 +48,7 @@ trait MeetingZoomTrait
         $responseData = $response->json();
 
         if (isset($responseData['access_token'])) {
+          
             return $responseData['access_token'];
         } else {
             // Log or print the entire response for debugging purposes.
@@ -83,9 +84,8 @@ trait MeetingZoomTrait
         
         // $user = User::findOrfail(auth()->user()->id);
         
-        $email = Setting::where('key','zoom_email')->pluck('value');
-        $email = $email[0];
-
+        $email = Setting::where('key','zoom_email')->pluck('value')->first();
+       
         $url = 'https://api.zoom.us/v2/users/'.$email.'/meetings';
 
         $response = Http::withToken($accessToken)->post($url, [

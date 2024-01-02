@@ -164,6 +164,7 @@ main {
 .content {
   display: grid;
   grid-template-columns: 75% 25%;
+  grid-template-rows: 1fr 1fr;
 
 }
 
@@ -171,12 +172,12 @@ main {
 
 .left-content {
   display: grid;
-  grid-template-rows: auto auto;
   gap: 3%;
   background: #f6f7fb;
   margin: 15px;
   padding: 20px;
   border-radius: 15px;
+  grid-template-rows: auto 1fr;
 }
 
 /* ACTIVITIES */
@@ -939,12 +940,8 @@ main {
   
 
   .content {
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-      "rightContent"
-      "leftContent";
-      gap: 8%;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .left-content {
@@ -956,13 +953,9 @@ main {
   }
 
   .right-content {
-    grid-area: rightContent;
-		grid-template-rows: 5% 40% 50%;
-    gap: 15px;
-    /* padding: 10px 20px 10px; */
-    margin: 0;
-    padding-left: 7px;
-    padding-right: 7px;
+    display: flex;
+    flex-direction: column;
+
   }
 
   .activities,
