@@ -190,8 +190,8 @@ main {
 
 .activity-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(2, auto);
   column-gap: 10px;
 }
 
@@ -434,8 +434,8 @@ main {
 
 .personal-bests-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
   gap: 10px;
   margin-top: 10px;
 }
@@ -818,8 +818,8 @@ main {
   }
 
   .activity-container {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 150px);
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
   }
 
   .img-1 {
@@ -900,8 +900,8 @@ main {
   }
 
   .activity-container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 150px);
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
   }
 
   .img-1 {
