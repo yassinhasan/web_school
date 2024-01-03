@@ -15,6 +15,7 @@ use App\Models\ParentModel;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use App\Http\Traits\FlashMessageTrait;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 class StudentRepository implements StudentRepositoryInterface
 {
@@ -53,8 +54,12 @@ class StudentRepository implements StudentRepositoryInterface
             $originalName = $request->image->getClientOriginalName();
             $savedImage= time() . '_'.$originalName;
             $student->image= $savedImage;
-           
-            $request->image->move(public_path('images/profile/students/'), $savedImage);
+            $destinationPath =public_path('images/profile/students/');
+            // Create folders if they don't exist
+            if (!file_exists($destinationPath)) {
+            File::makeDirectory($destinationPath, $mode = 0755, true, true);
+            }
+            $request->image->move($destinationPath, $savedImage);
         }
         $student->save();
         // toastr()->success('Data has been saved successfully!');
@@ -80,7 +85,12 @@ class StudentRepository implements StudentRepositoryInterface
                     $student->website = json_encode($websites),
                     $originalName = $request->image->getClientOriginalName(),
                     $student->image= $savedImage            ]);
-                   $request->image->move(public_path('images/profile/students/'), $savedImage);
+                    $destinationPath =public_path('images/profile/students/');
+                    // Create folders if they don't exist
+                    if (!file_exists($destinationPath)) {
+                    File::makeDirectory($destinationPath, $mode = 0755, true, true);
+                    }
+                    $request->image->move($destinationPath, $savedImage);
     
     
             }else{

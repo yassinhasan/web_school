@@ -31,6 +31,7 @@ body {
     height: 64px;
       transition: all .15s ease-in-out;
   }
+  
   .accordion .box::before {
       content: '';
       position: absolute;
