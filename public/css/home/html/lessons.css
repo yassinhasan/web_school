@@ -20,6 +20,7 @@ body.light .breadcrumb{
   background-color: var(--theme-background) !important;
   color: var(--theme-color) !important;
   border: var(--theme-border-style-style) !important;
+  padding: 35px;
 }
 .accordion h2 {
   border: none !important;

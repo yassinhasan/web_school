@@ -12,13 +12,17 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Livewire\Calendar;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
+use App\Http\Controllers\Dashboard\StudentProfileController;
+use App\Http\Controllers\Auth\Student\AuthenticatedSessionController as StudentAuthenticatedSessionController;
+// for admin
 
-//Route::middleware('auth','two_factor')->group(function () {
 Route::middleware('auth:student,admin')->group(function () {
 
-   
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+Route::middleware('auth:admin')->group(function () {
 
+   
     // students
     Route::get('students', [StudentController::class, 'index'])->name('student.index');
     Route::patch('students', [StudentController::class, 'update'])->name('student.update');
@@ -30,20 +34,14 @@ Route::middleware('auth:student,admin')->group(function () {
     Route::patch('categories', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('categories', [CategoryController::class, 'destroy'])->name('categories.destroy');
     Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
-    // Route::post('categories/addSub', [CategoryController::class, 'addSub'])->name('categories.addSub');
     
-    // sections
-    // Route::patch('sections', [SectionController::class, 'update'])->name('sections.update');
-    // Route::delete('sections', [SectionController::class, 'destroy'])->name('sections.destroy');
-    // Route::post('sections', [SectionController::class, 'store'])->name('sections.store');
-    // Route::post('sections/addSub', [SectionController::class, 'addSub'])->name('sections.addSub');
 
 
-    // parents
-    Route::get('parents',[ParentController::class,'index'])->name("parents.index");
-    Route::post('parents',[ParentController::class,'store'])->name("parents.store");
-    Route::get('parents/search',[ParentController::class,'search'])->name("parents.search");
-    Route::delete('parents',[ParentController::class,'destroy'])->name("parents.destroy");
+    // // parents
+    // Route::get('parents',[ParentController::class,'index'])->name("parents.index");
+    // Route::post('parents',[ParentController::class,'store'])->name("parents.store");
+    // Route::get('parents/search',[ParentController::class,'search'])->name("parents.search");
+    // Route::delete('parents',[ParentController::class,'destroy'])->name("parents.destroy");
    
     // posts in dashboard
     Route::get('posts/create',[PostController::class,'create'])->name("posts.create");
@@ -77,3 +75,23 @@ Route::middleware('auth:student,admin')->group(function () {
 
         Livewire::component('calendar', Calendar::class);
 });
+
+//student
+//Route::middleware('auth','two_factor')->group(function () {
+    Route::middleware('auth:student')->group(function () {
+
+        // student
+        Route::get('student/profile', [StudentProfileController::class, 'edit'])->name('student.profile');
+        Route::patch('student/profile', [StudentProfileController::class, 'update'])->name('student.profile.update');
+        // update extra info of student like age country mobile like this
+        Route::patch('student/profile-student', [StudentProfileController::class, 'updateStudent'])->name('student.profile.student-update');
+        Route::post('student/profile', [StudentProfileController::class, 'updateImage'])->name('student.profile.updateImage');
+        Route::delete('student/profile', [StudentProfileController::class, 'destroy'])->name('student.profile.destroy');
+     
+ 
+         // update attendance
+     Livewire::component('calendar', Calendar::class);
+     Route::post('/student/logout', [StudentAuthenticatedSessionController::class, 'destroy'])
+     ->name('student.logout');
+ });
+ 

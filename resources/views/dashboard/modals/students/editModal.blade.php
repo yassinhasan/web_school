@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-12 form-group">
                             <label  for="age">Age</label>
-                            <input type="number" name="age" id="age" placeholder="Enter your First Name" class="form-control"  value="{{ $student->age }}" required>
+                            <input type="number" name="age" id="age" placeholder="Enter your First Name" class="form-control"  value="{{ (int)$student->age }}" required>
                         </div>
 
                         <?php $websites =json_decode($student->website, true) ?>
@@ -71,7 +71,7 @@
                         <!-- image upload -->
                                 <div class="form-group col-12">
                                     <label class="form-label" for="inputImage">Image:</label>
-                                    <input hidden type="file" name="image" id="inputImage" class="edit_student_image_input form-control @error('image') is-invalid @enderror" accept="image/jpeg, image/png, image/jpg">
+                                    <input hidden type="file" name="image" id="inputImage" class="input-edit-image form-control @error('image') is-invalid @enderror" accept="image/jpeg, image/png, image/jpg">
                                     @error('image')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -79,7 +79,7 @@
                                     <hr>
                                     @if($student->image != null)
                                     <div class="image-wraper">
-                                         <img class="edit_student_image" src="{{ url('images/profile/students/'.$student->image) }}" style="max-width:100%">
+                                         <img class="image-edit-box" src="{{ url('images/profile/students/'.$student->image) }}" style="max-width:100%">
                                     </div>
                                     @endif
                                 </div>

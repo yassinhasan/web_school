@@ -51,5 +51,7 @@ class StudentController extends Controller
         return $this->Studentrep->destroy($request);
     }
 
+    
+
  
 }

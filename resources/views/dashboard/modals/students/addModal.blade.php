@@ -96,13 +96,13 @@
 
                                 <div class="form-group">
                                     <label class="form-label" for="addinputImage">Image:</label>
-                                    <input type="file" name="image" id="addinputImage" class="student_image_input form-control @error('image') is-invalid @enderror" accept="image/jpeg, image/png, image/jpg">
+                                    <input type="file" name="image" id="addinputImage" class="input-image form-control @error('image') is-invalid @enderror" accept="image/jpeg, image/png, image/jpg">
                                     @error('image')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                     <hr>
                                     <div class="image-wraper">
-                                       <img class="student_image  hide" src="" style="max-width:100%">
+                                       <img class="image-box  hide" src="" style="max-width:100%">
                                     </div>
                                 </div>
    

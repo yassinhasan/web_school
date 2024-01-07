@@ -12,7 +12,7 @@
     <form method="post" action="{{ route('student.password.update') }}" class="mt-6 space-y-6">
     @endif    
     @if(auth('user'))
-    <form method="post" action="{{ route('user.password.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('student.password.update') }}" class="mt-6 space-y-6">
     @endif    
         @csrf
         @method('put')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Event;
 use App\Models\OnlineCourse;
 use App\Models\Post;
 use App\Models\Student;
@@ -19,6 +20,7 @@ class DashboardController extends Controller
         $data['posts_month'] = Post::whereDate('created_at','>=', Carbon::now()->subDays(30))->count();
         $data['students'] = Student::latest()->take(5)->get();
         $data['courses'] = OnlineCourse::latest()->take(4)->get();
+        $data['events'] = Event::latest()->take(4)->get();
         $data['categories'] = Category::latest()->take(3)->get();
         $data['height_students'] = Student::orderBy('points','DESC')->take(2)->get();
        

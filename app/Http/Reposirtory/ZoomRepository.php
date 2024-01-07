@@ -21,6 +21,7 @@ class ZoomRepository implements ZoomRepositoryInterface
 
     public function getAllMeetings()
     {
+      
         $meetings =  OnlineCourse::all();
         return view("dashboard.pages.zoom")->with(['meetings' => $meetings]);
     }
@@ -45,7 +46,7 @@ class ZoomRepository implements ZoomRepositoryInterface
         try {
 
             $meeting = $this->createMeeting($request);
-
+        
             OnlineCourse::create([
                 'user_id' => auth()->user()->id,
                 'meeting_id' => $meeting->id,
@@ -59,7 +60,7 @@ class ZoomRepository implements ZoomRepositoryInterface
             $data = $request->all();
             $data['join_url'] = $meeting->join_url;
             //  Send mail to admin
-            $students =  Student::all('email','first_name','last_name')->toArray();
+            $students =  Student::all('email','name')->toArray();
             foreach( $students  as $student)
             {
                 $email = $student['email'];
@@ -72,7 +73,7 @@ class ZoomRepository implements ZoomRepositoryInterface
             return redirect()->route('zoom.index');
         } catch (\Exception $e) {
 
-          
+        
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }

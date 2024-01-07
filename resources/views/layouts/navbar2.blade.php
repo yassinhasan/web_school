@@ -19,7 +19,7 @@
       
       @if(auth('user')->check() || auth('admin')->check() || auth('student')->check())
       <li><a href="{{route('courses') }}">Courses</a></li>
-      <li><a href="{{route('cards') }}">Cards</a></li>
+      <li><a href="{{route('cards') }}">Students</a></li>
         <li><a href="{{route('rating') }}">Rating</a></li>
         <li><a href="{{route('dashboard') }}">Dashboard</a></li>
         @else

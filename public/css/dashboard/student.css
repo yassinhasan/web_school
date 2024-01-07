@@ -1,16 +1,16 @@
 
 /* student page */
-.student_image ,.edit_student_image{
+.image-box ,.image-edit-box{
 	max-width: 200px !important;
 }
 .image-wraper{
     text-align: center;
 }
-.student_image.hide
+.image-box.hide
 {
     display: none;
 }
-.edit_student_image{
+.image-edit-box{
     cursor: pointer;
 }
 .iamge_table{
