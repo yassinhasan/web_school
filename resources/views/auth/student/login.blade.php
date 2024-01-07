@@ -35,7 +35,10 @@ Login
           @endif
         </div>
       </div>
-
+      <div class="form-group" style="text-align:center">Or</div>
+      <div class="form-group">
+      <a style="color: white;background-color: #ea4335;"  class="btn btn-lg btn-google btn-block text-uppercase" href="{{ route('google.login') }}"><i class="fab fa-google mr-2"></i> Sign in with Google</a>
+      </div>
       <div class="remember-forgot">
         <div class="remember-me">
           <input type="checkbox" value="remember-me" id="remember-me" name="remember">
