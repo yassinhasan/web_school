@@ -35,6 +35,10 @@ return new class extends Migration
             $table->enum("gender",["male","female"]);
             $table->integer("points")->default(0);
             $table->json('likedby')->default(new Expression('(JSON_ARRAY())'));
+            // google
+            $table->string('google_id')->nullable();
+            $table->string('google_token')->nullable();
+            $table->string('google_refresh_token')->nullable();
 
         });
     }

@@ -38,14 +38,14 @@ class PostRepository implements PostRepositoryInterface
         $post->category_id = $cstegoryId;
         $post->content = $request->content;
         $post->save();
- 
+
         $this->SuccessMsg('Post has been saved successfully!');
         return redirect()->back();
     }
     public function showAddPostPage()
     {
         $categories = Category::with('posts')->get();
-     
+
         return view("dashboard.pages.addpost")->with(['categories' => $categories]);
     }
     public function uploadAttach(Request $request)
@@ -136,7 +136,7 @@ class PostRepository implements PostRepositoryInterface
 
                 ]);
             }
-            //  get all sections 
+            //  get all sections
             $sections = Category::findOrFail($request->categoryId)->sections->pluck('name', 'id');
             return response()->json([
                 'success' => 'done',
@@ -152,7 +152,7 @@ class PostRepository implements PostRepositoryInterface
     public function showAllPosts()
     {
         $posts = Post::with('categories')->get();
-      
+
         return view("dashboard.pages.posts")->with(['posts' => $posts]);
     }
 }
