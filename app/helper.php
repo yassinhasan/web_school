@@ -31,3 +31,16 @@ function rand_password(  ) {
     return substr(str_shuffle($chars),0,8);
 
 }
+
+function getStudentImage($image)
+{
+    $path= "";
+    if(auth()->user()->google_id != null || auth()->user()->google_id != "")
+    {
+        $path .= $image;
+    }else{
+        $path .=   url('/images/profile/students/'.$image) ;
+    }
+    
+    return $path;
+}

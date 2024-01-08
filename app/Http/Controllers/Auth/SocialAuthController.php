@@ -20,17 +20,17 @@ class SocialAuthController extends Controller
     {
         try {
             // Not able to get the user data
-            $googleUser = Socialite::driver('google')->stateless()->user();
-
+            $googleUser = Socialite::driver('google')->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))->stateless()->user();
+           
         } catch (\Exception $e) {
-            return $this->redirect()->route('student.login')->with('error','Try after some time');
+            dd($e->getMessage());
         }
 
 
-        $user = User::where('email', $googleUser->email)->first();
+        $user = Student::where('email', $googleUser->email)->first();
 
         if(empty($user)) {
-            $user = User::create([
+            $user = Student::create([
                 'google_id' => $googleUser->id,
                 'name' => $googleUser->name,
                 'email' => $googleUser->email,
@@ -40,12 +40,9 @@ class SocialAuthController extends Controller
                 'password'=>$googleUser->token,
                 'clear_password'=>$googleUser->token,
             ]);
-            Auth::login($user);
-        }else{
-            $this->ErrorMsg('this enail is duplicated and used before');
-           return $this->redirect()->route('student.login');;
+           
         }
-
+        Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
     }

@@ -6,7 +6,8 @@
         <!-- latest students -->
         @for($x = 0 ; $x < count($data['students']) ; $x++) 
         <div class="image-container img-{{$x+1}}">
-          <img src="{{ url('/images/profile/students/'.$data['students'][$x]->image) }}" alt="tennis" />
+          
+          <img src="{{  getStudentImage($data['students'][$x]->image) }}" alt="tennis" />
           <div class="overlay">
             <span class="name">{{$data['students'][$x]->name}}</span>
           </div>
@@ -78,7 +79,8 @@
   
       
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="{{url('images/profile/students/'.auth()->user()->image)}}" alt="user" />
+        
+        <img src="{{   getStudentImage(auth()->user()->image)  }}" alt="user" />
         </a>
         <div class="custom dropdown-menu"  aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Action</a>

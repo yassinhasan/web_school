@@ -32,7 +32,7 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'https://8000-cs-902961468963-default.cs-europe-west4-fycr.cloudshell.dev/auth/google/callback',
+        'redirect' => 'http://localhost:8000/auth/google/callback',
     ],
 
 ];

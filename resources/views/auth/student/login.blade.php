@@ -35,9 +35,12 @@ Login
           @endif
         </div>
       </div>
-      <div class="form-group" style="text-align:center">Or</div>
-      <div class="form-group">
-      <a style="color: white;background-color: #ea4335;"  class="btn btn-lg btn-google btn-block text-uppercase" href="{{ route('google.login') }}"><i class="fab fa-google mr-2"></i> Sign in with Google</a>
+      <div  style="text-align:center;font-weight:bold">Or</div>
+      <div style="    text-align: center">
+          <a  class="btn  btn-google  text-uppercase" href="{{ route('google.login') }}"><i class="fab fa-google mr-2"></i> Sign in with Google</a>
+      </div>
+      <div style="    text-align: center;margin: 8px 0 20px 0;">
+          <a  class="btn  btn-facebook  text-uppercase" href="{{ route('google.login') }}"><i class="fab fa-facebook mr-2"></i> Sign in with Facebook</a>
       </div>
       <div class="remember-forgot">
         <div class="remember-me">

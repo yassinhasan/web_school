@@ -25,6 +25,7 @@
                  <!-- end student-profile-information-form --> 
 
                 <!-- image upload -->
+                @if(auth()->user()->google_id == null || auth()->user()->google_id == "")
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg info-wraper">
                     <div class="max-w-xl">
                         <section>
@@ -45,7 +46,7 @@
                                     @enderror
 
                                     <div style="text-align: center;" class="image_wraper">
-                                        <img class="user_image" src="{{ url('images/profile/students/'.$user->image) }}" style="max-width:100%">
+                                        <img class="user_image" src="{{ getStudentImage($user->image)  }}" style="max-width:100%">
                                     </div>
                                 </div>
                                 <x-primary-button class="update-image">Update</x-primary-button>
@@ -54,6 +55,7 @@
                     </div>
                 </div>
                 <!-- end image upload -->
+                @endif
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg info-wraper">
                     <div class="max-w-xl">
                         @include('profile.partials.update-password-form')

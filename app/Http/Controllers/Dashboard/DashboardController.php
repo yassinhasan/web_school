@@ -14,6 +14,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        
         $data['posts_count'] = Post::all()->count();
         $data['posts_today'] = Post::whereDate('created_at', date('Y-m-d'))->count();
         $data['posts_lastweek'] =Post::whereDate('created_at','>=', Carbon::now()->subDays(7))->count();
