@@ -64,7 +64,7 @@ Settings
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                         <hr>
-                        <img class="image_view"  src="{{url('images/settings/'.$settings['logo_image'])}} " >
+                        <img class="image_view"  src=" {{ getLogoImage() }} " >
                     </div>
                     <div>
                                 <button type="submit"  class="btn btn-primary ">Update Settings</button>

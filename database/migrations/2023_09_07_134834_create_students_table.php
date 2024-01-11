@@ -36,9 +36,9 @@ return new class extends Migration
             $table->integer("points")->default(0);
             $table->json('likedby')->default(new Expression('(JSON_ARRAY())'));
             // google
-            $table->string('google_id')->nullable();
-            $table->string('google_token')->nullable();
-            $table->string('google_refresh_token')->nullable();
+            $table->string('provider_id')->nullable();
+            $table->string('provider_token')->nullable();
+            $table->string('provider_refresh_token')->nullable();
 
         });
     }

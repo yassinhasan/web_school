@@ -16,29 +16,29 @@ class SocialAuthController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
-    public function register()
+    public function registerGoogle()
     {
         try {
             // Not able to get the user data
-            $googleUser = Socialite::driver('google')->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))->stateless()->user();
+            $loggedUser = Socialite::driver('google')->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))->stateless()->user();
            
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
 
 
-        $user = Student::where('email', $googleUser->email)->first();
+        $user = Student::where('email', $loggedUser->email)->first();
 
         if(empty($user)) {
             $user = Student::create([
-                'google_id' => $googleUser->id,
-                'name' => $googleUser->name,
-                'email' => $googleUser->email,
-                'image' => $googleUser->avatar,
-                'google_token' => $googleUser->token,
-                'google_refresh_token' => $googleUser->refreshToken,
-                'password'=>$googleUser->token,
-                'clear_password'=>$googleUser->token,
+                'provider_id' => $loggedUser->id,
+                'name' => $loggedUser->name,
+                'email' => $loggedUser->email,
+                'image' => $loggedUser->avatar,
+                'provider_token' => $loggedUser->token,
+                'provider_refresh_token' => $loggedUser->refreshToken,
+                'password'=>$loggedUser->token,
+                'clear_password'=>$loggedUser->token,
             ]);
            
         }
@@ -46,4 +46,35 @@ class SocialAuthController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+    public function registerFacebook()
+    {
+        try {
+            // Not able to get the user data
+            $loggedUser = Socialite::driver('facebook')->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))->stateless()->user();
+           
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+
+
+        $user = Student::where('email', $loggedUser->email)->first();
+
+        if(empty($user)) {
+            $user = Student::create([
+                'provider_id' => $loggedUser->id,
+                'name' => $loggedUser->name,
+                'email' => $loggedUser->email,
+                'image' => $loggedUser->avatar,
+                'provider_token' => $loggedUser->token,
+                'provider_refresh_token' => $loggedUser->refreshToken,
+                'password'=>$loggedUser->token,
+                'clear_password'=>$loggedUser->token,
+            ]);
+           
+        }
+        Auth::login($user);
+
+        return redirect(RouteServiceProvider::HOME);
+    }
+
 }

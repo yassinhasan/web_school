@@ -25,7 +25,7 @@
                  <!-- end student-profile-information-form --> 
 
                 <!-- image upload -->
-                @if(auth()->user()->google_id == null || auth()->user()->google_id == "")
+                @if(auth()->user()->provider_id == null || auth()->user()->provider_id == "")
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg info-wraper">
                     <div class="max-w-xl">
                         <section>

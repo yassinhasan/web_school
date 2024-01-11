@@ -67,7 +67,10 @@ Route::middleware('guest')->group(function () {
    
  
     Route::get('/auth/google/redirect', [SocialAuthController::class, 'redirect'])->name('google.login');
-    Route::get('/auth/google/callback', [SocialAuthController::class, 'register']);
+    Route::get('/auth/google/callback', [SocialAuthController::class, 'registerGoogle']);
+
+    Route::get('/auth/facebook/redirect', [SocialAuthController::class, 'redirect'])->name('facebook.login');
+    Route::get('/auth/facebook/callback', [SocialAuthController::class, 'registerFacebook']);
     
 
 });

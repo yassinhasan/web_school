@@ -20,8 +20,8 @@ function prepareIntroText(string $string): string
 
 function getLogoImage()
 {
-    $settings = Setting::where('key','logo_image')->pluck('value');
-    return $settings[0];
+    $image = Setting::where('key','logo_image')->pluck('value')->first();
+    return url('/images/settings/'.$image) ;;
     
 }
 
@@ -35,7 +35,7 @@ function rand_password(  ) {
 function getStudentImage($image)
 {
     $path= "";
-    if(auth()->user()->google_id != null || auth()->user()->google_id != "")
+    if(auth()->user()->provider_id != null || auth()->user()->provider_id != "")
     {
         $path .= $image;
     }else{

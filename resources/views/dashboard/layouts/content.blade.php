@@ -117,7 +117,7 @@
           
             <h2>{{$data['height_students'][$x]->name }}</h2>
           </div>
-          <img class="card-img" src="{{ url('images/profile/students/'.$data['height_students'][$x]->image) }}" alt="" />
+          <img class="card-img" src="{{ getStudentImage($data['height_students'][$x]->image) }}" alt="" />
           <p class="best-name"> {{$data['height_students'][$x]->name}} <br>
               {{$data['height_students'][$x]->points}} <i class="fa fa-heart heart_rating text-danger"></i>
            </p>

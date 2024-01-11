@@ -24,7 +24,7 @@ class Student extends Authenticatable
         'country',
         'aboute',
         'image' ,
-        'google_id'
+        'provider_id'
     ];
     protected $hidden = [
         'password',
