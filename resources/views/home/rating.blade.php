@@ -34,7 +34,7 @@ My Heroes
           {{  ucwords(substr($student->name,0,10))}}
         </div>
         <div class="image">
-          <img src="{{ url('images/profile/students/'.$student->image)}}" class="img-fluid profile">
+          <img src=" {{ getStudentImage($student->image) }} " class="img-fluid profile">
 
         </div>
 

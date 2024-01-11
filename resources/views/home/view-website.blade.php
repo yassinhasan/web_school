@@ -27,7 +27,7 @@ My Heroes
               <div class=" col-md-6 student-box" type="button" data-toggle="modal" data-target="#websiteModal{{$loop->index}}">
                 <!-- <span class="hover_span image">Yassin</span> -->
                 <figure class="image">
-                  <img src="{{ asset( 'images/profile/students/'.$student->image )}}" class="img-fluid clicked_profile">
+                  <img src="  {{ getStudentImage($student->image) }} " class="img-fluid clicked_profile">
                   <figcaption>{{ucfirst($student->name)}}</figcaption>
                 </figure>  
               </div>

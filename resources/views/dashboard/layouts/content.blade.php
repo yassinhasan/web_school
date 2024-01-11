@@ -83,10 +83,17 @@
         <img src="{{   getStudentImage(auth()->user()->image)  }}" alt="user" />
         </a>
         <div class="custom dropdown-menu"  aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item"  href="{{route('rating') }}">Rating</a>
+          <a class="dropdown-item" href="{{route('cards') }}">Cards</a>
+          <a class="dropdown-item" href="{{route('courses') }}">Courses</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <form method="POST" action="{{ route('student.logout') }}">
+          @csrf
+            <a class="dropdown-item" href="{{ route('student.logout')}}" onclick="event.preventDefault();
+           this.closest('form').submit();">
+              <i class="fa fa-sign-out" title="Settings"></i> Logout
+            </a>
+          </form>
         </div>
      
     </div>
