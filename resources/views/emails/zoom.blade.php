@@ -210,7 +210,7 @@
 
                             <div style="line-height: 35px">
 
-                            <span style="color: #5caad2;">{{ $data['topic'] }}</span>
+                           <span>Zoom Topic Name: </span> <span style="color: #5caad2;">{{ $data['topic'] }}</span>
 
                             </div>
                         </td>
@@ -242,7 +242,7 @@
 
 
                                         <div style="line-height: 24px">
-                                        wellcom {{ $data['first_name']." ".$data['last_name'] }} you are invited to zoom {{ $data['topic'] }}   click <a href="{{ $data['join_url']}}"> here </a>  to join zoom class
+                                        wellcom {{ $data['name'] }} you are invited to zoom {{ $data['topic'] }}   click <a href="{{ $data['join_url']}}"> here </a>  to join zoom class
                                             your zoom class will start at
                                             {{ 
                                                 $data['start_at']
