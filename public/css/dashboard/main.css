@@ -519,8 +519,92 @@ main {
   align-items: center;
   padding: 0 10px;
 }
+/* notifiaction */
+.noti_num {
+  position: absolute;
+  left: 43px;
+  top: -8px;
+  width: 25px;
+  font-size: 16px;
+  font-family: sans-serif;
+  height: 25px;
+  font-weight: bold;
+  /* background: red; */
+  border-radius: 50%;
+  color: #493971;
+  
+}
+
+.noti-wraper{
+
+}
+.noti-head{
+  padding: 10px 10px;
+  background: 222222;
+  background: #343a40;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.noti-body{
+  background-color: #fff;
+  padding: 10px 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.noti-body .noti-details:nth-child(odd){
+  background-color: #fff;
+}
+.noti-body .noti-details:nth-child(even){
+  background-color: #eee;
+}
+
+
+
+.noti-details{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  transition: all 0.5s ease-in-out;
+}
+.noti-details:hover{
+  text-decoration: none;
+  background: aliceblue !important;
+}
+.noti-from{
+  font-size: 18px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #493971;
+}
+.noti-text{
+  font-size: 14px;
+  color: #000;
+  opacity: 0.8;
+  line-height: 140%;
+  font-family: sans-serif;
+}
+.noti-date{
+  font-family: sans-serif;
+  font-size: 14px;
+  color: var(--warning-toast);
+}
+.noti-footer{
+  background: #343a40;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    font-family: sans-serif;
+    padding: 5px;
+    border-radius: 0 0 5px 5px;
+}
 .custom.dropdown-menu.show{
-  left: -70px !important;
+  top: -7px !important;
+  left: -10px !important;
+  width: 300px;
+  padding-top: 0;
+  background: transparent;
+
 }
 .custom.dropdown-menu.show .dropdown-item{
   transition: all 0.4s ease;
@@ -704,7 +788,9 @@ main {
 }
 
 
+
 @media (max-width: 1500px) {
+
   main {
     grid-template-columns: 6% 94%;
   }
@@ -883,9 +969,11 @@ main {
 	 .right-content {
     grid-template-rows: 5% 19% 36% 40%;
   }
+
 }
 
 @media (max-width: 910px) {
+
   main {
     grid-template-columns: 10% 90%;
     margin: 20px;
@@ -937,7 +1025,6 @@ main {
      
       margin: 10px;
     } 
-  
 
   .content {
     display: flex;
@@ -1006,3 +1093,4 @@ margin: 10px;
 .fc-button {
 margin-bottom: 4px !important;
 }
+

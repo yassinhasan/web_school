@@ -12,16 +12,19 @@ use App\Mail\Contact as MailContact;
 use App\Mail\ZoomEmail;
 use App\Models\Setting;
 use App\Models\Student;
+use App\Notifications\ZoomNotification;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class ZoomRepository implements ZoomRepositoryInterface
 {
     use MeetingZoomTrait;
     use FlashMessageTrait;
-
+    
 
     public function getAllMeetings()
     {
-      
+       
         $meetings =  OnlineCourse::all();
         return view("dashboard.pages.zoom")->with(['meetings' => $meetings]);
     }
@@ -60,14 +63,17 @@ class ZoomRepository implements ZoomRepositoryInterface
             $data = $request->all();
             $data['join_url'] = $meeting->join_url;
             //  Send mail to admin
-            $students =  Student::all('email','name')->toArray();
+            $all_students = Student::all();
+            $students =  Student::all('email','name','id')->toArray();
             foreach( $students  as $student)
             {
                 $email = $student['email'];
                 $data =  array_merge($data,$student);
                 Mail::to($email)->send(new ZoomEmail($data ));
             }
-
+        
+            // send notification
+            Notification::send( $all_students,new ZoomNotification( auth()->user()->name,$meeting->id, $request->topic ,$meeting->join_url ));
 
             $this->SuccessMsg("zoom creared ");
             return redirect()->route('zoom.index');

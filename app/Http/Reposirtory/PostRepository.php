@@ -8,8 +8,11 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Http\Traits\FlashMessageTrait;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Student;
+use App\Notifications\PostNotification;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 
 class PostRepository implements PostRepositoryInterface
@@ -38,7 +41,8 @@ class PostRepository implements PostRepositoryInterface
         $post->category_id = $cstegoryId;
         $post->content = $request->content;
         $post->save();
-
+        $studnts = Student::all();
+        Notification::send($studnts,new PostNotification( auth()->user()->name,$post->id , $post->title , $post->slug));
         $this->SuccessMsg('Post has been saved successfully!');
         return redirect()->back();
     }
