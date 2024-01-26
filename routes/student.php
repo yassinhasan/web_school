@@ -24,6 +24,7 @@ use App\Http\Livewire\Calendar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\StudentProfileController;
 use App\Http\Controllers\Auth\Student\AuthenticatedSessionController as StudentAuthenticatedSessionController;
+use App\Http\Controllers\Dashboard\NotificationsController;
 use Livewire\Livewire;
 
 Route::middleware('auth:student')->group(function () {
@@ -49,5 +50,8 @@ Route::middleware('auth:student')->group(function () {
     // otp
     Route::get('student/otp-verify', [StudentTwoFactorController::class, 'index'])->name('student.otp-verify');
     Route::post('student/otp-verify', [StudentTwoFactorController::class, 'confirm'])->name('student.otp-confirm');
+
+    Route::post('notifications/read-all', [NotificationsController::class, 'readAll'])->name('read-all');
+    Route::get('notifications/show-all', [NotificationsController::class, 'showAll'])->name('show-all');
 
 });

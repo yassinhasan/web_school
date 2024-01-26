@@ -70,59 +70,72 @@
       <p style="font-size:18px;text-align:center">
         <span style="color:#6f42c1">{{ auth()->user()->name}}</span>
       </p>
-      <a class="nav-link dropdown-toggle" style="position: relative;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="noti_num">{{ auth()->user()->unreadNotifications->count()}}</span>
-        <img src="{{   getStudentImage(auth()->user()->image)  }}" alt="user" />
-      </a>
-      <div class="custom dropdown-menu" aria-labelledby="navbarDropdown">
-        <div class="noti-wraper">
-          <div class="noti-head">
-            <div>
-              Notification (<span class="not-count">{{ auth()->user()->unreadNotifications->count() }}</span>)
-            </div>
-            <div class="noti-readall">
-              <a href="#" style="    color: #fff;
-    text-decoration: none;">Mark all as read</a>
-            </div>
-          </div>
-          <!-- body -->
-          <div class="noti-body">
-            @foreach (auth()->user()->unreadNotifications as $notification)
-            @if (isset($notification->data['metting_id']))
-            <div class="noti-details">
-              <p style="margin-bottom: 0;">
-                <span class="noti-from">{{ $notification->data['from'] }}</span>  
-                <span class="noti-text">
-                  Add new metting zoom  <span class="title"  style="font-weight: bold;"> {{ $notification->data['metting_topic'] }}</span> <a href="{{ $notification->data['metting_join_url']}}">join now</a>
-              </p>
-              <span class="noti-date">
-                {{ $notification->created_at }}
-              </span>
-          </div>
-            @endif
-            @if (isset($notification->data['post_id']))
-            <div class="noti-details" href="#">
-              <p style="margin-bottom: 0;">
-                <span class="noti-from">{{ $notification->data['from'] }}</span>  
-                <span class="noti-text">
-                  Add new post <span class="title" style="font-weight: bold;">{{ $notification->data['post_title'] }} </span><a href="{{ url('/trainning', ['slug' =>  $notification->data['post_slug'] ]) }}"> view post</a>
-              </p>
-              <span class="noti-date">
-                {{ $notification->created_at }}
-              </span>
-            </div>
-            @endif
+      
+      <form class="noti-form" method="post">
+        @csrf
+        <a class="nav-link dropdown-toggle open-noti" style="position: relative;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="noti_num">{{ auth()->user()->unreadNotifications->count()}}</span>
+          <img src="{{   getStudentImage(auth()->user()->image)  }}" alt="user" />
+        </a>
 
-            @endforeach
+        <div class="custom dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="noti-wraper">
+            <div class="noti-head">
+              <div>
+                Notification (<span class="not-count">{{ auth()->user()->unreadNotifications->count() }}</span>)
+              </div>
+              <!-- <div class="noti-readall">
+                <a href="#" style="    color: #fff; text-decoration: none;">Mark all as read</a>
+              </div> -->
+            </div>
+            <!-- body -->
+            <div class="noti-body">
+              @if(auth()->user()->unreadNotifications->count() > 0)
+                @foreach (auth()->user()->unreadNotifications as $notification)
+                @if (isset($notification->data['metting_id']))
+                <div class="noti-details">
+                  <p style="margin-bottom: 0;">
+                    <span class="noti-from">{{ $notification->data['from'] }}</span>
+                    <span class="noti-text">
+                      Add new metting zoom <span class="title" style="font-weight: bold;"> {{ $notification->data['metting_topic'] }}</span> <a href="{{ $notification->data['metting_join_url']}}">join now</a>
+                  </p>
+                  <span class="noti-date">
+                    {{ $notification->created_at }}
+                  </span>
+                </div>
+                @endif
+                @if (isset($notification->data['post_id']))
+                <div class="noti-details" href="#">
+                  <p style="margin-bottom: 0;">
+                    <span class="noti-from">{{ $notification->data['from'] }}</span>
+                    <span class="noti-text">
+                      Add new post <span class="title" style="font-weight: bold;">{{ $notification->data['post_title'] }} </span><a href="{{ url('/trainning', ['slug' =>  $notification->data['post_slug'] ]) }}"> view post</a>
+                  </p>
+                  <span class="noti-date">
+                    {{ $notification->created_at }}
+                  </span>
+                </div>
+                @endif
+                @endforeach
+              @else 
+              <div class="noti-details" href="#">
+                  <p style="margin-bottom: 0;">
+                    <span class="noti-from"></span>
+                    <span class="noti-text">
+                      You don't have any unread notifications
+                  </p>
 
+                </div>
+              @endif
+            </div>
+            <!-- footer -->
+            <div class="noti-footer">
+              <a class=""  style="color: #fff;text-decoration:none" href="{{ route('show-all') }}">View All</a>
+            </div>
           </div>
-          <!-- footer -->
-          <div class="noti-footer">
-            View All
-          </div>
+
         </div>
-
-      </div>
+      </form>
     </div>
 
     <div class="active-calories">
