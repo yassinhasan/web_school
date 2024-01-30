@@ -16,7 +16,7 @@ class NotificationsController extends Controller
     {
         try{
              $user =Student::find(auth()->user()->id);
-            $user->unreadNotifications()->update(['read_at' => now()]);    
+             $user->unreadNotifications()->update(['read_at' => now()]);    
             return response()->json([
                 'success' => 'done'
             ])  ;     

@@ -2,6 +2,7 @@
 
 namespace App\Http\Reposirtory;
 
+use App\Events\NewPost;
 use App\Http\Interfaces\ZoomRepositoryInterface;
 use App\Models\OnlineCourse;
 use Illuminate\Http\Request;
@@ -73,8 +74,13 @@ class ZoomRepository implements ZoomRepositoryInterface
             }
         
             // send notification
-            Notification::send( $all_students,new ZoomNotification( auth()->user()->name,$meeting->id, $request->topic ,$meeting->join_url ));
+            Notification::send( $all_students,new ZoomNotification( auth()->user()->name,$meeting->id, $request->topic ,$meeting->join_url ,date("Y-m-d H:i:s")));
 
+            $event_data = [
+                'from' => auth()->user()->name,
+                 'metting_id' =>  $meeting->id , 'metting_topic' =>  $request->topic , 'metting_join_url' => $meeting->join_url,'created_at'=>  date("Y-m-d H:i:s")
+            ];
+            event(new NewPost($event_data));
             $this->SuccessMsg("zoom creared ");
             return redirect()->route('zoom.index');
         } catch (\Exception $e) {

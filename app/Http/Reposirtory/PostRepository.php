@@ -2,6 +2,7 @@
 
 namespace App\Http\Reposirtory;
 
+use App\Events\NewPost;
 use App\Http\Interfaces\PostRepositoryInterface;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -10,6 +11,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Student;
 use App\Notifications\PostNotification;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -42,7 +44,12 @@ class PostRepository implements PostRepositoryInterface
         $post->content = $request->content;
         $post->save();
         $studnts = Student::all();
-        Notification::send($studnts,new PostNotification( auth()->user()->name,$post->id , $post->title , $post->slug));
+        $data = [
+            'from' => auth()->user()->name,
+             'post_id' =>  $post->id , 'post_title' => $post->title , 'post_slug' => $post->slug,'created_at'=>  date("Y-m-d H:i:s")
+        ];
+        Notification::send($studnts,new PostNotification( auth()->user()->name,$post->id , $post->title , $post->slug, date("Y-m-d H:i:s")));
+        event(new NewPost($data));
         $this->SuccessMsg('Post has been saved successfully!');
         return redirect()->back();
     }

@@ -5,7 +5,6 @@
       <div class="activity-container">
         <!-- latest students -->
         @for($x = 0 ; $x < count($data['students']) ; $x++) <div class="image-container img-{{$x+1}}">
-
           <img src="{{  getStudentImage($data['students'][$x]->image) }}" alt="not found" />
           <div class="overlay">
             <span class="name">{{$data['students'][$x]->name}}</span>

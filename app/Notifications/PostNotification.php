@@ -11,18 +11,19 @@ class PostNotification extends Notification
 {
     use Queueable;
 
-    private $from, $post_id , $post_title,$post_slug ;
+    private $from, $post_id , $post_title,$post_slug,$created_at ;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct( $from ,$post_id , $post_title,$post_slug)
+    public function __construct( $from ,$post_id , $post_title,$post_slug,$created_at)
     {
         $this->from = $from;
         $this->post_slug = $post_slug;
         $this->post_id = $post_id;
         $this->post_title = $post_title;
+        $this->created_at = $created_at;
     }
 
     /**
@@ -50,7 +51,8 @@ class PostNotification extends Notification
           'from' =>   $this->from , 
           'post_slug' =>   $this->post_slug , 
           'post_id' =>   $this->post_id , 
-          'post_title' => $this->post_title
+          'post_title' => $this->post_title ,
+          'created_at' =>$this->created_at
         ];
     }
 }
