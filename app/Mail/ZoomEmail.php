@@ -16,10 +16,12 @@ class ZoomEmail extends Mailable
     use Queueable, SerializesModels;
 
     public $data;
+    public $tries = 3;
     public function __construct($data)
     {
 
         $this->data = $data;
+
     }
 
     /**
