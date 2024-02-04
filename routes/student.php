@@ -51,7 +51,6 @@ Route::middleware('auth:student')->group(function () {
     Route::get('student/otp-verify', [StudentTwoFactorController::class, 'index'])->name('student.otp-verify');
     Route::post('student/otp-verify', [StudentTwoFactorController::class, 'confirm'])->name('student.otp-confirm');
 
-    Route::post('notifications/read-all', [NotificationsController::class, 'readAll'])->name('read-all');
-    Route::get('notifications/show-all', [NotificationsController::class, 'showAll'])->name('show-all');
+   
 
 });

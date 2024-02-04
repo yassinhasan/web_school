@@ -16,8 +16,8 @@
         cluster: 'ap2'
       });
 
-      var channel = pusher.subscribe('new-post');
-      channel.bind('App\\Events\\NewPost', function(data) {
+      var channel = pusher.subscribe('new-notify');
+      channel.bind('App\\Events\\NewNotificationEvent', function(data) {
 
         console.log(JSON.stringify(data))
         let noti_num = document.querySelector(".noti_num");

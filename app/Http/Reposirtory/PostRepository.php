@@ -7,6 +7,7 @@ use App\Http\Interfaces\PostRepositoryInterface;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Traits\FlashMessageTrait;
+use App\Jobs\NewPostJob;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Student;
@@ -43,13 +44,14 @@ class PostRepository implements PostRepositoryInterface
         $post->category_id = $cstegoryId;
         $post->content = $request->content;
         $post->save();
-        $studnts = Student::all();
-        $data = [
-            'from' => auth()->user()->name,
-             'post_id' =>  $post->id , 'post_title' => $post->title , 'post_slug' => $post->slug,'created_at'=>  date("Y-m-d H:i:s")
-        ];
-        Notification::send($studnts,new PostNotification( auth()->user()->name,$post->id , $post->title , $post->slug, date("Y-m-d H:i:s")));
-        event(new NewPost($data));
+        $data = [];
+        $data['from'] = auth()->user()->name;
+        $data['post_id'] = $post->id;
+        $data['post_title'] = $post->title;
+        $data['post_slug'] = $post->slug;
+        $data['created_at'] =  date("Y-m-d H:i:s");
+ 
+        NewPostJob::dispatch($data);
         $this->SuccessMsg('Post has been saved successfully!');
         return redirect()->back();
     }

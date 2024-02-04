@@ -24,7 +24,6 @@ class DashboardController extends Controller
         $data['events'] = Event::latest()->take(4)->get();
         $data['categories'] = Category::latest()->take(3)->get();
         $data['height_students'] = Student::orderBy('points','DESC')->take(2)->get();
-       
         return view('dashboard.pages.dashboard')->with('data',$data) ;
     }
 }

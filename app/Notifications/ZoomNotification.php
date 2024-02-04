@@ -11,19 +11,16 @@ class ZoomNotification extends Notification
 {
     use Queueable;
 
-    private $from , $metting_id , $metting_topic ,$metting_join_url , $created_at;
+    public $data;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct( $from ,$metting_id , $metting_topic ,$metting_join_url ,  $created_at)
+    public function __construct( $data)
     {
-        $this->from = $from; 
-        $this->metting_id = $metting_id; 
-        $this->metting_topic = $metting_topic; 
-        $this->metting_join_url = $metting_join_url; 
-        $this->created_at = $created_at;
+        $this->data = $data; 
+
     }
 
     /**
@@ -55,11 +52,11 @@ class ZoomNotification extends Notification
     {
         return [
            
-            'from' => $this->from ,
-            'metting_id' => $this->metting_id ,
-            'metting_topic' => $this->metting_topic ,
-            'metting_join_url' => $this->metting_join_url ,
-            'created_at' =>$this->created_at
+            'from' => $this->data['from'] ,
+            'metting_id' =>  $this->data['metting_id'] ,
+            'metting_topic' => $this->data['metting_topic'] ,
+            'metting_join_url' => $this->data['metting_join_url'] ,
+            'created_at' => $this->data['created_at']
         ];
     }
 }

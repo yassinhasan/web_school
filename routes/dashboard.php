@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use App\Http\Controllers\Dashboard\StudentProfileController;
 use App\Http\Controllers\Auth\Student\AuthenticatedSessionController as StudentAuthenticatedSessionController;
+use App\Http\Controllers\Dashboard\NotificationsController;
+
 // for admin
 
 Route::middleware('auth:student,admin')->group(function () {
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('notifications/read-all', [NotificationsController::class, 'readAll'])->name('read-all');
+    Route::get('notifications/show-all', [NotificationsController::class, 'showAll'])->name('show-all');
 });
 Route::middleware('auth:admin')->group(function () {
 

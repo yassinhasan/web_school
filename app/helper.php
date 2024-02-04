@@ -32,14 +32,16 @@ function rand_password(  ) {
 
 }
 
-function getStudentImage($image)
+function getStudentImage($student)
 {
     $path= "";
-    if(auth()->user()->provider_id != null || auth()->user()->provider_id != "")
+  
+    if(isset($student->provider_id) and  ($student->provider_id != null || $student->provider_id != ""))
     {
-        $path .= $image;
+        $path .= $student->image;
     }else{
-        $path .=   url('/images/profile/students/'.$image) ;
+      
+        $path .=   url('/images/profile/students/'.$student->image) ;
     }
     
     return $path;

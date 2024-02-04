@@ -65,13 +65,14 @@ class ZoomRepository implements ZoomRepositoryInterface
                     'join_url' => $meeting->join_url,
                 ]);
                 $data = [];
+                $data['from'] =auth()->user()->name;
                 $data['start_at'] = $request->start_at;
                 $data['join_url'] = $meeting->join_url;
                 $data['meeting_id'] = $meeting->id;
                 $data['topic'] = $request->topic;
                 //  Send mail to admin
     
-                NewZoomJob::dispatch(auth()->user()->name,$data);
+                NewZoomJob::dispatch($data);
                 $this->SuccessMsg("zoom creared ");
             }else{
                 $this->ErrorMsg("sorry somthing error");
