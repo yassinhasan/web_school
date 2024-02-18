@@ -30,6 +30,9 @@ students
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addStudentModal">
                                     {{ __('Add Student') }}
                                 </button>
+                                <a class="btn btn-info" href=" {{ route('users-export') }}" style="display:inline-block">
+                                    {{ __('Download Excell Sheet') }}
+                                </a>
 
                                 <br><br>
                                 <!-- end student  -->
@@ -50,7 +53,7 @@ students
 
                                             <tr>
                                                 <td>{{ ucfirst($student->name)}}</td>
-                                                <td><img src="{{ asset('images/profile/students/').'/'.$student->image}}" class="iamge_table"></td>
+                                                <td><img src="{{ getStudentImage($student) }}" class="iamge_table"></td>
                                                 <td>{{ $student->age}}</td>
                                                 <?php $website = json_decode($student->website, true) ?>
                                                 <td>

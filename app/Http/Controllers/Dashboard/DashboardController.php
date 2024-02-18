@@ -9,12 +9,16 @@ use App\Models\OnlineCourse;
 use App\Models\Post;
 use App\Models\Student;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        
+
+      
+      
+      //  Log::debug("admin log now with id : {id}" , ['id'=>auth()->user()->id]);
         $data['posts_count'] = Post::all()->count();
         $data['posts_today'] = Post::whereDate('created_at', date('Y-m-d'))->count();
         $data['posts_lastweek'] =Post::whereDate('created_at','>=', Carbon::now()->subDays(7))->count();

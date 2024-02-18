@@ -79,7 +79,7 @@
                                     <hr>
                                     @if($student->image != null)
                                     <div class="image-wraper">
-                                         <img class="image-edit-box" src="{{ url('images/profile/students/'.$student->image) }}" style="max-width:100%">
+                                         <img class="image-edit-box" src="{{ getStudentImage($student) }}" style="max-width:100%">
                                     </div>
                                     @endif
                                 </div>
