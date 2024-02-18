@@ -2,14 +2,20 @@
 
 namespace App\Http\Reposirtory;
 
+use App\Events\NewPost;
 use App\Http\Interfaces\PostRepositoryInterface;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Traits\FlashMessageTrait;
+use App\Jobs\NewPostJob;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Student;
+use App\Notifications\PostNotification;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 
 class PostRepository implements PostRepositoryInterface
@@ -38,14 +44,21 @@ class PostRepository implements PostRepositoryInterface
         $post->category_id = $cstegoryId;
         $post->content = $request->content;
         $post->save();
+        $data = [];
+        $data['from'] = auth()->user()->name;
+        $data['post_id'] = $post->id;
+        $data['post_title'] = $post->title;
+        $data['post_slug'] = $post->slug;
+        $data['created_at'] =  date("Y-m-d H:i:s");
  
+        NewPostJob::dispatch($data);
         $this->SuccessMsg('Post has been saved successfully!');
         return redirect()->back();
     }
     public function showAddPostPage()
     {
         $categories = Category::with('posts')->get();
-     
+
         return view("dashboard.pages.addpost")->with(['categories' => $categories]);
     }
     public function uploadAttach(Request $request)
@@ -136,7 +149,7 @@ class PostRepository implements PostRepositoryInterface
 
                 ]);
             }
-            //  get all sections 
+            //  get all sections
             $sections = Category::findOrFail($request->categoryId)->sections->pluck('name', 'id');
             return response()->json([
                 'success' => 'done',
@@ -152,7 +165,7 @@ class PostRepository implements PostRepositoryInterface
     public function showAllPosts()
     {
         $posts = Post::with('categories')->get();
-      
+
         return view("dashboard.pages.posts")->with(['posts' => $posts]);
     }
 }

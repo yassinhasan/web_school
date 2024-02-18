@@ -23,6 +23,7 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
+         
             if(auth('student')->check()  || auth('admin')->check())
             {
                

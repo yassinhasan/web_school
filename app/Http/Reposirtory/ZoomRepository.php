@@ -2,26 +2,31 @@
 
 namespace App\Http\Reposirtory;
 
+use App\Events\NewPost;
 use App\Http\Interfaces\ZoomRepositoryInterface;
 use App\Models\OnlineCourse;
 use Illuminate\Http\Request;
 use App\Http\Traits\FlashMessageTrait;
 use App\Http\Traits\MeetingZoomTrait;
+use App\Jobs\NewZoomJob;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Contact as MailContact;
 use App\Mail\ZoomEmail;
 use App\Models\Setting;
 use App\Models\Student;
+use App\Notifications\ZoomNotification;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class ZoomRepository implements ZoomRepositoryInterface
 {
     use MeetingZoomTrait;
     use FlashMessageTrait;
-
+    
 
     public function getAllMeetings()
     {
-      
+       
         $meetings =  OnlineCourse::all();
         return view("dashboard.pages.zoom")->with(['meetings' => $meetings]);
     }
@@ -46,30 +51,33 @@ class ZoomRepository implements ZoomRepositoryInterface
         try {
 
             $meeting = $this->createMeeting($request);
-        
-            OnlineCourse::create([
-                'user_id' => auth()->user()->id,
-                'meeting_id' => $meeting->id,
-                'topic' => $request->topic,
-                'start_at' => $request->start_at,
-                'duration' => $meeting->duration,
-                'password' => $meeting->password,
-                'start_url' => $meeting->start_url,
-                'join_url' => $meeting->join_url,
-            ]);
-            $data = $request->all();
-            $data['join_url'] = $meeting->join_url;
-            //  Send mail to admin
-            $students =  Student::all('email','name')->toArray();
-            foreach( $students  as $student)
+            
+            if($meeting->id != null)
             {
-                $email = $student['email'];
-                $data =  array_merge($data,$student);
-                Mail::to($email)->send(new ZoomEmail($data ));
+                OnlineCourse::create([
+                    'user_id' => auth()->user()->id,
+                    'meeting_id' => $meeting->id,
+                    'topic' => $request->topic,
+                    'start_at' => $request->start_at,
+                    'duration' => $meeting->duration,
+                    'password' => $meeting->password,
+                    'start_url' => $meeting->start_url,
+                    'join_url' => $meeting->join_url,
+                ]);
+                $data = [];
+                $data['from'] =auth()->user()->name;
+                $data['start_at'] = $request->start_at;
+                $data['join_url'] = $meeting->join_url;
+                $data['meeting_id'] = $meeting->id;
+                $data['topic'] = $request->topic;
+                //  Send mail to admin
+    
+                NewZoomJob::dispatch($data);
+                $this->SuccessMsg("zoom creared ");
+            }else{
+                $this->ErrorMsg("sorry somthing error");
             }
 
-
-            $this->SuccessMsg("zoom creared ");
             return redirect()->route('zoom.index');
         } catch (\Exception $e) {
 

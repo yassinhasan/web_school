@@ -20,6 +20,17 @@
              <span class="nav-text">Profile</span>
             </a>
           </li>
+
+          <li class="nav-item {{ Route::is('show-all') ? 'active' : '' }}">
+            <b></b>
+            <b></b>
+            <a href="{{ route('show-all') }}">
+              <i class="fas fa-bell nav-icon" title="Porfile"></i>
+             <span class="nav-text">Notifications</span>
+            </a>
+          </li>
+
+
           <form method="POST" action="{{ route('student.logout') }}">
           @csrf
           <li class="nav-item {{ Route::is('student.logout') ? 'active' : '' }}">

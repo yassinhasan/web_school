@@ -25,7 +25,7 @@ My Heroes Profile
         <span class="love-points">{{$student->points}}</span>
       </p>
       <div class="product">
-        <img src="{{url('images/profile/students/'.$student->image)}}">
+        <img src="{{ getStudentImage($student->image) }}">
       </div>
       <!-- website -->
       <?php $website = json_decode($student->website, true) ?>

@@ -35,7 +35,13 @@ Login
           @endif
         </div>
       </div>
-
+      <div  style="text-align:center;font-weight:bold">Or</div>
+      <div style="    text-align: center">
+          <a  class="btn  btn-google  text-uppercase" href="{{ route('google.login') }}"><i class="fab fa-google mr-2"></i> Sign in with Google</a>
+      </div>
+      <div style="    text-align: center;margin: 8px 0 20px 0;">
+          <a  class="btn  btn-facebook  text-uppercase" href="{{ route('facebook.login') }}"><i class="fab fa-facebook mr-2"></i> Sign in with Facebook</a>
+      </div>
       <div class="remember-forgot">
         <div class="remember-me">
           <input type="checkbox" value="remember-me" id="remember-me" name="remember">

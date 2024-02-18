@@ -1,21 +1,7 @@
 <section class="content">
-  <div class="left-content">
-    <div class="activities">
-      <h1>Last Students</h1>
-      <div class="activity-container">
-        <!-- latest students -->
-        @for($x = 0 ; $x < count($data['students']) ; $x++) <div class="image-container img-{{$x+1}}">
-          <img src="{{  getStudentImage($data['students'][$x]) }}" alt="not found" />
-          <div class="overlay">
-            <span class="name">{{$data['students'][$x]->name}}</span>
-          </div>
-      </div>
-      @endfor
-      <!-- latest students -->
-    </div>
-  </div>
 
-  <div class="left-bottom">
+
+  <div class="left-bottom" style="    padding: 0 20px;">
     <div class="weekly-schedule">
 
       <h1>Zoom Schedule</h1>
@@ -74,7 +60,7 @@
         @csrf
         <a class="nav-link dropdown-toggle open-noti" style="position: relative;"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="noti_num">{{ auth()->user()->unreadNotifications->count()}}</span>
-          <img src="{{   getStudentImage(auth()->user() )  }}" alt="user" />
+          <img src="{{   getStudentImage(auth()->user())  }}" alt="user" />
         </a>
 
         <div class="custom dropdown-menu" aria-labelledby="navbarDropdown">
@@ -162,7 +148,7 @@
 
             <h2>{{$data['height_students'][$x]->name }}</h2>
           </div>
-          <img class="card-img" src="{{ getStudentImage($data['height_students'][$x] ) }}" alt="" />
+          <img class="card-img" src="{{ getStudentImage($data['height_students'][$x]) }}" alt="" />
           <p class="best-name"> {{$data['height_students'][$x]->name}} <br>
             {{$data['height_students'][$x]->points}} <i class="fa fa-heart heart_rating text-danger"></i>
           </p>

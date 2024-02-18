@@ -206,3 +206,19 @@ color: var(--theme-color) !important;
     width: 70%;
   }
 }
+.btn-google{
+  color: white;background-color: #ea4335;
+  transition: all 0.3s ease-in-out;
+}
+.btn-google:hover{
+  background-color: #822219;
+  color: white
+}
+.btn-facebook{
+  color: white;background-color: #353bea;
+  transition: all 0.3s ease-in-out;
+}
+.btn-facebook:hover{
+  background-color: #2f19bd;
+  color: white
+}

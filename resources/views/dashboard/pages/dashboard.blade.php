@@ -10,7 +10,13 @@
 
 @section('content')
 <!-- row -->
-    @include('dashboard.layouts.content')
+
+    @if (auth('student')->check())
+        @include('dashboard.layouts.student-content')
+    @elseif(auth('admin')->check())
+        @include('dashboard.layouts.content')
+    @endif
+
 
 <!-- row closed -->
 @endsection

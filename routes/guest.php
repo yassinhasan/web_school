@@ -10,6 +10,8 @@ use App\Http\Controllers\Auth\User\NewPasswordController as UserNewPasswordContr
 use App\Http\Controllers\Auth\User\PasswordResetLinkController as UserPasswordResetLinkController;
 use App\Http\Controllers\Auth\User\RegisteredUserController as UserRegisteredUserController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\Auth\SocialAuthController;
 
 Route::middleware('guest')->group(function () {
     Route::get('user/register', [UserRegisteredUserController::class, 'create'])->name('user.register');
@@ -61,4 +63,14 @@ Route::middleware('guest')->group(function () {
     Route::get('admin/login', [AdminController::class, 'create'])
         ->name('admin.login');
     Route::post('admin/login', [AdminController::class, 'store']);
+
+   
+ 
+    Route::get('/auth/google/redirect', [SocialAuthController::class, 'redirect'])->name('google.login');
+    Route::get('/auth/google/callback', [SocialAuthController::class, 'registerGoogle']);
+
+    Route::get('/auth/facebook/redirect', [SocialAuthController::class, 'redirect'])->name('facebook.login');
+    Route::get('/auth/facebook/callback', [SocialAuthController::class, 'registerFacebook']);
+    
+
 });

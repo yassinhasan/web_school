@@ -47,7 +47,7 @@ class Contact extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'emails.contact',
+            markdown : 'emails.contact',
         );
     }
 
