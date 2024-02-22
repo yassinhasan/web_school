@@ -22,6 +22,10 @@ Route::middleware('auth:user,admin,student')->group(function () {
 
 
 Route::get('/', [HomeController::class, 'index'])->name("home");
+Route::get('pay', [HomeController::class, 'pay'])->name("pay");
+Route::get('callback', [HomeController::class, 'callback']);
+Route::get('error', [HomeController::class, 'error']);
+
 Route::get('courses', [CoursesController::class, 'index'])->name("courses");
 
 Route::get('/trainning/{slug}', [CoursesController::class,'posts']);
